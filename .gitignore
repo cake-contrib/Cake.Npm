@@ -10,7 +10,6 @@ tools/**/*
 *.user
 *.userosscache
 *.sln.docstates
-.vs
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -171,11 +170,17 @@ rcf/
 # Microsoft Azure ApplicationInsights config file
 ApplicationInsights.config
 
+<<<<<<< HEAD
 # Windows Store app package directories and files
 AppPackages/
 BundleArtifacts/
 Package.StoreAssociation.xml
 _pkginfo.txt
+=======
+# Windows Store app package directory
+AppPackages/
+BundleArtifacts/
+>>>>>>> af02832c4d3c2a37e6ce9fc9d6c48dec65311ea1
 
 # Visual Studio cache files
 # files ending in .cache can be ignored
@@ -194,10 +199,13 @@ ClientBin/
 node_modules/
 orleans.codegen.cs
 
+<<<<<<< HEAD
 # Since there are multiple workflows, uncomment next line to ignore bower_components 
 # (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
 #bower_components/
 
+=======
+>>>>>>> af02832c4d3c2a37e6ce9fc9d6c48dec65311ea1
 # RIA/Silverlight projects
 Generated_Code/
 
@@ -246,7 +254,10 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+<<<<<<< HEAD
 
 # JetBrains Rider
 .idea/
 *.sln.iml
+=======
+>>>>>>> af02832c4d3c2a37e6ce9fc9d6c48dec65311ea1
