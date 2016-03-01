@@ -1,0 +1,10 @@
+version: '{build}'
+os: Visual Studio 2015
+init:
+- cmd: git config --global core.autocrlf true
+cache: 
+- packages -> src\**\packages.config
+- tools -> tools\packages.config
+build_script:
+- ps: .\build.ps1 -Target "Default" -Verbosity "Normal" -Configuration "Release"
+test: off

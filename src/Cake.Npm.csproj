@@ -44,15 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Gulp\GulpGlobalRunner.cs" />
-    <Compile Include="Gulp\GulpLocalRunner.cs" />
-    <Compile Include="Gulp\GulpRunner.cs" />
-    <Compile Include="Gulp\GulpRunnerAliases.cs" />
-    <Compile Include="Gulp\GulpRunnerFactory.cs" />
-    <Compile Include="Gulp\GulpRunnerSettings.cs" />
+    <Compile Include="..\VersionAssemblyInfo.cs">
+      <Link>Properties\VersionAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Npm\NpmInstallSettings.cs" />
     <Compile Include="Npm\NpmRunner.cs" />
-    <Compile Include="Gulp\GulpRunnerExtensions.cs" />
     <Compile Include="Npm\NpmRunnerAliases.cs" />
     <Compile Include="Npm\NpmRunnerSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
