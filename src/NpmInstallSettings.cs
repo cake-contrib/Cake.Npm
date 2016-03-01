@@ -6,6 +6,9 @@ using Cake.Core.IO;
 
 namespace Cake.Npm
 {
+    /// <summary>
+    /// Npm install options
+    /// </summary>
     public class NpmInstallSettings : NpmRunnerSettings
     {
         private readonly ISet<string> _packages = new HashSet<string>();

@@ -4,6 +4,9 @@ using Cake.Core.Tooling;
 
 namespace Cake.Npm
 {
+    /// <summary>
+    /// Npm runner settings
+    /// </summary>
     public class NpmRunnerSettings : ToolSettings
     {
         /// <summary>
@@ -17,6 +20,10 @@ namespace Cake.Npm
             if (Force) args.Append("--force");
         }
 
+        /// <summary>
+        /// evaluate options
+        /// </summary>
+        /// <param name="args"></param>
         protected virtual void EvaluateCore(ProcessArgumentBuilder args)
         {
             
