@@ -145,7 +145,6 @@ Task("Upload-AppVeyor-Artifacts")
     .WithCriteria(() => AppVeyor.IsRunningOnAppVeyor)
     .Does(() =>
 {
-    var artifact = artifacts.ToString() +@"\package\" +webProject +"." +versionInfo.NuGetVersion +".zip";
     foreach(var nupkg in GetFiles(artifacts +"/packages/*.nupkg")) {
         AppVeyor.UploadArtifact(nupkg);
     }
