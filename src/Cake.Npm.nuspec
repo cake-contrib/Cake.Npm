@@ -8,7 +8,9 @@
     <owners>$author$</owners>
     <licenseUrl>https://github.com/Philo/cake-npm/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/Philo/cake-npm</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/cake-build/graphics/master/png/cake-medium.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
+    <tags>Cake Script Build Npm</tags>
   </metadata>
 </package>
