@@ -4,8 +4,11 @@ using Cake.Core;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
 
-namespace Cake.Npm.Npm
+namespace Cake.Npm
 {
+    /// <summary>
+    /// A wrapper around the Node Npm package manager
+    /// </summary>
     public class NpmRunner : Tool<NpmRunnerSettings>
     {
         /// <summary>
@@ -19,6 +22,10 @@ namespace Cake.Npm.Npm
         {
         }
         
+        /// <summary>
+        /// execute 'npm install' with options
+        /// </summary>
+        /// <param name="configure">options when running 'npm install'</param>
         public void Install(Action<NpmInstallSettings> configure = null)
         {
             var settings = new NpmInstallSettings();

@@ -2,10 +2,13 @@ using Cake.Core;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
 
-namespace Cake.Npm.Npm
+namespace Cake.Npm
 {
     public class NpmRunnerSettings : ToolSettings
     {
+        /// <summary>
+        /// Applies the --force parameter
+        /// </summary>
         public bool Force { get; set; }
 
         internal void Evaluate(ProcessArgumentBuilder args)
