@@ -39,10 +39,7 @@ namespace Cake.Npm
         private ProcessArgumentBuilder GetNpmInstallArguments(NpmInstallSettings settings)
         {
             var args = new ProcessArgumentBuilder();
-
-            args.Append("install");
             settings.Evaluate(args);
-
             return args;
         }
         

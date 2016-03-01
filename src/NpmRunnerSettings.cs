@@ -7,8 +7,22 @@ namespace Cake.Npm
     /// <summary>
     /// Npm runner settings
     /// </summary>
-    public class NpmRunnerSettings : ToolSettings
+    public abstract class NpmRunnerSettings : ToolSettings
     {
+        /// <summary>
+        /// THe command being ran
+        /// </summary>
+        protected string Command { get; set; }
+
+        /// <summary>
+        /// Creates Npm Runner settings
+        /// </summary>
+        /// <param name="command">command to run</param>
+        protected NpmRunnerSettings(string command)
+        {
+            Command = command;
+        }
+
         /// <summary>
         /// Applies the --force parameter
         /// </summary>
@@ -16,6 +30,7 @@ namespace Cake.Npm
 
         internal void Evaluate(ProcessArgumentBuilder args)
         {
+            args.Append(Command);
             EvaluateCore(args);
             if (Force) args.Append("--force");
         }

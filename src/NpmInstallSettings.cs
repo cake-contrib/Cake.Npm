@@ -13,6 +13,17 @@ namespace Cake.Npm
     {
         private readonly ISet<string> _packages = new HashSet<string>();
 
+        /// <summary>
+        /// Npm "install" settings
+        /// </summary>
+        public NpmInstallSettings() : base("install")
+        {
+        }
+
+        /// <summary>
+        /// evaluate options
+        /// </summary>
+        /// <param name="args"></param>
         protected override void EvaluateCore(ProcessArgumentBuilder args)
         {
             foreach (var package in Packages)
@@ -99,5 +110,6 @@ namespace Cake.Npm
         /// --production
         /// </summary>
         public bool Production { get; internal set; }
+
     }
 }
