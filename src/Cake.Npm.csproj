@@ -47,10 +47,10 @@
     <Compile Include="..\VersionAssemblyInfo.cs">
       <Link>Properties\VersionAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Npm\NpmInstallSettings.cs" />
-    <Compile Include="Npm\NpmRunner.cs" />
-    <Compile Include="Npm\NpmRunnerAliases.cs" />
-    <Compile Include="Npm\NpmRunnerSettings.cs" />
+    <Compile Include="NpmInstallSettings.cs" />
+    <Compile Include="NpmRunner.cs" />
+    <Compile Include="NpmRunnerAliases.cs" />
+    <Compile Include="NpmRunnerSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
