@@ -140,15 +140,16 @@ Task("Update-AppVeyor-Build-Number")
     AppVeyor.UpdateBuildVersion(versionInfo.FullSemVer +" (Build: " +AppVeyor.Environment.Build.Number +")");
 });
 
-/* *** doesnt support artifact type
 Task("Upload-AppVeyor-Artifacts")
     .IsDependentOn("Package")
     .WithCriteria(() => AppVeyor.IsRunningOnAppVeyor)
     .Does(() =>
 {
     var artifact = artifacts.ToString() +@"\package\" +webProject +"." +versionInfo.NuGetVersion +".zip";
-    AppVeyor.UploadArtifact(artifact);
-}); */
+    foreach(var nupkg in GetFiles(artifacts +"/packages/*.nupkg")) {
+        AppVeyor.UploadArtifact(nupkg);
+    }
+});
 
 //////////////////////////////////////////////////////////////////////
 // TASK TARGETS
@@ -160,6 +161,7 @@ Task("Default")
     .IsDependentOn("Build")
     .IsDependentOn("Run-Unit-Tests")
     .IsDependentOn("Package")
+    .IsDependentOn("Upload-AppVeyor-Artifacts")
     ;
 
 //////////////////////////////////////////////////////////////////////
