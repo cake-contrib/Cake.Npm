@@ -50,6 +50,7 @@
     <Compile Include="..\VersionAssemblyInfo.cs">
       <Link>Properties\VersionAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Properties\Namespaces.cs" />
     <Compile Include="NpmInstallSettings.cs" />
     <Compile Include="NpmRunner.cs" />
     <Compile Include="NpmRunnerAliases.cs" />

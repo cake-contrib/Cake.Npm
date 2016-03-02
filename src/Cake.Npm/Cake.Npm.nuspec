@@ -1,25 +1,22 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <id>Cake.Npm</id>
+    <title>Cake.Npm</title>
+    <authors>Phil Oytyon</authors>
+    <owners>Phil Oyston</owners>
     <licenseUrl>https://github.com/Philo/cake-npm/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/Philo/cake-npm</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/cake-build/graphics/master/png/cake-medium.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>A set of aliases for Cake to help with running Npm (Node Package Manager) commands</description>
     <tags>Cake Script Build Npm</tags>
     <dependencies>
-      <group>
-        <dependency id="Cake.Core" version="0.9.0" />
-      </group>
+      <dependency id="Cake.Core" version="0.9.0" />
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\artifacts\build\$id$.xml" target="lib\net45" />
-    <file src="..\..\artifacts\build\$id$.dll" target="lib\net45" />
+    <file src="..\..\artifacts\build\Cake.Npm.xml" target="lib\net45" />
+    <file src="..\..\artifacts\build\Cake.Npm.dll" target="lib\net45" />
   </files>
 </package>

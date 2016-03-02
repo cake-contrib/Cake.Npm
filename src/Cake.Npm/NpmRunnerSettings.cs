@@ -10,7 +10,7 @@ namespace Cake.Npm
     public abstract class NpmRunnerSettings : ToolSettings
     {
         /// <summary>
-        /// THe command being ran
+        /// The command being ran
         /// </summary>
         protected string Command { get; set; }
 
@@ -26,7 +26,16 @@ namespace Cake.Npm
         /// <summary>
         /// Applies the --force parameter
         /// </summary>
-        public bool Force { get; set; }
+        public bool Force { get; private set; }
+
+        /// <summary>
+        /// Whether to set --force
+        /// </summary>
+        /// <param name="enabled">should use --force</param>
+        public void WithForce(bool enabled = true)
+        {
+            Force = enabled;
+        }
 
         internal void Evaluate(ProcessArgumentBuilder args)
         {

@@ -108,14 +108,18 @@ Task("Package")
     .IsDependentOn("Clean")
     .IsDependentOn("Restore-NuGet-Packages")
     .IsDependentOn("Update-Version-Info")
+    .IsDependentOn("Copy-Files")
     .Does(() =>
 {
     CreateDirectory(Directory(artifacts +"/packages"));
 
-    NuGetPack(project.Path, new NuGetPackSettings {
+    var nuspec = project.Path.GetDirectory() +"/" +project.Name +".nuspec";
+    Information("Packing: {0}", nuspec);
+    NuGetPack(nuspec, new NuGetPackSettings {
+        BasePath = artifacts +"/build",
+        NoPackageAnalysis = false,
         Version = versionInfo.NuGetVersionV2,
         OutputDirectory = Directory(artifacts +"/packages"),
-        Symbols = true,
         Properties = new Dictionary<string, string>() { { "Configuration", configuration } }
     });
 });
