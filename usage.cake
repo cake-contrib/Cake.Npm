@@ -1,8 +1,8 @@
-#addin "Cake.Npm"
+#r "artifacts/build/Cake.Npm.dll"
 
-var target = Argument("target", "Npm");
+var target = Argument("target", "Default");
     
-Task("Npm")
+Task("Default")
     .Does(() => 
     {
         // npm install gulp -g
