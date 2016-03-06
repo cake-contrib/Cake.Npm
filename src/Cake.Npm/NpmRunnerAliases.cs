@@ -7,7 +7,7 @@ namespace Cake.Npm
     /// <summary>
     /// Provides a wrapper around Npm functionality within a Cake build script
     /// </summary>
-    [CakeAliasCategory("Node")]
+    [CakeAliasCategory("Npm")]
     public static class NpmRunnerAliases
     {
         /// <summary>
