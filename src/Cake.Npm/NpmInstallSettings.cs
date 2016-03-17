@@ -14,10 +14,12 @@ namespace Cake.Npm
     {
         private readonly ISet<string> _packages = new HashSet<string>();
 
-        /// <summary>
-        /// Npm "install" settings
-        /// </summary>
-        public NpmInstallSettings() : base("install")
+	    private static string WorkingDirectory => Directory.GetCurrentDirectory();
+
+		/// <summary>
+		/// Npm "install" settings
+		/// </summary>
+		public NpmInstallSettings() : base("install")
         {
         }
 
@@ -125,5 +127,8 @@ namespace Cake.Npm
         /// </summary>
         public bool Production { get; internal set; }
 
+	    internal void ResetPath() {
+		    Directory.SetCurrentDirectory(WorkingDirectory);
+	    }
     }
 }

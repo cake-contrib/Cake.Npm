@@ -34,6 +34,7 @@ namespace Cake.Npm
             var args = GetNpmInstallArguments(settings);
 
             Run(settings, args);
+	        settings.ResetPath();
         }
 
         private ProcessArgumentBuilder GetNpmInstallArguments(NpmInstallSettings settings)
