@@ -4,6 +4,7 @@
 # Cake
 tools/**/*
 !tools/packages.config
+VersionAssemblyInfo.*
 
 # User-specific files
 *.suo
