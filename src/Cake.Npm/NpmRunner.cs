@@ -59,6 +59,7 @@ namespace Cake.Npm
         protected override IEnumerable<string> GetToolExecutableNames()
         {
             yield return "npm.cmd";
+            yield return "npm";
         }
     }
 }

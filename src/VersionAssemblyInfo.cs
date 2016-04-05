@@ -5,7 +5,7 @@
 //------------------------------------------------------------------------------
 using System.Reflection;
 
-[assembly: AssemblyVersion("0.2.3.0")]
-[assembly: AssemblyFileVersion("0.2.3.0")]
-[assembly: AssemblyInformationalVersion("0.2.3+Branch.master.Sha.455316d971f90090091c3ca6a8806760638e7009")]
+[assembly: AssemblyVersion("0.2.4.0")]
+[assembly: AssemblyFileVersion("0.2.4.0")]
+[assembly: AssemblyInformationalVersion("0.2.4+Branch.master.Sha.118e825d604b6ffcf5c1cf6fe992e8c4d8f2849c")]
 
