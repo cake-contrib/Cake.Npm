@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="NpmRunnerFixture.cs" />
     <Compile Include="NpmRunnerTests.cs" />
+    <Compile Include="NpmRunScriptTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
