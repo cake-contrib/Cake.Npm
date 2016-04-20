@@ -31,7 +31,7 @@ namespace Cake.Npm.Tests
 		public void Not_Including_Args_Should_Produce_Empty_Command()
 		{
 			var result = _fixture.Run();
-			result.Args.ShouldBe("run script");
+			result.Args.ShouldBe("run-script build");
 		}
 
 		[Fact]
@@ -40,7 +40,7 @@ namespace Cake.Npm.Tests
 			_fixture.RunScriptSettings = s => s.WithArgument("-param");
 
 			var result = _fixture.Run();
-			result.Args.ShouldBe("run script -- -param");
+			result.Args.ShouldBe("run-script build -- -param");
 		}
 
 		[Fact]
@@ -48,15 +48,15 @@ namespace Cake.Npm.Tests
 		{
 			_fixture.RunScriptSettings = s => s.WithArgument("-param").WithArgument("-default");
 			var result = _fixture.Run();
-			result.Args.ShouldBe("run script -- -param -default");
+			result.Args.ShouldBe("run-script build -- -param -default");
 		}
 
 		[Fact]
 		public void Run_Named_Script_Should_Run_Correct_Script()
 		{
-			_fixture.ScriptName = "build";
+			_fixture.ScriptName = "server";
 			var result = _fixture.Run();
-			result.Args.ShouldBe("run build");
+			result.Args.ShouldBe("run-script server");
 		}
 
 		[Fact]
@@ -65,7 +65,7 @@ namespace Cake.Npm.Tests
 			_fixture.ScriptName = "build";
 			_fixture.RunScriptSettings = s => s.WithArgument("-param").WithArgument("-default");
 			var result = _fixture.Run();
-			result.Args.ShouldBe("run build -- -param -default");
+			result.Args.ShouldBe("run-script build -- -param -default");
 		}
 	}
 }

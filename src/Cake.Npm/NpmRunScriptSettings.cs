@@ -8,21 +8,41 @@ using Cake.Core.IO;
 
 namespace Cake.Npm
 {
+	/// <summary>
+	/// npm run-script options
+	/// </summary>
 	public class NpmRunScriptSettings : NpmRunnerSettings
 	{
+		/// <summary>
+		/// Arguments to pass to the target script
+		/// </summary>
 		public IList<string> Arguments { get; set; } = new List<string>();
 
-		public NpmRunScriptSettings() : base("run")
+		/// <summary>
+		/// npm 'run-script' settings
+		/// </summary>
+		public NpmRunScriptSettings() : base("run-script")
 		{
 			
 		}
-		public NpmRunScriptSettings(string command) : base("run")
+		/// <summary>
+		/// npm 'run-script' settings for the named script
+		/// </summary>
+		/// <param name="command">script name to execute</param>
+		public NpmRunScriptSettings(string command) : base("run-script")
 		{
 			ScriptName = command;
 		}
 
-		protected string ScriptName { get; set; } = String.Empty;
+		/// <summary>
+		/// Name of the script to execute as defined in package.json
+		/// </summary>
+		public string ScriptName { get; set; } = string.Empty;
 
+		/// <summary>
+		/// evaluate options
+		/// </summary>
+		/// <param name="args"></param>
 		protected override void EvaluateCore(ProcessArgumentBuilder args)
 		{
 			if (Force) throw new NotImplementedException("npm run-script does not support --force flag");
@@ -39,13 +59,22 @@ namespace Cake.Npm
 			base.EvaluateCore(args);
 		}
 
+		/// <summary>
+		/// adds
+		/// </summary>
+		/// <param name="arg"></param>
+		/// <returns></returns>
 		public NpmRunScriptSettings WithArgument(string arg)
 		{
 			Arguments.Add(arg);
 			return this;
 		}
 
-		protected virtual void WithForce(bool force)
+		/// <summary>
+		/// Unsupported
+		/// </summary>
+		/// <param name="force"></param>
+		protected new void WithForce(bool force)
 		{
 			
 		}

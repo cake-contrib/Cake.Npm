@@ -20,7 +20,7 @@ namespace Cake.Npm.Tests {
 	{
 		internal string ScriptName { get; set; } = string.Empty;
 
-		public NpmRunScriptFixture(string scriptName = "script") : base("npm")
+		public NpmRunScriptFixture(string scriptName = "build") : base("npm")
 		{
 			ScriptName = scriptName;
 		}
