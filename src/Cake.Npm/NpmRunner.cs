@@ -42,7 +42,28 @@ namespace Cake.Npm
             settings.Evaluate(args);
             return args;
         }
-        
+
+        /// <summary>
+        /// execute 'npm run'/'npm run-script' with arguments
+        /// </summary>
+        /// <param name="scriptName">name of the </param>
+        /// <param name="configure"></param>
+        public void RunScript(string scriptName, Action<NpmRunScriptSettings> configure = null)
+        {
+            var settings = new NpmRunScriptSettings(scriptName);
+            configure?.Invoke(settings);
+            var args = GetNpmRunArguments(settings);
+
+            Run(settings, args);
+        }
+
+        private ProcessArgumentBuilder GetNpmRunArguments(NpmRunScriptSettings settings)
+        {
+            var args = new ProcessArgumentBuilder();
+            settings.Evaluate(args);
+            return args;
+        }
+
         /// <summary>
         /// Gets the name of the tool
         /// </summary>

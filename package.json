@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "hello": "echo \"Hello from cake-npm!\" ",
+    "arguments": "echo Arguments are appended onto the script command like so: "
   },
   "author": "",
   "license": "MIT"

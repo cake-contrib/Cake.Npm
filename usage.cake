@@ -22,6 +22,12 @@ Task("Default")
         
         // npm install --production
         Npm.Install(settings => settings.ForProduction());
+        
+        // npm run hello
+        Npm.RunScript("hello");
+        
+        //npm run arguments -- -debug "arg-value.file"
+        Npm.RunScript("arguments", settings => settings.WithArgument("-debug").WithArgument("arg-value.file"));
     });
         
 //////////////////////////////////////////////////////////////////////
