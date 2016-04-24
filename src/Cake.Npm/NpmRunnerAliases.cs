@@ -55,7 +55,7 @@ namespace Cake.Npm
         /// <para>Cake task:</para>
         /// <code>
         /// <![CDATA[
-        /// Task("Npm-Install-Gulp")
+        /// Task("Npm-Install-Production")
         ///     .Does(() =>
         /// {
         ///     Npm.Install(settings => settings.ForProduction());
@@ -66,10 +66,32 @@ namespace Cake.Npm
         /// <para>Cake task:</para>
         /// <code>
         /// <![CDATA[
-        /// Task("Npm-Install-Gulp")
+        /// Task("Npm-Install-Force")
         ///     .Does(() =>
         /// {
         ///     Npm.Install(settings => settings.Force());
+        /// });
+        /// ]]>
+        /// </code>
+        /// <para>Run 'npm run hello'</para>
+        /// <para>Cake task:</para>
+        /// <code>
+        /// <![CDATA[
+        /// Task("Npm-RunScript")
+        ///     .Does(() =>
+        /// {
+        ///     Npm.RunScript("hello");
+        /// });
+        /// ]]>
+        /// </code>
+        /// <para>Run 'npm run arguments -- -debug "arg-value.file"'</para>
+        /// <para>Cake task:</para>
+        /// <code>
+        /// <![CDATA[
+        /// Task("Npm-RunScript-WithArgs")
+        ///     .Does(() =>
+        /// {
+        ///     Npm.RunScript("arguments", settings => settings.WithArgument("-debug").WithArgument("arg-value.file"));
         /// });
         /// ]]>
         /// </code>

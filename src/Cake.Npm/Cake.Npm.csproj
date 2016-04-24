@@ -37,10 +37,6 @@
       <HintPath>..\..\packages\Cake.Core.0.9.0\lib\net45\Cake.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,7 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Json\IJsonWrapper.cs" />
+    <Compile Include="Json\JsonData.cs" />
+    <Compile Include="Json\JsonException.cs" />
+    <Compile Include="Json\JsonMapper.cs" />
+    <Compile Include="Json\JsonMockWrapper.cs" />
+    <Compile Include="Json\JsonReader.cs" />
+    <Compile Include="Json\JsonWriter.cs" />
+    <Compile Include="Json\Lexer.cs" />
+    <Compile Include="Json\NpmPackageModel.cs" />
+    <Compile Include="Json\ParserToken.cs" />
     <Compile Include="NpmPackage.cs" />
+    <Compile Include="NpmPackageParser.cs" />
     <Compile Include="NpmRunnerPackage.cs" />
     <Compile Include="NpmRunScriptSettings.cs" />
     <Compile Include="..\VersionAssemblyInfo.cs">
@@ -68,6 +75,7 @@
     <None Include="Cake.Npm.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

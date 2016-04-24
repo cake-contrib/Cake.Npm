@@ -1,11 +1,14 @@
 ﻿using System;
 using System.IO;
+using Cake.Core;
 using Cake.Core.IO;
 
 namespace Cake.Npm
 {
 	public partial class NpmRunner
 	{
+	    private readonly ICakeEnvironment _environment;
+	    private readonly IFileSystem _fileSystem;
 
 		/// <summary>
 		/// Parses a package.json file in the current directory
@@ -14,10 +17,7 @@ namespace Cake.Npm
 		/// <exception cref="System.IO.FileNotFoundException">Thrown when a package.json could not be found in the current directory</exception>
 		public NpmPackage Package()
 		{
-			if (!System.IO.File.Exists("package.json")) throw new System.IO.FileNotFoundException($"Could not locate package.json in '{Environment.CurrentDirectory}'");
-			var parser = new NpmPackageParser();
-			var package = parser.ParseFromFile(new FilePath(System.IO.Path.Combine(Environment.CurrentDirectory, "package.json")));
-			return package;
+		    return Package(_environment.WorkingDirectory);
 		}
 
 		/// <summary>
@@ -28,11 +28,9 @@ namespace Cake.Npm
 		/// <exception cref="FileNotFoundException">Thrown when a package.json could not be found in the specified directory</exception>
 		public NpmPackage Package(DirectoryPath packageDir)
 		{
-			var oldDir = Environment.CurrentDirectory;
-			Environment.CurrentDirectory = packageDir.FullPath;
-			var package = Package();
-			Environment.CurrentDirectory = oldDir;
-			return package;
-		}
+            var parser = new NpmPackageParser(_fileSystem, _environment);
+            var package = parser.ParseFromFile(packageDir.CombineWithFilePath("./package.json"));
+            return package;
+        }
 	}
 }
