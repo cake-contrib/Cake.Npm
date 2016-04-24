@@ -81,24 +81,5 @@ namespace Cake.Npm
 
             return new NpmRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Globber);
         }
-
-	    [CakeMethodAlias]
-	    public static NpmPackage NpmPackage(this ICakeContext context)
-	    {
-		    if (!System.IO.File.Exists("package.json")) throw new FileNotFoundException($"Could not locate package.json in '{Environment.CurrentDirectory}'");
-			var parser = new NpmPackageParser();
-		    var package = parser.ParseFromFile(new FilePath(System.IO.Path.Combine(Environment.CurrentDirectory, "package.json")));
-		    return package;
-	    }
-
-	    [CakeMethodAlias]
-	    public static NpmPackage NpmPackage(this ICakeContext context, DirectoryPath packageDir)
-	    {
-		    var oldDir = Environment.CurrentDirectory;
-			Environment.CurrentDirectory = packageDir.FullPath;
-			var package = NpmPackage(context);
-		    Environment.CurrentDirectory = oldDir;
-		    return package;
-	    }
     }
 }

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NpmPackage.cs" />
+    <Compile Include="NpmRunnerPackage.cs" />
     <Compile Include="NpmRunScriptSettings.cs" />
     <Compile Include="..\VersionAssemblyInfo.cs">
       <Link>Properties\VersionAssemblyInfo.cs</Link>
