@@ -11,9 +11,6 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A set of aliases for Cake to help with running Npm (Node Package Manager) commands</description>
     <tags>Cake Script Build Npm</tags>
-    <dependencies>
-      <dependency id="Newtonsoft.Json" version="8.0.3" />
-    </dependencies>
   </metadata>
   <files>
     <file src="..\..\artifacts\build\Cake.Npm.xml" target="lib\net45" />

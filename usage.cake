@@ -28,6 +28,10 @@ Task("Default")
         
         //npm run arguments -- -debug "arg-value.file"
         Npm.RunScript("arguments", settings => settings.WithArgument("-debug").WithArgument("arg-value.file"));
+        
+        // get package information
+        var package = Npm.Package();
+        Information("Building '{0}' for version '{1}' (by {2})", package.Name, package.Version, package.Author);
     });
         
 //////////////////////////////////////////////////////////////////////

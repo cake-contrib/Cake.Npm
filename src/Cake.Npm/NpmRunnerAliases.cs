@@ -95,6 +95,26 @@ namespace Cake.Npm
         /// });
         /// ]]>
         /// </code>
+        /// <para>Get package details from package.json in the current directory</para>
+        /// <code>
+        /// <![CDATA[
+        /// Task("Npm-PackageJson")
+        ///     .Does(() =>
+        /// {
+        ///     Information("Building {0}", Npm.Package().Name);
+        /// });
+        /// ]]>
+        /// </code>
+        /// <para>Get package details from package.json in the given directory</para>
+        /// <code>
+        /// <![CDATA[
+        /// Task("Npm-Package-DirectoryPath")
+        ///     .Does(() =>
+        /// {
+        ///     Information("Building version {0}", Npm.Package("./src").Version);
+        /// });
+        /// ]]>
+        /// </code>
         /// </example>
         [CakePropertyAlias]
         public static NpmRunner Npm(this ICakeContext context)
