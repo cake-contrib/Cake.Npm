@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Cake.Core;
 using Cake.Core.IO;
@@ -13,10 +14,12 @@ namespace Cake.Npm
     {
         private readonly ISet<string> _packages = new HashSet<string>();
 
-        /// <summary>
-        /// Npm "install" settings
-        /// </summary>
-        public NpmInstallSettings() : base("install")
+	    private static string WorkingDirectory => Directory.GetCurrentDirectory();
+
+		/// <summary>
+		/// Npm "install" settings
+		/// </summary>
+		public NpmInstallSettings() : base("install")
         {
         }
 
@@ -98,10 +101,23 @@ namespace Cake.Npm
             return this;
         }
 
-        /// <summary>
-        /// List of packages to install
-        /// </summary>
-        public IEnumerable<string> Packages => _packages;
+		/// <summary>
+		/// install package.json from a different path
+		/// </summary>
+		/// <param name="path">Path to directory containing your package.json</param>
+		/// <returns></returns>
+		public NpmInstallSettings FromPath(DirectoryPath path) {
+			if(path == null) {
+				throw new ArgumentNullException(nameof(path));
+			}
+			Directory.SetCurrentDirectory(path.ToString());
+			return this;
+		}
+
+		/// <summary>
+		/// List of packages to install
+		/// </summary>
+		public IEnumerable<string> Packages => _packages;
         /// <summary>
         /// --global
         /// </summary>
@@ -111,5 +127,8 @@ namespace Cake.Npm
         /// </summary>
         public bool Production { get; internal set; }
 
+	    internal void ResetPath() {
+		    Directory.SetCurrentDirectory(WorkingDirectory);
+	    }
     }
 }

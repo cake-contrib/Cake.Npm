@@ -25,6 +25,9 @@
             
             // npm install --production
             Npm.Install(settings => settings.ForProduction());
+
+            // Use package.json from a different directory
+            Npm.Install(settings => settings.FromPath("../another-path-to/package.json"));
         });
 ```
 
