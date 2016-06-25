@@ -11,7 +11,7 @@ namespace Cake.Npm.Tests {
 		
 
 		protected override void RunTool() {
-			var tool = new NpmRunner(FileSystem, Environment, ProcessRunner, Globber);
+			var tool = new NpmRunner(FileSystem, Environment, ProcessRunner, Tools);
 			tool.Install(InstallSettings);
 		}
 	}
@@ -28,7 +28,7 @@ namespace Cake.Npm.Tests {
 
 		protected override void RunTool()
 		{
-			var tool = new NpmRunner(FileSystem, Environment, ProcessRunner, Globber);
+			var tool = new NpmRunner(FileSystem, Environment, ProcessRunner, Tools);
 			tool.RunScript(ScriptName, RunScriptSettings);
 		}
 	}

@@ -99,7 +99,7 @@ namespace Cake.Npm
         {
             if(context == null) throw new ArgumentNullException(nameof(context));
 
-            return new NpmRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Globber);
+            return new NpmRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
         }
     }
 }
