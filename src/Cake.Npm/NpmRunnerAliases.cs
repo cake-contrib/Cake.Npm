@@ -1,6 +1,7 @@
 using System;
 using Cake.Core;
 using Cake.Core.Annotations;
+using Cake.Core.IO;
 
 namespace Cake.Npm
 {
@@ -20,10 +21,10 @@ namespace Cake.Npm
         /// <para>Cake task:</para>
         /// <code>
         /// <![CDATA[
-        /// Task("Npm-Install")
+        /// Task("Npm-FromPath")
         ///     .Does(() =>
         /// {
-        ///     Npm.Install();
+        ///     Npm.FromPath("./dir-with-packagejson").Install();
         /// });
         /// ]]>
         /// </code>
@@ -34,7 +35,7 @@ namespace Cake.Npm
         /// Task("Npm-Install")
         ///     .Does(() =>
         /// {
-        ///     Npm.Install("./alternate-working-directory");
+        ///     Npm.Install();
         /// });
         /// ]]>
         /// </code>
@@ -45,7 +46,7 @@ namespace Cake.Npm
         /// Task("Npm-Install-Gulp")
         ///     .Does(() =>
         /// {
-        ///     Npm.Install(settings => settings.Package("gulp"), "./alternate-working-directory");
+        ///     Npm.Install(settings => settings.Package("gulp"));
         /// });
         /// ]]>
         /// </code>
@@ -56,7 +57,7 @@ namespace Cake.Npm
         /// Task("Npm-Install-Gulp")
         ///     .Does(() =>
         /// {
-        ///     Npm.Install(settings => settings.Package("gulp").Globally(), "./alternate-working-directory");
+        ///     Npm.Install(settings => settings.Package("gulp").Globally());
         /// });
         /// ]]>
         /// </code>
@@ -67,7 +68,7 @@ namespace Cake.Npm
         /// Task("Npm-Install-Production")
         ///     .Does(() =>
         /// {
-        ///     Npm.Install(settings => settings.ForProduction(), "./alternate-working-directory");
+        ///     Npm.Install(settings => settings.ForProduction());
         /// });
         /// ]]>
         /// </code>
@@ -78,7 +79,7 @@ namespace Cake.Npm
         /// Task("Npm-Install-Force")
         ///     .Does(() =>
         /// {
-        ///     Npm.Install(settings => settings.Force(), "./alternate-working-directory");
+        ///     Npm.Install(settings => settings.Force());
         /// });
         /// ]]>
         /// </code>
@@ -89,18 +90,7 @@ namespace Cake.Npm
         /// Task("Npm-RunScript")
         ///     .Does(() =>
         /// {
-        ///     Npm.RunScript("hello", "./alternate-working-directory");
-        /// });
-        /// ]]>
-        /// </code>
-        /// <para>Run 'npm run arguments -- -debug "arg-value.file"'</para>
-        /// <para>Cake task:</para>
-        /// <code>
-        /// <![CDATA[
-        /// Task("Npm-RunScript-WithArgs")
-        ///     .Does(() =>
-        /// {
-        ///     Npm.RunScript("arguments", settings => settings.WithArgument("-debug").WithArgument("arg-value.file"), "./alternate-working-directory");
+        ///     Npm.RunScript("hello");
         /// });
         /// ]]>
         /// </code>

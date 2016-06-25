@@ -30,7 +30,7 @@ GitVersion versionInfo               = null;
 // TASKS
 //////////////////////////////////////////////////////////////////////
 
-Setup(() => {
+Setup(ctx => {
     CreateDirectory(artifacts);
     
     if(!FileExists(solutionPath)) throw new Exception(string.Format("Solution file not found - {0}", solutionPath.ToString()));

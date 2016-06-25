@@ -25,21 +25,12 @@ namespace Cake.Npm
         {
 
         }
-
-        /// <summary>
-        /// npm 'run-script' settings
-        /// </summary>
-        public NpmRunScriptSettings(DirectoryPath workingDirectoryPath = null) : base("run-script", workingDirectoryPath)
-		{
-			
-		}
-
+        
 	    /// <summary>
 	    /// npm 'run-script' settings for the named script
 	    /// </summary>
 	    /// <param name="command">script name to execute</param>
-	    /// <param name="workingDirectoryPath"></param>
-	    public NpmRunScriptSettings(string command, DirectoryPath workingDirectoryPath = null) : base("run-script", workingDirectoryPath)
+	    public NpmRunScriptSettings(string command) : base("run-script")
 		{
 			ScriptName = command;
 		}
