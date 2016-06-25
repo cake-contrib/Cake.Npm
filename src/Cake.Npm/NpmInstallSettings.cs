@@ -16,6 +16,13 @@ namespace Cake.Npm
         /// <summary>
         /// Npm "install" settings
         /// </summary>
+        public NpmInstallSettings(DirectoryPath workingDirectoryPath = null) : base("install", workingDirectoryPath)
+        {
+        }
+
+        /// <summary>
+        /// Npm "install" settings
+        /// </summary>
         public NpmInstallSettings() : base("install")
         {
         }

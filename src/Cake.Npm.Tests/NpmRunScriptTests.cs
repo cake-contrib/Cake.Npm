@@ -1,6 +1,6 @@
 ﻿using System;
+using Cake.Testing;
 using Shouldly;
-using Cake.Testing.Fixtures;
 using Xunit;
 
 namespace Cake.Npm.Tests
@@ -67,5 +67,5 @@ namespace Cake.Npm.Tests
 			var result = _fixture.Run();
 			result.Args.ShouldBe("run-script build -- -param -default");
 		}
-	}
+    }
 }

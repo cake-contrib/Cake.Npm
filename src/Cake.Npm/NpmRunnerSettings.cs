@@ -18,9 +18,11 @@ namespace Cake.Npm
         /// Creates Npm Runner settings
         /// </summary>
         /// <param name="command">command to run</param>
-        protected NpmRunnerSettings(string command)
+        /// <param name="workingDirectoryPath"></param>
+        protected NpmRunnerSettings(string command, DirectoryPath workingDirectoryPath = null)
         {
             Command = command;
+            WorkingDirectory = workingDirectoryPath;
         }
 
         /// <summary>
@@ -36,6 +38,11 @@ namespace Cake.Npm
         {
             Force = enabled;
         }
+
+        /// <summary>
+        /// A custom working directory to use when executing npm
+        /// </summary>
+        public DirectoryPath WorkingDirectory { get; private set; }
 
         internal void Evaluate(ProcessArgumentBuilder args)
         {

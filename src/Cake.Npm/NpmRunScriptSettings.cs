@@ -18,18 +18,28 @@ namespace Cake.Npm
 		/// </summary>
 		public IList<string> Arguments { get; set; } = new List<string>();
 
-		/// <summary>
-		/// npm 'run-script' settings
-		/// </summary>
-		public NpmRunScriptSettings() : base("run-script")
+        /// <summary>
+        /// npm 'run-script' settings
+        /// </summary>
+        public NpmRunScriptSettings() : base("run-script")
+        {
+
+        }
+
+        /// <summary>
+        /// npm 'run-script' settings
+        /// </summary>
+        public NpmRunScriptSettings(DirectoryPath workingDirectoryPath = null) : base("run-script", workingDirectoryPath)
 		{
 			
 		}
-		/// <summary>
-		/// npm 'run-script' settings for the named script
-		/// </summary>
-		/// <param name="command">script name to execute</param>
-		public NpmRunScriptSettings(string command) : base("run-script")
+
+	    /// <summary>
+	    /// npm 'run-script' settings for the named script
+	    /// </summary>
+	    /// <param name="command">script name to execute</param>
+	    /// <param name="workingDirectoryPath"></param>
+	    public NpmRunScriptSettings(string command, DirectoryPath workingDirectoryPath = null) : base("run-script", workingDirectoryPath)
 		{
 			ScriptName = command;
 		}
