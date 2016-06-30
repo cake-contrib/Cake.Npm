@@ -6,33 +6,57 @@
     #addin "Cake.Npm"
 
     Task("Npm")
-        .Does(() => 
+        .Does(() =>
         {
             // npm install gulp -g
             Npm.Install(settings => settings.Package("gulp").Globally());
-        
+
             // npm install gulp
             Npm.Install(settings => settings.Package("gulp"));
-            
+
             // npm install gulp https://path.co/package/v0.1
             Npm.Install(settings => settings.Package("https://path.co/package/v0.1"));
-            
+
             // npm install gulp@">3.9 && < 4.0"
             Npm.Install(settings => settings.Package("gulp", ">3.9 && <4.0"));
-            
+
             // npm install @myorg/gulp@">3.9 && < 4.0"
             Npm.Install(settings => settings.Package("gulp", ">3.9 && <4.0", "myorg"));
-            
+
             // npm install --production
             Npm.Install(settings => settings.ForProduction());
+        });
+
+    Task("Npm-FromPath")
+        .Does(() =>
+        {
+            // Npm.FromPath(DirectoryPath).
+
+            // npm install gulp -g (from path ./wwwroot)
+            Npm.FromPath("./wwwroot").Install(settings => settings.Package("gulp").Globally());
+
+            // npm install gulp (from parent path)
+            Npm.FromPath("../").Install(settings => settings.Package("gulp"));
         });
 ```
 
 ## Scope
-At present the scope of the implementation of this Cake addin is to meet my own requirements, which are primarily to support a client side build process for a typical .NET based web application.  
-This process would usual involve a design or creative team developing and maintaining client side assets (js, scss) for which they have a gulp based development and build workflow.
 
-My goal to be to able to support this workflow as part of a complete solution build.
+Cake.Npm currently supports the following npm commands:
 
-### I cant do <insert-function-here>
-See above, the initial release supports only the most basic functionality I need, if you have feature requests please submit them as issues
+* ```npm install```
+* ```npm run``` (contributed by @agc93)
+
+My primary goal for the project is to support the build workflow I need as a .NET developer, additional features have been contributed
+
+## Documentation
+
+Thanks to the cakebuild.net site, documentation can be found [here](http://cakebuild.net/api/cake.npm/)
+
+## Tests
+
+Cake.Npm is covered by a set of unit tests contributed by @nengberg
+
+## I cant do _insert-command-here_
+
+If you have feature requests please submit them as issues, or better yet as pull requests :)
