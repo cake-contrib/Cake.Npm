@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Cake.Core;
+using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
 
@@ -74,7 +75,7 @@ namespace Cake.Npm
             return this;
         }
 
-        private ProcessArgumentBuilder GetNpmInstallArguments(NpmInstallSettings settings)
+        private static ProcessArgumentBuilder GetNpmInstallArguments(NpmInstallSettings settings)
         {
             var args = new ProcessArgumentBuilder();
             settings.Evaluate(args);
@@ -96,10 +97,10 @@ namespace Cake.Npm
             return this;
         }
 
-        private ProcessArgumentBuilder GetNpmRunArguments(NpmRunScriptSettings settings)
+        private static ProcessArgumentBuilder GetNpmRunArguments(NpmRunScriptSettings settings)
         {
             var args = new ProcessArgumentBuilder();
-            settings.Evaluate(args);
+            settings?.Evaluate(args);
             return args;
         }
 

@@ -1,6 +1,6 @@
 ﻿
 using System;
-
+using Cake.Core.Diagnostics;
 using Shouldly;
 
 using Xunit;
@@ -96,5 +96,20 @@ namespace Cake.Npm.Tests {
 
 			result.Args.ShouldBe("install " + package + " --global");
 		}
-	}
+
+        [Theory]
+        [InlineData(NpmLogLevel.Info, "--loglevel info")]
+        [InlineData(NpmLogLevel.Warn, "--warn")]
+        [InlineData(NpmLogLevel.Silent, "--silent")]
+        [InlineData(NpmLogLevel.Silly, "--loglevel silly")]
+        [InlineData(NpmLogLevel.Verbose, "--loglevel verbose")]
+        public void Custom_LogLevel_Should_Be_Applied(NpmLogLevel logLevel, string args)
+        {
+            this.fixture.InstallSettings = s => s.WithLogLevel(logLevel);
+
+            var result = this.fixture.Run();
+
+            result.Args.ShouldBe($"install {args}");
+        }
+    }
 }
