@@ -28,6 +28,23 @@ namespace Cake.Npm
         /// });
         /// ]]>
         /// </code>
+        /// <para>Run 'npm' with logging level</para>
+        /// <para>Cake task:</para>
+        /// <code>
+        /// <![CDATA[
+        /// Task("Npm-LogLevel")
+        ///     .Does(() =>
+        /// {
+        ///     Npm.WithLogLevel(NpmLogLevel.Silent).Install(settings => settings.Package("package"));
+        ///     Npm.WithLogLevel(NpmLogLevel.Warn).Install(settings => settings.Package("package"));
+        ///     Npm.WithLogLevel(NpmLogLevel.Info).Install(settings => settings.Package("package"));
+        ///     Npm.WithLogLevel(NpmLogLevel.Verbose).Install(settings => settings.Package("package"));
+        ///     Npm.WithLogLevel(NpmLogLevel.Silly)
+        ///         .Install(settings => settings.Package("package1"))
+        ///         .Install(settings => settings.Package("package2"));
+        /// });
+        /// ]]>
+        /// </code>
         /// <para>Run 'npm install'</para>
         /// <para>Cake task:</para>
         /// <code>
@@ -46,7 +63,7 @@ namespace Cake.Npm
         /// Task("Npm-Install-Gulp")
         ///     .Does(() =>
         /// {
-        ///     Npm.Install(settings => settings.Package("gulp"));
+        ///     Npm.Install(settings => settings.Package("package"));
         /// });
         /// ]]>
         /// </code>
@@ -57,7 +74,7 @@ namespace Cake.Npm
         /// Task("Npm-Install-Gulp")
         ///     .Does(() =>
         /// {
-        ///     Npm.Install(settings => settings.Package("gulp").Globally());
+        ///     Npm.Install(settings => settings.Package("package").Globally());
         /// });
         /// ]]>
         /// </code>
@@ -100,7 +117,7 @@ namespace Cake.Npm
         {
             if(context == null) throw new ArgumentNullException(nameof(context));
 
-            return new NpmRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            return new NpmRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log.Verbosity);
         }
     }
 }

@@ -38,6 +38,32 @@
             // npm install gulp (from parent path)
             Npm.FromPath("../").Install(settings => settings.Package("gulp"));
         });
+
+    Task("Npm-LogLevel")
+        .Does(() =>
+        {
+            // will adapt the Cake Verbosity level to npm
+            // * Quiet -> Silent
+            // * Minimal -> Warn
+            // * Verbose -> Info
+            // * Diagnostic -> Verbose
+            Npm.Install(settings => settings.Package("gulp"));
+            // npm install gulp --silent
+            Npm.WithLogLevel(NpmLogLevel.Silent).Install(settings => settings.Package("gulp"));
+
+            // npm install gulp --warn
+            Npm.WithLogLevel(NpmLogLevel.Warn).Install(settings => settings.Package("gulp"));
+
+            // npm install gulp --loglevel info
+            Npm.WithLogLevel(NpmLogLevel.Info).Install(settings => settings.Package("gulp"));
+
+            // npm install gulp --loglevel verbose
+            Npm.WithLogLevel(NpmLogLevel.Verbose).Install(settings => settings.Package("gulp"));
+
+            // npm install gulp --loglevel silly
+            Npm.WithLogLevel(NpmLogLevel.Silly).Install(settings => settings.Package("gulp"));
+
+        });
 ```
 
 ## Scope

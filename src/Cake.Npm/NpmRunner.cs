@@ -9,31 +9,34 @@ using Cake.Core.Tooling;
 namespace Cake.Npm
 {
     /// <summary>
-    /// Npm Runner command interface
+    /// Npm Runner configuration
     /// </summary>
-    public interface INpmRunnerCommands
+    public interface INpmRunnerConfiguration
     {
         /// <summary>
-        /// execute 'npm install' with options
+        /// Sets the working directory for npm commands
         /// </summary>
-        /// <param name="configure">options when running 'npm install'</param>
-        INpmRunnerCommands Install(Action<NpmInstallSettings> configure = null);
-
+        /// <param name="path"></param>
+        /// <returns></returns>
+        INpmRunnerCommands FromPath(DirectoryPath path);
+ 
         /// <summary>
-        /// execute 'npm run'/'npm run-script' with arguments
+        /// Sets the npm logging level
         /// </summary>
-        /// <param name="scriptName">name of the </param>
-        /// <param name="configure"></param>
-        INpmRunnerCommands RunScript(string scriptName, Action<NpmRunScriptSettings> configure = null);
+        /// <param name="logLevel"></param>
+        /// <returns></returns>
+        INpmRunnerConfiguration WithLogLevel(NpmLogLevel logLevel);
     }
-    
+
     /// <summary>
     /// A wrapper around the Node Npm package manager
     /// </summary>
-    public class NpmRunner : Tool<NpmRunnerSettings>, INpmRunnerCommands
+    public class NpmRunner : Tool<NpmRunnerSettings>, INpmRunnerCommands, INpmRunnerConfiguration
     {
         private readonly IFileSystem _fileSystem;
+        private readonly Verbosity _cakeVerbosityLevel;
         private DirectoryPath _workingDirectoryPath;
+        private NpmLogLevel? _logLevel;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NpmRunner" /> class.
@@ -42,21 +45,33 @@ namespace Cake.Npm
         /// <param name="environment">The environment</param>
         /// <param name="processRunner">The process runner</param>
         /// <param name="toolLocator">The tool locator</param>
-        /// <param name="workingDirectoryPath"></param>
-        internal NpmRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner, IToolLocator toolLocator, DirectoryPath workingDirectoryPath = null) : base(fileSystem, environment, processRunner, toolLocator)
+        /// <param name="cakeVerbosityLevel">Specifies the current Cake verbosity level</param>
+        internal NpmRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner, IToolLocator toolLocator, Verbosity cakeVerbosityLevel = Verbosity.Normal) : base(fileSystem, environment, processRunner, toolLocator)
         {
             _fileSystem = fileSystem;
-            _workingDirectoryPath = workingDirectoryPath;
+            _cakeVerbosityLevel = cakeVerbosityLevel;
         }
 
         /// <summary>
-        /// 
+        /// Sets the working directory for npm commands
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
         public INpmRunnerCommands FromPath(DirectoryPath path)
         {
             _workingDirectoryPath = path;
+            return this;
+        }
+
+
+        /// <summary>
+        /// Sets the npm logging level
+        /// </summary>
+        /// <param name="logLevel"></param>
+        /// <returns></returns>
+        public INpmRunnerConfiguration WithLogLevel(NpmLogLevel logLevel)
+        {
+            _logLevel = logLevel;
             return this;
         }
 
@@ -69,17 +84,65 @@ namespace Cake.Npm
             var settings = new NpmInstallSettings();
             configure?.Invoke(settings);
 
-            var args = GetNpmInstallArguments(settings);
+            var args = GetNpmInstallArguments(settings, _cakeVerbosityLevel, _logLevel);
 
             Run(settings, args);
             return this;
         }
 
-        private static ProcessArgumentBuilder GetNpmInstallArguments(NpmInstallSettings settings)
+        private static ProcessArgumentBuilder GetNpmInstallArguments(NpmInstallSettings settings, Verbosity cakeVerbosityLevel, NpmLogLevel? logLevel)
         {
             var args = new ProcessArgumentBuilder();
+            if (!logLevel.HasValue)
+            {
+                logLevel = CakeToNpmLogLevelConverter(cakeVerbosityLevel);
+            }
             settings.Evaluate(args);
+            AppendLogLevel(args, logLevel);
             return args;
+        }
+
+        private static void AppendLogLevel(ProcessArgumentBuilder args, NpmLogLevel? logLevel)
+        {
+            if (logLevel.HasValue)
+            {
+                switch (logLevel)
+                {
+                    case NpmLogLevel.Silent:
+                        args.Append("--silent");
+                        break;
+                    case NpmLogLevel.Warn:
+                        args.Append("--warn");
+                        break;
+                    case NpmLogLevel.Info:
+                        args.Append("--loglevel info");
+                        break;
+                    case NpmLogLevel.Verbose:
+                        args.Append("--loglevel verbose");
+                        break;
+                    case NpmLogLevel.Silly:
+                        args.Append("--loglevel silly");
+                        break;
+                }
+            }
+        }
+
+
+        private static NpmLogLevel? CakeToNpmLogLevelConverter(Verbosity cakeVerbosityLevel)
+        {
+            switch (cakeVerbosityLevel)
+            {
+                case Verbosity.Quiet:
+                    return NpmLogLevel.Silent;
+                case Verbosity.Minimal:
+                    return NpmLogLevel.Warn;
+                case Verbosity.Verbose:
+                    return NpmLogLevel.Info;
+                case Verbosity.Diagnostic:
+                    return NpmLogLevel.Verbose;
+                default:
+                    return null;
+            }
         }
 
         /// <summary>
@@ -134,7 +197,7 @@ namespace Cake.Npm
         protected override DirectoryPath GetWorkingDirectory(NpmRunnerSettings settings)
         {
             if (_workingDirectoryPath == null) return base.GetWorkingDirectory(settings);
-            if(!_fileSystem.Exist(_workingDirectoryPath)) throw new DirectoryNotFoundException($"Working directory path not found [{_workingDirectoryPath.FullPath}]");
+            if (!_fileSystem.Exist(_workingDirectoryPath)) throw new DirectoryNotFoundException($"Working directory path not found [{_workingDirectoryPath.FullPath}]");
             return _workingDirectoryPath;
         }
     }

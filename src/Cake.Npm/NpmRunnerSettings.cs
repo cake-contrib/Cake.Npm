@@ -40,55 +40,11 @@ namespace Cake.Npm
             return this;
         }
 
-        /// <summary>
-        /// The applied log level (if any)
-        /// </summary>
-        public NpmLogLevel? LogLevel { get; private set; }
-
-        /// <summary>
-        /// Specifies the level of logging to use during command execution
-        /// </summary>
-        /// <param name="logLevel">one of the available log levels</param>
-        /// <returns>the settings</returns>
-        public NpmRunnerSettings WithLogLevel(NpmLogLevel logLevel)
-        {
-            LogLevel = logLevel;
-            return this;
-        }
-        
         internal void Evaluate(ProcessArgumentBuilder args)
         {
             args.Append(Command);
             EvaluateCore(args);
             if (Force) args.Append("--force");
-            AppendLogLevel(args);
-        }
-
-        private void AppendLogLevel(ProcessArgumentBuilder args)
-        {
-            if (LogLevel.HasValue)
-            {
-                switch (LogLevel)
-                {
-                    case NpmLogLevel.Silent:
-                        args.Append("--silent");
-                        break;
-                    case NpmLogLevel.Warn:
-                        args.Append("--warn");
-                        break;
-                    case NpmLogLevel.Info:
-                        args.Append("--loglevel info");
-                        break;
-                    case NpmLogLevel.Verbose:
-                        args.Append("--loglevel verbose");
-                        break;
-                    case NpmLogLevel.Silly:
-                        args.Append("--loglevel silly");
-                        break;
-                    default:
-                        throw new NotImplementedException("Unknown Npm log level");
-                }
-            }
         }
 
         /// <summary>
