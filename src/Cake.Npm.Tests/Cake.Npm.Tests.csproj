@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NpmPackTests.cs" />
     <Compile Include="NpmRunnerFixture.cs" />
     <Compile Include="NpmRunnerTests.cs" />
     <Compile Include="NpmRunScriptTests.cs" />

@@ -47,4 +47,18 @@ namespace Cake.Npm.Tests {
 			tool.RunScript(ScriptName, RunScriptSettings);
 		}
 	}
+
+    public class NpmPackFixture : ToolFixture<NpmPackSettings>
+    {
+        internal string Target { get; set; }
+        public NpmPackFixture() : base("npm")
+        {
+        }
+
+        protected override void RunTool()
+        {
+            var tool = new NpmRunner(FileSystem, Environment, ProcessRunner, Tools);
+            tool.Pack(Target);
+        }
+    }
 }
