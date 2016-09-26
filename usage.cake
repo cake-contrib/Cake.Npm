@@ -26,8 +26,11 @@ Task("Default")
         // npm run hello
         Npm.RunScript("hello");
         
-        //npm run arguments -- -debug "arg-value.file"
+        // npm run arguments -- -debug "arg-value.file"
         Npm.RunScript("arguments", settings => settings.WithArgument("-debug").WithArgument("arg-value.file"));
+
+        // npm pack
+        Npm.Pack();
 
         //npm install gulp.  Executedwith ./usage set as the working directory
         Npm 

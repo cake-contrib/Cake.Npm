@@ -168,6 +168,25 @@ namespace Cake.Npm
         }
 
         /// <summary>
+        /// execute 'npm pack' with an optional installable target
+        /// </summary>
+        /// <param name="target">package folder, tarball, or name. Defaults to the current directory</param>
+        public INpmRunnerCommands Pack(string target = null)
+        {
+            var settings = new NpmPackSettings(target);
+            var args = GetNpmPackArguments(settings);
+            Run(settings, args);
+            return this;
+        }
+
+        private ProcessArgumentBuilder GetNpmPackArguments(NpmPackSettings settings)
+        {
+            var args = new ProcessArgumentBuilder();
+            settings?.Evaluate(args);
+            return args;
+        }
+
+        /// <summary>
         /// Gets the name of the tool
         /// </summary>
         /// <returns>the name of the tool</returns>

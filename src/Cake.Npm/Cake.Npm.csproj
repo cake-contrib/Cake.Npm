@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="INpmRunnerCommands.cs" />
     <Compile Include="NpmLogLevel.cs" />
+    <Compile Include="NpmPackSettings.cs" />
     <Compile Include="NpmRunScriptSettings.cs" />
     <Compile Include="..\VersionAssemblyInfo.cs">
       <Link>Properties\VersionAssemblyInfo.cs</Link>

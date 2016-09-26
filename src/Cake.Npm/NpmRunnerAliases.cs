@@ -111,6 +111,17 @@ namespace Cake.Npm
         /// });
         /// ]]>
         /// </code>
+        /// <para>Run 'npm pack'</para>
+        /// <para>Cake task:</para>
+        /// <code>
+        /// <![CDATA[
+        /// Task("Npm-RunScript")
+        ///     .Does(() =>
+        /// {
+        ///     Npm.Pack();
+        /// });
+        /// ]]>
+        /// </code>
         /// </example>
         [CakePropertyAlias]
         public static NpmRunner Npm(this ICakeContext context)
