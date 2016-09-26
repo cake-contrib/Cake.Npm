@@ -64,6 +64,12 @@
             Npm.WithLogLevel(NpmLogLevel.Silly).Install(settings => settings.Package("gulp"));
 
         });
+
+    Task("Npm-RunScript")
+        .Does(() =>
+        {
+            Npm.Pack();
+        });
 ```
 
 ## Scope
