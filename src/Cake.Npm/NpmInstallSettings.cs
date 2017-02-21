@@ -1,8 +1,8 @@
+using Cake.Core;
+using Cake.Core.IO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Cake.Core;
-using Cake.Core.IO;
 
 namespace Cake.Npm
 {
@@ -33,6 +33,7 @@ namespace Cake.Npm
 
             if (Global) args.Append("--global");
             if (Production) args.Append("--production");
+            if (DisableNpmProxy) args.Append("--no-proxy");
         }
 
         /// <summary>
@@ -42,7 +43,7 @@ namespace Cake.Npm
         /// <returns></returns>
         public NpmInstallSettings Package(Uri url)
         {
-            if(!url.IsAbsoluteUri) throw new UriFormatException("must be to an absolute url to package");
+            if (!url.IsAbsoluteUri) throw new UriFormatException("must be to an absolute url to package");
             _packages.Clear();
             _packages.Add(url.AbsoluteUri);
             return this;
@@ -70,7 +71,7 @@ namespace Cake.Npm
                 if (!scope.StartsWith("@")) throw new ArgumentException("scope should start with @");
                 packageName = !string.IsNullOrWhiteSpace(scope) ? $"{scope}/{packageName}" : packageName;
             }
-            
+
             _packages.Add(packageName);
             return this;
         }
@@ -85,7 +86,7 @@ namespace Cake.Npm
             Global = enabled;
             return this;
         }
-        
+
         /// <summary>
         /// Applies the --production parameter (can not be set when installing individual packages
         /// </summary>
@@ -93,10 +94,22 @@ namespace Cake.Npm
         /// <returns></returns>
         public NpmInstallSettings ForProduction(bool enabled = true)
         {
-            if(_packages.Any()) throw new ArgumentException("cant specify production flag when installing individual packages");
+            if (_packages.Any()) throw new ArgumentException("cant specify production flag when installing individual packages");
             Production = enabled;
             return this;
         }
+
+        /// <summary>
+        /// Applies the --no-proxy parameter
+        /// </summary>
+        /// <param name="enabled"></param>
+        /// <returns></returns>
+        public NpmInstallSettings NoProxy(bool enabled = true)
+        {
+            DisableNpmProxy = enabled;
+            return this;
+        }
+
 
         /// <summary>
         /// List of packages to install
@@ -110,6 +123,10 @@ namespace Cake.Npm
         /// --production
         /// </summary>
         public bool Production { get; internal set; }
+        /// <summary>
+        /// --no-proxy
+        /// </summary>
+        public bool DisableNpmProxy { get; internal set; }
 
     }
 }
