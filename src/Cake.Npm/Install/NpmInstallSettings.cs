@@ -40,19 +40,13 @@
         /// <summary>
         /// Gets the list of packages which should be installed.
         /// </summary>
-        public IList<string> Packages
-        {
-            get
-            {
-                return _packages;
-            }
-        }
+        public IList<string> Packages => _packages;
 
         /// <summary>
         /// Install a package from a specific url.
         /// </summary>
         /// <param name="url">Url to directory containing package.json (see npm docs)</param>
-        public void AddPackage(Uri url)
+        public NpmInstallSettings AddPackage(Uri url)
         {
             if (!url.IsAbsoluteUri)
             {
@@ -60,20 +54,21 @@
             }
 
             _packages.Add(url.AbsoluteUri);
+            return this;
         }
 
         /// <summary>
         /// Install a package by name, version/tag.
         /// </summary>
         /// <param name="packageName">Name of the package.</param>
-        public void AddPackage(string packageName)
+        public NpmInstallSettings AddPackage(string packageName)
         {
             if (string.IsNullOrWhiteSpace(packageName))
             {
                 throw new ArgumentNullException(nameof(packageName));
             }
 
-            AddPackage(packageName, null, null);
+            return AddPackage(packageName, null, null);
         }
 
         /// <summary>
@@ -81,7 +76,7 @@
         /// </summary>
         /// <param name="packageName">Name of the package.</param>
         /// <param name="versionOrTag">Version or tag published to the registry.</param>
-        public void AddPackage(string packageName, string versionOrTag)
+        public NpmInstallSettings AddPackage(string packageName, string versionOrTag)
         {
             if (string.IsNullOrWhiteSpace(packageName))
             {
@@ -93,7 +88,7 @@
                 throw new ArgumentNullException(nameof(versionOrTag));
             }
 
-            AddPackage(packageName, null, versionOrTag);
+            return AddPackage(packageName, null, versionOrTag);
         }
 
         /// <summary>
@@ -101,7 +96,7 @@
         /// </summary>
         /// <param name="packageName">Name of the package.</param>
         /// <param name="scope">Scope of the package.</param>
-        public void AddScopedPackage(string packageName, string scope)
+        public NpmInstallSettings AddScopedPackage(string packageName, string scope)
         {
             if (string.IsNullOrWhiteSpace(packageName))
             {
@@ -113,7 +108,7 @@
                 throw new ArgumentNullException(nameof(scope));
             }
 
-            AddPackage(packageName, scope, null);
+            return AddPackage(packageName, scope, null);
         }
 
         /// <summary>
@@ -122,7 +117,7 @@
         /// <param name="packageName">Name of the package.</param>
         /// <param name="scope">Scope of the package. Null for not restricting to a scope.</param>
         /// <param name="versionOrTag">Version or tag published to the registry. Null for latest version.</param>
-        public void AddPackage(string packageName, string scope, string versionOrTag)
+        public NpmInstallSettings AddPackage(string packageName, string scope, string versionOrTag)
         {
             var resolvedPackageName = packageName;
 
@@ -148,6 +143,7 @@
             }
 
             _packages.Add(resolvedPackageName);
+            return this;
         }
 
         /// <summary>

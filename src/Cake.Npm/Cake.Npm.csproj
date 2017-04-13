@@ -47,13 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddinInformation.cs" />
     <Compile Include="Install\NpmInstaller.cs" />
     <Compile Include="Install\NpmInstallSettings.cs" />
     <Compile Include="NpmLogLevel.cs" />
     <Compile Include="..\VersionAssemblyInfo.cs">
       <Link>Properties\VersionAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="NpmAliases.cs" />
+    <Compile Include="NpmInstallAliases.cs" />
+    <Compile Include="NpmPackAliases.cs" />
+    <Compile Include="NpmRunScriptAliases.cs" />
     <Compile Include="NpmSettings.cs" />
     <Compile Include="NpmTool.cs" />
     <Compile Include="Pack\NpmPacker.cs" />

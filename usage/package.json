@@ -9,5 +9,11 @@
     "arguments": "echo Arguments are appended onto the script command like so: "
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "left-pad": "^1.1.3"
+  },
+  "devDependencies": {
+    "gulp" : "^3.9.1"
+  }
 }
