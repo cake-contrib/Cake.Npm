@@ -1,9 +1,9 @@
-﻿namespace Cake.Npm.Tests.Pack
-{
-    using Core.Diagnostics;
-    using System;
-    using Xunit;
+﻿using System;
+using Cake.Core.Diagnostics;
+using Xunit;
 
+namespace Cake.Npm.Tests.Install
+{
     public class NpmInstallerTests
     {
         public sealed class TheInstallMethod

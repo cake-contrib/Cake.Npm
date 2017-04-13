@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Npm", "src\Cake.Npm\Cake.Npm.csproj", "{6AD0659E-11CA-44DD-89B8-D02769E31AFE}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7ADA99C9-D5AA-49DB-B197-AC014206BF2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Npm.Tests", "src\Cake.Npm.Tests\Cake.Npm.Tests.csproj", "{72AE40AF-1DD9-426F-AD33-75F2DF1EA022}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C435F99A-0477-4620-9231-4C63CEFCF89D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Npm.Tests", "tests\Cake.Npm.Tests\Cake.Npm.Tests.csproj", "{2A169499-69CA-41CA-ACDE-C9DBADBBB333}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Npm", "src\Cake.Npm\Cake.Npm.csproj", "{3B9296B0-A676-4AC2-ACA7-92675916243C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,20 +17,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6AD0659E-11CA-44DD-89B8-D02769E31AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6AD0659E-11CA-44DD-89B8-D02769E31AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6AD0659E-11CA-44DD-89B8-D02769E31AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6AD0659E-11CA-44DD-89B8-D02769E31AFE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{72AE40AF-1DD9-426F-AD33-75F2DF1EA022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72AE40AF-1DD9-426F-AD33-75F2DF1EA022}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72AE40AF-1DD9-426F-AD33-75F2DF1EA022}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72AE40AF-1DD9-426F-AD33-75F2DF1EA022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A169499-69CA-41CA-ACDE-C9DBADBBB333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A169499-69CA-41CA-ACDE-C9DBADBBB333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A169499-69CA-41CA-ACDE-C9DBADBBB333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A169499-69CA-41CA-ACDE-C9DBADBBB333}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B9296B0-A676-4AC2-ACA7-92675916243C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B9296B0-A676-4AC2-ACA7-92675916243C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B9296B0-A676-4AC2-ACA7-92675916243C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B9296B0-A676-4AC2-ACA7-92675916243C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{6AD0659E-11CA-44DD-89B8-D02769E31AFE} = {7ADA99C9-D5AA-49DB-B197-AC014206BF2A}
-		{72AE40AF-1DD9-426F-AD33-75F2DF1EA022} = {7ADA99C9-D5AA-49DB-B197-AC014206BF2A}
+		{2A169499-69CA-41CA-ACDE-C9DBADBBB333} = {C435F99A-0477-4620-9231-4C63CEFCF89D}
+		{3B9296B0-A676-4AC2-ACA7-92675916243C} = {7ADA99C9-D5AA-49DB-B197-AC014206BF2A}
 	EndGlobalSection
 EndGlobal

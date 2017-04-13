@@ -1,7 +1,7 @@
-﻿namespace Cake.Npm.Tests.Pack
-{
-    using Npm.Install;
+﻿using Cake.Npm.Install;
 
+namespace Cake.Npm.Tests.Install
+{
     internal sealed class NpmInstallerFixture : NpmFixture<NpmInstallSettings>
     {
         public NpmInstallerFixture()

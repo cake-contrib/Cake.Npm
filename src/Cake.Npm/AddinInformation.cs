@@ -8,9 +8,9 @@ namespace Cake.Npm
     /// </summary>
     internal static class AddinInformation
     {
-        private static readonly string InformationalVersion = typeof(AddinInformation).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
-        private static readonly string AssemblyVersion = typeof(AddinInformation).Assembly.GetName().Version.ToString();
-        private static readonly string AssemblyName = typeof(AddinInformation).Assembly.GetName().Name;
+        private static readonly string InformationalVersion = typeof(AddinInformation).GetTypeInfo().Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+        private static readonly string AssemblyVersion = typeof(AddinInformation).GetTypeInfo().Assembly.GetName().Version.ToString();
+        private static readonly string AssemblyName = typeof(AddinInformation).GetTypeInfo().Assembly.GetName().Name;
 
         /// <summary>
         /// verbosely log addin version information

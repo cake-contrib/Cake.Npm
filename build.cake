@@ -1,63 +1,51 @@
-#tool "xunit.runner.console"
 #tool "GitVersion.CommandLine"
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
 
-var target = Argument("target", "Default");
-var configuration = Argument("configuration", "Release");
+var target                  = Argument("target", "Default");
+var configuration           = Argument("configuration", "Release");
+var solutionPath            = MakeAbsolute(File(Argument("solutionPath", "./Cake.Npm.sln")));
 
 //////////////////////////////////////////////////////////////////////
 // PREPARATION
 //////////////////////////////////////////////////////////////////////
 
-var solutionPath            = MakeAbsolute(File(Argument("solutionPath", "Cake.Npm.sln")));
-var projectName             = Argument("projectName", "Cake.Npm");
+var testAssemblies          = "./tests/**/bin/" +configuration +"/*.Tests.dll";
 
 var artifacts               = MakeAbsolute(Directory(Argument("artifactPath", "./artifacts")));
-var testResultsPath         = MakeAbsolute(Directory(artifacts + "./test-results"));
-var versionAssemblyInfo     = MakeAbsolute(File(Argument("versionAssemblyInfo", "./src/VersionAssemblyInfo.cs")));
-var testAssemblies          = new List<FilePath> { 
-                                MakeAbsolute(File("./src/Cake.Npm.Tests/bin/" + configuration + "/Cake.Npm.Tests.dll"))
-                              };
+var versionAssemblyInfo     = MakeAbsolute(File(Argument("versionAssemblyInfo", "VersionAssemblyInfo.cs")));
 
-SolutionParserResult solution        = null;
-SolutionProject project              = null;
-GitVersion versionInfo               = null;
+IEnumerable<FilePath> nugetProjectPaths     = null;
+SolutionParserResult solution               = null;
+GitVersion versionInfo                      = null;
 
 //////////////////////////////////////////////////////////////////////
 // TASKS
 //////////////////////////////////////////////////////////////////////
 
 Setup(ctx => {
-    CreateDirectory(artifacts);
-    
     if(!FileExists(solutionPath)) throw new Exception(string.Format("Solution file not found - {0}", solutionPath.ToString()));
     solution = ParseSolution(solutionPath.ToString());
-    project = solution.Projects.FirstOrDefault(x => x.Name == projectName);
-    if(project == null || !FileExists(project.Path)) throw new Exception(string.Format("Project not found in solution - {0}", projectName));
-});
 
-Task("Clean")
-    .Does(() =>
-{
-    CleanDirectory(artifacts);
+    Information("[Setup] Using Solution '{0}'", solutionPath.ToString());
+
+    if(DirectoryExists(artifacts)) 
+    {
+        DeleteDirectory(artifacts, true);
+    }
+    
+    EnsureDirectoryExists(artifacts);
+    
     var binDirs = GetDirectories(solutionPath.GetDirectory() +@"\src\**\bin");
     var objDirs = GetDirectories(solutionPath.GetDirectory() +@"\src\**\obj");
-    CleanDirectories(binDirs);
-    CleanDirectories(objDirs);
-});
-
-Task("Restore-NuGet-Packages")
-    .IsDependentOn("Clean")
-    .Does(() =>
-{
-    NuGetRestore(solutionPath, new NuGetRestoreSettings());
+    DeleteDirectories(binDirs, true);
+    DeleteDirectories(objDirs, true);
 });
 
 Task("Update-Version-Info")
-    .IsDependentOn("CreateVersionAssemblyInfo")
+    .IsDependentOn("Create-Version-Info")
     .Does(() => 
 {
         versionInfo = GitVersion(new GitVersionSettings {
@@ -72,109 +60,133 @@ Task("Update-Version-Info")
     }
 });
 
-Task("CreateVersionAssemblyInfo")
+Task("Create-Version-Info")
     .WithCriteria(() => !FileExists(versionAssemblyInfo))
     .Does(() =>
 {
     Information("Creating version assembly info");
     CreateAssemblyInfo(versionAssemblyInfo, new AssemblyInfoSettings {
-        Version = "0.0.0.1",
-        FileVersion = "0.0.0.1",
+        Version = "0.0.0.0",
+        FileVersion = "0.0.0.0",
         InformationalVersion = "",
     });
 });
 
-Task("Build")
-    .IsDependentOn("Restore-NuGet-Packages")
+Task("DotNet-MsBuild-Restore")
     .IsDependentOn("Update-Version-Info")
-    .Does(() =>
-{
-    MSBuild(solutionPath, settings => settings
-        .WithProperty("TreatWarningsAsErrors","true")
-        .WithProperty("UseSharedCompilation", "false")
-        .WithProperty("AutoParameterizationWebConfigConnectionStrings", "false")
-        .SetVerbosity(Verbosity.Quiet)
-        .SetConfiguration(configuration)
-        .WithTarget("Rebuild")
+    .Does(() => {
+
+        MSBuild(solutionPath, c => c
+            .SetConfiguration(configuration)
+            .SetVerbosity(Verbosity.Minimal)
+            .UseToolVersion(MSBuildToolVersion.VS2017)
+            .WithTarget("Restore")
+        );
+});
+
+Task("DotNet-MsBuild")
+    .IsDependentOn("Restore")
+    .Does(() => {
+
+        MSBuild(solutionPath, c => c
+            .SetConfiguration(configuration)
+            .SetVerbosity(Verbosity.Minimal)
+            .UseToolVersion(MSBuildToolVersion.VS2017)
+            .WithProperty("TreatWarningsAsErrors", "true")
+            .WithTarget("Build")
+        );
+
+});
+
+Task("DotNet-MsBuild-Pack")
+    .IsDependentOn("Build")
+    .Does(() => {
+
+        MSBuild("src/Cake.Npm/Cake.Npm.csproj", c => c
+            .SetConfiguration(configuration)
+            .SetVerbosity(Verbosity.Normal)
+            .UseToolVersion(MSBuildToolVersion.VS2017)
+            .WithProperty("PackageVersion", versionInfo.NuGetVersionV2)
+            .WithProperty("NoBuild", "true")
+            .WithTarget("Pack")
     );
 });
 
-Task("Copy-Files")
-    .IsDependentOn("Build")
-    .Does(() => 
-{
-    CreateDirectory(artifacts + "/build");
-    var files = GetFiles(project.Path.GetDirectory() +"/bin/" +configuration +"/" +project.Name +".*");
-    CopyFiles(files, artifacts +"/build");
+Task("DotNet-MsBuild-CopyToArtifacts")
+    .IsDependentOn("DotNet-MsBuild-Pack")
+    .Does(() => {
+
+        EnsureDirectoryExists(artifacts);
+        CopyFiles("src/Cake.Npm/bin/" +configuration +"/*.nupkg", artifacts);
 });
 
-Task("Package")
-    .IsDependentOn("Clean")
-    .IsDependentOn("Restore-NuGet-Packages")
-    .IsDependentOn("Update-Version-Info")
-    .IsDependentOn("Copy-Files")
-    .Does(() =>
-{
-    CreateDirectory(Directory(artifacts +"/packages"));
-
-    var nuspec = project.Path.GetDirectory() +"/" +project.Name +".nuspec";
-    Information("Packing: {0}", nuspec);
-    NuGetPack(nuspec, new NuGetPackSettings {
-        BasePath = artifacts +"/build",
-        NoPackageAnalysis = false,
-        Version = versionInfo.NuGetVersionV2,
-        OutputDirectory = Directory(artifacts +"/packages"),
-        Properties = new Dictionary<string, string>() { { "Configuration", configuration } }
-    });
-});
-
-Task("Run-Unit-Tests")
+Task("DotNet-Test")
     .IsDependentOn("Build")
-    .Does(() =>
-{
-    CreateDirectory(testResultsPath);
+    .Does(() => {
 
-    var settings = new XUnit2Settings {
-        XmlReportV1 = true,
-        NoAppDomain = true,
-        OutputDirectory = testResultsPath,
+    var settings = new DotNetCoreTestSettings
+    {
+        Configuration = configuration,
+        NoBuild = true
     };
-    settings.ExcludeTrait("Category", "Integration");
-    
-    XUnit2(testAssemblies, settings);
+
+    DotNetCoreTest("tests/Cake.Npm.Tests/Cake.Npm.Tests.csproj", settings);
 });
 
-Task("Update-AppVeyor-Build-Number")
+Task("AppVeyor-Update-Build-Number")
     .IsDependentOn("Update-Version-Info")
     .WithCriteria(() => AppVeyor.IsRunningOnAppVeyor)
     .Does(() =>
 {
-    AppVeyor.UpdateBuildVersion(versionInfo.FullSemVer +" | " +AppVeyor.Environment.Build.Number);
+    AppVeyor.UpdateBuildVersion(versionInfo.FullSemVer +"|" +AppVeyor.Environment.Build.Number);
 });
 
-Task("Upload-AppVeyor-Artifacts")
+Task("Appveyor-Upload-Artifacts")
     .IsDependentOn("Package")
     .WithCriteria(() => AppVeyor.IsRunningOnAppVeyor)
     .Does(() =>
 {
-    foreach(var nupkg in GetFiles(artifacts +"/packages/*.nupkg")) {
+    foreach(var nupkg in GetFiles(artifacts +"/*.nupkg")) {
         AppVeyor.UploadArtifact(nupkg);
     }
 });
+
+Task("Appveyor")
+    .WithCriteria(() => AppVeyor.IsRunningOnAppVeyor)
+    .IsDependentOn("AppVeyor-Update-Build-Number")
+    .IsDependentOn("AppVeyor-Upload-Artifacts");
+
+// ************************** //
+
+Task("Restore")
+    .IsDependentOn("DotNet-MsBuild-Restore");
+
+Task("Build")
+    .IsDependentOn("Restore")
+    .IsDependentOn("DotNet-MsBuild");
+
+Task("Test")
+    .IsDependentOn("Build")
+    .IsDependentOn("DotNet-Test");
+
+Task("Package")
+    .IsDependentOn("Build")
+    .IsDependentOn("DotNet-MsBuild-CopyToArtifacts")
+    .IsDependentOn("DotNet-MsBuild-Pack");
+
+Task("CI")
+    .IsDependentOn("AppVeyor")
+    .IsDependentOn("Default");
 
 //////////////////////////////////////////////////////////////////////
 // TASK TARGETS
 //////////////////////////////////////////////////////////////////////
 
 Task("Default")
-    .IsDependentOn("Update-Version-Info")
-    .IsDependentOn("Update-AppVeyor-Build-Number")
+    .IsDependentOn("Restore")
     .IsDependentOn("Build")
-    .IsDependentOn("Copy-Files")
-    .IsDependentOn("Run-Unit-Tests")
-    .IsDependentOn("Package")
-    .IsDependentOn("Upload-AppVeyor-Artifacts")
-    ;
+    .IsDependentOn("Test")
+    .IsDependentOn("Package");
 
 //////////////////////////////////////////////////////////////////////
 // EXECUTION
