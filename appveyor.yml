@@ -8,3 +8,15 @@ cache:
 build_script:
 - ps: .\build.ps1 -Target "Default" -Verbosity "Normal" -Configuration "Release"
 test: off
+deploy:
+- provider: NuGet
+  api_key:
+    secure: R+oqBa74nVzonv3kh/1ab8t3cEQ1qwXGTfLSODtTku6Cirj0uJvH5GBci9TKgcZj
+  on:
+    branch: /release\/.+/
+- provider: NuGet
+  api_key:
+    secure: R+oqBa74nVzonv3kh/1ab8t3cEQ1qwXGTfLSODtTku6Cirj0uJvH5GBci9TKgcZj
+  on:
+    branch: master
+    APPVEYOR_REPO_TAG: /.+/
