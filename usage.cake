@@ -1,4 +1,5 @@
-#r "artifacts/build/Cake.Npm.dll"
+// #r "artifacts/build/Cake.Npm.dll"
+#addin "nuget:?package=Cake.Npm&prerelease"
 
 var target = Argument("target", "Default");
 
@@ -18,7 +19,7 @@ Task("Example").Does(() => {
 Task("PackageJsonFromDirectory").Does(() => {
         var settings = new NpmInstallSettings();
         
-        settings.LogLevel = NpmLogLevel.Info;gs
+        settings.LogLevel = NpmLogLevel.Info;
         
         settings.WorkingDirectory = "usage/";
         settings.Production = true;
