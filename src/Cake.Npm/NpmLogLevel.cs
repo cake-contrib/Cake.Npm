@@ -26,6 +26,11 @@ namespace Cake.Npm
         Info,
 
         /// <summary>
+        /// --loglevel error
+        /// </summary>
+        Error,
+
+        /// <summary>
         /// -dd or --loglevel verbose
         /// </summary>
         Verbose,
@@ -33,6 +38,11 @@ namespace Cake.Npm
         /// <summary>
         /// -ddd or --loglevel silly
         /// </summary>
-        Silly
+        Silly,
+
+        /// <summary>
+        /// --loglevel http
+        /// </summary>
+        Http
     }
 }

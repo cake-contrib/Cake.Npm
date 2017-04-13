@@ -213,6 +213,8 @@
             [InlineData(NpmLogLevel.Silly, "install --loglevel silly")]
             [InlineData(NpmLogLevel.Verbose, "install --loglevel verbose")]
             [InlineData(NpmLogLevel.Warn, "install --warn")]
+            [InlineData(NpmLogLevel.Error, "install --loglevel error")]
+            [InlineData(NpmLogLevel.Http, "install --loglevel http")]
             public void Should_Add_LogLevel_To_Arguments_If_Not_Null(
                 NpmLogLevel logLevel,
                 string expected)

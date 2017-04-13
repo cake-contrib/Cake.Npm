@@ -81,6 +81,12 @@
                 case NpmLogLevel.Silly:
                     args.Append("--loglevel silly");
                     break;
+                case NpmLogLevel.Error:
+                    args.Append("--loglevel error");
+                    break;
+                case NpmLogLevel.Http:
+                    args.Append("--loglevel http");
+                    break;
             }
         }
 
