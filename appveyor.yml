@@ -6,7 +6,7 @@ cache:
 - packages -> src\**\packages.config
 - tools -> tools\packages.config
 build_script:
-- ps: .\build.ps1 -Target "Default" -Verbosity "Normal" -Configuration "Release"
+- ps: .\build.ps1 -Target "CI" -Verbosity "Normal" -Configuration "Release"
 test: off
 deploy:
 - provider: NuGet
