@@ -1,7 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Cake.Core;
 using Cake.Core.Annotations;
-using Cake.Npm.Pack;
+using Cake.Npm.RunScript;
 
 namespace Cake.Npm
 {
@@ -12,79 +13,107 @@ namespace Cake.Npm
     [CakeNamespaceImport("Cake.Npm.RunScript")]
     public static class NpmRunScriptAliases
     {
+
         /// <summary>
-        /// Creates a npm package from the current folder.
+        /// Runs a npm script defined in the package.json from the current folder.
         /// </summary>
         /// <param name="context">The context.</param>
+        /// <param name="scriptName">Name of the script to execute as defined in package.json.</param>
         /// <example>
         /// <code>
         /// <![CDATA[
-        ///     NpmPack();
+        ///     NpmRunScript("hello");
         /// ]]>
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        [CakeAliasCategory("Pack")]
-        public static void NpmPack(this ICakeContext context)
+        [CakeAliasCategory("Run-Script")]
+        public static void NpmRunScript(this ICakeContext context, string scriptName)
         {
             if (context == null)
             {
                 throw new ArgumentNullException(nameof(context));
             }
 
-            context.NpmPack(new NpmPackSettings());
+            if (String.IsNullOrWhiteSpace(scriptName))
+            {
+                throw new ArgumentNullException(nameof(scriptName));
+            }
+
+            context.NpmRunScript(
+                new NpmRunScriptSettings
+                {
+                    ScriptName = scriptName
+                });
         }
 
         /// <summary>
-        /// Creates a npm package from a specific source.
+        /// Runs a npm script defined in the package.json from the current folder with specific arguments.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="source">Source to pack. Can be anything that is installable by npm, like
-        /// a package folder, tarball, tarball url, name@tag, name@version, name, or scoped name.</param>
+        /// <param name="scriptName">Name of the script to execute as defined in package.json.</param>
+        /// <param name="arguments">Arguments to pass to the target script</param>
         /// <example>
         /// <code>
         /// <![CDATA[
-        ///     NpmPack("c:\mypackagesource");
+        ///     NpmRunScript("hello", new List<string> { "--foo=bar" });
         /// ]]>
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        [CakeAliasCategory("Pack")]
-        public static void NpmPack(this ICakeContext context, string source)
+        [CakeAliasCategory("Run-Script")]
+        public static void NpmRunScript(this ICakeContext context, string scriptName, IEnumerable<string> arguments)
         {
             if (context == null)
             {
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (String.IsNullOrWhiteSpace(source))
+            if (String.IsNullOrWhiteSpace(scriptName))
             {
-                throw new ArgumentNullException(nameof(source));
+                throw new ArgumentNullException(nameof(scriptName));
             }
 
-            context.NpmPack(new NpmPackSettings { Source = source });
+            if (arguments == null)
+            {
+                throw new ArgumentNullException(nameof(arguments));
+            }
+
+            var settings = new NpmRunScriptSettings
+            {
+                ScriptName = scriptName
+            };
+
+            foreach (var argument in arguments)
+            {
+                settings.Arguments.Add(argument);
+            }
+
+            context.NpmRunScript(settings);
         }
 
         /// <summary>
-        /// Creates a npm package using the specified settings.
+        /// Runs a npm script with the specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
         /// <example>
+        /// <para>Use specific log level</para>
         /// <code>
         /// <![CDATA[
         ///     var settings = 
-        ///         new NpmPackSettings 
+        ///         new NpmRunScriptSettings 
         ///         {
+        ///             ScriptName = "hello"
         ///             LogLevel = NpmLogLevel.Verbose
         ///         };
-        ///     NpmPack(settings);
+        ///     NpmRunScript(settings);
         /// ]]>
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        [CakeAliasCategory("Pack")]
-        public static void NpmPack(this ICakeContext context, NpmPackSettings settings)
+        [CakeAliasCategory("Run-Script")]
+        public static void NpmRunScript(this ICakeContext context, NpmRunScriptSettings settings)
         {
             if (context == null)
             {
@@ -98,8 +127,8 @@ namespace Cake.Npm
 
             AddinInformation.LogVersionInformation(context.Log);
 
-            var packer = new NpmPacker(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);
-            packer.Pack(settings);
+            var packer = new NpmScriptRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);
+            packer.RunScript(settings);
         }
     }
 }
