@@ -63,14 +63,14 @@
                 // Then
                 Assert.Equal("run-script \"hello\" -- --foo=bar", result.Args);
             }
-
+            
             [Theory]
             [InlineData(NpmLogLevel.Default, "run-script \"hello\"")]
-            [InlineData(NpmLogLevel.Info, "run-script \"hello\" --loglevel info")]
-            [InlineData(NpmLogLevel.Silent, "run-script \"hello\" --silent")]
-            [InlineData(NpmLogLevel.Silly, "run-script \"hello\" --loglevel silly")]
-            [InlineData(NpmLogLevel.Verbose, "run-script \"hello\" --loglevel verbose")]
-            [InlineData(NpmLogLevel.Warn, "run-script \"hello\" --warn")]
+            [InlineData(NpmLogLevel.Info, "run-script --loglevel info \"hello\"")]
+            [InlineData(NpmLogLevel.Silent, "run-script --silent \"hello\"")]
+            [InlineData(NpmLogLevel.Silly, "run-script --loglevel silly \"hello\"")]
+            [InlineData(NpmLogLevel.Verbose, "run-script --loglevel verbose \"hello\"")]
+            [InlineData(NpmLogLevel.Warn, "run-script --warn \"hello\"")]
             public void Should_Add_LogLevel_To_Arguments_If_Not_Null(
                 NpmLogLevel logLevel, 
                 string expected)
@@ -88,11 +88,11 @@
             }
 
             [Theory]
-            [InlineData(Verbosity.Diagnostic, "run-script \"hello\" --loglevel verbose")]
-            [InlineData(Verbosity.Minimal, "run-script \"hello\" --warn")]
+            [InlineData(Verbosity.Diagnostic, "run-script --loglevel verbose \"hello\"")]
+            [InlineData(Verbosity.Minimal, "run-script --warn \"hello\"")]
             [InlineData(Verbosity.Normal, "run-script \"hello\"")]
-            [InlineData(Verbosity.Quiet, "run-script \"hello\" --silent")]
-            [InlineData(Verbosity.Verbose, "run-script \"hello\" --loglevel info")]
+            [InlineData(Verbosity.Quiet, "run-script --silent \"hello\"")]
+            [InlineData(Verbosity.Verbose, "run-script --loglevel info \"hello\"")]
             public void Should_Use_Cake_LogLevel_If_LogLevel_Is_Set_To_Default(
                 Verbosity verbosity,
                 string expected)
