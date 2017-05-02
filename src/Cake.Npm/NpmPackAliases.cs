@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Cake.Core;
 using Cake.Core.Annotations;
+using Cake.Core.IO;
 using Cake.Npm.Pack;
 
 namespace Cake.Npm
@@ -25,14 +27,14 @@ namespace Cake.Npm
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory("Pack")]
-        public static void NpmPack(this ICakeContext context)
+        public static IEnumerable<FilePath> NpmPack(this ICakeContext context)
         {
             if (context == null)
             {
                 throw new ArgumentNullException(nameof(context));
             }
 
-            context.NpmPack(new NpmPackSettings());
+            return context.NpmPack(new NpmPackSettings());
         }
 
         /// <summary>
@@ -50,7 +52,7 @@ namespace Cake.Npm
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory("Pack")]
-        public static void NpmPack(this ICakeContext context, string source)
+        public static IEnumerable<FilePath> NpmPack(this ICakeContext context, string source)
         {
             if (context == null)
             {
@@ -62,7 +64,7 @@ namespace Cake.Npm
                 throw new ArgumentNullException(nameof(source));
             }
 
-            context.NpmPack(new NpmPackSettings { Source = source });
+            return context.NpmPack(new NpmPackSettings { Source = source });
         }
 
         /// <summary>
@@ -115,7 +117,7 @@ namespace Cake.Npm
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory("Pack")]
-        public static void NpmPack(this ICakeContext context, NpmPackSettings settings)
+        public static IEnumerable<FilePath> NpmPack(this ICakeContext context, NpmPackSettings settings)
         {
             if (context == null)
             {
@@ -130,7 +132,7 @@ namespace Cake.Npm
             AddinInformation.LogVersionInformation(context.Log);
 
             var packer = new NpmPacker(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);
-            packer.Pack(settings);
+            return packer.Pack(settings);
         }
     }
 }
