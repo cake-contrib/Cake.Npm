@@ -23,7 +23,7 @@ Task("Example").Does(() => {
 Task("PackageJsonFromDirectory").Does(() => {
         var settings = new NpmInstallSettings();
 
-        settings.LogLevel = NpmLogLevel.Info;gs
+        settings.LogLevel = NpmLogLevel.Info;
         settings.WorkingDirectory = "usage/";
         settings.Production = true;
 
