@@ -54,11 +54,14 @@
                 settings,
                 processSettings,
                 process => {
-                    var output = process.GetStandardOutput();
-                    if (output != null)
+                    if (process.GetExitCode() == 0)
                     {
-                        packages.AddRange(
-                            output.Select(x => GetWorkingDirectory(settings).GetFilePath(new FilePath(x))));
+                        var output = process.GetStandardOutput();
+                        if (output != null)
+                        {
+                            packages.AddRange(
+                                output.Select(x => GetWorkingDirectory(settings).GetFilePath(new FilePath(x))));
+                        }
                     }
                 });
 
