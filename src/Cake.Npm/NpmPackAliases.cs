@@ -15,9 +15,11 @@ namespace Cake.Npm
     public static class NpmPackAliases
     {
         /// <summary>
-        /// Creates a npm package from the current folder.
+        /// Creates a npm package from the current working directory.
+        /// Package will be created in the current working directory.
         /// </summary>
         /// <param name="context">The context.</param>
+        /// <returns>List of created packages.</returns>
         /// <example>
         /// <code>
         /// <![CDATA[
@@ -39,10 +41,12 @@ namespace Cake.Npm
 
         /// <summary>
         /// Creates a npm package from a specific source.
+        /// Package will be created in the current working directory.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="source">Source to pack. Can be anything that is installable by npm, like
         /// a package folder, tarball, tarball url, name@tag, name@version, name, or scoped name.</param>
+        /// <returns>List of created packages.</returns>
         /// <example>
         /// <code>
         /// <![CDATA[
@@ -100,9 +104,11 @@ namespace Cake.Npm
 
         /// <summary>
         /// Creates a npm package using the specified settings.
+        /// Package will be created in the current working directory.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
+        /// <returns>List of created packages.</returns>
         /// <example>
         /// <code>
         /// <![CDATA[
