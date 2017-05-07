@@ -93,6 +93,44 @@ namespace Cake.Npm
         }
 
         /// <summary>
+        /// Runs a npm script using the settings returned by a configurator.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="scriptName">Name of the script to execute as defined in package.json.</param>
+        /// <param name="configurator">The settings configurator.</param>
+        /// <example>
+        /// <para>Use specific log level</para>
+        /// <code>
+        /// <![CDATA[
+        ///     NpmRunScript("hello", settings => settings.WithLogLevel(NpmLogLevel.Verbose));
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Run-Script")]
+        public static void NpmRunScript(this ICakeContext context, string scriptName, Action<NpmRunScriptSettings> configurator)
+        {
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
+            if (String.IsNullOrWhiteSpace(scriptName))
+            {
+                throw new ArgumentNullException(nameof(scriptName));
+            }
+
+            if (configurator == null)
+            {
+                throw new ArgumentNullException(nameof(configurator));
+            }
+
+            var settings = new NpmRunScriptSettings { ScriptName = scriptName };
+            configurator(settings);
+            context.NpmRunScript(settings);
+        }
+
+        /// <summary>
         /// Runs a npm script with the specified settings.
         /// </summary>
         /// <param name="context">The context.</param>

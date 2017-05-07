@@ -66,6 +66,37 @@ namespace Cake.Npm
         }
 
         /// <summary>
+        /// Creates a npm package using the settings returned by a configurator.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="configurator">The settings configurator.</param>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        ///     NpmPack(settings => settings.WithLogLevel(NpmLogLevel.Verbose));
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Pack")]
+        public static void NpmPack(this ICakeContext context, Action<NpmPackSettings> configurator)
+        {
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
+            if (configurator == null)
+            {
+                throw new ArgumentNullException(nameof(configurator));
+            }
+
+            var settings = new NpmPackSettings();
+            configurator(settings);
+            context.NpmPack(settings);
+        }
+
+        /// <summary>
         /// Creates a npm package using the specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
