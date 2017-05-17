@@ -13,7 +13,6 @@
         /// exists on disk.
         /// </summary>
         /// <param name="settings">The settings.</param>
-        /// <param name="value">Value which should be set.</param>
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.Force"/> set to <c>true</c>.</returns>
         public static NpmInstallSettings WithForce(this NpmInstallSettings settings)
         {
@@ -29,7 +28,6 @@
         /// Defines tht npm should not fetch remote resources if a local copy exists on disk.
         /// </summary>
         /// <param name="settings">The settings.</param>
-        /// <param name="value">Value which should be set.</param>
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.Force"/> set to <c>false</c>.</returns>
         public static NpmInstallSettings WithoutForce(this NpmInstallSettings settings)
         {
