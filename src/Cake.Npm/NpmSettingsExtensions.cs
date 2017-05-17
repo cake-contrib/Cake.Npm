@@ -31,7 +31,7 @@
         /// </summary>
         /// <param name="settings">The settings.</param>
         /// <param name="path">Working directory which should be used to run the npm command.</param>
-        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmSettings.WorkingDirectory"/> set to <paramref name="path"/>.</returns>
+        /// <returns>The <paramref name="settings"/> instance with <see cref="Core.Tooling.ToolSettings.WorkingDirectory"/> set to <paramref name="path"/>.</returns>
         public static NpmSettings FromPath(this NpmSettings settings, DirectoryPath path)
         {
             if (settings == null)
