@@ -96,7 +96,7 @@
         /// </summary>
         /// <param name="settings">The settings.</param>
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.Production"/> set to <c>true</c>.</returns>
-        public static NpmInstallSettings OnProduction(this NpmInstallSettings settings)
+        public static NpmInstallSettings ForProduction(this NpmInstallSettings settings)
         {
             if (settings == null)
             {

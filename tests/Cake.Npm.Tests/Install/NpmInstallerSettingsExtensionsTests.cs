@@ -119,7 +119,7 @@
             }
         }
 
-        public sealed class TheOnProductionMethod
+        public sealed class TheForProductionMethod
         {
             [Fact]
             public void Should_Throw_If_Settings_Are_Null()
@@ -128,7 +128,7 @@
                 NpmInstallSettings settings = null;
 
                 // When
-                var result = Record.Exception(() => settings.OnProduction());
+                var result = Record.Exception(() => settings.ForProduction());
 
                 // Then
                 result.IsArgumentNullException("settings");
@@ -140,7 +140,7 @@
                 var settings = new NpmInstallSettings();
 
                 // When
-                settings.OnProduction();
+                settings.ForProduction();
 
                 // Then
                 settings.Production.ShouldBe(true);
