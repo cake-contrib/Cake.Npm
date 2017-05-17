@@ -69,6 +69,62 @@ namespace Cake.Npm
         }
 
         /// <summary>
+        /// Installs packages using the settings returned by a configurator.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="configurator">The settings configurator.</param>
+        /// <example>
+        /// <para>Install packages in a specific working directory ('npm install')</para>
+        /// <code>
+        /// <![CDATA[
+        ///     NpmInstall(settings => settings.FromPath(@"c:\myproject"));
+        /// ]]>
+        /// </code>
+        /// <para>Force fetching of remote resources ('npm install --force')</para>
+        /// <code>
+        /// <![CDATA[
+        ///     NpmInstall(settings => setting.WithForce());
+        /// ]]>
+        /// </code>
+        /// <para>Install gulp globally ('npm install gulp -g')</para>
+        /// <code>
+        /// <![CDATA[
+        ///     NpmInstall(settings => settings.AddPackage("gulp").InstallGlobally());
+        /// ]]>
+        /// </code>
+        /// <para>Ignore devDependencies while installaling packages of the project in the current directory ('npm install --production')</para>
+        /// <code>
+        /// <![CDATA[
+        ///     NpmInstall(settings => setting.OnProduction());
+        /// ]]>
+        /// </code>
+        /// <para>Use specific log level ('npm install')</para>
+        /// <code>
+        /// <![CDATA[
+        ///     NpmInstall(settings => settings.WithLogLevel(NpmLogLevel.Verbose));
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Install")]
+        public static void NpmInstall(this ICakeContext context, Action<NpmInstallSettings> configurator)
+        {
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
+            if (configurator == null)
+            {
+                throw new ArgumentNullException(nameof(configurator));
+            }
+
+            var settings = new NpmInstallSettings();
+            configurator(settings);
+            context.NpmInstall(settings);
+        }
+
+        /// <summary>
         /// Installs packages using the specified settings.
         /// </summary>
         /// <param name="context">The context.</param>

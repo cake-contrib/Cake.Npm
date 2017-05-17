@@ -1,6 +1,7 @@
 ﻿using System;
 using Cake.Core.Diagnostics;
 using Xunit;
+using Cake.Npm.Install;
 
 namespace Cake.Npm.Tests.Install
 {
