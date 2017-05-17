@@ -69,6 +69,17 @@
         /// <param name="settings">The settings.</param>
         protected void RunCore(TSettings settings)
         {
+            RunCore(settings, null, null);
+        }
+
+        /// <summary>
+        /// Runs npm.
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <param name="processSettings">The process settings. <c>null</c> for default settings.</param>
+        /// <param name="postAction">Action which should be executed after running npm. <c>null</c> for no action.</param>
+        protected void RunCore(TSettings settings, ProcessSettings processSettings, Action<IProcess> postAction)
+        {
             if (settings == null)
             {
                 throw new ArgumentNullException(nameof(settings));
@@ -80,7 +91,7 @@
             }
 
             var args = GetArguments(settings);
-            Run(settings, args);
+            Run(settings, args, processSettings, postAction);
         }
 
         /// <summary>

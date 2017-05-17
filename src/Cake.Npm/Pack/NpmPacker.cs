@@ -1,6 +1,8 @@
 ﻿namespace Cake.Npm.Pack
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Core;
     using Core.Diagnostics;
     using Core.IO;
@@ -33,14 +35,37 @@
         /// Creates a npm package from the specified settings.
         /// </summary>
         /// <param name="settings">The settings.</param>
-        public void Pack(NpmPackSettings settings)
+        /// <returns>List of created packages.</returns>
+        public IEnumerable<FilePath> Pack(NpmPackSettings settings)
         {
             if (settings == null)
             {
                 throw new ArgumentNullException(nameof(settings));
             }
 
-            RunCore(settings);
+            var processSettings = new ProcessSettings
+            {
+                Arguments = GetArguments(settings),
+                RedirectStandardOutput = true
+            };
+
+            var packages = new List<FilePath>();
+            RunCore(
+                settings,
+                processSettings,
+                process => {
+                    if (process.GetExitCode() == 0)
+                    {
+                        var output = process.GetStandardOutput();
+                        if (output != null)
+                        {
+                            packages.AddRange(
+                                output.Select(x => GetWorkingDirectory(settings).GetFilePath(new FilePath(x))));
+                        }
+                    }
+                });
+
+            return packages;
         }
     }
 }

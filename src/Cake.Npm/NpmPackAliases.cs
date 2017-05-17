@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Cake.Core;
 using Cake.Core.Annotations;
+using Cake.Core.IO;
 using Cake.Npm.Pack;
 
 namespace Cake.Npm
@@ -13,9 +15,11 @@ namespace Cake.Npm
     public static class NpmPackAliases
     {
         /// <summary>
-        /// Creates a npm package from the current folder.
+        /// Creates a npm package from the current working directory.
+        /// Package will be created in the current working directory.
         /// </summary>
         /// <param name="context">The context.</param>
+        /// <returns>List of created packages.</returns>
         /// <example>
         /// <code>
         /// <![CDATA[
@@ -25,22 +29,24 @@ namespace Cake.Npm
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory("Pack")]
-        public static void NpmPack(this ICakeContext context)
+        public static IEnumerable<FilePath> NpmPack(this ICakeContext context)
         {
             if (context == null)
             {
                 throw new ArgumentNullException(nameof(context));
             }
 
-            context.NpmPack(new NpmPackSettings());
+            return context.NpmPack(new NpmPackSettings());
         }
 
         /// <summary>
         /// Creates a npm package from a specific source.
+        /// Package will be created in the current working directory.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="source">Source to pack. Can be anything that is installable by npm, like
         /// a package folder, tarball, tarball url, name@tag, name@version, name, or scoped name.</param>
+        /// <returns>List of created packages.</returns>
         /// <example>
         /// <code>
         /// <![CDATA[
@@ -50,7 +56,7 @@ namespace Cake.Npm
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory("Pack")]
-        public static void NpmPack(this ICakeContext context, string source)
+        public static IEnumerable<FilePath> NpmPack(this ICakeContext context, string source)
         {
             if (context == null)
             {
@@ -62,7 +68,7 @@ namespace Cake.Npm
                 throw new ArgumentNullException(nameof(source));
             }
 
-            context.NpmPack(new NpmPackSettings { Source = source });
+            return context.NpmPack(new NpmPackSettings { Source = source });
         }
 
         /// <summary>
@@ -98,9 +104,11 @@ namespace Cake.Npm
 
         /// <summary>
         /// Creates a npm package using the specified settings.
+        /// Package will be created in the current working directory.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
+        /// <returns>List of created packages.</returns>
         /// <example>
         /// <code>
         /// <![CDATA[
@@ -115,7 +123,7 @@ namespace Cake.Npm
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory("Pack")]
-        public static void NpmPack(this ICakeContext context, NpmPackSettings settings)
+        public static IEnumerable<FilePath> NpmPack(this ICakeContext context, NpmPackSettings settings)
         {
             if (context == null)
             {
@@ -130,7 +138,7 @@ namespace Cake.Npm
             AddinInformation.LogVersionInformation(context.Log);
 
             var packer = new NpmPacker(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);
-            packer.Pack(settings);
+            return packer.Pack(settings);
         }
     }
 }
