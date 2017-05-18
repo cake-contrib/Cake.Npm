@@ -76,6 +76,73 @@
             }
 
             [Fact]
+            public void Should_Throw_If_Tag_Is_Null()
+            {
+                // Given
+                var settings = new NpmPublishSettings();
+
+                // When
+                var result = Record.Exception(() => settings.WithTag(null));
+
+                // Then
+                result.IsArgumentNullException("tag");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Tag_Is_Empty()
+            {
+                // Given
+                var settings = new NpmPublishSettings();
+
+                // When
+                var result = Record.Exception(() => settings.WithTag(string.Empty));
+
+                // Then
+                result.IsArgumentNullException("tag");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Tag_Is_WhiteSpace()
+            {
+                // Given
+                var settings = new NpmPublishSettings();
+
+                // When
+                var result = Record.Exception(() => settings.WithTag(" "));
+
+                // Then
+                result.IsArgumentNullException("tag");
+            }
+
+            [Fact]
+            public void Should_Set_Tag()
+            {
+                // Given
+                var settings = new NpmPublishSettings();
+                var tag = "1.2.3";
+
+                // When
+                settings.WithTag(tag);
+
+                // Then
+                settings.Tag.ShouldBe(tag);
+            }
+
+            [Fact]
+            public void Should_Set_Access()
+            {
+                // Given
+                var settings = new NpmPublishSettings();
+                var access = NpmPublishAccess.Restricted;
+
+                // When
+                settings.WithAccess(access);
+
+                // Then
+                settings.Access.ShouldBe(access);
+            }
+
+            [Fact]
             public void Should_Throw_If_Registry_Is_Null()
             {
                 // Given

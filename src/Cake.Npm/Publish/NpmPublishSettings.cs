@@ -18,14 +18,25 @@
         }
 
         /// <summary>
-        /// Source to publish.
+        /// Gets or sets the source to publish.
         /// A folder containing a package.json file or an url or file path to a gzipped tar archive 
         /// containing a single folder with a package.json file inside.
         /// </summary>
         public string Source { get; set; }
 
         /// <summary>
-        /// Registry where the package should be published to.
+        /// Gets or sets the tag with which the package will be published.
+        /// By default the <c>latest</c> tag is used. 
+        /// </summary>
+        public string Tag { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the package should be published as public or restricted.
+        /// </summary>
+        public NpmPublishAccess Access { get; set; }
+
+        /// <summary>
+        /// Gets or sets the registry where the package should be published to.
         /// </summary>
         public Uri Registry { get; set; }
 
@@ -40,6 +51,16 @@
             if (!string.IsNullOrWhiteSpace(Source))
             {
                 args.AppendQuoted(Source);
+            }
+
+            if (!string.IsNullOrWhiteSpace(Tag))
+            {
+                args.AppendSwitch("--tag", Tag);
+            }
+
+            if (Access != NpmPublishAccess.Default)
+            {
+                args.AppendSwitch("--access", Access.ToString().ToLowerInvariant());
             }
 
             if (Registry != null)

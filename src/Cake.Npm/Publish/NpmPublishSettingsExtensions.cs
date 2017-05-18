@@ -33,6 +33,47 @@
         }
 
         /// <summary>
+        /// Sets the tag of the package to publish.
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <param name="tag">Tag with which the package will be published.</param>
+        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPublishSettings.Tag"/> set to <paramref name="tag"/>.</returns>
+        public static NpmPublishSettings WithTag(this NpmPublishSettings settings, string tag)
+        {
+            if (settings == null)
+            {
+                throw new ArgumentNullException(nameof(settings));
+            }
+
+            if (string.IsNullOrWhiteSpace(tag))
+            {
+                throw new ArgumentNullException(nameof(tag));
+            }
+
+            settings.Tag = tag;
+
+            return settings;
+        }
+
+        /// <summary>
+        /// Sets the access of the published package.
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <param name="access">Access of the published package.</param>
+        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPublishSettings.Access"/> set to <paramref name="access"/>.</returns>
+        public static NpmPublishSettings WithAccess(this NpmPublishSettings settings, NpmPublishAccess access)
+        {
+            if (settings == null)
+            {
+                throw new ArgumentNullException(nameof(settings));
+            }
+
+            settings.Access = access;
+
+            return settings;
+        }
+
+        /// <summary>
         /// Sets the registry where the package will be published to.
         /// </summary>
         /// <param name="settings">The settings.</param>

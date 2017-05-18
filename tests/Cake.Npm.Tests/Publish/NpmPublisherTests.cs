@@ -1,6 +1,7 @@
 ﻿namespace Cake.Npm.Tests.Publish
 {
     using System;
+    using Cake.Npm.Publish;
     using Core.Diagnostics;
     using Xunit;
 
@@ -47,6 +48,34 @@
 
                 // Then
                 Assert.Equal("publish \"c:\\mypackage\"", result.Args);
+            }
+
+            [Fact]
+            public void Should_Add_Tag_To_Arguments_If_Not_Null()
+            {
+                // Given
+                var fixture = new NpmPublisherFixture();
+                fixture.Settings.Tag = "foo";
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal("publish --tag foo", result.Args);
+            }
+
+            [Fact]
+            public void Should_Add_Access_To_Arguments_If_Not_Default()
+            {
+                // Given
+                var fixture = new NpmPublisherFixture();
+                fixture.Settings.Access = NpmPublishAccess.Public;
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal("publish --access public", result.Args);
             }
 
             [Fact]
