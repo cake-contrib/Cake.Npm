@@ -67,6 +67,37 @@ namespace Cake.Npm
         }
 
         /// <summary>
+        /// Publishes a npm package using the settings returned by a configurator.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="configurator">The settings configurator.</param>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        ///     NpmPack(settings => settings.WithLogLevel(NpmLogLevel.Verbose));
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Publish")]
+        public static void NpmPublish(this ICakeContext context, Action<NpmPublishSettings> configurator)
+        {
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
+            if (configurator == null)
+            {
+                throw new ArgumentNullException(nameof(configurator));
+            }
+
+            var settings = new NpmPublishSettings();
+            configurator(settings);
+            context.NpmPublish(settings);
+        }
+
+        /// <summary>
         /// Publishes a npm package based on the specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
