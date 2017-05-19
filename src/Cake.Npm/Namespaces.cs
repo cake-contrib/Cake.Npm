@@ -37,6 +37,18 @@ namespace Cake.Npm.Pack
 }
 
 // ReSharper disable once CheckNamespace
+namespace Cake.Npm.Publish
+{
+    /// <summary>
+    /// This namespace contain types used for publishing npm packages.
+    /// </summary>
+    [CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+}
+
+// ReSharper disable once CheckNamespace
 namespace Cake.Npm.RunScript
 {
     /// <summary>
