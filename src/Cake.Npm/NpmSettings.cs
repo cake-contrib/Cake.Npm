@@ -1,4 +1,7 @@
-﻿namespace Cake.Npm
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace Cake.Npm
 {
     using Core;
     using Core.Diagnostics;
@@ -10,6 +13,8 @@
     /// </summary>
     public abstract class NpmSettings: ToolSettings
     {
+        private readonly List<string> _npmArguments = new List<string>();
+
         /// <summary>
         /// Initializes a new instance of the <see cref="NpmSettings"/> class.
         /// </summary>
@@ -28,6 +33,17 @@
         /// Gets or sets the Log level set by Cake.
         /// </summary>
         internal Verbosity? CakeVerbosityLevel { get; set; }
+
+        /// <summary>
+        /// Arguments to pass to npm.
+        /// </summary>
+        public IList<string> NpmArguments
+        {
+            get
+            {
+                return _npmArguments;
+            }
+        }
 
         /// <summary>
         /// Gets the command which should be run.
@@ -52,6 +68,10 @@
         private void AppendNpmSettings(ProcessArgumentBuilder args)
         {
             AppendLogLevel(args, LogLevel);
+            foreach (var arg in NpmArguments)
+            {
+                args.Append(arg);
+            }
         }
 
         /// <summary>
