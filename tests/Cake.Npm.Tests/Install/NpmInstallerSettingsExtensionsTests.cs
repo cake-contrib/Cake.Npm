@@ -729,5 +729,60 @@
                 settings.Packages.ShouldContain(scope + "/" + packageName + "@\"" + tag + "\"");
             }
         }
+
+        public sealed class TheWithNpmArgumentsMethod
+        {
+            [Fact]
+            public void Should_Add_Argument()
+            {
+                // Given
+                NpmInstallSettings settings = new NpmInstallSettings();
+
+                // When
+                settings.WithNpmArguments("--no-color");
+
+                // Then
+                settings.NpmArguments.ShouldContain("--no-color");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Settings_Are_Null()
+            {
+                // Given
+                NpmInstallSettings settings = null;
+
+                // When
+                var result = Record.Exception(() => settings.WithNpmArguments("--no-color"));
+
+                // Then
+                result.IsArgumentNullException("settings");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Args_Are_Null()
+            {
+                // Given
+                NpmInstallSettings settings = new NpmInstallSettings();
+
+                // When
+                var result = Record.Exception(() => settings.WithNpmArguments(null));
+
+                // Then
+                result.IsArgumentNullException("arguments");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Args_Are_Whitespace()
+            {
+                // Given
+                NpmInstallSettings settings = new NpmInstallSettings();
+
+                // When
+                var result = Record.Exception(() => settings.WithNpmArguments(" "));
+
+                // Then
+                result.IsArgumentNullException("arguments");
+            }
+        }
     }
 }

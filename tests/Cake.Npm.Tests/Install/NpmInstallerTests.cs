@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Cake.Core.Diagnostics;
 using Xunit;
 using Cake.Npm.Install;
@@ -245,6 +246,29 @@ namespace Cake.Npm.Tests.Install
                 var fixture = new NpmInstallerFixture();
                 fixture.Settings.CakeVerbosityLevel = verbosity;
 
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal(expected, result.Args);
+            }
+
+
+            [Theory]
+            [InlineData(new [] {"--an-arg"}, "install --an-arg")]
+            [InlineData(new string[] {}, "install")]
+            [InlineData(new[] { "--no-color", "--an-arg" }, "install --no-color --an-arg")]
+            [InlineData(new[] { "--no-color --an-arg" }, "install --no-color --an-arg")]
+            public void Should_Pass_In_Arbitrary_Npm_Arguments(string[] npmArgs, string expected)
+            {
+                // Given
+                var fixture = new NpmInstallerFixture();
+
+                foreach (var npmArg in npmArgs)
+                {
+                    fixture.Settings.WithNpmArguments(npmArg);
+                }
+                
                 // When
                 var result = fixture.Run();
 

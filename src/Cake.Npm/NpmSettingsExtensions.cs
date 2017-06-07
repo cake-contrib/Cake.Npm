@@ -48,5 +48,28 @@
 
             return settings;
         }
+
+        /// <summary>
+        /// Sets the arguments which should be passed to npm.
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <param name="arguments">Arguments which should be passed to the script.</param>
+        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmSettings.NpmArguments"/> set to <paramref name="arguments"/>.</returns>
+        public static NpmSettings WithNpmArguments(this NpmSettings settings, string arguments)
+        {
+            if (settings == null)
+            {
+                throw new ArgumentNullException(nameof(settings));
+            }
+
+            if (string.IsNullOrWhiteSpace(arguments))
+            {
+                throw new ArgumentNullException(nameof(arguments));
+            }
+
+            settings.NpmArguments.Add(arguments);
+
+            return settings;
+        }
     }
 }
