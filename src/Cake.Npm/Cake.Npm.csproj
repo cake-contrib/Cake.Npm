@@ -16,7 +16,7 @@
     <Authors>Phil Oyston, Pascal Berger, Cake-Contrib</Authors>
     <Company>Cake-Contrib</Company>
     <Description>A set of aliases for Cake to help with running Npm (Node Package Manager) commands</Description>
-    <PackageIconUrl>https://raw.githubusercontent.com/cake-build/graphics/master/png/cake-medium.png</PackageIconUrl>
+    <PackageIconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/cake-contrib/cake-npm</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/cake-contrib/cake-npm/blob/master/LICENSE</PackageLicenseUrl>
     <PackageTags>cake npm cake-build cake-contrib</PackageTags>
