@@ -1,10 +1,10 @@
-﻿using System;
-using Cake.Core.Diagnostics;
-using Cake.Npm.Rebuild;
-using Xunit;
-
-namespace Cake.Npm.Tests.Rebuild
+﻿namespace Cake.Npm.Tests.Rebuild
 {
+    using System;
+    using Core.Diagnostics;
+    using Npm.Rebuild;
+    using Xunit;
+
     public class NpmRebuilderTests
     {
         public sealed class TheRebuildMethod

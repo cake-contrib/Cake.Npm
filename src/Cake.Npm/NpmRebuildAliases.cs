@@ -88,7 +88,9 @@ namespace Cake.Npm
         public static void NpmRebuild(this ICakeContext context, Action<NpmRebuildSettings> configurator)
         {
             if (configurator == null)
+            {
                 throw new ArgumentNullException(nameof(configurator));
+            }
 
             var settings = new NpmRebuildSettings();
             configurator.Invoke(settings);
@@ -130,9 +132,14 @@ namespace Cake.Npm
         public static void NpmRebuild(this ICakeContext context, NpmRebuildSettings settings)
         {
             if (context == null)
+            {
                 throw new ArgumentNullException(nameof(context));
+            }
+
             if (settings == null)
+            {
                 throw new ArgumentNullException(nameof(settings));
+            }
 
             AddinInformation.LogVersionInformation(context.Log);
             var rebuilder = new NpmRebuilder(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);

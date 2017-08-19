@@ -1,11 +1,11 @@
-﻿using System;
-using Cake.Core;
-using Cake.Core.Diagnostics;
-using Cake.Core.IO;
-using Cake.Core.Tooling;
-
-namespace Cake.Npm.Rebuild
+﻿namespace Cake.Npm.Rebuild
 {
+    using System;
+    using Core;
+    using Core.Diagnostics;
+    using Core.IO;
+    using Core.Tooling;
+
     /// <summary>
     /// Tool for rebuilding npm modules.
     /// </summary>

@@ -1,7 +1,7 @@
-using System;
-
 namespace Cake.Npm.Rebuild
 {
+    using System;
+
     /// <summary>
     /// Extensions for <see cref="NpmRebuildSettings"/>.
     /// </summary>

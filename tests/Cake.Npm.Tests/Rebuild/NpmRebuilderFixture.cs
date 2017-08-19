@@ -1,7 +1,7 @@
-﻿using Cake.Npm.Rebuild;
-
-namespace Cake.Npm.Tests.Rebuild
+﻿namespace Cake.Npm.Tests.Rebuild
 {
+    using Npm.Rebuild;
+
     internal sealed class NpmRebuilderFixture : NpmFixture<NpmRebuildSettings>
     {
         protected override void RunTool()

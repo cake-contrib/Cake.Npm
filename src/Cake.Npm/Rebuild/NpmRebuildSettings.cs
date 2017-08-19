@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using Cake.Core;
-using Cake.Core.IO;
-
-namespace Cake.Npm.Rebuild
+﻿namespace Cake.Npm.Rebuild
 {
+    using System.Collections.Generic;
+    using Core;
+    using Core.IO;
+
     /// <summary>
     /// Contains settings used by <see cref="NpmRebuilder"/>
     /// </summary>
@@ -32,7 +32,9 @@ namespace Cake.Npm.Rebuild
             base.EvaluateCore(args);
 
             foreach (var package in Packages)
+            {
                 ProcessArgumentListExtensions.Append(args, package);
+            }
         }
     }
 }
