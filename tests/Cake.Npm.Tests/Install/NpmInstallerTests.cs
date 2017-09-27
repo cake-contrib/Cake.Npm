@@ -165,6 +165,20 @@ namespace Cake.Npm.Tests.Install
             }
 
             [Fact]
+            public void Should_Add_NoOptional_To_Arguments_If_Specified()
+            {
+                // Given
+                var fixture = new NpmInstallerFixture();
+                fixture.Settings.NoOptional = true;
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal("install --no-optional", result.Args);
+            }
+
+            [Fact]
             public void Should_Add_Global_To_Arguments_If_Not_Null()
             {
                 // Given

@@ -106,6 +106,53 @@
         }
 
         /// <summary>
+        /// Defines that npm should npm should prevent optional dependencies from being installed
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.NoOptional"/> set to <c>true</c>.</returns>
+        public static NpmInstallSettings WithNoOptional(this NpmInstallSettings settings)
+        {
+            if (settings == null)
+            {
+                throw new ArgumentNullException(nameof(settings));
+            }
+
+            return settings.WithNoOptional(true);
+        }
+
+        /// <summary>
+        /// Defines that npm should not prevent optional dependencies from being installed
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.NoOptional"/> set to <c>false</c>.</returns>
+        public static NpmInstallSettings WithoutNoOptional(this NpmInstallSettings settings)
+        {
+            if (settings == null)
+            {
+                throw new ArgumentNullException(nameof(settings));
+            }
+
+            return settings.WithNoOptional(false);
+        }
+
+        /// <summary>
+        /// Defines whether npm should prevent optional dependencies from being installed
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <param name="value">Value which should be set.</param>
+        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.NoOptional"/> set to <paramref name="value"/>.</returns>
+        public static NpmInstallSettings WithNoOptional(this NpmInstallSettings settings, bool value)
+        {
+            if (settings == null)
+            {
+                throw new ArgumentNullException(nameof(settings));
+            }
+
+            settings.NoOptional = value;
+            return settings;
+        }
+
+        /// <summary>
         /// Install a package from a specific url.
         /// </summary>
         /// <param name="settings">The settings.</param>
