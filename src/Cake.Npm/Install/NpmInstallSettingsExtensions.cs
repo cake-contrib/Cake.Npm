@@ -9,7 +9,7 @@
     public static class NpmInstallSettingsExtensions
     {
         /// <summary>
-        /// Defines tht npm should fetch remote resources even if a local copy
+        /// Defines that npm should fetch remote resources even if a local copy
         /// exists on disk.
         /// </summary>
         /// <param name="settings">The settings.</param>
@@ -25,7 +25,7 @@
         }
 
         /// <summary>
-        /// Defines tht npm should not fetch remote resources if a local copy exists on disk.
+        /// Defines that npm should not fetch remote resources if a local copy exists on disk.
         /// </summary>
         /// <param name="settings">The settings.</param>
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.Force"/> set to <c>false</c>.</returns>
@@ -106,11 +106,11 @@
         }
 
         /// <summary>
-        /// Defines that npm should npm should prevent optional dependencies from being installed
+        /// Defines that npm should prevent optional dependencies from being installed
         /// </summary>
         /// <param name="settings">The settings.</param>
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.NoOptional"/> set to <c>true</c>.</returns>
-        public static NpmInstallSettings WithNoOptional(this NpmInstallSettings settings)
+        public static NpmInstallSettings WithoutOptionalDependencies(this NpmInstallSettings settings)
         {
             if (settings == null)
             {
@@ -121,11 +121,11 @@
         }
 
         /// <summary>
-        /// Defines that npm should not prevent optional dependencies from being installed
+        /// Defines that npm should install optional dependencies
         /// </summary>
         /// <param name="settings">The settings.</param>
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.NoOptional"/> set to <c>false</c>.</returns>
-        public static NpmInstallSettings WithoutNoOptional(this NpmInstallSettings settings)
+        public static NpmInstallSettings WithOptionalDependencies(this NpmInstallSettings settings)
         {
             if (settings == null)
             {

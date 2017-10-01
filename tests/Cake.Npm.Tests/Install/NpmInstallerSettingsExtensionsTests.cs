@@ -63,7 +63,7 @@
             }
         }
 
-        public sealed class TheWithNoOptionalMethod
+        public sealed class TheWithoutOptionalDependenciesMethod
         {
             [Fact]
             public void Should_Throw_If_Settings_Are_Null()
@@ -72,7 +72,7 @@
                 NpmInstallSettings settings = null;
 
                 // When
-                var result = Record.Exception(() => settings.WithNoOptional());
+                var result = Record.Exception(() => settings.WithoutOptionalDependencies());
 
                 // Then
                 result.IsArgumentNullException("settings");
@@ -84,14 +84,14 @@
                 var settings = new NpmInstallSettings();
 
                 // When
-                settings.WithNoOptional();
+                settings.WithoutOptionalDependencies();
 
                 // Then
                 settings.NoOptional.ShouldBe(true);
             }
         }
 
-        public sealed class TheWithoutNoOptionalMethod
+        public sealed class TheWithOptionalDependenciesMethod
         {
             [Fact]
             public void Should_Throw_If_Settings_Are_Null()
@@ -100,7 +100,7 @@
                 NpmInstallSettings settings = null;
 
                 // When
-                var result = Record.Exception(() => settings.WithoutNoOptional());
+                var result = Record.Exception(() => settings.WithOptionalDependencies());
 
                 // Then
                 result.IsArgumentNullException("settings");
@@ -112,7 +112,7 @@
                 var settings = new NpmInstallSettings();
 
                 // When
-                settings.WithoutNoOptional();
+                settings.WithOptionalDependencies();
 
                 // Then
                 settings.NoOptional.ShouldBe(false);
