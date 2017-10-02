@@ -193,6 +193,49 @@ namespace Cake.Npm.Tests.Install
             }
 
             [Fact]
+            public void Should_Add_PreferOffline_To_Arguments_If_Not_Null()
+            {
+                // Given
+                var fixture = new NpmInstallerFixture();
+                fixture.Settings.PreferOffline = true;
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal("install --prefer-offline", result.Args);
+            }
+
+            [Fact]
+            public void Should_Add_Registry_To_Arguments_If_Not_Empty()
+            {
+                // Given
+                var fixture = new NpmInstallerFixture();
+                var registry = "http://exampleregistry.com";
+                fixture.Settings.Registry = registry;
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal($"install --registry { registry }", result.Args);
+            }
+
+            [Fact]
+            public void Should_Not_Add_Registry_To_Arguments_If_Empty()
+            {
+                // Given
+                var fixture = new NpmInstallerFixture();
+                fixture.Settings.Registry = "";
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal("install", result.Args);
+            }
+
+            [Fact]
             public void Should_Add_Production_To_Arguments_If_Not_Null()
             {
                 // Given

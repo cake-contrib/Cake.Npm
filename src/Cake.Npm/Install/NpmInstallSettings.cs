@@ -49,6 +49,16 @@
         public IList<string> Packages => _packages;
 
         /// <summary>
+        /// Gets or sets a value indicating which registry we should point to. Defaulted to whatever the NPM configuration is.
+        /// </summary>
+        public string Registry { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether or not to utilise the prefer offline flag, avoiding going to the internet for packages if possible.
+        /// </summary>
+        public bool PreferOffline { get; set; }
+
+        /// <summary>
         /// Evaluates the settings and writes them to <paramref name="args"/>.
         /// </summary>
         /// <param name="args">The argument builder into which the settings should be written.</param>
@@ -74,6 +84,16 @@
             if (NoOptional)
             {
                 args.Append("--no-optional");
+            }
+
+            if (!string.IsNullOrWhiteSpace(Registry))
+            {
+                args.Append($"--registry {Registry.ToLower()}");
+            }
+
+            if (PreferOffline)
+            {
+                args.Append("--prefer-offline");
             }
 
             if (Production)
