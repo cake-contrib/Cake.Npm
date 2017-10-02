@@ -38,6 +38,12 @@
         public bool Production { get; set; }
 
         /// <summary>
+        /// Gets a value indicating whether npm should prevent optional dependencies from being installed
+        /// (the --no-optional argument)
+        /// </summary>
+        public bool NoOptional { get; set; }
+
+        /// <summary>
         /// Gets the list of packages which should be installed.
         /// </summary>
         public IList<string> Packages => _packages;
@@ -63,6 +69,11 @@
             if (Global)
             {
                 args.Append("--global");
+            }
+
+            if (NoOptional)
+            {
+                args.Append("--no-optional");
             }
 
             if (Production)

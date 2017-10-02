@@ -63,6 +63,62 @@
             }
         }
 
+        public sealed class TheWithoutOptionalDependenciesMethod
+        {
+            [Fact]
+            public void Should_Throw_If_Settings_Are_Null()
+            {
+                // Given
+                NpmInstallSettings settings = null;
+
+                // When
+                var result = Record.Exception(() => settings.WithoutOptionalDependencies());
+
+                // Then
+                result.IsArgumentNullException("settings");
+            }
+            [Fact]
+            public void Should_Set_NoOptional()
+            {
+                // Given
+                var settings = new NpmInstallSettings();
+
+                // When
+                settings.WithoutOptionalDependencies();
+
+                // Then
+                settings.NoOptional.ShouldBe(true);
+            }
+        }
+
+        public sealed class TheWithOptionalDependenciesMethod
+        {
+            [Fact]
+            public void Should_Throw_If_Settings_Are_Null()
+            {
+                // Given
+                NpmInstallSettings settings = null;
+
+                // When
+                var result = Record.Exception(() => settings.WithOptionalDependencies());
+
+                // Then
+                result.IsArgumentNullException("settings");
+            }
+            [Fact]
+            public void Should_Set_NoOptional()
+            {
+                // Given
+                var settings = new NpmInstallSettings();
+
+                // When
+                settings.WithOptionalDependencies();
+
+                // Then
+                settings.NoOptional.ShouldBe(false);
+            }
+        }
+
         public sealed class TheInstallGloballyMethod
         {
             [Fact]
