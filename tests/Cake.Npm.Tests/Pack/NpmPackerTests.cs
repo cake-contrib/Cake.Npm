@@ -8,6 +8,17 @@
         public sealed class ThePackMethod
         {
             [Fact]
+            public void Should_Redirect_Standard_Error()
+            {
+                var fixture = new NpmPackerFixture();
+                fixture.Settings.RedirectStandardError = true;
+
+                var result = fixture.Run();
+
+                Assert.True(result.Process.RedirectStandardError);
+            }
+
+            [Fact]
             public void Should_Throw_If_Settings_Are_Null()
             {
                 // Given

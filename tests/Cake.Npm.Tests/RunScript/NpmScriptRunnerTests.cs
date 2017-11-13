@@ -8,6 +8,18 @@
         public sealed class TheRunScriptMethod
         {
             [Fact]
+            public void Should_Redirect_Standard_Error()
+            {
+                var fixture = new NpmRunScriptFixture();
+                fixture.Settings.RedirectStandardError = true;
+                fixture.Settings.ScriptName = "foo bar";
+
+                var result = fixture.Run();
+
+                Assert.True(result.Process.RedirectStandardError);
+            }
+
+            [Fact]
             public void Should_Throw_If_Settings_Are_Null()
             {
                 // Given
