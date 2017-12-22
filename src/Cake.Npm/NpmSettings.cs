@@ -17,12 +17,24 @@
         protected NpmSettings(string command)
         {
             Command = command;
+            RedirectStandardError = false;
+            RedirectStandardOutput = false;
         }
 
         /// <summary>
         /// Gets or sets the log level which should be used to run the npm command.
         /// </summary>
         public NpmLogLevel LogLevel { get; set; }
+
+        /// <summary>
+        /// Gets or sets the process option to redirect standard error
+        /// </summary>
+        public bool RedirectStandardError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the process option to redirect standard output
+        /// </summary>
+        public bool RedirectStandardOutput { get; set; }
 
         /// <summary>
         /// Gets or sets the Log level set by Cake.

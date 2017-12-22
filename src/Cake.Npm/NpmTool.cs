@@ -69,7 +69,7 @@
         /// <param name="settings">The settings.</param>
         protected void RunCore(TSettings settings)
         {
-            RunCore(settings, null, null);
+            RunCore(settings, new ProcessSettings(), null);
         }
 
         /// <summary>
@@ -89,6 +89,9 @@
             {
                 settings.CakeVerbosityLevel = CakeLog.Verbosity;
             }
+
+            processSettings.RedirectStandardError = settings.RedirectStandardError;
+            processSettings.RedirectStandardOutput = settings.RedirectStandardOutput;
 
             var args = GetArguments(settings);
             Run(settings, args, processSettings, postAction);
