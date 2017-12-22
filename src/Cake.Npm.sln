@@ -7,9 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7ADA99C9-D5A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C435F99A-0477-4620-9231-4C63CEFCF89D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Npm.Tests", "tests\Cake.Npm.Tests\Cake.Npm.Tests.csproj", "{2A169499-69CA-41CA-ACDE-C9DBADBBB333}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Npm.Tests", "Cake.Npm.Tests\Cake.Npm.Tests.csproj", "{2A169499-69CA-41CA-ACDE-C9DBADBBB333}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Npm", "src\Cake.Npm\Cake.Npm.csproj", "{3B9296B0-A676-4AC2-ACA7-92675916243C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Npm", "Cake.Npm\Cake.Npm.csproj", "{3B9296B0-A676-4AC2-ACA7-92675916243C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

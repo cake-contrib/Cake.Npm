@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Cake.Npm</id>
+    <title>Cake.Npm</title>
+    <version>0.0.0</version>
+    <authors>Phil Oyston, Pascal Berger, Cake-Contrib</authors>
+    <owners>philo, pascalberger, cake-contrib</owners>
+    <summary>A set of aliases for Cake to help with running Npm (Node Package Manager) commands</summary>
+    <description>A set of aliases for Cake to help with running Npm (Node Package Manager) commands</description>
+    <licenseUrl>https://github.com/cake-contrib/cake-npm/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/cake-contrib/cake-npm</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>cake npm cake-build cake-contrib</tags>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Npm/releases/tag/0.12.2</releaseNotes>
+  </metadata>
+  <files>
+    <file src="net46\Cake.Npm.dll" target="lib\net46" />
+    <file src="net46\Cake.Npm.pdb" target="lib\net46" />
+    <file src="net46\Cake.Npm.xml" target="lib\net46" />
+    <file src="netstandard1.6\Cake.Npm.dll" target="lib\netstandard1.6" />
+    <file src="netstandard1.6\Cake.Npm.pdb" target="lib\netstandard1.6" />
+    <file src="netstandard1.6\Cake.Npm.xml" target="lib\netstandard1.6" />
+  </files>
+</package>

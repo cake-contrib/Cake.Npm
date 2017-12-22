@@ -22,9 +22,4 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\Cake.Npm\Cake.Npm.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="..\..\VersionAssemblyInfo.cs" Link="VersionAssemblyInfo.cs" />
-  </ItemGroup>
-  
 </Project>
