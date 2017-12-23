@@ -1,54 +1,39 @@
-# cake-npm
+# Cake.Npm Addin
 
-## Usage
+This Addin for the Cake Build Automation System allows you to run [npm](https://www.npmjs.com/).
+More about Cake at http://cakebuild.net
 
-```c#
-#addin "Cake.Npm"
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://cake-contrib.mit-license.org)
 
-var target = Argument("target", "Default");
+## Information
 
-Task("Example").Does(() => {
-        var settings = new NpmInstallSettings();
+| |Stable|Pre-release|
+|:--:|:--:|:--:|
+|GitHub Release|-|[![GitHub release](https://img.shields.io/github/release/cake-contrib/Cake.Npm.svg)](https://github.com/cake-contrib/Cake.Npm/releases/latest)|
+|NuGet|[![NuGet](https://img.shields.io/nuget/v/Cake.Npm.svg)](https://www.nuget.org/packages/Cake.Npm)|[![NuGet](https://img.shields.io/nuget/vpre/Cake.Npm.svg)](https://www.nuget.org/packages/Cake.Npm)|
 
-        settings.Global = true;
-        settings.Production = false;
-        settings.LogLevel = NpmLogLevel.Verbose;
+## Build Status
 
-        settings.AddPackage("gulp");
-        settings.AddPackage("left-pad");
+|Develop|Master|
+|:--:|:--:|
+|[![Build status](https://ci.appveyor.com/api/projects/status/5fbkekpb5roh39m8/branch/develop?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-npm/branch/develop)|[![Build status](https://ci.appveyor.com/api/projects/status/5fbkekpb5roh39m8/branch/develop?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-npm/branch/master)|
 
-        NpmInstall(settings);
-});
+## Code Coverage
 
-Task("PackageJsonFromDirectory").Does(() => {
-        var settings = new NpmInstallSettings();
+[![Coverage Status](https://coveralls.io/repos/github/cake-contrib/Cake.Npm/badge.svg?branch=develop)](https://coveralls.io/github/cake-contrib/Cake.Npm?branch=develop)
 
-        settings.LogLevel = NpmLogLevel.Info;
-        settings.WorkingDirectory = "usage/";
-        settings.Production = true;
+## Quick Links
 
-        NpmInstall(settings);
-});
+- [Documentation](https://cake-contrib.github.io/Cake.Npm)
 
-Task("Default")
-    .IsDependentOn("Example")
-    .IsDependentOn("PackageJsonFromDirectory");
+## Chat Room
 
-//////////////////////////////////////////////////////////////////////
-// EXECUTION
-//////////////////////////////////////////////////////////////////////
+Come join in the conversation about Cake.Yeoman in our Gitter Chat Room
 
-RunTarget(target);
-```
+[![Join the chat at https://gitter.im/cake-contrib/Lobby](https://badges.gitter.im/cake-contrib/Lobby.svg)](https://gitter.im/cake-contrib/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-## Documentation
+## Contributing
 
-Thanks to the cakebuild.net site, documentation can be found [here](http://cakebuild.net/api/cake.npm/)
+Contributions are welcome. See [Contribution Guidelines].
 
-## Tests
-
-Cake.Npm is covered by a set of unit tests contributed by @nengberg
-
-## I cant do _insert-command-here_
-
-If you have feature requests please submit them as issues, or better yet as pull requests :)
+[Contribution Guidelines]: CONTRIBUTING.md
