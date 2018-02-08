@@ -1,6 +1,8 @@
 # Project specific 
 
 BuildArtifacts/
+config.wyam.*
+docs/input/tasks/
 
 # Created by https://www.gitignore.io/api/cake,visualstudio
 
