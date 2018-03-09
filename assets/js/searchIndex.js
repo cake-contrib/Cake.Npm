@@ -34,62 +34,14 @@ var searchModule = function() {
 
     a({
         id:0,
-        title:"NpmPackSettingsExtensions",
-        content:"NpmPackSettingsExtensions",
+        title:"NpmPublishAliases",
+        content:"NpmPublishAliases",
         description:'',
         tags:''
     });
 
     a({
         id:1,
-        title:"NpmLogLevel",
-        content:"NpmLogLevel",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:2,
-        title:"NpmPacker",
-        content:"NpmPacker",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:3,
-        title:"NpmPublishAccess",
-        content:"NpmPublishAccess",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:4,
-        title:"NpmRebuildSettings",
-        content:"NpmRebuildSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:5,
-        title:"NpmPackSettings",
-        content:"NpmPackSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:6,
-        title:"NpmRebuilder",
-        content:"NpmRebuilder",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:7,
         title:"NpmTool",
         content:"NpmTool",
         description:'',
@@ -97,15 +49,15 @@ var searchModule = function() {
     });
 
     a({
-        id:8,
-        title:"NpmSettingsExtensions",
-        content:"NpmSettingsExtensions",
+        id:2,
+        title:"NpmPublishSettings",
+        content:"NpmPublishSettings",
         description:'',
         tags:''
     });
 
     a({
-        id:9,
+        id:3,
         title:"NpmPublisher",
         content:"NpmPublisher",
         description:'',
@@ -113,9 +65,57 @@ var searchModule = function() {
     });
 
     a({
+        id:4,
+        title:"NpmRebuildAliases",
+        content:"NpmRebuildAliases",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:5,
+        title:"NpmRunScriptAliases",
+        content:"NpmRunScriptAliases",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:6,
+        title:"NpmRebuildSettings",
+        content:"NpmRebuildSettings",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:7,
+        title:"NpmPackSettings",
+        content:"NpmPackSettings",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:8,
+        title:"NpmPacker",
+        content:"NpmPacker",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:9,
+        title:"NpmRebuilder",
+        content:"NpmRebuilder",
+        description:'',
+        tags:''
+    });
+
+    a({
         id:10,
-        title:"NpmCiTool",
-        content:"NpmCiTool",
+        title:"NpmCiSettings",
+        content:"NpmCiSettings",
         description:'',
         tags:''
     });
@@ -130,46 +130,6 @@ var searchModule = function() {
 
     a({
         id:12,
-        title:"NpmPublishSettings",
-        content:"NpmPublishSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:13,
-        title:"NpmInstallSettingsExtensions",
-        content:"NpmInstallSettingsExtensions",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:14,
-        title:"NpmRunScriptSettingsExtensions",
-        content:"NpmRunScriptSettingsExtensions",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:15,
-        title:"NpmRunScriptAliases",
-        content:"NpmRunScriptAliases",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:16,
-        title:"NpmPublishAliases",
-        content:"NpmPublishAliases",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:17,
         title:"NpmRunScriptSettings",
         content:"NpmRunScriptSettings",
         description:'',
@@ -177,63 +137,23 @@ var searchModule = function() {
     });
 
     a({
-        id:18,
-        title:"NpmPackAliases",
-        content:"NpmPackAliases",
+        id:13,
+        title:"NpmPublishAccess",
+        content:"NpmPublishAccess",
         description:'',
         tags:''
     });
 
     a({
-        id:19,
-        title:"NpmRebuildAliases",
-        content:"NpmRebuildAliases",
+        id:14,
+        title:"NpmCiTool",
+        content:"NpmCiTool",
         description:'',
         tags:''
     });
 
     a({
-        id:20,
-        title:"NpmInstallAliases",
-        content:"NpmInstallAliases",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:21,
-        title:"NpmPublishSettingsExtensions",
-        content:"NpmPublishSettingsExtensions",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:22,
-        title:"NpmSettings",
-        content:"NpmSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:23,
-        title:"NpmCiSettings",
-        content:"NpmCiSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:24,
-        title:"NpmScriptRunner",
-        content:"NpmScriptRunner",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:25,
+        id:15,
         title:"NpmInstallSettings",
         content:"NpmInstallSettings",
         description:'',
@@ -241,9 +161,89 @@ var searchModule = function() {
     });
 
     a({
-        id:26,
+        id:16,
+        title:"NpmInstallSettingsExtensions",
+        content:"NpmInstallSettingsExtensions",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:17,
+        title:"NpmRunScriptSettingsExtensions",
+        content:"NpmRunScriptSettingsExtensions",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:18,
+        title:"NpmScriptRunner",
+        content:"NpmScriptRunner",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:19,
+        title:"NpmPackAliases",
+        content:"NpmPackAliases",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:20,
+        title:"NpmPackSettingsExtensions",
+        content:"NpmPackSettingsExtensions",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:21,
+        title:"NpmInstallAliases",
+        content:"NpmInstallAliases",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:22,
+        title:"NpmSettingsExtensions",
+        content:"NpmSettingsExtensions",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:23,
+        title:"NpmPublishSettingsExtensions",
+        content:"NpmPublishSettingsExtensions",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:24,
+        title:"NpmSettings",
+        content:"NpmSettings",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:25,
         title:"NpmRebuilSettingsExtensions",
         content:"NpmRebuilSettingsExtensions",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:26,
+        title:"NpmLogLevel",
+        content:"NpmLogLevel",
         description:'',
         tags:''
     });
@@ -257,26 +257,38 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettingsExtensions',
-        title:"NpmPackSettingsExtensions",
+        url:'/Cake.Npm/api/Cake.Npm/NpmPublishAliases',
+        title:"NpmPublishAliases",
         description:""
     });
 
     y({
-        url:'/Cake.Npm/api/Cake.Npm/NpmLogLevel',
-        title:"NpmLogLevel",
+        url:'/Cake.Npm/api/Cake.Npm/NpmTool_1',
+        title:"NpmTool<TSettings>",
         description:""
     });
 
     y({
-        url:'/Cake.Npm/api/Cake.Npm.Pack/NpmPacker',
-        title:"NpmPacker",
+        url:'/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettings',
+        title:"NpmPublishSettings",
         description:""
     });
 
     y({
-        url:'/Cake.Npm/api/Cake.Npm.Publish/NpmPublishAccess',
-        title:"NpmPublishAccess",
+        url:'/Cake.Npm/api/Cake.Npm.Publish/NpmPublisher',
+        title:"NpmPublisher",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Npm/api/Cake.Npm/NpmRebuildAliases',
+        title:"NpmRebuildAliases",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Npm/api/Cake.Npm/NpmRunScriptAliases',
+        title:"NpmRunScriptAliases",
         description:""
     });
 
@@ -293,32 +305,20 @@ var searchModule = function() {
     });
 
     y({
+        url:'/Cake.Npm/api/Cake.Npm.Pack/NpmPacker',
+        title:"NpmPacker",
+        description:""
+    });
+
+    y({
         url:'/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuilder',
         title:"NpmRebuilder",
         description:""
     });
 
     y({
-        url:'/Cake.Npm/api/Cake.Npm/NpmTool_1',
-        title:"NpmTool<TSettings>",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions',
-        title:"NpmSettingsExtensions",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Npm/api/Cake.Npm.Publish/NpmPublisher',
-        title:"NpmPublisher",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Npm/api/Cake.Npm.Ci/NpmCiTool',
-        title:"NpmCiTool",
+        url:'/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings',
+        title:"NpmCiSettings",
         description:""
     });
 
@@ -329,8 +329,26 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettings',
-        title:"NpmPublishSettings",
+        url:'/Cake.Npm/api/Cake.Npm.RunScript/NpmRunScriptSettings',
+        title:"NpmRunScriptSettings",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Npm/api/Cake.Npm.Publish/NpmPublishAccess',
+        title:"NpmPublishAccess",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Npm/api/Cake.Npm.Ci/NpmCiTool',
+        title:"NpmCiTool",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Npm/api/Cake.Npm.Install/NpmInstallSettings',
+        title:"NpmInstallSettings",
         description:""
     });
 
@@ -347,20 +365,8 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Npm/api/Cake.Npm/NpmRunScriptAliases',
-        title:"NpmRunScriptAliases",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Npm/api/Cake.Npm/NpmPublishAliases',
-        title:"NpmPublishAliases",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Npm/api/Cake.Npm.RunScript/NpmRunScriptSettings',
-        title:"NpmRunScriptSettings",
+        url:'/Cake.Npm/api/Cake.Npm.RunScript/NpmScriptRunner',
+        title:"NpmScriptRunner",
         description:""
     });
 
@@ -371,14 +377,20 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Npm/api/Cake.Npm/NpmRebuildAliases',
-        title:"NpmRebuildAliases",
+        url:'/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettingsExtensions',
+        title:"NpmPackSettingsExtensions",
         description:""
     });
 
     y({
         url:'/Cake.Npm/api/Cake.Npm/NpmInstallAliases',
         title:"NpmInstallAliases",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions',
+        title:"NpmSettingsExtensions",
         description:""
     });
 
@@ -395,26 +407,14 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings',
-        title:"NpmCiSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Npm/api/Cake.Npm.RunScript/NpmScriptRunner',
-        title:"NpmScriptRunner",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Npm/api/Cake.Npm.Install/NpmInstallSettings',
-        title:"NpmInstallSettings",
-        description:""
-    });
-
-    y({
         url:'/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuilSettingsExtensions',
         title:"NpmRebuilSettingsExtensions",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Npm/api/Cake.Npm/NpmLogLevel',
+        title:"NpmLogLevel",
         description:""
     });
 
