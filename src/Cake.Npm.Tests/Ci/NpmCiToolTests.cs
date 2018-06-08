@@ -1,5 +1,6 @@
 ﻿using System;
 using Cake.Core.Diagnostics;
+using Cake.Npm.Install;
 using Xunit;
 
 namespace Cake.Npm.Tests.Ci
@@ -90,6 +91,21 @@ namespace Cake.Npm.Tests.Ci
                 // Then
                 Assert.Equal(expected, result.Args);
             }
+
+            [Fact]
+            public void Should_Include_Production_Flag()
+            {
+                // Given
+                var fixture = new NpmCiToolFixture();
+                fixture.Settings.ForProduction();
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal("ci --production", result.Args);
+            }
+
         }
     }
 }
