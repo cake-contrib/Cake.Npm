@@ -36,15 +36,15 @@ namespace Cake.Npm
         }
 
         /// <summary>
-        /// Updates packages using the speUpdatefied settings.
+        /// Updates all packages for the project in the current working directory.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
         /// <example>
-        /// <para>Use speUpdatefic log level ('npm Update')</para>
         /// <code>
         /// <![CDATA[
         ///     var settings = new NpmUpdateSettings();
+        ///     settings.UpdateGlobalPackages();
         ///     NpmUpdate(settings);
         /// ]]>
         /// </code>

@@ -32,7 +32,7 @@ namespace Cake.Npm.Set
         /// </summary>
         public bool Global { get; set; }
 
-        /// <inheritdoc cref="NpmSettings.EvaluateCore" />
+        /// <inheritdoc />
         protected override void EvaluateCore(ProcessArgumentBuilder args)
         {
             if (string.IsNullOrWhiteSpace(Key))

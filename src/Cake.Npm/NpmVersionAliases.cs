@@ -19,7 +19,7 @@ namespace Cake.Npm
         /// <example>
         /// <code>
         /// <![CDATA[
-        ///     NpmVersion();
+        ///     var versionString = NpmVersion();
         /// ]]>
         /// </code>
         /// </example>
@@ -32,40 +32,9 @@ namespace Cake.Npm
                 throw new ArgumentNullException(nameof(context));
             }
             
-            return context.NpmVersion(new NpmVersionSettings());
-        }
-
-        /// <summary>
-        /// Versions packages using the speVersionfied settings.
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <param name="settings">The settings.</param>
-        /// <example>
-        /// <para>Use speVersionfic log level ('npm Version')</para>
-        /// <code>
-        /// <![CDATA[
-        ///     var settings = new NpmVersionSettings();
-        ///     NpmVersion(settings);
-        /// ]]>
-        /// </code>
-        /// </example>
-        [CakeMethodAlias]
-        [CakeAliasCategory("Version")]
-        public static string NpmVersion(this ICakeContext context, NpmVersionSettings settings)
-        {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
-
             AddinInformation.LogVersionInformation(context.Log);
-            var VersionTool = new NpmVersionTool(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);
-            return VersionTool.Version(settings);
+            var settings =new NpmVersionSettings();
+            return new NpmVersionTool(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log).Version(settings);
         }
     }
 }

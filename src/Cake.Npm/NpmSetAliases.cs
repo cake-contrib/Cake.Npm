@@ -48,15 +48,14 @@ namespace Cake.Npm
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
-        /// <param name="key">The key</param>
-        /// <param name="value">The value</param>
-        /// <param name="globally">Set globally</param>
         /// <example>
         /// <para>Use speSetfic log level ('npm Set')</para>
         /// <code>
         /// <![CDATA[
         ///     var settings = new NpmSetSettings();
-        ///     NpmSet(settings, "progress", "false", true);
+        ///     settings.Key = "progress";
+        ///     settings.Value = "false";
+        ///     NpmSet(settings);
         /// ]]>
         /// </code>
         /// </example>

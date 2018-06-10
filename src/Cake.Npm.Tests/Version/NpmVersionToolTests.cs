@@ -6,7 +6,7 @@ namespace Cake.Npm.Tests.Version
 {
     public class NpmVersionToolTests
     {
-        public sealed class TheAutomatedInstallMethod
+        public sealed class TheVersionMethod
         {
             [Fact]
             public void Should_Throw_If_Settings_Are_Null()

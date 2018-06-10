@@ -21,10 +21,7 @@ namespace Cake.Npm.Ci
         /// </summary>
         public bool Production { get; set; }
 
-        /// <summary>
-        /// Evaluates the settings and writes them to <paramref name="args"/>.
-        /// </summary>
-        /// <param name="args">The argument builder into which the settings should be written.</param>
+        /// <inheritdoc />
         protected override void EvaluateCore(ProcessArgumentBuilder args)
         {
             base.EvaluateCore(args);

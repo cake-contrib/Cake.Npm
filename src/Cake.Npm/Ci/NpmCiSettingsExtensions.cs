@@ -1,6 +1,6 @@
 ﻿using Cake.Npm.Ci;
 
-namespace Cake.Npm.Install
+namespace Cake.Npm.Ci
 {
     using System;
     using Core;

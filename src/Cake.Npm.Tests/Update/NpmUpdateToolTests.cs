@@ -5,7 +5,7 @@ namespace Cake.Npm.Tests.Update
 {
     public class NpmUpdateToolTests
     {
-        public sealed class TheAutomatedInstallMethod
+        public sealed class TheUpdateMethod
         {
             [Fact]
             public void Should_Redirect_Standard_Error()

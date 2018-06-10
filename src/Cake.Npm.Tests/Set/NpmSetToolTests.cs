@@ -6,7 +6,7 @@ namespace Cake.Npm.Tests.Set
 {
     public class NpmSetToolTests
     {
-        public sealed class TheAutomatedInstallMethod
+        public sealed class TheSetMethod
         {
             [Fact]
             public void Should_Redirect_Standard_Error()
