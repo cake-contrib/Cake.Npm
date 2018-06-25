@@ -13,7 +13,7 @@
     <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>cake npm cake-build cake-contrib</tags>
-    <releaseNotes>https://github.com/cake-contrib/Cake.Npm/releases/tag/0.13.0</releaseNotes>
+    <releaseNotes>https://github.com/cake-contrib/Cake.Npm/releases/tag/0.14.0</releaseNotes>
   </metadata>
   <files>
     <file src="netstandard2.0\Cake.Npm.dll" target="lib\netstandard2.0" />
