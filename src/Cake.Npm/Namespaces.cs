@@ -59,3 +59,51 @@ namespace Cake.Npm.RunScript
     {
     }
 }
+
+// ReSharper disable once CheckNamespace
+namespace Cake.Npm.Ci
+{
+    /// <summary>
+    /// This namespace contain types used for install npm packages (using CI commands).
+    /// </summary>
+    [CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+}
+
+// ReSharper disable once CheckNamespace
+namespace Cake.Npm.Set
+{
+    /// <summary>
+    /// This namespace contain types used for managing npm config settings.
+    /// </summary>
+    [CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+}
+
+// ReSharper disable once CheckNamespace
+namespace Cake.Npm.Version
+{
+    /// <summary>
+    /// This namespace contain types used for determining installed npm version.
+    /// </summary>
+    [CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+}
+
+// ReSharper disable once CheckNamespace
+namespace Cake.Npm.Update
+{
+    /// <summary>
+    /// This namespace contain types used for updating npm packages.
+    /// </summary>
+    [CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+}
