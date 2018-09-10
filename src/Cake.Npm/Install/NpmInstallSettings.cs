@@ -51,7 +51,7 @@
         /// <summary>
         /// Gets or sets a value indicating which registry we should point to. Defaulted to whatever the NPM configuration is.
         /// </summary>
-        public string Registry { get; set; }
+        public Uri Registry { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether or not to utilise the prefer offline flag, avoiding going to the internet for packages if possible.
@@ -86,9 +86,9 @@
                 args.Append("--no-optional");
             }
 
-            if (!string.IsNullOrWhiteSpace(Registry))
+            if (Registry != null)
             {
-                args.Append($"--registry {Registry.ToLower()}");
+                args.AppendSwitch("--registry", Registry.ToString());
             }
 
             if (PreferOffline)

@@ -37,6 +37,7 @@
 
         /// <summary>
         /// Gets or sets the registry where the package should be published to.
+        /// Defaulted to whatever the NPM configuration is.
         /// </summary>
         public Uri Registry { get; set; }
 

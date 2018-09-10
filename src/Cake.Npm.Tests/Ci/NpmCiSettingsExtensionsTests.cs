@@ -2,6 +2,7 @@
 {
     using Cake.Npm.Ci;
     using Shouldly;
+    using System;
     using Xunit;
 
     public sealed class NpmUpdateSettingsExtensionsTests
@@ -41,7 +42,7 @@
             {
                 // Given
                 NpmCiSettings settings = null;
-                string registry = "foo";
+                var registry = new Uri("https://myregistry.com");
 
                 // When
                 var result = Record.Exception(() => settings.FromRegistry(registry));
@@ -55,35 +56,7 @@
             {
                 // Given
                 var settings = new NpmCiSettings();
-                string registry = null;
-
-                // When
-                var result = Record.Exception(() => settings.FromRegistry(registry));
-
-                // Then
-                result.IsArgumentNullException("registry");
-            }
-
-            [Fact]
-            public void Should_Throw_If_Registry_Is_Empty()
-            {
-                // Given
-                var settings = new NpmCiSettings();
-                string registry = string.Empty;
-
-                // When
-                var result = Record.Exception(() => settings.FromRegistry(registry));
-
-                // Then
-                result.IsArgumentNullException("registry");
-            }
-
-            [Fact]
-            public void Should_Throw_If_Registry_Is_WhiteSpace()
-            {
-                // Given
-                var settings = new NpmCiSettings();
-                string registry = " ";
+                Uri registry = null;
 
                 // When
                 var result = Record.Exception(() => settings.FromRegistry(registry));
@@ -97,7 +70,7 @@
             {
                 // Given
                 var settings = new NpmCiSettings();
-                string registry = "foo";
+                var registry = new Uri("https://myregistry.com");
 
                 // When
                 var result = settings.FromRegistry(registry);

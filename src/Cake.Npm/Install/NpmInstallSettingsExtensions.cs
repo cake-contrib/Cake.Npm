@@ -307,14 +307,14 @@
         /// <param name="settings">The settings.</param>
         /// <param name="registry">The registry to look up packages from</param>
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.Registry"/> set to <paramref name="registry" />.</returns>
-        public static NpmInstallSettings FromRegistry(this NpmInstallSettings settings, string registry)
+        public static NpmInstallSettings FromRegistry(this NpmInstallSettings settings, Uri registry)
         {
             if (settings == null)
             {
                 throw new ArgumentNullException(nameof(settings));
             }
 
-            if (string.IsNullOrWhiteSpace(registry))
+            if (registry == null)
             {
                 throw new ArgumentNullException(nameof(registry));
             }

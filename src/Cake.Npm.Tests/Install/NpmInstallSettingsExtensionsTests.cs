@@ -793,7 +793,7 @@
             {
                 // Given
                 NpmInstallSettings settings = null;
-                string registry = "foo";
+                Uri registry = new Uri("https://myregistry.com");
 
                 // When
                 var result = Record.Exception(() => settings.FromRegistry(registry));
@@ -807,35 +807,7 @@
             {
                 // Given
                 var settings = new NpmInstallSettings();
-                string registry = null;
-
-                // When
-                var result = Record.Exception(() => settings.FromRegistry(registry));
-
-                // Then
-                result.IsArgumentNullException("registry");
-            }
-
-            [Fact]
-            public void Should_Throw_If_Registry_Is_Empty()
-            {
-                // Given
-                var settings = new NpmInstallSettings();
-                string registry = string.Empty;
-
-                // When
-                var result = Record.Exception(() => settings.FromRegistry(registry));
-
-                // Then
-                result.IsArgumentNullException("registry");
-            }
-
-            [Fact]
-            public void Should_Throw_If_Registry_Is_WhiteSpace()
-            {
-                // Given
-                var settings = new NpmInstallSettings();
-                string registry = " ";
+                Uri registry = null;
 
                 // When
                 var result = Record.Exception(() => settings.FromRegistry(registry));
@@ -849,7 +821,7 @@
             {
                 // Given
                 var settings = new NpmInstallSettings();
-                string registry = "foo";
+                Uri registry = new Uri("https://myregistry.com");
 
                 // When
                 var result = settings.FromRegistry(registry);
