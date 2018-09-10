@@ -112,7 +112,7 @@ namespace Cake.Npm.Tests.Ci
 	        {
 		        // Given
 		        var fixture = new NpmCiToolFixture();
-		        fixture.Settings.Registry = "https://www.myget.org/feed";
+		        fixture.Settings.FromRegistry("https://www.myget.org/feed");
 
 		        // When
 		        var result = fixture.Run();
