@@ -785,5 +785,78 @@
                 settings.Packages.ShouldContain(scope + "/" + packageName + "@\"" + tag + "\"");
             }
         }
+
+        public sealed class TheFromRegistryMethod
+        {
+            [Fact]
+            public void Should_Throw_If_Settings_Are_Null()
+            {
+                // Given
+                NpmInstallSettings settings = null;
+                string registry = "foo";
+
+                // When
+                var result = Record.Exception(() => settings.FromRegistry(registry));
+
+                // Then
+                result.IsArgumentNullException("settings");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Registry_Is_Null()
+            {
+                // Given
+                var settings = new NpmInstallSettings();
+                string registry = null;
+
+                // When
+                var result = Record.Exception(() => settings.FromRegistry(registry));
+
+                // Then
+                result.IsArgumentNullException("registry");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Registry_Is_Empty()
+            {
+                // Given
+                var settings = new NpmInstallSettings();
+                string registry = string.Empty;
+
+                // When
+                var result = Record.Exception(() => settings.FromRegistry(registry));
+
+                // Then
+                result.IsArgumentNullException("registry");
+            }
+
+            [Fact]
+            public void Should_Throw_If_Registry_Is_WhiteSpace()
+            {
+                // Given
+                var settings = new NpmInstallSettings();
+                string registry = " ";
+
+                // When
+                var result = Record.Exception(() => settings.FromRegistry(registry));
+
+                // Then
+                result.IsArgumentNullException("registry");
+            }
+
+            [Fact]
+            public void Should_Set_Registry()
+            {
+                // Given
+                var settings = new NpmInstallSettings();
+                string registry = "foo";
+
+                // When
+                var result = settings.FromRegistry(registry);
+
+                // Then
+                result.Registry.ShouldBe(registry);
+            }
+        }
     }
 }
