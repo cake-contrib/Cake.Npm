@@ -21,12 +21,12 @@ namespace Cake.Npm.Ci
         /// </summary>
         public bool Production { get; set; }
 
-		/// <summary>
-		/// Sets the registry param for npm
-		/// </summary>
-	    public string Registry { get; set; }
+        /// <summary>
+        /// Sets the registry param for npm
+        /// </summary>
+        public string Registry { get; set; }
 
-	    /// <inheritdoc />
+        /// <inheritdoc />
         protected override void EvaluateCore(ProcessArgumentBuilder args)
         {
             base.EvaluateCore(args);
@@ -36,10 +36,10 @@ namespace Cake.Npm.Ci
                 args.Append("--production");
             }
 
-	        if (!string.IsNullOrWhiteSpace(Registry))
-	        {
-		        args.Append($"--registry={Registry}");
-	        }
+            if (!string.IsNullOrWhiteSpace(Registry))
+            {
+                args.Append($"--registry={Registry}");
+            }
         }
     }
 }
