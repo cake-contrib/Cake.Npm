@@ -106,6 +106,20 @@ namespace Cake.Npm.Tests.Ci
                 Assert.Equal("ci --production", result.Args);
             }
 
-        }
+
+	        [Fact]
+	        public void Should_Include_Registry_Args_If_Set()
+	        {
+		        // Given
+		        var fixture = new NpmCiToolFixture();
+		        fixture.Settings.FromRegistry("https://www.myget.org/feed");
+
+		        // When
+		        var result = fixture.Run();
+
+		        // Then
+		        Assert.Equal("ci --registry=https://www.myget.org/feed", result.Args);
+	        }
+		}
     }
 }
