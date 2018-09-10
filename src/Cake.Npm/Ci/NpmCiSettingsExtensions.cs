@@ -40,6 +40,11 @@ namespace Cake.Npm.Ci
                 throw new ArgumentNullException(nameof(settings));
             }
 
+            if (string.IsNullOrWhiteSpace(registry))
+            {
+                throw new ArgumentNullException(nameof(registry));
+            }
+
             settings.Registry = registry;
             return settings;
         }

@@ -5,7 +5,7 @@
     using Shouldly;
     using Xunit;
 
-    public sealed class NpmInstallSettingsExtensionsTests
+    public sealed class NpmRebuildSettingsExtensionsTests
     {
         public sealed class TheWithForceMethod
         {

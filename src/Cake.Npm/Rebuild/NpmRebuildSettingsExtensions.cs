@@ -5,7 +5,7 @@ namespace Cake.Npm.Rebuild
     /// <summary>
     /// Extensions for <see cref="NpmRebuildSettings"/>.
     /// </summary>
-    public static class NpmRebuilSettingsExtensions
+    public static class NpmRebuildSettingsExtensions
     {
         /// <summary>
         /// Rebuild a package by name
