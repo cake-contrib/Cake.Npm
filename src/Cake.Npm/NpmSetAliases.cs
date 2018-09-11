@@ -44,6 +44,38 @@ namespace Cake.Npm
         }
 
         /// <summary>
+        /// Sets an npm configuration setting returned by a configurator.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="configurator">The settings configurator.</param>
+        /// <example>
+        /// <para>Use speSetfic log level ('npm Set')</para>
+        /// <code>
+        /// <![CDATA[
+        ///     NpmSet(settings => settings.ForKey("progress").WithValue("false"));
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Set")]
+        public static void NpmSet(this ICakeContext context, Action<NpmSetSettings> configurator)
+        {
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
+            if (configurator == null)
+            {
+                throw new ArgumentNullException(nameof(configurator));
+            }
+
+            var settings = new NpmSetSettings();
+            configurator(settings);
+            context.NpmSet(settings);
+        }
+
+        /// <summary>
         /// Sets an npm configuration setting.
         /// </summary>
         /// <param name="context">The context.</param>
