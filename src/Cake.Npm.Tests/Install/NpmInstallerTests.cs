@@ -218,11 +218,11 @@ namespace Cake.Npm.Tests.Install
             }
 
             [Fact]
-            public void Should_Add_Registry_To_Arguments_If_Not_Empty()
+            public void Should_Add_Registry_To_Arguments_If_Set()
             {
                 // Given
                 var fixture = new NpmInstallerFixture();
-                var registry = "http://exampleregistry.com";
+                var registry = new Uri("http://exampleregistry.com");
                 fixture.Settings.Registry = registry;
 
                 // When
@@ -233,11 +233,11 @@ namespace Cake.Npm.Tests.Install
             }
 
             [Fact]
-            public void Should_Not_Add_Registry_To_Arguments_If_Empty()
+            public void Should_Not_Add_Registry_To_Arguments_If_Not_Set()
             {
                 // Given
                 var fixture = new NpmInstallerFixture();
-                fixture.Settings.Registry = "";
+                fixture.Settings.Registry = null;
 
                 // When
                 var result = fixture.Run();

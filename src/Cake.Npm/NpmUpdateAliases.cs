@@ -36,7 +36,38 @@ namespace Cake.Npm
         }
 
         /// <summary>
-        /// Updates all packages for the project in the current working directory.
+        /// Updates all packages for the project using the settings returned by a configurator.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="configurator">The settings configurator.</param>
+        /// <example>
+        /// <code>
+        /// <![CDATA[
+        ///     NpmUpdate(settings => settings.UpdateGlobalPackages());
+        /// ]]>
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Update")]
+        public static void NpmUpdate(this ICakeContext context, Action<NpmUpdateSettings> configurator)
+        {
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
+            if (configurator == null)
+            {
+                throw new ArgumentNullException(nameof(configurator));
+            }
+
+            var settings = new NpmUpdateSettings();
+            configurator(settings);
+            context.NpmUpdate(settings);
+        }
+
+        /// <summary>
+        /// Updates all packages for the project using the specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>

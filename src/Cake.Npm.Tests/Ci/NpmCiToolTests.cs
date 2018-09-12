@@ -112,13 +112,13 @@ namespace Cake.Npm.Tests.Ci
 	        {
 		        // Given
 		        var fixture = new NpmCiToolFixture();
-		        fixture.Settings.FromRegistry("https://www.myget.org/feed");
+		        fixture.Settings.FromRegistry(new Uri("https://myregistry/"));
 
 		        // When
 		        var result = fixture.Run();
 
 		        // Then
-		        Assert.Equal("ci --registry=https://www.myget.org/feed", result.Args);
+		        Assert.Equal("ci --registry https://myregistry/", result.Args);
 	        }
 		}
     }

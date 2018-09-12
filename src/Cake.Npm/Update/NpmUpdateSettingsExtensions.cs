@@ -1,9 +1,6 @@
-﻿using Cake.Npm.Update;
-
-namespace Cake.Npm.Update
+﻿namespace Cake.Npm.Update
 {
     using System;
-    using Core;
 
     /// <summary>
     /// Extensions for <see cref="NpmUpdateSettings"/>.
