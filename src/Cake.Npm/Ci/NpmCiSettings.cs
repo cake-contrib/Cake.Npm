@@ -1,5 +1,6 @@
 ﻿using Cake.Core;
 using Cake.Core.IO;
+using System;
 
 namespace Cake.Npm.Ci
 {
@@ -21,6 +22,12 @@ namespace Cake.Npm.Ci
         /// </summary>
         public bool Production { get; set; }
 
+        /// <summary>
+        /// Gets or sets the registry where packages should be restored from.
+        /// Defaulted to whatever the NPM configuration is.
+        /// </summary>
+        public Uri Registry { get; set; }
+
         /// <inheritdoc />
         protected override void EvaluateCore(ProcessArgumentBuilder args)
         {
@@ -29,6 +36,11 @@ namespace Cake.Npm.Ci
             if (Production)
             {
                 args.Append("--production");
+            }
+
+            if (Registry != null)
+            {
+                args.AppendSwitch("--registry", Registry.ToString());
             }
         }
     }
