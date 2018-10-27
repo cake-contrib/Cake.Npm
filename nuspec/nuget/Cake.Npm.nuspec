@@ -10,7 +10,7 @@
     <description>A set of aliases for Cake to help with running Npm (Node Package Manager) commands</description>
     <licenseUrl>https://github.com/cake-contrib/cake-npm/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/cake-contrib/cake-npm</projectUrl>
-    <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics@a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>cake npm cake-build cake-contrib</tags>
     <releaseNotes>https://github.com/cake-contrib/Cake.Npm/releases/tag/0.16.0</releaseNotes>
