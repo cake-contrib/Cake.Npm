@@ -11,7 +11,8 @@ BuildParameters.SetParameters(
     repositoryName: "Cake.Npm",
     appVeyorAccountName: "cakecontrib",
     shouldRunDupFinder: false,
-    shouldRunCodecov: false);
+    shouldRunCodecov: false,
+    shouldRunGitVersion: true);
 
 BuildParameters.PrintParameters(Context);
 
