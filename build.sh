@@ -11,7 +11,7 @@ NUGET_EXE=$TOOLS_DIR/nuget.exe
 CAKE_EXE=$TOOLS_DIR/Cake/Cake.exe
 
 # Define default arguments.
-SCRIPT="setup.cake"
+SCRIPT="recipe.cake"
 TARGET="Default"
 CONFIGURATION="Release"
 VERBOSITY="verbose"
