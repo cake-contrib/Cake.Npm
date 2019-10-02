@@ -1,7 +1,7 @@
 # Cake.Npm Addin
 
 This Addin for the Cake Build Automation System allows you to run [npm](https://www.npmjs.com/).
-More about Cake at http://cakebuild.net
+More about Cake at [cakebuild.net](http://cakebuild.net).
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://cake-contrib.mit-license.org)
 
@@ -28,7 +28,7 @@ More about Cake at http://cakebuild.net
 
 ## Chat Room
 
-Come join in the conversation about Cake.Yeoman in our Gitter Chat Room
+Come join in the conversation about Cake.Yeoman in our Gitter Chat Room.
 
 [![Join the chat at https://gitter.im/cake-contrib/Lobby](https://badges.gitter.im/cake-contrib/Lobby.svg)](https://gitter.im/cake-contrib/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
