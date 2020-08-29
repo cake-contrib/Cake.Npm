@@ -10,6 +10,7 @@ BuildParameters.SetParameters(
     repositoryOwner: "cake-contrib",
     repositoryName: "Cake.Npm",
     appVeyorAccountName: "cakecontrib",
+    shouldPublishMyGet: false,
     shouldRunDupFinder: false,
     shouldRunCodecov: false,
     shouldRunGitVersion: true);
