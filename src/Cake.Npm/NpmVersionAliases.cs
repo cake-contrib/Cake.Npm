@@ -33,7 +33,10 @@ namespace Cake.Npm
             }
             
             AddinInformation.LogVersionInformation(context.Log);
-            var settings =new NpmVersionSettings();
+            var settings = new NpmVersionSettings
+            {
+                RedirectStandardOutput = true
+            };
             return new NpmVersionTool(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log).Version(settings);
         }
     }
