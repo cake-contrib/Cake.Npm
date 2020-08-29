@@ -14,6 +14,8 @@ namespace Cake.Npm.Version
         public NpmVersionSettings()
             : base("version")
         {
+            // Since 'NpmVersion' returns a string we should redirect standard output.
+            RedirectStandardOutput = true;
         }
     }
 }
