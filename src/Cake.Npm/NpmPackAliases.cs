@@ -76,6 +76,7 @@ namespace Cake.Npm
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="configurator">The settings configurator.</param>
+        /// <returns>List of created packages.</returns>
         /// <example>
         /// <code>
         /// <![CDATA[
@@ -85,7 +86,7 @@ namespace Cake.Npm
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory("Pack")]
-        public static void NpmPack(this ICakeContext context, Action<NpmPackSettings> configurator)
+        public static IEnumerable<FilePath> NpmPack(this ICakeContext context, Action<NpmPackSettings> configurator)
         {
             if (context == null)
             {
@@ -99,7 +100,7 @@ namespace Cake.Npm
 
             var settings = new NpmPackSettings();
             configurator(settings);
-            context.NpmPack(settings);
+            return context.NpmPack(settings);
         }
 
         /// <summary>
