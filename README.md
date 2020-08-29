@@ -16,7 +16,7 @@ More about Cake at [cakebuild.net](http://cakebuild.net).
 
 |Develop|Master|
 |:--:|:--:|
-|[![Build status](https://ci.appveyor.com/api/projects/status/5fbkekpb5roh39m8/branch/develop?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-npm/branch/develop)|[![Build status](https://ci.appveyor.com/api/projects/status/5fbkekpb5roh39m8/branch/develop?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-npm/branch/master)|
+|[![Build status](https://ci.appveyor.com/api/projects/status/5fbkekpb5roh39m8/branch/develop?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-npm/branch/develop)|[![Build status](https://ci.appveyor.com/api/projects/status/5fbkekpb5roh39m8/branch/master?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-npm/branch/master)|
 
 ## Code Coverage
 
