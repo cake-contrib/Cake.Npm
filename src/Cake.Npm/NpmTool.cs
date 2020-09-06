@@ -90,8 +90,31 @@
                 settings.CakeVerbosityLevel = CakeLog.Verbosity;
             }
 
-            processSettings.RedirectStandardError = settings.RedirectStandardError;
-            processSettings.RedirectStandardOutput = settings.RedirectStandardOutput;
+            processSettings.RedirectStandardOutput =
+                settings.RedirectStandardOutput ||
+                settings.StandardOutputAction != null;
+
+            if (settings.StandardOutputAction != null)
+            {
+                processSettings.RedirectedStandardOutputHandler = x =>
+                {
+                    settings.StandardOutputAction(x);
+                    return x;
+                };
+            }
+
+            processSettings.RedirectStandardError =
+                settings.RedirectStandardError ||
+                settings.StandardErrorAction != null;
+
+            if (settings.StandardErrorAction != null)
+            {
+                processSettings.RedirectedStandardErrorHandler = x =>
+                {
+                    settings.StandardErrorAction(x);
+                    return x;
+                };
+            }
 
             var args = GetArguments(settings);
             Run(settings, args, processSettings, postAction);

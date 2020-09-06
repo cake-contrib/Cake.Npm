@@ -1,5 +1,7 @@
 ﻿namespace Cake.Npm.Tests
 {
+    using System;
+
     using Cake.Npm.Install;
     using Shouldly;
     using Xunit;
@@ -82,6 +84,34 @@
 
                 // Then
                 settings.WorkingDirectory.ToString().ShouldBe(@"c:/temp");
+            }
+
+            [Fact]
+            public void Should_Set_StandardOutputAction()
+            {
+                // Given
+                var settings = new NpmInstallSettings();
+                Action<string> action = x => { };
+
+                // When
+                settings.SetRedirectedStandardOutputHandler(action);
+
+                // Then
+                settings.StandardOutputAction.ShouldBe(action);
+            }
+
+            [Fact]
+            public void Should_Set_StandardErrorAction()
+            {
+                // Given
+                var settings = new NpmInstallSettings();
+                Action<string> action = x => { };
+
+                // When
+                settings.SetRedirectedStandardErrorHandler(action);
+
+                // Then
+                settings.StandardErrorAction.ShouldBe(action);
             }
         }
     }
