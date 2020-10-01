@@ -21,5 +21,11 @@
         {
             Assert.IsType<UriFormatException>(exception);
         }
+
+        public static void IsArgumentOutOfRangeException(this Exception exception, string parameterName)
+        {
+            Assert.IsType<ArgumentOutOfRangeException>(exception);
+            Assert.Equal(parameterName, ((ArgumentOutOfRangeException)exception).ParamName);
+        }
     }
 }
