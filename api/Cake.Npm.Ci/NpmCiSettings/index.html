@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.Npm - API - NpmCiSettings Class</title>
-        <link href="/Cake.Npm/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -22,6 +21,7 @@
         <script src="/Cake.Npm/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Npm/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Npm/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Npm/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Npm/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Npm/assets/js/respond.min.js"></script>
@@ -141,6 +141,7 @@
 		<li role="separator" class="divider"></li>
 			<li class="header">Class Types</li>
 				<li class="selected"><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings">NpmCiSettings</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettingsExtensions">Npm<wbr>Ci<wbr>Settings<wbr>Extensions</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiTool">NpmCiTool</a></li>
 
 
@@ -189,10 +190,10 @@
 					</div>		
 					<div class="col-md-6">
 						<div class="mermaid">
-							graph TD
-	Base0["NpmSettings"]--&gt;Type
+							graph BT
+	Type--&gt;Base0["NpmSettings"]
 	click Base0 "/Cake.Npm/api/Cake.Npm/NpmSettings"
-	Base1["ToolSettings"]--&gt;Base0
+	Base0--&gt;Base1["ToolSettings"]
 	Type["NpmCiSettings"]
 class Type type-node
 
@@ -204,6 +205,7 @@ class Type type-node
 
 	<h1 id="Syntax">Syntax</h1>
 	<pre><code>public class NpmCiSettings : NpmSettings</code></pre>
+
 
 
 
@@ -265,11 +267,20 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings/7A50A122">Production</a></td>
+								<td>bool</td>
+								<td>
+									<div>
+    Gets a value indicating whether npm should ignore modules listed in <pre><code class="cs">devDependencies</code></pre>.
+    </div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/5E04C505">Redirect<wbr>Standard<wbr>Error</a></td>
 								<td>bool</td>
 								<td>
 									<div>
-    Gets or sets the process option to redirect standard error
+    Gets or sets the process option to redirect standard error output.
     </div>
 											<div><small><em>Inherited from <a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></em></small></div>
 								</td>
@@ -279,7 +290,37 @@ class Type type-node
 								<td>bool</td>
 								<td>
 									<div>
-    Gets or sets the process option to redirect standard output
+    Gets or sets the process option to redirect standard output.
+    </div>
+											<div><small><em>Inherited from <a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings/4870501C">Registry</a></td>
+								<td>Uri</td>
+								<td>
+									<div>
+    Gets or sets the registry where packages should be restored from.
+    Defaulted to whatever the NPM configuration is.
+    </div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/B88BD74F">StandardErrorAction</a></td>
+								<td>Action<wbr>&lt;string&gt;<wbr></td>
+								<td>
+									<div>
+    Gets or sets an action to retrieve and process standard error output.
+    </div>
+											<div><small><em>Inherited from <a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/10E149D7">StandardOutputAction</a></td>
+								<td>Action<wbr>&lt;string&gt;<wbr></td>
+								<td>
+									<div>
+    Gets or sets an action to retrieve and process standard output.
     </div>
 											<div><small><em>Inherited from <a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></em></small></div>
 								</td>
@@ -301,13 +342,12 @@ class Type type-node
 							</tr>
 						</thead>
 							<tbody><tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/F9F43137">EvaluateCore<wbr>(<wbr>Process<wbr>Argument<wbr>Builder)<wbr></a></td>
+								<td><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings/6FF74FDD">EvaluateCore<wbr>(<wbr>Process<wbr>Argument<wbr>Builder)<wbr></a></td>
 								<td>void</td>
 								<td>
 									<div>
     Evaluates the settings and writes them to <span name="args" class="paramref">args</span>.
     </div>
-											<div><small><em>Inherited from <a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></em></small></div>
 								</td>
 							</tr>
 					</tbody></table>
@@ -328,11 +368,51 @@ class Type type-node
 							</tr>
 						</thead>
 							<tbody><tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettingsExtensions/F608FC12">ForProduction<wbr>()<wbr></a></td>
+								<td><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings">NpmCiSettings</a></td>
+								<td>
+									<div>
+    Defines that npm should ignore modules listed in <code class="cs">devDependencies</code>.
+    </div>
+										<div><small><em>From <a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettingsExtensions">Npm<wbr>Ci<wbr>Settings<wbr>Extensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions/94EB0CB2">FromPath<wbr>(DirectoryPath)<wbr></a></td>
 								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></td>
 								<td>
 									<div>
     Sets the working directory which should be used to run the npm command.
+    </div>
+										<div><small><em>From <a href="/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions">Npm<wbr>Settings<wbr>Extensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettingsExtensions/75B72F50">FromRegistry<wbr>(Uri)<wbr></a></td>
+								<td><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings">NpmCiSettings</a></td>
+								<td>
+									<div>
+    Instructs npm to look for packages in the given registry.
+    </div>
+										<div><small><em>From <a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettingsExtensions">Npm<wbr>Ci<wbr>Settings<wbr>Extensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions/1E895BC9">Set<wbr>Redirected<wbr>Standard<wbr>Error<wbr>Handler<wbr>(Action<wbr>&lt;string&gt;<wbr>)<wbr></a></td>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></td>
+								<td>
+									<div>
+    Sets the StandardError-Action
+    </div>
+										<div><small><em>From <a href="/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions">Npm<wbr>Settings<wbr>Extensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions/E8FB749F">Set<wbr>Redirected<wbr>Standard<wbr>Output<wbr>Handler<wbr>(Action<wbr>&lt;string&gt;<wbr>)<wbr></a></td>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></td>
+								<td>
+									<div>
+    Sets the StandardOutput-Action
     </div>
 										<div><small><em>From <a href="/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions">Npm<wbr>Settings<wbr>Extensions</a></em></small></div>
 								</td>
@@ -376,12 +456,10 @@ class Type type-node
         <div class="github-button">
     <a href="https://github.com/cake-contrib/Cake.Npm" target="_blank"><i class="fa fa-github"></i> GitHub</a>
 </div>
-<script>
-    ((window.gitter = {}).chat = {}).options = {
-        room: 'cake-contrib/Lobby'
-    };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+<a class="discussion-button" href="https://github.com/cake-build/cake/discussions/categories/extension-q-a" target="_blank">
+    <i class="fa fa-github"></i>
+    Discussion
+</a>
 
 <script type="text/javascript" src="/Cake.Npm/assets/js/anchor.min.js"></script>
 <script type="text/javascript" src="/Cake.Npm/assets/js/clipboard.min.js"></script>
@@ -436,22 +514,53 @@ class Type type-node
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

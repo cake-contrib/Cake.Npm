@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.Npm - API - NpmPackSettings.NpmPackSettings() Constructor</title>
-        <link href="/Cake.Npm/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -22,6 +21,7 @@
         <script src="/Cake.Npm/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Npm/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Npm/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Npm/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Npm/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Npm/assets/js/respond.min.js"></script>
@@ -146,6 +146,8 @@
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/5E04C505">Redirect<wbr>Standard<wbr>Error</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/7F315767">Redirect<wbr>Standard<wbr>Output</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettings/98CB97B9">Source</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/B88BD74F">StandardErrorAction</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/10E149D7">StandardOutputAction</a></li>
 			<li class="header">Method Members</li>
 				<li><a href="/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettings/C7C0E0AC">EvaluateCore<wbr>(<wbr>Process<wbr>Argument<wbr>Builder)<wbr></a></li>
 
@@ -238,12 +240,10 @@
         <div class="github-button">
     <a href="https://github.com/cake-contrib/Cake.Npm" target="_blank"><i class="fa fa-github"></i> GitHub</a>
 </div>
-<script>
-    ((window.gitter = {}).chat = {}).options = {
-        room: 'cake-contrib/Lobby'
-    };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+<a class="discussion-button" href="https://github.com/cake-build/cake/discussions/categories/extension-q-a" target="_blank">
+    <i class="fa fa-github"></i>
+    Discussion
+</a>
 
 <script type="text/javascript" src="/Cake.Npm/assets/js/anchor.min.js"></script>
 <script type="text/javascript" src="/Cake.Npm/assets/js/clipboard.min.js"></script>
@@ -298,22 +298,53 @@
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

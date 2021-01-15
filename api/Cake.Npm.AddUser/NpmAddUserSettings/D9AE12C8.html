@@ -6,8 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.Npm - API - NpmRebuilSettingsExtensions.AddPackage(NpmRebuildSettings, string) Method</title>
-        <link href="/Cake.Npm/assets/css/mermaid.css" rel="stylesheet">
+        <title>Cake.Npm - API - NpmAddUserSettings.AuthType Property</title>
         <link href="/Cake.Npm/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -22,6 +21,7 @@
         <script src="/Cake.Npm/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Npm/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Npm/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Npm/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Npm/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Npm/assets/js/respond.min.js"></script>
@@ -74,8 +74,7 @@
                     	
 	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
 <p><a href="#Syntax">Syntax</a></p>
-<p><a href="#Parameters">Parameters</a></p>
-<p><a href="#ReturnValue">Return Value</a></p>
+<p><a href="#Value">Value</a></p>
 <hr class="infobar-hidden">
 </div>
 
@@ -135,13 +134,25 @@
                     <ul class="sidebar-menu">
                         
 			<li class="header">Namespace</li>
-		<li><a href="/Cake.Npm/api/Cake.Npm.Rebuild">Cake<wbr>.Npm<wbr>.Rebuild</a></li>
+		<li><a href="/Cake.Npm/api/Cake.Npm.AddUser">Cake<wbr>.Npm<wbr>.AddUser</a></li>
 		<li class="header">Type</li>
-		<li><a href="/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuilSettingsExtensions">Npm<wbr>Rebuil<wbr>Settings<wbr>Extensions</a></li>
+		<li><a href="/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings">NpmAddUserSettings</a></li>
 		<li role="separator" class="divider"></li>
+			<li class="header">Constructors</li>
+				<li><a href="/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings/05B79095">NpmAddUserSettings<wbr>()<wbr></a></li>
+			<li class="header">Property Members</li>
+				<li><a href="/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings/2BFB3096">AlwaysAuth</a></li>
+				<li class="selected"><a href="/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings/D9AE12C8">AuthType</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/DA523FB4">Command</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/C6A5E2F0">LogLevel</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/5E04C505">Redirect<wbr>Standard<wbr>Error</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/7F315767">Redirect<wbr>Standard<wbr>Output</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings/4367D0F6">Registry</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings/797C804D">Scope</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/B88BD74F">StandardErrorAction</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/10E149D7">StandardOutputAction</a></li>
 			<li class="header">Method Members</li>
-				<li class="selected"><a href="/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuilSettingsExtensions/EFD5CFB2">AddPackage<wbr>(<wbr>Npm<wbr>Rebuild<wbr>Settings, <wbr>string)<wbr></a></li>
-				<li><a href="/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuilSettingsExtensions/DD0971A3">AddScopedPackage<wbr>(<wbr>Npm<wbr>Rebuild<wbr>Settings, <wbr>string, <wbr>string)<wbr></a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings/E82CD3C0">EvaluateCore<wbr>(<wbr>Process<wbr>Argument<wbr>Builder)<wbr></a></li>
 
 
                     </ul>
@@ -156,64 +167,39 @@
 
 
 <section class="content-header">
-			<h3><a href="/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuilSettingsExtensions">Npm<wbr>Rebuil<wbr>Settings<wbr>Extensions</a>.</h3>
-	<h1>AddPackage<wbr>(<wbr>Npm<wbr>Rebuild<wbr>Settings, <wbr>string)<wbr> <small>Method</small></h1>
+			<h3><a href="/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings">NpmAddUserSettings</a>.</h3>
+	<h1>AuthType <small>Property</small></h1>
 </section>
 <section class="content">
 	
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Rebuild a package by name
+    Gets or sets the authentication stragety to use. Defaults to <code class="cs">AuthType.Legacy</code>
     </div>
 
 		<div class="panel panel-default">
-  			<div class="panel-body">	
+  			<div class="panel-body">
 				<dl class="dl-horizontal">	
 						
 						<dt>Namespace</dt>
-						<dd><a href="/Cake.Npm/api/Cake.Npm.Rebuild">Cake<wbr>.Npm<wbr>.Rebuild</a></dd>
+						<dd><a href="/Cake.Npm/api/Cake.Npm.AddUser">Cake<wbr>.Npm<wbr>.AddUser</a></dd>
 					
 						<dt>Containing Type</dt>
-						<dd><a href="/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuilSettingsExtensions">Npm<wbr>Rebuil<wbr>Settings<wbr>Extensions</a></dd>		
+						<dd><a href="/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings">NpmAddUserSettings</a></dd>		
 					
 				</dl>
   			</div>
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public static NpmRebuildSettings AddPackage(this NpmRebuildSettings settings, string packageName)</code></pre>
+	<pre><code>public AuthType AuthType { get; set; }</code></pre>
 
 
 
 
 
-	<h1 id="Parameters">Parameters</h1>
-	<div class="box">
-		<div class="box-body no-padding table-responsive">
-			<table class="table table-striped table-hover three-cols">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Type</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-					<tbody><tr>
-						<td>settings</td>
-						<td><a href="/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuildSettings">NpmRebuildSettings</a></td>
-						<td>The settings.</td>
-					</tr>
-					<tr>
-						<td>packageName</td>
-						<td>string</td>
-						<td>Name of the package.</td>
-					</tr>
-			</tbody></table>
-		</div>
-	</div>	
-
-	<h1 id="ReturnValue">Return Value</h1>
+	<h1 id="Value">Value</h1>
 	<div class="box">
 		<div class="box-body no-padding table-responsive">
 			<table class="table table-striped table-hover two-cols">
@@ -224,8 +210,8 @@
 					</tr>
 				</thead>
 				<tbody><tr>
-					<td><a href="/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuildSettings">NpmRebuildSettings</a></td>
-					<td>The <span name="settings" class="paramref">settings</span> instance with <span name="packageName" class="paramref">packageName</span> added to <code class="cs"><a href="/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuildSettings/1FA1BA4B">Packages</a></code>.</td>
+					<td><a href="/Cake.Npm/api/Cake.Npm.AddUser/AuthType">AuthType</a></td>
+					<td></td>
 				</tr>
 			</tbody></table>
 		</div>
@@ -256,12 +242,10 @@
         <div class="github-button">
     <a href="https://github.com/cake-contrib/Cake.Npm" target="_blank"><i class="fa fa-github"></i> GitHub</a>
 </div>
-<script>
-    ((window.gitter = {}).chat = {}).options = {
-        room: 'cake-contrib/Lobby'
-    };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+<a class="discussion-button" href="https://github.com/cake-build/cake/discussions/categories/extension-q-a" target="_blank">
+    <i class="fa fa-github"></i>
+    Discussion
+</a>
 
 <script type="text/javascript" src="/Cake.Npm/assets/js/anchor.min.js"></script>
 <script type="text/javascript" src="/Cake.Npm/assets/js/clipboard.min.js"></script>
@@ -316,22 +300,53 @@
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

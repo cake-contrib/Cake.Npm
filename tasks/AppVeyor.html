@@ -9,7 +9,6 @@
         <link rel="shortcut icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.Npm - Appveyor</title>
-        <link href="/Cake.Npm/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
         <link href="/Cake.Npm/assets/css/adminlte/AdminLTE.css" rel="stylesheet" />
@@ -24,6 +23,7 @@
         <script src="/Cake.Npm/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Npm/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Npm/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Npm/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Npm/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Npm/assets/js/respond.min.js"></script>
@@ -84,6 +84,7 @@
 
                     <ul class="sidebar-menu">
                         
+
                 <li><a href="/Cake.Npm/tasks/Analyze">Analyze</a></li>
                 <li class="selected"><a href="/Cake.Npm/tasks/AppVeyor">Appveyor</a></li>
                 <li><a href="/Cake.Npm/tasks/Build">Build</a></li>
@@ -92,9 +93,11 @@
                 <li><a href="/Cake.Npm/tasks/Clear-AppVeyor-Cache">Clear Appveyor Cache</a></li>
                 <li><a href="/Cake.Npm/tasks/ClearCache">Clearcache</a></li>
                 <li><a href="/Cake.Npm/tasks/Create-Chocolatey-Packages">Create Chocolatey Packages</a></li>
+                <li><a href="/Cake.Npm/tasks/Create-Default-Labels">Create Default Labels</a></li>
                 <li><a href="/Cake.Npm/tasks/Create-Nuget-Package">Create Nuget Package</a></li>
                 <li><a href="/Cake.Npm/tasks/Create-NuGet-Packages">Create Nuget Packages</a></li>
                 <li><a href="/Cake.Npm/tasks/Create-Release-Notes">Create Release Notes</a></li>
+                <li><a href="/Cake.Npm/tasks/CreateIssuesReport">Createissuesreport</a></li>
                 <li><a href="/Cake.Npm/tasks/Default">Default</a></li>
                 <li><a href="/Cake.Npm/tasks/Deploy-Graph-Documentation">Deploy Graph Documentation</a></li>
                 <li><a href="/Cake.Npm/tasks/DotNetCore-Build">Dotnetcore Build</a></li>
@@ -108,6 +111,7 @@
                 <li><a href="/Cake.Npm/tasks/Install-OpenCover">Install Opencover</a></li>
                 <li><a href="/Cake.Npm/tasks/Install-ReportGenerator">Install Reportgenerator</a></li>
                 <li><a href="/Cake.Npm/tasks/Install-ReportUnit">Install Reportunit</a></li>
+                <li><a href="/Cake.Npm/tasks/Labels">Labels</a></li>
                 <li><a href="/Cake.Npm/tasks/Package">Package</a></li>
                 <li><a href="/Cake.Npm/tasks/Preview">Preview</a></li>
                 <li><a href="/Cake.Npm/tasks/Preview-Documentation">Preview Documentation</a></li>
@@ -148,9 +152,9 @@
 
 
 
-	<section class="content-header">
-		<h1>Appveyor</h1>
-	</section>
+		<section class="content-header">
+			<h1>Appveyor</h1>
+		</section>
 	<section class="content">
 		<div class="mermaid">
 graph TD;
@@ -178,6 +182,7 @@ DotNetCore-Test-->Install-OpenCover;
 Install-OpenCover-->Install-ReportGenerator;
 Analyze-->DupFinder;
 Analyze-->InspectCode;
+Analyze-->CreateIssuesReport;
 Upload-Coverage-Report-->Upload-Coveralls-Report;
 Upload-Coverage-Report-->Upload-Codecov-Report;
 Publish-Documentation-->Clean-Documentation;
@@ -207,12 +212,10 @@ Publish-Documentation-->Deploy-Graph-Documentation;
         <div class="github-button">
     <a href="https://github.com/cake-contrib/Cake.Npm" target="_blank"><i class="fa fa-github"></i> GitHub</a>
 </div>
-<script>
-    ((window.gitter = {}).chat = {}).options = {
-        room: 'cake-contrib/Lobby'
-    };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+<a class="discussion-button" href="https://github.com/cake-build/cake/discussions/categories/extension-q-a" target="_blank">
+    <i class="fa fa-github"></i>
+    Discussion
+</a>
 
 <script type="text/javascript" src="/Cake.Npm/assets/js/anchor.min.js"></script>
 <script type="text/javascript" src="/Cake.Npm/assets/js/clipboard.min.js"></script>
@@ -267,22 +270,53 @@ Publish-Documentation-->Deploy-Graph-Documentation;
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.Npm - API - NpmSettings Class</title>
-        <link href="/Cake.Npm/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -22,6 +21,7 @@
         <script src="/Cake.Npm/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Npm/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Npm/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Npm/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Npm/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Npm/assets/js/respond.min.js"></script>
@@ -140,15 +140,20 @@
 		<li><a href="/Cake.Npm/api/Cake.Npm">Cake<wbr>.Npm</a></li>
 		<li role="separator" class="divider"></li>
 			<li class="header">Class Types</li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmAddUserAliases">NpmAddUserAliases</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmCiAliases">NpmCiAliases</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmInstallAliases">NpmInstallAliases</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmPackAliases">NpmPackAliases</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmPruneAliases">NpmPruneAliases</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmPublishAliases">NpmPublishAliases</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmRebuildAliases">NpmRebuildAliases</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmRunScriptAliases">NpmRunScriptAliases</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSetAliases">NpmSetAliases</a></li>
 				<li class="selected"><a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions">Npm<wbr>Settings<wbr>Extensions</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmTool_1">NpmTool<wbr>&lt;TSettings&gt;<wbr></a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmUpdateAliases">NpmUpdateAliases</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmVersionAliases">NpmVersionAliases</a></li>
 			<li class="header">Enum Types</li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmLogLevel">NpmLogLevel</a></li>
 
@@ -195,12 +200,17 @@
 								<dt>Derived Types</dt>
 								<dd>
 									<ul class="list-unstyled">
-											<li><a href="/Cake.Npm/api/Cake.Npm.Install/NpmInstallSettings">NpmInstallSettings</a></li>								
-											<li><a href="/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettings">NpmPublishSettings</a></li>								
-											<li><a href="/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuildSettings">NpmRebuildSettings</a></li>								
-											<li><a href="/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettings">NpmPackSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Update/NpmUpdateSettings">NpmUpdateSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Version/NpmVersionSettings">NpmVersionSettings</a></li>								
 											<li><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings">NpmCiSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettings">NpmPackSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings">NpmAddUserSettings</a></li>								
 											<li><a href="/Cake.Npm/api/Cake.Npm.RunScript/NpmRunScriptSettings">NpmRunScriptSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Install/NpmInstallSettings">NpmInstallSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Set/NpmSetSettings">NpmSetSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuildSettings">NpmRebuildSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettings">NpmPublishSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Prune/NpmPruneSettings">NpmPruneSettings</a></li>								
 									</ul>
 								</dd>			
 							
@@ -208,22 +218,32 @@
 					</div>		
 					<div class="col-md-6">
 						<div class="mermaid">
-							graph TD
-	Base0["ToolSettings"]--&gt;Type
+							graph BT
+	Type--&gt;Base0["ToolSettings"]
 	Type["NpmSettings"]
 class Type type-node
-	Type--&gt;Derived0["NpmInstallSettings"]
-	click Derived0 "/Cake.Npm/api/Cake.Npm.Install/NpmInstallSettings"
-	Type--&gt;Derived1["NpmPublishSettings"]
-	click Derived1 "/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettings"
-	Type--&gt;Derived2["NpmRebuildSettings"]
-	click Derived2 "/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuildSettings"
-	Type--&gt;Derived3["NpmPackSettings"]
+	Derived0["NpmUpdateSettings"]--&gt;Type
+	click Derived0 "/Cake.Npm/api/Cake.Npm.Update/NpmUpdateSettings"
+	Derived1["NpmVersionSettings"]--&gt;Type
+	click Derived1 "/Cake.Npm/api/Cake.Npm.Version/NpmVersionSettings"
+	Derived2["NpmCiSettings"]--&gt;Type
+	click Derived2 "/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings"
+	Derived3["NpmPackSettings"]--&gt;Type
 	click Derived3 "/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettings"
-	Type--&gt;Derived4["NpmCiSettings"]
-	click Derived4 "/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings"
-	Type--&gt;Derived5["NpmRunScriptSettings"]
+	Derived4["NpmAddUserSettings"]--&gt;Type
+	click Derived4 "/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings"
+	Derived5["NpmRunScriptSettings"]--&gt;Type
 	click Derived5 "/Cake.Npm/api/Cake.Npm.RunScript/NpmRunScriptSettings"
+	Derived6["NpmInstallSettings"]--&gt;Type
+	click Derived6 "/Cake.Npm/api/Cake.Npm.Install/NpmInstallSettings"
+	Derived7["NpmSetSettings"]--&gt;Type
+	click Derived7 "/Cake.Npm/api/Cake.Npm.Set/NpmSetSettings"
+	Derived8["NpmRebuildSettings"]--&gt;Type
+	click Derived8 "/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuildSettings"
+	Derived9["NpmPublishSettings"]--&gt;Type
+	click Derived9 "/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettings"
+	Derived10["NpmPruneSettings"]--&gt;Type
+	click Derived10 "/Cake.Npm/api/Cake.Npm.Prune/NpmPruneSettings"
 
 						</div>
 					</div>
@@ -233,6 +253,7 @@ class Type type-node
 
 	<h1 id="Syntax">Syntax</h1>
 	<pre><code>public abstract class NpmSettings : ToolSettings</code></pre>
+
 
 
 
@@ -296,7 +317,7 @@ class Type type-node
 								<td>bool</td>
 								<td>
 									<div>
-    Gets or sets the process option to redirect standard error
+    Gets or sets the process option to redirect standard error output.
     </div>
 								</td>
 							</tr>
@@ -305,7 +326,25 @@ class Type type-node
 								<td>bool</td>
 								<td>
 									<div>
-    Gets or sets the process option to redirect standard output
+    Gets or sets the process option to redirect standard output.
+    </div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/B88BD74F">StandardErrorAction</a></td>
+								<td>Action<wbr>&lt;string&gt;<wbr></td>
+								<td>
+									<div>
+    Gets or sets an action to retrieve and process standard error output.
+    </div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/10E149D7">StandardOutputAction</a></td>
+								<td>Action<wbr>&lt;string&gt;<wbr></td>
+								<td>
+									<div>
+    Gets or sets an action to retrieve and process standard output.
     </div>
 								</td>
 							</tr>
@@ -362,6 +401,26 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions/1E895BC9">Set<wbr>Redirected<wbr>Standard<wbr>Error<wbr>Handler<wbr>(Action<wbr>&lt;string&gt;<wbr>)<wbr></a></td>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></td>
+								<td>
+									<div>
+    Sets the StandardError-Action
+    </div>
+										<div><small><em>From <a href="/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions">Npm<wbr>Settings<wbr>Extensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions/E8FB749F">Set<wbr>Redirected<wbr>Standard<wbr>Output<wbr>Handler<wbr>(Action<wbr>&lt;string&gt;<wbr>)<wbr></a></td>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></td>
+								<td>
+									<div>
+    Sets the StandardOutput-Action
+    </div>
+										<div><small><em>From <a href="/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions">Npm<wbr>Settings<wbr>Extensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions/55EDAAF3">WithLogLevel<wbr>(NpmLogLevel)<wbr></a></td>
 								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></td>
 								<td>
@@ -400,12 +459,10 @@ class Type type-node
         <div class="github-button">
     <a href="https://github.com/cake-contrib/Cake.Npm" target="_blank"><i class="fa fa-github"></i> GitHub</a>
 </div>
-<script>
-    ((window.gitter = {}).chat = {}).options = {
-        room: 'cake-contrib/Lobby'
-    };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+<a class="discussion-button" href="https://github.com/cake-build/cake/discussions/categories/extension-q-a" target="_blank">
+    <i class="fa fa-github"></i>
+    Discussion
+</a>
 
 <script type="text/javascript" src="/Cake.Npm/assets/js/anchor.min.js"></script>
 <script type="text/javascript" src="/Cake.Npm/assets/js/clipboard.min.js"></script>
@@ -460,22 +517,53 @@ class Type type-node
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

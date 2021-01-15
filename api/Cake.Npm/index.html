@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.Npm - API - Cake.Npm Namespace</title>
-        <link href="/Cake.Npm/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -22,6 +21,7 @@
         <script src="/Cake.Npm/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Npm/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Npm/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Npm/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Npm/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Npm/assets/js/respond.min.js"></script>
@@ -143,12 +143,17 @@
 				<li class="treeview active selected">
 				<a href="/Cake.Npm/api/Cake.Npm">Cake<wbr>.Npm</a> <a href="#" class="expand"></a>
 				<ul class="treeview-menu">
-						<li><a href="/Cake.Npm/api/Cake.Npm.Ci">Cake<wbr>.Npm<wbr>.Ci</a></li>
+						<li><a href="/Cake.Npm/api/Cake.Npm.AddUser">Cake<wbr>.Npm<wbr>.AddUser</a></li>
+			<li><a href="/Cake.Npm/api/Cake.Npm.Ci">Cake<wbr>.Npm<wbr>.Ci</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.Install">Cake<wbr>.Npm<wbr>.Install</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.Pack">Cake<wbr>.Npm<wbr>.Pack</a></li>
+			<li><a href="/Cake.Npm/api/Cake.Npm.Prune">Cake<wbr>.Npm<wbr>.Prune</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.Publish">Cake<wbr>.Npm<wbr>.Publish</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.Rebuild">Cake<wbr>.Npm<wbr>.Rebuild</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.RunScript">Cake<wbr>.Npm<wbr>.RunScript</a></li>
+			<li><a href="/Cake.Npm/api/Cake.Npm.Set">Cake<wbr>.Npm<wbr>.Set</a></li>
+			<li><a href="/Cake.Npm/api/Cake.Npm.Update">Cake<wbr>.Npm<wbr>.Update</a></li>
+			<li><a href="/Cake.Npm/api/Cake.Npm.Version">Cake<wbr>.Npm<wbr>.Version</a></li>
 </ul></li></ul></li>      
 
                     </ul>
@@ -174,6 +179,7 @@
     </div>
 
 
+
 			<h1 id="ClassTypes">Class Types</h1>
 			<div class="box">
 				<div class="box-body no-padding table-responsive">
@@ -185,6 +191,12 @@
 							</tr>
 						</thead>
 							<tbody><tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmAddUserAliases">NpmAddUserAliases</a></td>
+									<td>
+    Npm Install aliases
+    </td>
+							</tr>
+							<tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm/NpmCiAliases">NpmCiAliases</a></td>
 									<td>
     Npm Ci aliases
@@ -200,6 +212,12 @@
 								<td><a href="/Cake.Npm/api/Cake.Npm/NpmPackAliases">NpmPackAliases</a></td>
 									<td>
     Npm Pack aliases
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmPruneAliases">NpmPruneAliases</a></td>
+									<td>
+    Npm Prune aliases
     </td>
 							</tr>
 							<tr>
@@ -221,6 +239,12 @@
     </td>
 							</tr>
 							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSetAliases">NpmSetAliases</a></td>
+									<td>
+    Npm Set aliases
+    </td>
+							</tr>
+							<tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></td>
 									<td>
     Npm tool settings.
@@ -233,15 +257,28 @@
     </td>
 							</tr>
 							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmTool_1">NpmTool<wbr>&lt;TSettings&gt;<wbr></a></td>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmTool_1">NpmTool</a><wbr>&lt;<a href="/Cake.Npm/api/Cake.Npm/NpmTool_1#typeparam-TSettings">TSettings</a>&gt;<wbr></td>
 									<td>
     Base class for all npm tools.
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmUpdateAliases">NpmUpdateAliases</a></td>
+									<td>
+    Npm Update aliases
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmVersionAliases">NpmVersionAliases</a></td>
+									<td>
+    Npm Version aliases
     </td>
 							</tr>
 					</tbody></table>
 				</div>
 			</div>
 		
+
 			<h1 id="EnumTypes">Enum Types</h1>
 			<div class="box">
 				<div class="box-body no-padding table-responsive">
@@ -262,6 +299,7 @@
 				</div>
 			</div>
 		
+
 			<h1 id="Namespaces">Namespaces</h1>
 			<div class="box">
 				<div class="box-body no-padding table-responsive">
@@ -273,8 +311,14 @@
 							</tr>
 						</thead>
 							<tbody><tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.Ci">Cake<wbr>.Npm<wbr>.Ci</a></td>
+								<td><a href="/Cake.Npm/api/Cake.Npm.AddUser">Cake<wbr>.Npm<wbr>.AddUser</a></td>
 									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm.Ci">Cake<wbr>.Npm<wbr>.Ci</a></td>
+									<td>
+    This namespace contain types used for install npm packages (using CI commands).
+    </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm.Install">Cake<wbr>.Npm<wbr>.Install</a></td>
@@ -287,6 +331,10 @@
 									<td>
     This namespace contain types used for creating npm packages.
     </td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm.Prune">Cake<wbr>.Npm<wbr>.Prune</a></td>
+									<td></td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm.Publish">Cake<wbr>.Npm<wbr>.Publish</a></td>
@@ -302,6 +350,24 @@
 								<td><a href="/Cake.Npm/api/Cake.Npm.RunScript">Cake<wbr>.Npm<wbr>.RunScript</a></td>
 									<td>
     This namespace contain types used for running npm scripts.
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm.Set">Cake<wbr>.Npm<wbr>.Set</a></td>
+									<td>
+    This namespace contain types used for managing npm config settings.
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm.Update">Cake<wbr>.Npm<wbr>.Update</a></td>
+									<td>
+    This namespace contain types used for updating npm packages.
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm.Version">Cake<wbr>.Npm<wbr>.Version</a></td>
+									<td>
+    This namespace contain types used for determining installed npm version.
     </td>
 							</tr>
 					</tbody></table>
@@ -332,12 +398,10 @@
         <div class="github-button">
     <a href="https://github.com/cake-contrib/Cake.Npm" target="_blank"><i class="fa fa-github"></i> GitHub</a>
 </div>
-<script>
-    ((window.gitter = {}).chat = {}).options = {
-        room: 'cake-contrib/Lobby'
-    };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+<a class="discussion-button" href="https://github.com/cake-build/cake/discussions/categories/extension-q-a" target="_blank">
+    <i class="fa fa-github"></i>
+    Discussion
+</a>
 
 <script type="text/javascript" src="/Cake.Npm/assets/js/anchor.min.js"></script>
 <script type="text/javascript" src="/Cake.Npm/assets/js/clipboard.min.js"></script>
@@ -392,22 +456,53 @@
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<link rel="self" href="http://cake-contrib.github.io/Cake.Npm" />
 	<id>http://cake-contrib.github.io/Cake.Npm</id>
 	<title>Cake.Npm</title>
-	<rights>2018</rights>
-	<updated>2018-03-09T23:17:14Z</updated>
+	<link rel="self" href="http://cake-contrib.github.io/Cake.Npm" />
+	<rights>2021</rights>
+	<updated>2021-01-15T21:34:18Z</updated>
 </feed>

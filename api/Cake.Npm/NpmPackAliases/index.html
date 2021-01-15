@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.Npm - API - NpmPackAliases Class</title>
-        <link href="/Cake.Npm/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -22,6 +21,7 @@
         <script src="/Cake.Npm/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Npm/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Npm/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Npm/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Npm/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Npm/assets/js/respond.min.js"></script>
@@ -138,15 +138,20 @@
 		<li><a href="/Cake.Npm/api/Cake.Npm">Cake<wbr>.Npm</a></li>
 		<li role="separator" class="divider"></li>
 			<li class="header">Class Types</li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmAddUserAliases">NpmAddUserAliases</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmCiAliases">NpmCiAliases</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmInstallAliases">NpmInstallAliases</a></li>
 				<li class="selected"><a href="/Cake.Npm/api/Cake.Npm/NpmPackAliases">NpmPackAliases</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmPruneAliases">NpmPruneAliases</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmPublishAliases">NpmPublishAliases</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmRebuildAliases">NpmRebuildAliases</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmRunScriptAliases">NpmRunScriptAliases</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSetAliases">NpmSetAliases</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions">Npm<wbr>Settings<wbr>Extensions</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmTool_1">NpmTool<wbr>&lt;TSettings&gt;<wbr></a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmUpdateAliases">NpmUpdateAliases</a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmVersionAliases">NpmVersionAliases</a></li>
 			<li class="header">Enum Types</li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmLogLevel">NpmLogLevel</a></li>
 
@@ -195,8 +200,8 @@
 					</div>		
 					<div class="col-md-6">
 						<div class="mermaid">
-							graph TD
-	Base0["object"]--&gt;Type
+							graph BT
+	Type--&gt;Base0["object"]
 	Type["NpmPackAliases"]
 class Type type-node
 
@@ -241,6 +246,7 @@ public static class NpmPackAliases</code></pre>
 
 
 
+
 			<h1 id="Methods">Methods</h1>
 			<div class="box">
 				<div class="box-body no-padding table-responsive">
@@ -254,7 +260,7 @@ public static class NpmPackAliases</code></pre>
 						</thead>
 							<tbody><tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm/NpmPackAliases/04B5F7FC">NpmPack<wbr>(ICakeContext)<wbr></a></td>
-								<td>IEnumerable<wbr>&lt;T&gt;<wbr></td>
+								<td>IEnumerable<wbr>&lt;FilePath&gt;<wbr></td>
 								<td>
 									<div>
     Creates a npm package from the current working directory.
@@ -265,7 +271,7 @@ public static class NpmPackAliases</code></pre>
 							</tr>
 							<tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm/NpmPackAliases/77B7E193">NpmPack<wbr>(ICakeContext, <wbr>Action<wbr>&lt;<wbr>Npm<wbr>Pack<wbr>Settings&gt;<wbr>)<wbr></a></td>
-								<td>void</td>
+								<td>IEnumerable<wbr>&lt;FilePath&gt;<wbr></td>
 								<td>
 									<div>
     Creates a npm package using the settings returned by a configurator.
@@ -275,7 +281,7 @@ public static class NpmPackAliases</code></pre>
 							</tr>
 							<tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm/NpmPackAliases/3C091A2B">NpmPack<wbr>(ICakeContext, <wbr>NpmPackSettings)<wbr></a></td>
-								<td>IEnumerable<wbr>&lt;T&gt;<wbr></td>
+								<td>IEnumerable<wbr>&lt;FilePath&gt;<wbr></td>
 								<td>
 									<div>
     Creates a npm package using the specified settings.
@@ -286,7 +292,7 @@ public static class NpmPackAliases</code></pre>
 							</tr>
 							<tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm/NpmPackAliases/4DC6AF92">NpmPack<wbr>(ICakeContext, <wbr>string)<wbr></a></td>
-								<td>IEnumerable<wbr>&lt;T&gt;<wbr></td>
+								<td>IEnumerable<wbr>&lt;FilePath&gt;<wbr></td>
 								<td>
 									<div>
     Creates a npm package from a specific source.
@@ -326,12 +332,10 @@ public static class NpmPackAliases</code></pre>
         <div class="github-button">
     <a href="https://github.com/cake-contrib/Cake.Npm" target="_blank"><i class="fa fa-github"></i> GitHub</a>
 </div>
-<script>
-    ((window.gitter = {}).chat = {}).options = {
-        room: 'cake-contrib/Lobby'
-    };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+<a class="discussion-button" href="https://github.com/cake-build/cake/discussions/categories/extension-q-a" target="_blank">
+    <i class="fa fa-github"></i>
+    Discussion
+</a>
 
 <script type="text/javascript" src="/Cake.Npm/assets/js/anchor.min.js"></script>
 <script type="text/javascript" src="/Cake.Npm/assets/js/clipboard.min.js"></script>
@@ -386,22 +390,53 @@ public static class NpmPackAliases</code></pre>
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

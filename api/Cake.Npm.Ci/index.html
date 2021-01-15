@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.Npm - API - Cake.Npm.Ci Namespace</title>
-        <link href="/Cake.Npm/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -22,6 +21,7 @@
         <script src="/Cake.Npm/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Npm/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Npm/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Npm/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Npm/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Npm/assets/js/respond.min.js"></script>
@@ -72,7 +72,8 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#ClassTypes">Class Types</a></p>
+	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
+<p><a href="#ClassTypes">Class Types</a></p>
 <hr class="infobar-hidden">
 </div>
 
@@ -140,12 +141,17 @@
 				<li class="treeview active">
 				<a href="/Cake.Npm/api/Cake.Npm">Cake<wbr>.Npm</a> <a href="#" class="expand"></a>
 				<ul class="treeview-menu">
-						<li class=" selected"><a href="/Cake.Npm/api/Cake.Npm.Ci">Cake<wbr>.Npm<wbr>.Ci</a></li>
+						<li><a href="/Cake.Npm/api/Cake.Npm.AddUser">Cake<wbr>.Npm<wbr>.AddUser</a></li>
+			<li class=" selected"><a href="/Cake.Npm/api/Cake.Npm.Ci">Cake<wbr>.Npm<wbr>.Ci</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.Install">Cake<wbr>.Npm<wbr>.Install</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.Pack">Cake<wbr>.Npm<wbr>.Pack</a></li>
+			<li><a href="/Cake.Npm/api/Cake.Npm.Prune">Cake<wbr>.Npm<wbr>.Prune</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.Publish">Cake<wbr>.Npm<wbr>.Publish</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.Rebuild">Cake<wbr>.Npm<wbr>.Rebuild</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.RunScript">Cake<wbr>.Npm<wbr>.RunScript</a></li>
+			<li><a href="/Cake.Npm/api/Cake.Npm.Set">Cake<wbr>.Npm<wbr>.Set</a></li>
+			<li><a href="/Cake.Npm/api/Cake.Npm.Update">Cake<wbr>.Npm<wbr>.Update</a></li>
+			<li><a href="/Cake.Npm/api/Cake.Npm.Version">Cake<wbr>.Npm<wbr>.Version</a></li>
 </ul></li></ul></li>      
 
                     </ul>
@@ -165,7 +171,12 @@
 <section class="content">
 	
 	
-	
+		<h1 id="Summary">Summary</h1>
+	<div class="lead">
+    This namespace contain types used for install npm packages (using CI commands).
+    </div>
+
+
 
 			<h1 id="ClassTypes">Class Types</h1>
 			<div class="box">
@@ -184,6 +195,12 @@
     </td>
 							</tr>
 							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettingsExtensions">Npm<wbr>Ci<wbr>Settings<wbr>Extensions</a></td>
+									<td>
+    Extensions for <code class="cs"><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings">NpmCiSettings</a></code>.
+    </td>
+							</tr>
+							<tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiTool">NpmCiTool</a></td>
 									<td>
     Tool for installing all npm packages for a project from package-lock.json.
@@ -193,6 +210,7 @@
 				</div>
 			</div>
 		
+
 	
 </section>
                 
@@ -217,12 +235,10 @@
         <div class="github-button">
     <a href="https://github.com/cake-contrib/Cake.Npm" target="_blank"><i class="fa fa-github"></i> GitHub</a>
 </div>
-<script>
-    ((window.gitter = {}).chat = {}).options = {
-        room: 'cake-contrib/Lobby'
-    };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+<a class="discussion-button" href="https://github.com/cake-build/cake/discussions/categories/extension-q-a" target="_blank">
+    <i class="fa fa-github"></i>
+    Discussion
+</a>
 
 <script type="text/javascript" src="/Cake.Npm/assets/js/anchor.min.js"></script>
 <script type="text/javascript" src="/Cake.Npm/assets/js/clipboard.min.js"></script>
@@ -277,22 +293,53 @@
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

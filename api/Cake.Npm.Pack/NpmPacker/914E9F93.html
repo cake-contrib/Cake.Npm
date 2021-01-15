@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.Npm - API - NpmPacker.NpmPacker(IFileSystem, ICakeEnvironment, IProcessRunner, IToolLocator, ICakeLog) Constructor</title>
-        <link href="/Cake.Npm/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -22,6 +21,7 @@
         <script src="/Cake.Npm/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Npm/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Npm/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Npm/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Npm/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Npm/assets/js/respond.min.js"></script>
@@ -142,14 +142,7 @@
 			<li class="header">Constructors</li>
 				<li class="selected"><a href="/Cake.Npm/api/Cake.Npm.Pack/NpmPacker/914E9F93">NpmPacker<wbr>(IFileSystem, <wbr>ICakeEnvironment, <wbr>IProcessRunner, <wbr>IToolLocator, <wbr>ICakeLog)<wbr></a></li>
 			<li class="header">Method Members</li>
-				<li><a href="/Cake.Npm/api/Cake.Npm/NpmTool_1/5C41958F">GetArguments<wbr>(TSettings)<wbr></a></li>
-				<li><a href="/Cake.Npm/api/Cake.Npm/NpmTool_1/8D13141B">Get<wbr>Tool<wbr>Executable<wbr>Names<wbr>()<wbr></a></li>
-				<li><a href="/Cake.Npm/api/Cake.Npm/NpmTool_1/8142AE0D">GetToolName<wbr>()<wbr></a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm.Pack/NpmPacker/D0AADD3E">Pack<wbr>(NpmPackSettings)<wbr></a></li>
-				<li><a href="/Cake.Npm/api/Cake.Npm/NpmTool_1/43C49967">RunCore<wbr>(TSettings)<wbr></a></li>
-				<li><a href="/Cake.Npm/api/Cake.Npm/NpmTool_1/F77023C1">RunCore<wbr>(TSettings, <wbr>ProcessSettings, <wbr>Action<wbr>&lt;IProcess&gt;<wbr>)<wbr></a></li>
-			<li class="header">Property Members</li>
-				<li><a href="/Cake.Npm/api/Cake.Npm/NpmTool_1/73A86D9C">CakeLog</a></li>
 
 
                     </ul>
@@ -279,12 +272,10 @@
         <div class="github-button">
     <a href="https://github.com/cake-contrib/Cake.Npm" target="_blank"><i class="fa fa-github"></i> GitHub</a>
 </div>
-<script>
-    ((window.gitter = {}).chat = {}).options = {
-        room: 'cake-contrib/Lobby'
-    };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+<a class="discussion-button" href="https://github.com/cake-build/cake/discussions/categories/extension-q-a" target="_blank">
+    <i class="fa fa-github"></i>
+    Discussion
+</a>
 
 <script type="text/javascript" src="/Cake.Npm/assets/js/anchor.min.js"></script>
 <script type="text/javascript" src="/Cake.Npm/assets/js/clipboard.min.js"></script>
@@ -339,22 +330,53 @@
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top
