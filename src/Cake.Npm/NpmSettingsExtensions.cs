@@ -48,5 +48,51 @@
 
             return settings;
         }
+
+        /// <summary>
+        /// Sets the StandardError-Action
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <param name="standardErrorAction">The StandardError-Action.</param>
+        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmSettings.StandardErrorAction"/> set to <paramref name="standardErrorAction"/>.</returns>
+        public static NpmSettings SetRedirectedStandardErrorHandler(this NpmSettings settings, Action<string> standardErrorAction)
+        {
+            if (settings == null)
+            {
+                throw new ArgumentNullException(nameof(settings));
+            }
+
+            if (standardErrorAction == null)
+            {
+                throw new ArgumentNullException(nameof(standardErrorAction));
+            }
+
+            settings.StandardErrorAction = standardErrorAction;
+
+            return settings;
+        }
+
+        /// <summary>
+        /// Sets the StandardOutput-Action
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <param name="standardOutputAction">The StandardOutput-Action.</param>
+        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmSettings.StandardOutputAction"/> set to <paramref name="standardOutputAction"/>.</returns>
+        public static NpmSettings SetRedirectedStandardOutputHandler(this NpmSettings settings, Action<string> standardOutputAction)
+        {
+            if (settings == null)
+            {
+                throw new ArgumentNullException(nameof(settings));
+            }
+
+            if (standardOutputAction == null)
+            {
+                throw new ArgumentNullException(nameof(standardOutputAction));
+            }
+
+            settings.StandardOutputAction = standardOutputAction;
+
+            return settings;
+        }
     }
 }

@@ -1,63 +1,63 @@
 namespace Cake.Npm
 {
     using System;
-    using Cake.Npm.Version;
+    using BumpVersion;
     using Core;
     using Core.Annotations;
 
     /// <summary>
-    /// Npm Version aliases.
-    /// Use this to get the current npm version in use.
+    /// Npm BumpVersion aliases. 
+    /// Use this if you want to use 'npm version' to bump the version.
+    /// Use this to bump the version of the current package.
     /// For other functions of npm version, see:
     /// <list type="bullet">
     ///   <item><description><see cref="NpmViewVersionAliases"/></description></item>
-    ///   <item><description><see cref="NpmBumpVersionAliases"/></description></item>
+    ///   <item><description><see cref="NpmVersionAliases"/></description></item>
     /// </list>
     /// </summary>
     [CakeAliasCategory("Npm")]
-    [CakeNamespaceImport("Cake.Npm.Version")]
-    public static class NpmVersionAliases
+    [CakeNamespaceImport("Cake.Npm.BumpVersion")]
+    public static class NpmBumpVersionAliases
     {
         /// <summary>
-        /// Versions all packages for the project in the current working directory.
+        /// Bump the version of the package.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <example>
         /// <code>
         /// <![CDATA[
-        ///     var versionString = NpmVersion();
+        ///     NpmBumpVersion();
         /// ]]>
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        [CakeAliasCategory("Version")]
-        public static string NpmVersion(this ICakeContext context)
+        [CakeAliasCategory("BumpVersion")]
+        public static void NpmBumpVersion(this ICakeContext context)
         {
             if (context == null)
             {
                 throw new ArgumentNullException(nameof(context));
             }
             
-            AddinInformation.LogVersionInformation(context.Log);
-            return context.NpmVersion(new NpmVersionSettings());
+            context.NpmBumpVersion(new NpmBumpVersionSettings());
         }
 
         /// <summary>
-        /// Versions all packages for the project in the current working directory
-        /// using the settings returned by a configurator.
+        /// Bump the version of the package using the settings returned by a configurator.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="configurator">The settings configurator.</param>
         /// <example>
         /// <code>
         /// <![CDATA[
-        ///     var versionString = NpmVersion(settings => settings.WithLogLevel(NpmLogLevel.Verbose));
+        ///     NpmBumpVersion(settings => 
+        ///         settings.Version("major"));
         /// ]]>
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        [CakeAliasCategory("Version")]
-        public static string NpmVersion(this ICakeContext context, Action<NpmVersionSettings> configurator)
+        [CakeAliasCategory("BumpVersion")]
+        public static void NpmBumpVersion(this ICakeContext context, Action<NpmBumpVersionSettings> configurator)
         {
             if (context == null)
             {
@@ -69,29 +69,28 @@ namespace Cake.Npm
                 throw new ArgumentNullException(nameof(configurator));
             }
 
-            var settings = new NpmVersionSettings();
+            var settings = new NpmBumpVersionSettings();
             configurator(settings);
-            return context.NpmVersion(settings);
+            context.NpmBumpVersion(settings);
         }
 
         /// <summary>
-        /// Versions all packages for the project in the current working directory
-        /// using the specified settings.
+        /// Bump the version of the package using the specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
         /// <example>
         /// <code>
         /// <![CDATA[
-        ///     var settings = new NpmVersionSettings();
-        ///     settings.WithLogLevel(NpmLogLevel.Verbose);
-        ///     var versionString = NpmVersion(settings);
+        ///     var settings = new NpmBumpVersionSettings();
+        ///     settings.Version = "major";
+        ///     NpmBumpVersion(settings);
         /// ]]>
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        [CakeAliasCategory("Version")]
-        public static string NpmVersion(this ICakeContext context, NpmVersionSettings settings)
+        [CakeAliasCategory("BumpVersion")]
+        public static void NpmBumpVersion(this ICakeContext context, NpmBumpVersionSettings settings)
         {
             if (context == null)
             {
@@ -104,8 +103,8 @@ namespace Cake.Npm
             }
 
             AddinInformation.LogVersionInformation(context.Log);
-            var tool = new NpmVersionTool(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);
-            return tool.Version(settings);
+            var tool = new NpmBumpVersionTool(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);
+            tool.BumpVersion(settings);
         }
     }
 }

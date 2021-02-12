@@ -6,6 +6,10 @@ image: Visual Studio 2017
 #---------------------------------#
 #  Build Script                   #
 #---------------------------------#
+install:
+  # Update to latest NuGet version since we require 5.3.0 for embedded icon
+  - ps: nuget update -self
+
 build_script:
   - ps: .\build.ps1 -Target AppVeyor
 
@@ -27,4 +31,4 @@ branches:
 #  Build Cache                    #
 #---------------------------------#
 cache:
-- tools -> setup.cake
+- tools -> recipe.cake

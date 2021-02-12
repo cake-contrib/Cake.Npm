@@ -1,5 +1,7 @@
 ﻿namespace Cake.Npm
 {
+    using System;
+
     using Core;
     using Core.Diagnostics;
     using Core.IO;
@@ -27,14 +29,38 @@
         public NpmLogLevel LogLevel { get; set; }
 
         /// <summary>
-        /// Gets or sets the process option to redirect standard error
+        /// Gets or sets the process option to redirect standard error output.
         /// </summary>
+        /// <remarks>
+        /// To retrieve and process the standard error output 
+        /// <see cref="StandardErrorAction"/> needs to be set.
+        /// </remarks>
         public bool RedirectStandardError { get; set; }
 
         /// <summary>
-        /// Gets or sets the process option to redirect standard output
+        /// Gets or sets an action to retrieve and process standard error output.
         /// </summary>
+        /// <remarks>
+        /// Setting a standard error action implicitely set <see cref="RedirectStandardError"/>.
+        /// </remarks>
+        public Action<string> StandardErrorAction { get; set; }
+
+        /// <summary>
+        /// Gets or sets the process option to redirect standard output.
+        /// </summary>
+        /// <remarks>
+        /// To retrieve and process the standard error output 
+        /// <see cref="StandardOutputAction"/> needs to be set.
+        /// </remarks>
         public bool RedirectStandardOutput { get; set; }
+
+        /// <summary>
+        /// Gets or sets an action to retrieve and process standard output.
+        /// </summary>
+        /// <remarks>
+        /// Setting a standard error action implicitely set <see cref="RedirectStandardOutput"/>.
+        /// </remarks>
+        public Action<string> StandardOutputAction { get; set; }
 
         /// <summary>
         /// Gets or sets the Log level set by Cake.
