@@ -107,3 +107,27 @@ namespace Cake.Npm.Update
     {
     }
 }
+
+// ReSharper disable once CheckNamespace
+namespace Cake.Npm.BumpVersion
+{
+    /// <summary>
+    /// This namespace contain types used for bumping the package version.
+    /// </summary>
+    [CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+}
+
+// ReSharper disable once CheckNamespace
+namespace Cake.Npm.ViewVersion
+{
+    /// <summary>
+    /// This namespace contain types used for viewing the package versions.
+    /// </summary>
+    [CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+}
