@@ -39,202 +39,20 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"NpmUpdateTool",
-            content:"NpmUpdateTool",
+            title:"NpmViewVersionAliases",
+            content:"NpmViewVersionAliases",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.Update/NpmUpdateTool',
-            title:"NpmUpdateTool",
+            url:'/Cake.Npm/api/Cake.Npm/NpmViewVersionAliases',
+            title:"NpmViewVersionAliases",
             description:""
         }
     );
     a(
         {
             id:1,
-            title:"NpmPackSettingsExtensions",
-            content:"NpmPackSettingsExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettingsExtensions',
-            title:"NpmPackSettingsExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:2,
-            title:"NpmCiSettingsExtensions",
-            content:"NpmCiSettingsExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettingsExtensions',
-            title:"NpmCiSettingsExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:3,
-            title:"NpmSetAliases",
-            content:"NpmSetAliases",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm/NpmSetAliases',
-            title:"NpmSetAliases",
-            description:""
-        }
-    );
-    a(
-        {
-            id:4,
-            title:"NpmPublishSettingsExtensions",
-            content:"NpmPublishSettingsExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettingsExtensions',
-            title:"NpmPublishSettingsExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:5,
-            title:"NpmInstallAliases",
-            content:"NpmInstallAliases",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm/NpmInstallAliases',
-            title:"NpmInstallAliases",
-            description:""
-        }
-    );
-    a(
-        {
-            id:6,
-            title:"NpmAddUserAliases",
-            content:"NpmAddUserAliases",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm/NpmAddUserAliases',
-            title:"NpmAddUserAliases",
-            description:""
-        }
-    );
-    a(
-        {
-            id:7,
-            title:"NpmUpdateAliases",
-            content:"NpmUpdateAliases",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm/NpmUpdateAliases',
-            title:"NpmUpdateAliases",
-            description:""
-        }
-    );
-    a(
-        {
-            id:8,
-            title:"NpmPackSettings",
-            content:"NpmPackSettings",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettings',
-            title:"NpmPackSettings",
-            description:""
-        }
-    );
-    a(
-        {
-            id:9,
-            title:"NpmUpdateSettings",
-            content:"NpmUpdateSettings",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.Update/NpmUpdateSettings',
-            title:"NpmUpdateSettings",
-            description:""
-        }
-    );
-    a(
-        {
-            id:10,
-            title:"NpmCiAliases",
-            content:"NpmCiAliases",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm/NpmCiAliases',
-            title:"NpmCiAliases",
-            description:""
-        }
-    );
-    a(
-        {
-            id:11,
-            title:"NpmAddUserSettings",
-            content:"NpmAddUserSettings",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings',
-            title:"NpmAddUserSettings",
-            description:""
-        }
-    );
-    a(
-        {
-            id:12,
-            title:"NpmPruneRunner",
-            content:"NpmPruneRunner",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.Prune/NpmPruneRunner',
-            title:"NpmPruneRunner",
-            description:""
-        }
-    );
-    a(
-        {
-            id:13,
-            title:"NpmRebuilder",
-            content:"NpmRebuilder",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuilder',
-            title:"NpmRebuilder",
-            description:""
-        }
-    );
-    a(
-        {
-            id:14,
             title:"NpmVersionSettings",
             content:"NpmVersionSettings",
             description:'',
@@ -248,35 +66,133 @@ var searchModule = function() {
     );
     a(
         {
-            id:15,
-            title:"NpmRunScriptAliases",
-            content:"NpmRunScriptAliases",
+            id:2,
+            title:"NpmRebuildSettings",
+            content:"NpmRebuildSettings",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm/NpmRunScriptAliases',
-            title:"NpmRunScriptAliases",
+            url:'/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuildSettings',
+            title:"NpmRebuildSettings",
             description:""
         }
     );
     a(
         {
-            id:16,
-            title:"NpmRebuildAliases",
-            content:"NpmRebuildAliases",
+            id:3,
+            title:"NpmUpdateAliases",
+            content:"NpmUpdateAliases",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm/NpmRebuildAliases',
-            title:"NpmRebuildAliases",
+            url:'/Cake.Npm/api/Cake.Npm/NpmUpdateAliases',
+            title:"NpmUpdateAliases",
             description:""
         }
     );
     a(
         {
-            id:17,
+            id:4,
+            title:"NpmCiAliases",
+            content:"NpmCiAliases",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm/NpmCiAliases',
+            title:"NpmCiAliases",
+            description:""
+        }
+    );
+    a(
+        {
+            id:5,
+            title:"NpmPublishSettings",
+            content:"NpmPublishSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettings',
+            title:"NpmPublishSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:6,
+            title:"NpmSetSettingsExtensions",
+            content:"NpmSetSettingsExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.Set/NpmSetSettingsExtensions',
+            title:"NpmSetSettingsExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:7,
+            title:"NpmVersionAliases",
+            content:"NpmVersionAliases",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm/NpmVersionAliases',
+            title:"NpmVersionAliases",
+            description:""
+        }
+    );
+    a(
+        {
+            id:8,
+            title:"NpmBumpVersionSettingsExtensions",
+            content:"NpmBumpVersionSettingsExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettingsExtensions',
+            title:"NpmBumpVersionSettingsExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:9,
+            title:"NpmSetAliases",
+            content:"NpmSetAliases",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm/NpmSetAliases',
+            title:"NpmSetAliases",
+            description:""
+        }
+    );
+    a(
+        {
+            id:10,
+            title:"NpmPruneRunner",
+            content:"NpmPruneRunner",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.Prune/NpmPruneRunner',
+            title:"NpmPruneRunner",
+            description:""
+        }
+    );
+    a(
+        {
+            id:11,
             title:"NpmVersionTool",
             content:"NpmVersionTool",
             description:'',
@@ -285,6 +201,90 @@ var searchModule = function() {
         {
             url:'/Cake.Npm/api/Cake.Npm.Version/NpmVersionTool',
             title:"NpmVersionTool",
+            description:""
+        }
+    );
+    a(
+        {
+            id:12,
+            title:"NpmRebuilder",
+            content:"NpmRebuilder",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuilder',
+            title:"NpmRebuilder",
+            description:""
+        }
+    );
+    a(
+        {
+            id:13,
+            title:"NpmInstaller",
+            content:"NpmInstaller",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.Install/NpmInstaller',
+            title:"NpmInstaller",
+            description:""
+        }
+    );
+    a(
+        {
+            id:14,
+            title:"NpmPacker",
+            content:"NpmPacker",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.Pack/NpmPacker',
+            title:"NpmPacker",
+            description:""
+        }
+    );
+    a(
+        {
+            id:15,
+            title:"NpmPruneSettings",
+            content:"NpmPruneSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.Prune/NpmPruneSettings',
+            title:"NpmPruneSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:16,
+            title:"NpmSetSettings",
+            content:"NpmSetSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.Set/NpmSetSettings',
+            title:"NpmSetSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:17,
+            title:"NpmPruneSettingsExtensions",
+            content:"NpmPruneSettingsExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.Prune/NpmPruneSettingsExtensions',
+            title:"NpmPruneSettingsExtensions",
             description:""
         }
     );
@@ -305,56 +305,56 @@ var searchModule = function() {
     a(
         {
             id:19,
-            title:"NpmScriptRunner",
-            content:"NpmScriptRunner",
+            title:"NpmCiTool",
+            content:"NpmCiTool",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.RunScript/NpmScriptRunner',
-            title:"NpmScriptRunner",
+            url:'/Cake.Npm/api/Cake.Npm.Ci/NpmCiTool',
+            title:"NpmCiTool",
             description:""
         }
     );
     a(
         {
             id:20,
-            title:"NpmSetSettingsExtensions",
-            content:"NpmSetSettingsExtensions",
+            title:"NpmUpdateSettingsExtensions",
+            content:"NpmUpdateSettingsExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.Set/NpmSetSettingsExtensions',
-            title:"NpmSetSettingsExtensions",
+            url:'/Cake.Npm/api/Cake.Npm.Update/NpmUpdateSettingsExtensions',
+            title:"NpmUpdateSettingsExtensions",
             description:""
         }
     );
     a(
         {
             id:21,
-            title:"NpmInstaller",
-            content:"NpmInstaller",
+            title:"AuthType",
+            content:"AuthType",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.Install/NpmInstaller',
-            title:"NpmInstaller",
+            url:'/Cake.Npm/api/Cake.Npm.AddUser/AuthType',
+            title:"AuthType",
             description:""
         }
     );
     a(
         {
             id:22,
-            title:"NpmRunScriptSettings",
-            content:"NpmRunScriptSettings",
+            title:"NpmAddUserAliases",
+            content:"NpmAddUserAliases",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.RunScript/NpmRunScriptSettings',
-            title:"NpmRunScriptSettings",
+            url:'/Cake.Npm/api/Cake.Npm/NpmAddUserAliases',
+            title:"NpmAddUserAliases",
             description:""
         }
     );
@@ -375,154 +375,154 @@ var searchModule = function() {
     a(
         {
             id:24,
-            title:"NpmPublishAccess",
-            content:"NpmPublishAccess",
+            title:"NpmUpdateSettings",
+            content:"NpmUpdateSettings",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.Publish/NpmPublishAccess',
-            title:"NpmPublishAccess",
+            url:'/Cake.Npm/api/Cake.Npm.Update/NpmUpdateSettings',
+            title:"NpmUpdateSettings",
             description:""
         }
     );
     a(
         {
             id:25,
-            title:"NpmVersionAliases",
-            content:"NpmVersionAliases",
+            title:"NpmInstallAliases",
+            content:"NpmInstallAliases",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm/NpmVersionAliases',
-            title:"NpmVersionAliases",
+            url:'/Cake.Npm/api/Cake.Npm/NpmInstallAliases',
+            title:"NpmInstallAliases",
             description:""
         }
     );
     a(
         {
             id:26,
-            title:"NpmPackAliases",
-            content:"NpmPackAliases",
+            title:"NpmRunScriptSettings",
+            content:"NpmRunScriptSettings",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm/NpmPackAliases',
-            title:"NpmPackAliases",
+            url:'/Cake.Npm/api/Cake.Npm.RunScript/NpmRunScriptSettings',
+            title:"NpmRunScriptSettings",
             description:""
         }
     );
     a(
         {
             id:27,
-            title:"NpmPublisher",
-            content:"NpmPublisher",
+            title:"NpmPublishSettingsExtensions",
+            content:"NpmPublishSettingsExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.Publish/NpmPublisher',
-            title:"NpmPublisher",
+            url:'/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettingsExtensions',
+            title:"NpmPublishSettingsExtensions",
             description:""
         }
     );
     a(
         {
             id:28,
-            title:"NpmPublishAliases",
-            content:"NpmPublishAliases",
+            title:"NpmAddUserSettings",
+            content:"NpmAddUserSettings",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm/NpmPublishAliases',
-            title:"NpmPublishAliases",
+            url:'/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings',
+            title:"NpmAddUserSettings",
             description:""
         }
     );
     a(
         {
             id:29,
-            title:"NpmRunScriptSettingsExtensions",
-            content:"NpmRunScriptSettingsExtensions",
+            title:"NpmSetTool",
+            content:"NpmSetTool",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.RunScript/NpmRunScriptSettingsExtensions',
-            title:"NpmRunScriptSettingsExtensions",
+            url:'/Cake.Npm/api/Cake.Npm.Set/NpmSetTool',
+            title:"NpmSetTool",
             description:""
         }
     );
     a(
         {
             id:30,
-            title:"NpmInstallSettings",
-            content:"NpmInstallSettings",
+            title:"NpmPackSettingsExtensions",
+            content:"NpmPackSettingsExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.Install/NpmInstallSettings',
-            title:"NpmInstallSettings",
+            url:'/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettingsExtensions',
+            title:"NpmPackSettingsExtensions",
             description:""
         }
     );
     a(
         {
             id:31,
-            title:"NpmCiSettings",
-            content:"NpmCiSettings",
+            title:"NpmUpdateTool",
+            content:"NpmUpdateTool",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings',
-            title:"NpmCiSettings",
+            url:'/Cake.Npm/api/Cake.Npm.Update/NpmUpdateTool',
+            title:"NpmUpdateTool",
             description:""
         }
     );
     a(
         {
             id:32,
-            title:"NpmPruneSettingsExtensions",
-            content:"NpmPruneSettingsExtensions",
+            title:"NpmAddUserSettingsExtensions",
+            content:"NpmAddUserSettingsExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.Prune/NpmPruneSettingsExtensions',
-            title:"NpmPruneSettingsExtensions",
+            url:'/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettingsExtensions',
+            title:"NpmAddUserSettingsExtensions",
             description:""
         }
     );
     a(
         {
             id:33,
-            title:"NpmSettingsExtensions",
-            content:"NpmSettingsExtensions",
+            title:"NpmPackSettings",
+            content:"NpmPackSettings",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions',
-            title:"NpmSettingsExtensions",
+            url:'/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettings',
+            title:"NpmPackSettings",
             description:""
         }
     );
     a(
         {
             id:34,
-            title:"NpmSetSettings",
-            content:"NpmSetSettings",
+            title:"NpmRunScriptAliases",
+            content:"NpmRunScriptAliases",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.Set/NpmSetSettings',
-            title:"NpmSetSettings",
+            url:'/Cake.Npm/api/Cake.Npm/NpmRunScriptAliases',
+            title:"NpmRunScriptAliases",
             description:""
         }
     );
@@ -543,20 +543,48 @@ var searchModule = function() {
     a(
         {
             id:36,
-            title:"NpmInstallSettingsExtensions",
-            content:"NpmInstallSettingsExtensions",
+            title:"NpmPublishAccess",
+            content:"NpmPublishAccess",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.Install/NpmInstallSettingsExtensions',
-            title:"NpmInstallSettingsExtensions",
+            url:'/Cake.Npm/api/Cake.Npm.Publish/NpmPublishAccess',
+            title:"NpmPublishAccess",
             description:""
         }
     );
     a(
         {
             id:37,
+            title:"NpmCiSettings",
+            content:"NpmCiSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings',
+            title:"NpmCiSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:38,
+            title:"NpmBumpVersionTool",
+            content:"NpmBumpVersionTool",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionTool',
+            title:"NpmBumpVersionTool",
+            description:""
+        }
+    );
+    a(
+        {
+            id:39,
             title:"NpmTool",
             content:"NpmTool",
             description:'',
@@ -570,35 +598,91 @@ var searchModule = function() {
     );
     a(
         {
-            id:38,
-            title:"NpmCiTool",
-            content:"NpmCiTool",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.Ci/NpmCiTool',
-            title:"NpmCiTool",
-            description:""
-        }
-    );
-    a(
-        {
-            id:39,
-            title:"NpmAddUser",
-            content:"NpmAddUser",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUser',
-            title:"NpmAddUser",
-            description:""
-        }
-    );
-    a(
-        {
             id:40,
+            title:"NpmInstallSettings",
+            content:"NpmInstallSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.Install/NpmInstallSettings',
+            title:"NpmInstallSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:41,
+            title:"NpmPackAliases",
+            content:"NpmPackAliases",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm/NpmPackAliases',
+            title:"NpmPackAliases",
+            description:""
+        }
+    );
+    a(
+        {
+            id:42,
+            title:"NpmScriptRunner",
+            content:"NpmScriptRunner",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.RunScript/NpmScriptRunner',
+            title:"NpmScriptRunner",
+            description:""
+        }
+    );
+    a(
+        {
+            id:43,
+            title:"NpmRebuildAliases",
+            content:"NpmRebuildAliases",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm/NpmRebuildAliases',
+            title:"NpmRebuildAliases",
+            description:""
+        }
+    );
+    a(
+        {
+            id:44,
+            title:"NpmBumpVersionSettings",
+            content:"NpmBumpVersionSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings',
+            title:"NpmBumpVersionSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:45,
+            title:"NpmBumpVersionAliases",
+            content:"NpmBumpVersionAliases",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm/NpmBumpVersionAliases',
+            title:"NpmBumpVersionAliases",
+            description:""
+        }
+    );
+    a(
+        {
+            id:46,
             title:"NpmSettings",
             content:"NpmSettings",
             description:'',
@@ -612,113 +696,141 @@ var searchModule = function() {
     );
     a(
         {
-            id:41,
-            title:"NpmRebuildSettings",
-            content:"NpmRebuildSettings",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuildSettings',
-            title:"NpmRebuildSettings",
-            description:""
-        }
-    );
-    a(
-        {
-            id:42,
-            title:"NpmPacker",
-            content:"NpmPacker",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.Pack/NpmPacker',
-            title:"NpmPacker",
-            description:""
-        }
-    );
-    a(
-        {
-            id:43,
-            title:"NpmPublishSettings",
-            content:"NpmPublishSettings",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettings',
-            title:"NpmPublishSettings",
-            description:""
-        }
-    );
-    a(
-        {
-            id:44,
-            title:"NpmUpdateSettingsExtensions",
-            content:"NpmUpdateSettingsExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.Update/NpmUpdateSettingsExtensions',
-            title:"NpmUpdateSettingsExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:45,
-            title:"NpmPruneSettings",
-            content:"NpmPruneSettings",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.Prune/NpmPruneSettings',
-            title:"NpmPruneSettings",
-            description:""
-        }
-    );
-    a(
-        {
-            id:46,
-            title:"NpmAddUserSettingsExtensions",
-            content:"NpmAddUserSettingsExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettingsExtensions',
-            title:"NpmAddUserSettingsExtensions",
-            description:""
-        }
-    );
-    a(
-        {
             id:47,
-            title:"NpmSetTool",
-            content:"NpmSetTool",
+            title:"NpmPublishAliases",
+            content:"NpmPublishAliases",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.Set/NpmSetTool',
-            title:"NpmSetTool",
+            url:'/Cake.Npm/api/Cake.Npm/NpmPublishAliases',
+            title:"NpmPublishAliases",
             description:""
         }
     );
     a(
         {
             id:48,
-            title:"AuthType",
-            content:"AuthType",
+            title:"NpmCiSettingsExtensions",
+            content:"NpmCiSettingsExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Npm/api/Cake.Npm.AddUser/AuthType',
-            title:"AuthType",
+            url:'/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettingsExtensions',
+            title:"NpmCiSettingsExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:49,
+            title:"NpmInstallSettingsExtensions",
+            content:"NpmInstallSettingsExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.Install/NpmInstallSettingsExtensions',
+            title:"NpmInstallSettingsExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:50,
+            title:"NpmPublisher",
+            content:"NpmPublisher",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.Publish/NpmPublisher',
+            title:"NpmPublisher",
+            description:""
+        }
+    );
+    a(
+        {
+            id:51,
+            title:"NpmSettingsExtensions",
+            content:"NpmSettingsExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions',
+            title:"NpmSettingsExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:52,
+            title:"NpmRunScriptSettingsExtensions",
+            content:"NpmRunScriptSettingsExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.RunScript/NpmRunScriptSettingsExtensions',
+            title:"NpmRunScriptSettingsExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:53,
+            title:"NpmAddUser",
+            content:"NpmAddUser",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUser',
+            title:"NpmAddUser",
+            description:""
+        }
+    );
+    a(
+        {
+            id:54,
+            title:"NpmViewVersionSettings",
+            content:"NpmViewVersionSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.ViewVersion/NpmViewVersionSettings',
+            title:"NpmViewVersionSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:55,
+            title:"NpmViewVersionTool",
+            content:"NpmViewVersionTool",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.ViewVersion/NpmViewVersionTool',
+            title:"NpmViewVersionTool",
+            description:""
+        }
+    );
+    a(
+        {
+            id:56,
+            title:"NpmViewVersionSettingsExtensions",
+            content:"NpmViewVersionSettingsExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Npm/api/Cake.Npm.ViewVersion/NpmViewVersionSettingsExtensions',
+            title:"NpmViewVersionSettingsExtensions",
             description:""
         }
     );

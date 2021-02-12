@@ -144,6 +144,7 @@
 				<a href="/Cake.Npm/api/Cake.Npm">Cake<wbr>.Npm</a> <a href="#" class="expand"></a>
 				<ul class="treeview-menu">
 						<li><a href="/Cake.Npm/api/Cake.Npm.AddUser">Cake<wbr>.Npm<wbr>.AddUser</a></li>
+			<li><a href="/Cake.Npm/api/Cake.Npm.BumpVersion">Cake<wbr>.Npm<wbr>.BumpVersion</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.Ci">Cake<wbr>.Npm<wbr>.Ci</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.Install">Cake<wbr>.Npm<wbr>.Install</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.Pack">Cake<wbr>.Npm<wbr>.Pack</a></li>
@@ -154,6 +155,7 @@
 			<li><a href="/Cake.Npm/api/Cake.Npm.Set">Cake<wbr>.Npm<wbr>.Set</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.Update">Cake<wbr>.Npm<wbr>.Update</a></li>
 			<li><a href="/Cake.Npm/api/Cake.Npm.Version">Cake<wbr>.Npm<wbr>.Version</a></li>
+			<li><a href="/Cake.Npm/api/Cake.Npm.ViewVersion">Cake<wbr>.Npm<wbr>.ViewVersion</a></li>
 </ul></li></ul></li>      
 
                     </ul>
@@ -194,6 +196,19 @@
 								<td><a href="/Cake.Npm/api/Cake.Npm/NpmAddUserAliases">NpmAddUserAliases</a></td>
 									<td>
     Npm Install aliases
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmBumpVersionAliases">Npm<wbr>Bump<wbr>Version<wbr>Aliases</a></td>
+									<td>
+    Npm BumpVersion aliases. 
+    Use this if you want to use 'npm version' to bump the version.
+    Use this to bump the version of the current package.
+    For other functions of npm version, see:
+    <ul>
+      <li><span class="description"><code class="cs"><a href="/Cake.Npm/api/Cake.Npm/NpmViewVersionAliases">NpmViewVersionAliases</a></code></span></li>
+      <li><span class="description"><code class="cs"><a href="/Cake.Npm/api/Cake.Npm/NpmVersionAliases">NpmVersionAliases</a></code></span></li>
+    </ul>
     </td>
 							</tr>
 							<tr>
@@ -271,7 +286,25 @@
 							<tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm/NpmVersionAliases">NpmVersionAliases</a></td>
 									<td>
-    Npm Version aliases
+    Npm Version aliases.
+    Use this to get the current npm version in use.
+    For other functions of npm version, see:
+    <ul>
+      <li><span class="description"><code class="cs"><a href="/Cake.Npm/api/Cake.Npm/NpmViewVersionAliases">NpmViewVersionAliases</a></code></span></li>
+      <li><span class="description"><code class="cs"><a href="/Cake.Npm/api/Cake.Npm/NpmBumpVersionAliases">NpmBumpVersionAliases</a></code></span></li>
+    </ul>
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm/NpmViewVersionAliases">Npm<wbr>View<wbr>Version<wbr>Aliases</a></td>
+									<td>
+    Npm ViewVersion aliases.
+    Use this to view package versions.
+    For other functions of npm version, see:
+    <ul>
+      <li><span class="description"><code class="cs"><a href="/Cake.Npm/api/Cake.Npm/NpmVersionAliases">NpmVersionAliases</a></code></span></li>
+      <li><span class="description"><code class="cs"><a href="/Cake.Npm/api/Cake.Npm/NpmBumpVersionAliases">NpmBumpVersionAliases</a></code></span></li>
+    </ul>
     </td>
 							</tr>
 					</tbody></table>
@@ -313,6 +346,12 @@
 							<tbody><tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm.AddUser">Cake<wbr>.Npm<wbr>.AddUser</a></td>
 									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm.BumpVersion">Cake<wbr>.Npm<wbr>.BumpVersion</a></td>
+									<td>
+    This namespace contain types used for bumping the package version.
+    </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm.Ci">Cake<wbr>.Npm<wbr>.Ci</a></td>
@@ -368,6 +407,12 @@
 								<td><a href="/Cake.Npm/api/Cake.Npm.Version">Cake<wbr>.Npm<wbr>.Version</a></td>
 									<td>
     This namespace contain types used for determining installed npm version.
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Npm/api/Cake.Npm.ViewVersion">Cake<wbr>.Npm<wbr>.ViewVersion</a></td>
+									<td>
+    This namespace contain types used for viewing the package versions.
     </td>
 							</tr>
 					</tbody></table>
