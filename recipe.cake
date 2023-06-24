@@ -1,4 +1,8 @@
-#load nuget:?package=Cake.Recipe&version=1.0.0
+#load nuget:?package=Cake.Recipe&version=3.0.1
+
+//*************************************************************************************************
+// Settings
+//*************************************************************************************************
 
 Environment.SetVariableNames();
 
@@ -10,18 +14,18 @@ BuildParameters.SetParameters(
     repositoryOwner: "cake-contrib",
     repositoryName: "Cake.Npm",
     appVeyorAccountName: "cakecontrib",
-    shouldPublishMyGet: false,
-    shouldRunDupFinder: false,
-    shouldRunCodecov: false,
-    shouldRunGitVersion: true);
+    shouldRunCodecov: false);
 
 BuildParameters.PrintParameters(Context);
 
 ToolSettings.SetToolSettings(
     context: Context,
-    dupFinderExcludePattern: new string[] { BuildParameters.RootDirectoryPath + "/src/Cake.Npm.Tests/*.cs", BuildParameters.RootDirectoryPath + "/src/Cake.Npm*/**/*.AssemblyInfo.cs" },
     testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[Shouldly]*",
     testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
     testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
+
+//*************************************************************************************************
+// Execution
+//*************************************************************************************************
 
 Build.RunDotNetCore();
