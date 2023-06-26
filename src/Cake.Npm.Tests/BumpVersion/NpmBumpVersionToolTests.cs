@@ -136,6 +136,34 @@
                 Assert.Equal("version minor -m \"Bumped minor version.\"", result.Args);
             }
 
+            [Fact]
+            public void Should_Add_GitTagVersion_True_Switch()
+            {
+                // Given
+                fixture.Settings.WithVersion("11.22.33");
+                fixture.Settings.GitTagVersion = true;
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal("version 11.22.33 --git-tag-version=true", result.Args);
+            }
+
+            [Fact]
+            public void Should_Add_GitTagVersion_False_Switch()
+            {
+                // Given
+                fixture.Settings.WithVersion("11.22.33");
+                fixture.Settings.GitTagVersion = false;
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal("version 11.22.33 --git-tag-version=false", result.Args);
+            }
+
             class ExtensionNullCheckData : IEnumerable<object[]>
             {
                 public IEnumerator<object[]> GetEnumerator()

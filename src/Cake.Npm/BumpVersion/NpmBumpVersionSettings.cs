@@ -36,6 +36,12 @@
         public string Version  {get;set; }
 
         /// <summary>
+        /// Gets or sets the <c>--git-tag-version</c> option.
+        /// Tag the commit when using the <c>npm version</c> command. Setting this to <c>true</c> results in no commit being made at all.
+        /// </summary>
+        public bool? GitTagVersion { get; set; }
+
+        /// <summary>
         /// Evaluates the settings and writes them to <paramref name="args"/>.
         /// </summary>
         /// <param name="args">The argument builder into which the settings should be written.</param>
@@ -53,6 +59,12 @@
             {
                 args.Append("-f");
             }
+
+            if (GitTagVersion.HasValue)
+            {
+                args.Append($"--git-tag-version={GitTagVersion.ToString().ToLowerInvariant()}");
+            }
+
         }
     }
 }
