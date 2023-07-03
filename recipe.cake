@@ -14,7 +14,8 @@ BuildParameters.SetParameters(
     repositoryOwner: "cake-contrib",
     repositoryName: "Cake.Npm",
     appVeyorAccountName: "cakecontrib",
-    shouldRunCodecov: false);
+    shouldRunCodecov: false,
+    shouldRunCoveralls: false); // Disabled because it's currently failing
 
 BuildParameters.PrintParameters(Context);
 
