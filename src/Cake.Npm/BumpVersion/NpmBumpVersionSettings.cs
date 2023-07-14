@@ -42,6 +42,12 @@
         public bool? GitTagVersion { get; set; }
 
         /// <summary>
+        /// Gets or sets the <c>--allow-same-version</c> option.
+        /// Prevents throwing an error when npm version is used to set the new version to the same value as the current version.
+        /// </summary>
+        public bool? AllowSameVersion { get; set; }
+
+        /// <summary>
         /// Evaluates the settings and writes them to <paramref name="args"/>.
         /// </summary>
         /// <param name="args">The argument builder into which the settings should be written.</param>
@@ -65,6 +71,10 @@
                 args.Append($"--git-tag-version={GitTagVersion.ToString().ToLowerInvariant()}");
             }
 
+            if (AllowSameVersion.HasValue)
+            {
+                args.Append($"--allow-same-version={AllowSameVersion.ToString().ToLowerInvariant()}");
+            }
         }
     }
 }
