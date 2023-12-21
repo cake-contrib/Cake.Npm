@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.Npm - API - NpmBumpVersionSettings.NpmBumpVersionSettings() Constructor</title>
+        <title>Cake.Npm - API - NpmBumpVersionSettings.AllowSameVersion Property</title>
         <link href="/Cake.Npm/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -73,7 +73,7 @@
                     	
 	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
 <p><a href="#Syntax">Syntax</a></p>
-<p><a href="#ReturnValue">Return Value</a></p>
+<p><a href="#Value">Value</a></p>
 <hr class="infobar-hidden">
 </div>
 
@@ -138,9 +138,9 @@
 		<li><a href="/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings">Npm<wbr>Bump<wbr>Version<wbr>Settings</a></li>
 		<li role="separator" class="divider"></li>
 			<li class="header">Constructors</li>
-				<li class="selected"><a href="/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings/0FB26233">Npm<wbr>Bump<wbr>Version<wbr>Settings<wbr>()<wbr></a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings/0FB26233">Npm<wbr>Bump<wbr>Version<wbr>Settings<wbr>()<wbr></a></li>
 			<li class="header">Property Members</li>
-				<li><a href="/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings/3CA91722">AllowSameVersion</a></li>
+				<li class="selected"><a href="/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings/3CA91722">AllowSameVersion</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/DA523FB4">Command</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings/97A0FB59">CommitMessage</a></li>
 				<li><a href="/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings/88F01CA5">Force</a></li>
@@ -168,18 +168,19 @@
 
 <section class="content-header">
 			<h3><a href="/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings">Npm<wbr>Bump<wbr>Version<wbr>Settings</a>.</h3>
-	<h1>Npm<wbr>Bump<wbr>Version<wbr>Settings<wbr>()<wbr> <small>Constructor</small></h1>
+	<h1>AllowSameVersion <small>Property</small></h1>
 </section>
 <section class="content">
 	
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Initializes a new instance of the <code class="cs"><a href="/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings">NpmBumpVersionSettings</a></code> class.
+    Gets or sets the <code class="cs">--allow-same-version</code> option.
+    Prevents throwing an error when npm version is used to set the new version to the same value as the current version.
     </div>
 
 		<div class="panel panel-default">
-  			<div class="panel-body">	
+  			<div class="panel-body">
 				<dl class="dl-horizontal">	
 						
 						<dt>Namespace</dt>
@@ -193,14 +194,13 @@
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public NpmBumpVersionSettings()</code></pre>
+	<pre><code>public bool? AllowSameVersion { get; set; }</code></pre>
 
 
 
 
 
-
-	<h1 id="ReturnValue">Return Value</h1>
+	<h1 id="Value">Value</h1>
 	<div class="box">
 		<div class="box-body no-padding table-responsive">
 			<table class="table table-striped table-hover two-cols">
@@ -211,7 +211,7 @@
 					</tr>
 				</thead>
 				<tbody><tr>
-					<td>void</td>
+					<td>bool?</td>
 					<td></td>
 				</tr>
 			</tbody></table>
