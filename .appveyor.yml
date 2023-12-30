@@ -16,6 +16,7 @@ install:
   - ps: '& "$($env:DOTNET_INSTALL_DIR)/dotnet-install.ps1" -Version 5.0.408 -InstallDir $env:DOTNET_INSTALL_DIR'
   - ps: '& "$($env:DOTNET_INSTALL_DIR)/dotnet-install.ps1" -Version 6.0.411 -InstallDir $env:DOTNET_INSTALL_DIR'
   - ps: '& "$($env:DOTNET_INSTALL_DIR)/dotnet-install.ps1" -Version 7.0.305 -InstallDir $env:DOTNET_INSTALL_DIR'
+  - ps: '& "$($env:DOTNET_INSTALL_DIR)/dotnet-install.ps1" -Version 8.0.100 -InstallDir $env:DOTNET_INSTALL_DIR'
   - ps: $env:Path = "$env:DOTNET_INSTALL_DIR;$env:Path"
   - ps: dotnet --info
 
