@@ -54,7 +54,7 @@
 
             if (!string.IsNullOrWhiteSpace(Scope))
             {
-                if (!Scope.StartsWith("@"))
+                if (!Scope.StartsWith('@'))
                 {
                     throw new ArgumentException("Scope should start with @", nameof(Scope));
                 }
