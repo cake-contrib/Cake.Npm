@@ -67,7 +67,7 @@
             var resolvedPackageName = packageName;
             if (!string.IsNullOrWhiteSpace(scope))
             {
-                if (!scope.StartsWith("@"))
+                if (!scope.StartsWith('@'))
                 {
                     throw new ArgumentException("Scope should start with @", nameof(scope));
                 }

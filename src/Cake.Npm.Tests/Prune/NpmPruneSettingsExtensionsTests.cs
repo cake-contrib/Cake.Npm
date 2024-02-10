@@ -25,7 +25,7 @@
             public void Should_Set_Production_Flag_True_()
             {
                 // Given
-                NpmPruneSettings settings = new NpmPruneSettings();
+                NpmPruneSettings settings = new();
 
                 // When
                 settings.ForProduction();
@@ -38,7 +38,7 @@
             public void Should_Set_Production_Flag_False()
             {
                 // Given
-                NpmPruneSettings settings = new NpmPruneSettings() { Production = true };
+                NpmPruneSettings settings = new() { Production = true };
 
                 // When
                 settings.ForProduction(false);
@@ -69,7 +69,7 @@
             public void Should_Throw_If_PackageName_Is_Null_Or_Whitespace(string packageName)
             {
                 // Given
-                NpmPruneSettings settings = new NpmPruneSettings();
+                NpmPruneSettings settings = new();
 
                 // When
                 var result = Record.Exception(() => settings.AddPackage(packageName));
@@ -82,7 +82,7 @@
             public void Should_Throw_If_Scope_Does_Not_Start_With_At_Symbol()
             {
                 // Given
-                NpmPruneSettings settings = new NpmPruneSettings();
+                NpmPruneSettings settings = new();
 
                 // When
                 var result = Record.Exception(() => settings.AddPackage("test", "badscope"));
@@ -95,7 +95,7 @@
             public void Should_Add_PackageName_To_Packages()
             {
                 // Given
-                NpmPruneSettings settings = new NpmPruneSettings();
+                NpmPruneSettings settings = new();
 
                 // When
                 settings.AddPackage("test");
@@ -108,7 +108,7 @@
             public void Should_Add_PackageName_And_Scope_To_Packages()
             {
                 // Given
-                NpmPruneSettings settings = new NpmPruneSettings();
+                NpmPruneSettings settings = new();
 
                 // When
                 settings.AddPackage("test", "@scope");
@@ -136,7 +136,7 @@
             public void Should_Set_DryRun_Flag_True_()
             {
                 // Given
-                NpmPruneSettings settings = new NpmPruneSettings();
+                NpmPruneSettings settings = new();
 
                 // When
                 settings.DryRun();
@@ -149,7 +149,7 @@
             public void Should_Set_DryRun_Flag_False()
             {
                 // Given
-                NpmPruneSettings settings = new NpmPruneSettings() { DryRun = true };
+                NpmPruneSettings settings = new() { DryRun = true };
 
                 // When
                 settings.DryRun(false);
@@ -177,7 +177,7 @@
             public void Should_Set_Json_Flag_True_()
             {
                 // Given
-                NpmPruneSettings settings = new NpmPruneSettings();
+                NpmPruneSettings settings = new();
 
                 // When
                 settings.Json();
@@ -190,7 +190,7 @@
             public void Should_Set_Json_Flag_False()
             {
                 // Given
-                NpmPruneSettings settings = new NpmPruneSettings() { Json = true };
+                NpmPruneSettings settings = new() { Json = true };
 
                 // When
                 settings.Json(false);

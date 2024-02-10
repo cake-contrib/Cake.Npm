@@ -9,7 +9,7 @@
     /// </summary>
     public class NpmRebuildSettings : NpmSettings
     {
-        private readonly List<string> _packages = new List<string>();
+        private readonly List<string> _packages = new();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NpmRebuildSettings"/> class.

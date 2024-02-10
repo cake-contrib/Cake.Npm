@@ -10,7 +10,7 @@
     {
         public sealed class TheViewVersionMethod
         {
-            private NpmViewVersionToolFixture fixture;
+            private readonly NpmViewVersionToolFixture fixture;
 
             public TheViewVersionMethod()
             {

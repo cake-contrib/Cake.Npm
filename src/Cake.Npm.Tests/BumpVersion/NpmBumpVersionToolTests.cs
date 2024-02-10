@@ -12,7 +12,7 @@
     {
         public sealed class TheBumpVersionMethod
         {
-            private NpmBumpVersionToolFixture fixture;
+            private readonly NpmBumpVersionToolFixture fixture;
 
             public TheBumpVersionMethod()
             {
@@ -162,6 +162,34 @@
 
                 // Then
                 Assert.Equal("version 11.22.33 --git-tag-version=false", result.Args);
+            }
+
+            [Fact]
+            public void Should_Add_AllowSameVersion_True_Switch()
+            {
+                // Given
+                fixture.Settings.WithVersion("11.22.33");
+                fixture.Settings.AllowSameVersion = true;
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal("version 11.22.33 --allow-same-version=true", result.Args);
+            }
+
+            [Fact]
+            public void Should_Add_AllowSameVersion_False_Switch()
+            {
+                // Given
+                fixture.Settings.WithVersion("11.22.33");
+                fixture.Settings.AllowSameVersion = false;
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal("version 11.22.33 --allow-same-version=false", result.Args);
             }
 
             class ExtensionNullCheckData : IEnumerable<object[]>

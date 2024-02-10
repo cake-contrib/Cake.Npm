@@ -279,7 +279,7 @@
             if (!string.IsNullOrWhiteSpace(versionOrTag))
             {
                 var versionOrTagValue = versionOrTag;
-                if (versionOrTagValue.Contains(" "))
+                if (versionOrTagValue.Contains(' '))
                 {
                     versionOrTagValue = versionOrTag.Quote();
                 }
@@ -288,7 +288,7 @@
 
             if (!string.IsNullOrWhiteSpace(scope))
             {
-                if (!scope.StartsWith("@"))
+                if (!scope.StartsWith('@'))
                 {
                     throw new ArgumentException("Scope should start with @", nameof(scope));
                 }
@@ -314,12 +314,7 @@
                 throw new ArgumentNullException(nameof(settings));
             }
 
-            if (registry == null)
-            {
-                throw new ArgumentNullException(nameof(registry));
-            }
-
-            settings.Registry = registry;
+            settings.Registry = registry ?? throw new ArgumentNullException(nameof(registry));
             return settings;
         }
     }

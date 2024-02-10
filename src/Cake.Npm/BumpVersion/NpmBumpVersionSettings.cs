@@ -37,9 +37,15 @@
 
         /// <summary>
         /// Gets or sets the <c>--git-tag-version</c> option.
-        /// Tag the commit when using the <c>npm version</c> command. Setting this to <c>true</c> results in no commit being made at all.
+        /// Tag the commit when using the <c>npm version</c> command. Setting this to <c>false</c> results in no commit being made at all.
         /// </summary>
         public bool? GitTagVersion { get; set; }
+
+        /// <summary>
+        /// Gets or sets the <c>--allow-same-version</c> option.
+        /// Prevents throwing an error when npm version is used to set the new version to the same value as the current version.
+        /// </summary>
+        public bool? AllowSameVersion { get; set; }
 
         /// <summary>
         /// Evaluates the settings and writes them to <paramref name="args"/>.
@@ -65,6 +71,10 @@
                 args.Append($"--git-tag-version={GitTagVersion.ToString().ToLowerInvariant()}");
             }
 
+            if (AllowSameVersion.HasValue)
+            {
+                args.Append($"--allow-same-version={AllowSameVersion.ToString().ToLowerInvariant()}");
+            }
         }
     }
 }

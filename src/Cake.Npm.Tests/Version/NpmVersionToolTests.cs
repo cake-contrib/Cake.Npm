@@ -12,8 +12,10 @@ namespace Cake.Npm.Tests.Version
             public void Should_Throw_If_Settings_Are_Null()
             {
                 // Given
-                var fixture = new NpmVersionToolFixture();
-                fixture.Settings = null;
+                var fixture = new NpmVersionToolFixture
+                {
+                    Settings = null
+                };
 
                 // When
                 var result = Record.Exception(() => fixture.Run());
@@ -71,7 +73,7 @@ namespace Cake.Npm.Tests.Version
                 fixture.ProcessRunner.Process.SetStandardOutput(versionInfo);
 
                 // When
-                var result = fixture.Run();
+                _ = fixture.Run();
 
                 // Then
                 fixture.Version.ShouldBe("5.8.0");
@@ -92,7 +94,7 @@ namespace Cake.Npm.Tests.Version
                 fixture.ProcessRunner.Process.SetStandardOutput(output);
 
                 // When
-                var result = fixture.Run();
+                _ = fixture.Run();
 
                 // Then
                 fixture.Version.ShouldBe(expectedVersion);
