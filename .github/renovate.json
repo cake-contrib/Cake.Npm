@@ -1,6 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>cake-contrib/renovate-presets:cake-recipe"
+    "github>cake-contrib/renovate-presets:cake-recipe",
+    ":semanticCommitsDisabled"
   ]
 }
