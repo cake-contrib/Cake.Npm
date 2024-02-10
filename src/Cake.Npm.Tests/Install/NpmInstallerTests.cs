@@ -24,8 +24,10 @@ namespace Cake.Npm.Tests.Install
             public void Should_Throw_If_Settings_Are_Null()
             {
                 // Given
-                var fixture = new NpmInstallerFixture();
-                fixture.Settings = null;
+                var fixture = new NpmInstallerFixture
+                {
+                    Settings = null
+                };
 
                 // When
                 var result = Record.Exception(() => fixture.Run());

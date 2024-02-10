@@ -23,8 +23,10 @@ namespace Cake.Npm.Tests.AddUser
             public void Should_Throw_If_Settings_Are_Null()
             {
                 // Given
-                var fixture = new NpmAddUserFixture();
-                fixture.Settings = null;
+                var fixture = new NpmAddUserFixture
+                {
+                    Settings = null
+                };
 
                 // When
                 var result = Record.Exception(() => fixture.Run());
