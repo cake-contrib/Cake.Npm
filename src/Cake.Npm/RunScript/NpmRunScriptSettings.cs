@@ -11,7 +11,7 @@
     /// </summary>
     public class NpmRunScriptSettings : NpmSettings
     {
-        private readonly List<string> _arguments = new List<string>();
+        private readonly List<string> _arguments = new();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NpmRunScriptSettings"/> class.
