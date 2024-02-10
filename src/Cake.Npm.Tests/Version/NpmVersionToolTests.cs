@@ -73,7 +73,7 @@ namespace Cake.Npm.Tests.Version
                 fixture.ProcessRunner.Process.SetStandardOutput(versionInfo);
 
                 // When
-                var result = fixture.Run();
+                _ = fixture.Run();
 
                 // Then
                 fixture.Version.ShouldBe("5.8.0");
@@ -94,7 +94,7 @@ namespace Cake.Npm.Tests.Version
                 fixture.ProcessRunner.Process.SetStandardOutput(output);
 
                 // When
-                var result = fixture.Run();
+                _ = fixture.Run();
 
                 // Then
                 fixture.Version.ShouldBe(expectedVersion);
