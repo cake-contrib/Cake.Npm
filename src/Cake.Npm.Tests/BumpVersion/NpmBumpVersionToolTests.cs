@@ -12,7 +12,7 @@
     {
         public sealed class TheBumpVersionMethod
         {
-            private NpmBumpVersionToolFixture fixture;
+            private readonly NpmBumpVersionToolFixture fixture;
 
             public TheBumpVersionMethod()
             {

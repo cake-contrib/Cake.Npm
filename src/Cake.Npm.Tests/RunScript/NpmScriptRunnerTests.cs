@@ -23,8 +23,10 @@
             public void Should_Throw_If_Settings_Are_Null()
             {
                 // Given
-                var fixture = new NpmRunScriptFixture();
-                fixture.Settings = null;
+                var fixture = new NpmRunScriptFixture
+                {
+                    Settings = null
+                };
 
                 // When
                 var result = Record.Exception(() => fixture.Run());

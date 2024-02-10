@@ -137,19 +137,14 @@
 
         private static NpmLogLevel CakeToNpmLogLevelConverter(Verbosity cakeVerbosityLevel)
         {
-            switch (cakeVerbosityLevel)
+            return cakeVerbosityLevel switch
             {
-                case Verbosity.Quiet:
-                    return NpmLogLevel.Silent;
-                case Verbosity.Minimal:
-                    return NpmLogLevel.Warn;
-                case Verbosity.Verbose:
-                    return NpmLogLevel.Info;
-                case Verbosity.Diagnostic:
-                    return NpmLogLevel.Verbose;
-                default:
-                    return NpmLogLevel.Default;
-            }
+                Verbosity.Quiet => NpmLogLevel.Silent,
+                Verbosity.Minimal => NpmLogLevel.Warn,
+                Verbosity.Verbose => NpmLogLevel.Info,
+                Verbosity.Diagnostic => NpmLogLevel.Verbose,
+                _ => NpmLogLevel.Default,
+            };
         }
     }
 }

@@ -14,7 +14,7 @@
             {
                 // Given
                 NpmAddUserSettings settings = null;
-                Uri registry = new Uri("https://myregistry.com");
+                Uri registry = new("https://myregistry.com");
 
                 // When
                 var result = Record.Exception(() => settings.ForRegistry(registry));
@@ -42,7 +42,7 @@
             {
                 // Given
                 var settings = new NpmAddUserSettings();
-                Uri registry = new Uri("https://myregistry.com");
+                Uri registry = new("https://myregistry.com");
 
                 // When
                 var result = settings.ForRegistry(registry);

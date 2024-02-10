@@ -793,7 +793,7 @@
             {
                 // Given
                 NpmInstallSettings settings = null;
-                Uri registry = new Uri("https://myregistry.com");
+                Uri registry = new("https://myregistry.com");
 
                 // When
                 var result = Record.Exception(() => settings.FromRegistry(registry));
@@ -821,7 +821,7 @@
             {
                 // Given
                 var settings = new NpmInstallSettings();
-                Uri registry = new Uri("https://myregistry.com");
+                Uri registry = new("https://myregistry.com");
 
                 // When
                 var result = settings.FromRegistry(registry);

@@ -10,7 +10,7 @@
     /// </summary>
     public class NpmPruneSettings : NpmSettings
     {
-        private readonly List<string> _packages = new List<string>();
+        private readonly List<string> _packages = new();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NpmPruneSettings"/> class.
