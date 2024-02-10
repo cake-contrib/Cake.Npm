@@ -39,12 +39,7 @@
                 throw new ArgumentNullException(nameof(settings));
             }
 
-            if (path == null)
-            {
-                throw new ArgumentNullException(nameof(path));
-            }
-
-            settings.WorkingDirectory = path;
+            settings.WorkingDirectory = path ?? throw new ArgumentNullException(nameof(path));
 
             return settings;
         }
@@ -62,12 +57,7 @@
                 throw new ArgumentNullException(nameof(settings));
             }
 
-            if (standardErrorAction == null)
-            {
-                throw new ArgumentNullException(nameof(standardErrorAction));
-            }
-
-            settings.StandardErrorAction = standardErrorAction;
+            settings.StandardErrorAction = standardErrorAction ?? throw new ArgumentNullException(nameof(standardErrorAction));
 
             return settings;
         }
@@ -85,12 +75,7 @@
                 throw new ArgumentNullException(nameof(settings));
             }
 
-            if (standardOutputAction == null)
-            {
-                throw new ArgumentNullException(nameof(standardOutputAction));
-            }
-
-            settings.StandardOutputAction = standardOutputAction;
+            settings.StandardOutputAction = standardOutputAction ?? throw new ArgumentNullException(nameof(standardOutputAction));
 
             return settings;
         }

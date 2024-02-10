@@ -40,12 +40,7 @@ namespace Cake.Npm.Ci
                 throw new ArgumentNullException(nameof(settings));
             }
 
-            if (registry == null)
-            {
-                throw new ArgumentNullException(nameof(registry));
-            }
-
-            settings.Registry = registry;
+            settings.Registry = registry ?? throw new ArgumentNullException(nameof(registry));
             return settings;
         }
     }
