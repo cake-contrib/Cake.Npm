@@ -91,7 +91,7 @@
             {
                 // Given
                 var settings = new NpmInstallSettings();
-                Action<string> action = x => { };
+                static void action(string x) { }
 
                 // When
                 settings.SetRedirectedStandardOutputHandler(action);
@@ -105,7 +105,7 @@
             {
                 // Given
                 var settings = new NpmInstallSettings();
-                Action<string> action = x => { };
+                static void action(string x) { }
 
                 // When
                 settings.SetRedirectedStandardErrorHandler(action);
