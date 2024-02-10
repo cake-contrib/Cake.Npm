@@ -37,7 +37,7 @@
 
         /// <summary>
         /// Gets or sets the <c>--git-tag-version</c> option.
-        /// Tag the commit when using the <c>npm version</c> command. Setting this to <c>true</c> results in no commit being made at all.
+        /// Tag the commit when using the <c>npm version</c> command. Setting this to <c>false</c> results in no commit being made at all.
         /// </summary>
         public bool? GitTagVersion { get; set; }
 
