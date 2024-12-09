@@ -11,7 +11,7 @@
     /// </summary>
     public class NpmInstallSettings : NpmSettings
     {
-        private readonly List<string> _packages = new();
+        private readonly List<string> _packages = [];
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NpmInstallSettings"/> class.
