@@ -52,7 +52,7 @@
         /// <returns>The tool executable name.</returns>
         protected sealed override IEnumerable<string> GetToolExecutableNames()
         {
-            return new[] { "npm.cmd", "npm" };
+            return ["npm.cmd", "npm"];
         }
 
         /// <summary>

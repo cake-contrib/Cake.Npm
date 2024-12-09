@@ -100,7 +100,7 @@
                 const string version = "1.1.0";
 
                 // Given
-                fixture.ProcessRunner.Process.SetStandardOutput(new[] { version });
+                fixture.ProcessRunner.Process.SetStandardOutput([version]);
 
                 // When
                 fixture.Run();

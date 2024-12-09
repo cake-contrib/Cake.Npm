@@ -40,8 +40,8 @@
             [Fact]
             public void Should_Determine_Version_From_StandardOutput()
             {
-                string[] versionInfo = new[]
-                {
+                string[] versionInfo =
+                [
                     "{",
                     "    npm: '5.8.0',",
                     "    ares: '1.10.1-DEV',",
@@ -66,7 +66,7 @@
                     "│ Run npm i -g npm to update │",
                     "│ │",
                     "╰─────────────────────────────────────╯"
-                };
+                ];
 
                 // Given
                 var fixture = new NpmVersionToolFixture();
