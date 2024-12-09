@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
     <AssemblyName>Cake.Npm</AssemblyName>
     <RootNamespace>Cake.Npm</RootNamespace>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
@@ -16,8 +16,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <DocumentationFile>bin\Debug\netstandard2.0\Cake.Npm.xml</DocumentationFile>
-    <DocumentationFile>bin\Release\netstandard2.0\Cake.Npm.xml</DocumentationFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
