@@ -18,14 +18,11 @@
   </metadata>
   <files>
     <file src="..\..\..\..\nuspec\nuget\icon.png" target="" />
-    <file src="net6.0\Cake.Npm.dll" target="lib\net6.0" />
-    <file src="net6.0\Cake.Npm.pdb" target="lib\net6.0" />
-    <file src="net6.0\Cake.Npm.xml" target="lib\net6.0" />
-    <file src="net7.0\Cake.Npm.dll" target="lib\net7.0" />
-    <file src="net7.0\Cake.Npm.pdb" target="lib\net7.0" />
-    <file src="net7.0\Cake.Npm.xml" target="lib\net7.0" />
     <file src="net8.0\Cake.Npm.dll" target="lib\net8.0" />
     <file src="net8.0\Cake.Npm.pdb" target="lib\net8.0" />
     <file src="net8.0\Cake.Npm.xml" target="lib\net8.0" />
+    <file src="net9.0\Cake.Npm.dll" target="lib\net9.0" />
+    <file src="net9.0\Cake.Npm.pdb" target="lib\net9.0" />
+    <file src="net9.0\Cake.Npm.xml" target="lib\net9.0" />
   </files>
 </package>
