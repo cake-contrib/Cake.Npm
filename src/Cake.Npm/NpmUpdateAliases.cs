@@ -27,11 +27,8 @@ namespace Cake.Npm
         [CakeAliasCategory("Update")]
         public static void NpmUpdate(this ICakeContext context)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-            
+            ArgumentNullException.ThrowIfNull(context);
+
             context.NpmUpdate(new NpmUpdateSettings());
         }
 
@@ -51,15 +48,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Update")]
         public static void NpmUpdate(this ICakeContext context, Action<NpmUpdateSettings> configurator)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (configurator == null)
-            {
-                throw new ArgumentNullException(nameof(configurator));
-            }
+            ArgumentNullException.ThrowIfNull(configurator);
 
             var settings = new NpmUpdateSettings();
             configurator(settings);
@@ -84,15 +75,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Update")]
         public static void NpmUpdate(this ICakeContext context, NpmUpdateSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             AddinInformation.LogVersionInformation(context.Log);
             var tool = new NpmUpdateTool(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);

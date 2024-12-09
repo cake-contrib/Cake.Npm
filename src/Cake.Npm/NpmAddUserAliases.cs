@@ -53,15 +53,9 @@
         [CakeAliasCategory("AddUser")]
         public static void NpmAddUser(this ICakeContext context, Action<NpmAddUserSettings> configurator)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (configurator == null)
-            {
-                throw new ArgumentNullException(nameof(configurator));
-            }
+            ArgumentNullException.ThrowIfNull(configurator);
 
             var settings = new NpmAddUserSettings();
             configurator(settings);
@@ -134,15 +128,9 @@
         [CakeAliasCategory("AddUser")]
         public static void NpmAddUser(this ICakeContext context, NpmAddUserSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             AddinInformation.LogVersionInformation(context.Log);
             var addUser = new NpmAddUser(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);

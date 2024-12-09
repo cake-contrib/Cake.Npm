@@ -30,11 +30,8 @@ namespace Cake.Npm
         [CakeAliasCategory("Set")]
         public static void NpmSet(this ICakeContext context, string key, string value, bool global = false)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-            
+            ArgumentNullException.ThrowIfNull(context);
+
             context.NpmSet(new NpmSetSettings()
             {
                 Key = key,
@@ -60,15 +57,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Set")]
         public static void NpmSet(this ICakeContext context, Action<NpmSetSettings> configurator)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (configurator == null)
-            {
-                throw new ArgumentNullException(nameof(configurator));
-            }
+            ArgumentNullException.ThrowIfNull(configurator);
 
             var settings = new NpmSetSettings();
             configurator(settings);
@@ -95,15 +86,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Set")]
         public static void NpmSet(this ICakeContext context, NpmSetSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             AddinInformation.LogVersionInformation(context.Log);
             var tool = new NpmSetTool(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);

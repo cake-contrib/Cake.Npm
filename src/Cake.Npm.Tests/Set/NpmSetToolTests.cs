@@ -1,9 +1,9 @@
-﻿using Cake.Npm.Set;
-using Shouldly;
-using Xunit;
-
-namespace Cake.Npm.Tests.Set
+﻿namespace Cake.Npm.Tests.Set
 {
+    using Cake.Npm.Set;
+    using Shouldly;
+    using Xunit;
+
     public class NpmSetToolTests
     {
         public sealed class TheSetMethod

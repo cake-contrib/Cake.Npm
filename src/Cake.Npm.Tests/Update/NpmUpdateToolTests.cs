@@ -1,8 +1,8 @@
-﻿using Cake.Npm.Update;
-using Xunit;
-
-namespace Cake.Npm.Tests.Update
+﻿namespace Cake.Npm.Tests.Update
 {
+    using Cake.Npm.Update;
+    using Xunit;
+
     public class NpmUpdateToolTests
     {
         public sealed class TheUpdateMethod

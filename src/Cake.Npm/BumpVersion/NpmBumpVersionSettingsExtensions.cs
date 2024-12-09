@@ -15,10 +15,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmBumpVersionSettings.Force"/> set.</returns>
         public static NpmBumpVersionSettings WithForce(this NpmBumpVersionSettings settings, bool force = true)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Force = force;
             return settings;
@@ -32,10 +29,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmBumpVersionSettings.CommitMessage"/> set.</returns>
         public static NpmBumpVersionSettings WithCommitMessage(this NpmBumpVersionSettings settings, string message)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.CommitMessage = message;
             return settings;
@@ -49,10 +43,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmBumpVersionSettings.CommitMessage"/> set.</returns>
         public static NpmBumpVersionSettings WithVersion(this NpmBumpVersionSettings settings, string version)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Version = version;
             return settings;

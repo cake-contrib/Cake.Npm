@@ -16,10 +16,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmViewVersionSettings.Package"/> set.</returns>
         public static NpmViewVersionSettings ForPackage(this NpmViewVersionSettings settings, string package)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Package = package;
             return settings;

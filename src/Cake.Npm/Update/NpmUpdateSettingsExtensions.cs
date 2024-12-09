@@ -14,10 +14,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmUpdateSettings.Global"/> set to <c>true</c>.</returns>
         public static NpmUpdateSettings UpdateGlobalPackages(this NpmUpdateSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Global = true;
             return settings;

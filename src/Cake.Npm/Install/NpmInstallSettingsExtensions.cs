@@ -16,10 +16,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.Force"/> set to <c>true</c>.</returns>
         public static NpmInstallSettings WithForce(this NpmInstallSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             return settings.WithForce(true);
         }
@@ -31,10 +28,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.Force"/> set to <c>false</c>.</returns>
         public static NpmInstallSettings WithoutForce(this NpmInstallSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             return settings.WithForce(false);
         }
@@ -48,10 +42,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.Force"/> set to <paramref name="value"/>.</returns>
         public static NpmInstallSettings WithForce(this NpmInstallSettings settings, bool value)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Force = value;
             return settings;
@@ -64,10 +55,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.Global"/> set to <c>true</c>.</returns>
         public static NpmInstallSettings InstallGlobally(this NpmInstallSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Global = true;
             return settings;
@@ -80,10 +68,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.Global"/> set to <c>false</c>.</returns>
         public static NpmInstallSettings InstallLocally(this NpmInstallSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Global = false;
             return settings;
@@ -96,10 +81,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.Production"/> set to <c>true</c>.</returns>
         public static NpmInstallSettings ForProduction(this NpmInstallSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Production = true;
             return settings;
@@ -112,10 +94,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.NoOptional"/> set to <c>true</c>.</returns>
         public static NpmInstallSettings WithoutOptionalDependencies(this NpmInstallSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             return settings.WithNoOptional(true);
         }
@@ -127,10 +106,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.NoOptional"/> set to <c>false</c>.</returns>
         public static NpmInstallSettings WithOptionalDependencies(this NpmInstallSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             return settings.WithNoOptional(false);
         }
@@ -143,10 +119,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.NoOptional"/> set to <paramref name="value"/>.</returns>
         public static NpmInstallSettings WithNoOptional(this NpmInstallSettings settings, bool value)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.NoOptional = value;
             return settings;
@@ -160,15 +133,9 @@
         /// <returns>The <paramref name="settings"/> instance with <paramref name="url"/> added to <see cref="NpmInstallSettings.Packages"/>.</returns>
         public static NpmInstallSettings AddPackage(this NpmInstallSettings settings, Uri url)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
-            if (url == null)
-            {
-                throw new ArgumentNullException(nameof(url));
-            }
+            ArgumentNullException.ThrowIfNull(url);
 
             if (!url.IsAbsoluteUri)
             {
@@ -187,10 +154,7 @@
         /// <returns>The <paramref name="settings"/> instance with <paramref name="packageName"/> added to <see cref="NpmInstallSettings.Packages"/>.</returns>
         public static NpmInstallSettings AddPackage(this NpmInstallSettings settings, string packageName)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             if (string.IsNullOrWhiteSpace(packageName))
             {
@@ -209,10 +173,7 @@
         /// <returns>The <paramref name="settings"/> instance with <paramref name="packageName"/> added to <see cref="NpmInstallSettings.Packages"/>.</returns>
         public static NpmInstallSettings AddPackage(this NpmInstallSettings settings, string packageName, string versionOrTag)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             if (string.IsNullOrWhiteSpace(packageName))
             {
@@ -236,10 +197,7 @@
         /// <returns>The <paramref name="settings"/> instance with <paramref name="packageName"/> added to <see cref="NpmInstallSettings.Packages"/>.</returns>
         public static NpmInstallSettings AddScopedPackage(this NpmInstallSettings settings, string packageName, string scope)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             if (string.IsNullOrWhiteSpace(packageName))
             {
@@ -264,10 +222,7 @@
         /// <returns>The <paramref name="settings"/> instance with <paramref name="packageName"/> added to <see cref="NpmInstallSettings.Packages"/>.</returns>
         public static NpmInstallSettings AddPackage(this NpmInstallSettings settings, string packageName, string scope, string versionOrTag)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             if (string.IsNullOrWhiteSpace(packageName))
             {
@@ -309,10 +264,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmInstallSettings.Registry"/> set to <paramref name="registry" />.</returns>
         public static NpmInstallSettings FromRegistry(this NpmInstallSettings settings, Uri registry)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Registry = registry ?? throw new ArgumentNullException(nameof(registry));
             return settings;

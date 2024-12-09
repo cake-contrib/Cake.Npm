@@ -1,9 +1,9 @@
-﻿using Cake.Core;
-using Cake.Core.IO;
-using System;
-
-namespace Cake.Npm.Ci
+﻿namespace Cake.Npm.Ci
 {
+    using Cake.Core;
+    using Cake.Core.IO;
+    using System;
+
     /// <summary>
     /// Contains settings used by <see cref="NpmCiTool"/>.
     /// </summary>

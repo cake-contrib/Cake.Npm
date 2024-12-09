@@ -1,9 +1,9 @@
-﻿using System;
-using Xunit;
-using Cake.Npm.AddUser;
-
-namespace Cake.Npm.Tests.AddUser
+﻿namespace Cake.Npm.Tests.AddUser
 {
+    using System;
+    using Xunit;
+    using Cake.Npm.AddUser;
+
     public class NpmAddUserTests
     {
         public sealed class TheAddUserMethod
