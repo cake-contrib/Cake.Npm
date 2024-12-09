@@ -16,7 +16,7 @@
     /// <param name="processRunner">The process runner.</param>
     /// <param name="tools">The tool locator.</param>
     /// <param name="log">Cake log instance.</param>
-    public class NpmVersionTool(
+    public partial class NpmVersionTool(
         IFileSystem fileSystem,
         ICakeEnvironment environment,
         IProcessRunner processRunner,
@@ -40,7 +40,7 @@
                 if (processOutput?.Any() ?? false)
                 {
                     var output = string.Join(Environment.NewLine, processOutput);
-                    var match = Regex.Match(output, "(?<component>npm): '(?<version>.*)'");
+                    var match = VersionRegex().Match(output);
                     if (match.Success)
                     {
                         versionString = match.Groups["version"].Value;
@@ -50,5 +50,8 @@
 
             return versionString;
         }
+
+        [GeneratedRegex("(?<component>npm): '(?<version>.*)'")]
+        private static partial Regex VersionRegex();
     }
 }
