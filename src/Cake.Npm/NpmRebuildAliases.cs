@@ -1,11 +1,11 @@
-using System;
-using Cake.Core;
-using Cake.Core.Annotations;
-using Cake.Npm.Install;
-using Cake.Npm.Rebuild;
-
 namespace Cake.Npm
 {
+    using System;
+    using Cake.Core;
+    using Cake.Core.Annotations;
+    using Cake.Npm.Install;
+    using Cake.Npm.Rebuild;
+
     /// <summary>
     /// Npm Rebuild aliases
     /// </summary>
@@ -47,10 +47,7 @@ namespace Cake.Npm
         [CakeAliasCategory("Rebuild")]
         public static void NpmRebuild(this ICakeContext context, params string[] packages)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
             var settings = new NpmRebuildSettings();
             foreach (var packageName in packages)
@@ -87,10 +84,7 @@ namespace Cake.Npm
         [CakeAliasCategory("Rebuild")]
         public static void NpmRebuild(this ICakeContext context, Action<NpmRebuildSettings> configurator)
         {
-            if (configurator == null)
-            {
-                throw new ArgumentNullException(nameof(configurator));
-            }
+            ArgumentNullException.ThrowIfNull(configurator);
 
             var settings = new NpmRebuildSettings();
             configurator.Invoke(settings);
@@ -131,15 +125,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Rebuild")]
         public static void NpmRebuild(this ICakeContext context, NpmRebuildSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             AddinInformation.LogVersionInformation(context.Log);
             var rebuilder = new NpmRebuilder(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);

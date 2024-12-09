@@ -1,7 +1,7 @@
-﻿using Cake.Npm.AddUser;
-
-namespace Cake.Npm.Tests.AddUser
+﻿namespace Cake.Npm.Tests.AddUser
 {
+    using Cake.Npm.AddUser;
+
     internal class NpmAddUserFixture : NpmFixture<NpmAddUserSettings>
     {
         public NpmAddUserFixture()

@@ -25,10 +25,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.Production"/> set to <paramref name="production"/>.</returns>
         public static NpmPruneSettings ForProduction(this NpmPruneSettings settings, bool production)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Production = production;
             return settings;
@@ -54,10 +51,7 @@
         /// <returns>The <paramref name="settings"/> instance with the package added to <see cref="NpmPruneSettings.Packages"/>.</returns>
         public static NpmPruneSettings AddPackage(this NpmPruneSettings settings, string packageName, string scope)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             if (string.IsNullOrWhiteSpace(packageName))
             {
@@ -97,10 +91,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.DryRun"/> set to <paramref name="dryRun"/>.</returns>
         public static NpmPruneSettings DryRun(this NpmPruneSettings settings, bool dryRun)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.DryRun = dryRun;
             return settings;
@@ -124,10 +115,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.Json"/> set to <paramref name="json"/>.</returns>
         public static NpmPruneSettings Json(this NpmPruneSettings settings, bool json)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Json = json;
             return settings;

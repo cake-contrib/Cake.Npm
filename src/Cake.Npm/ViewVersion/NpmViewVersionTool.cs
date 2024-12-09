@@ -11,25 +11,18 @@
     /// <summary>
     /// Tool for viewing npm package versions.
     /// </summary>
-    public class NpmViewVersionTool : NpmTool<NpmViewVersionSettings>
+    /// <param name="fileSystem">The file system.</param>
+    /// <param name="environment">The environment.</param>
+    /// <param name="processRunner">The process runner.</param>
+    /// <param name="tools">The tool locator.</param>
+    /// <param name="log">Cake log instance.</param>
+    public class NpmViewVersionTool(
+        IFileSystem fileSystem,
+        ICakeEnvironment environment,
+        IProcessRunner processRunner,
+        IToolLocator tools,
+        ICakeLog log) : NpmTool<NpmViewVersionSettings>(fileSystem, environment, processRunner, tools, log)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NpmViewVersionTool"/> class.
-        /// </summary>
-        /// <param name="fileSystem">The file system.</param>
-        /// <param name="environment">The environment.</param>
-        /// <param name="processRunner">The process runner.</param>
-        /// <param name="tools">The tool locator.</param>
-        /// <param name="log">Cake log instance.</param>
-        public NpmViewVersionTool(
-            IFileSystem fileSystem,
-            ICakeEnvironment environment,
-            IProcessRunner processRunner,
-            IToolLocator tools,
-            ICakeLog log) 
-            : base(fileSystem, environment, processRunner, tools, log)
-        {
-        }
 
         /// <summary>
         /// Views the package version from the specified settings.
@@ -37,10 +30,7 @@
         /// <param name="settings">The settings.</param>
         public string Version(NpmViewVersionSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             var versionString = string.Empty;
 

@@ -15,10 +15,7 @@ namespace Cake.Npm.Rebuild
         /// <returns>The <paramref name="settings"/> instance with <paramref name="packageName"/> added to <see cref="NpmRebuildSettings.Packages"/>.</returns>
         public static NpmRebuildSettings AddPackage(this NpmRebuildSettings settings, string packageName)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             if (string.IsNullOrWhiteSpace(packageName))
             {
@@ -37,10 +34,7 @@ namespace Cake.Npm.Rebuild
         /// <returns>The <paramref name="settings"/> instance with <paramref name="packageName"/> added to <see cref="NpmRebuildSettings.Packages"/>.</returns>
         public static NpmRebuildSettings AddScopedPackage(this NpmRebuildSettings settings, string packageName, string scope)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             if (string.IsNullOrWhiteSpace(packageName))
             {

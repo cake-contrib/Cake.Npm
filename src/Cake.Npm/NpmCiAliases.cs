@@ -27,11 +27,8 @@ namespace Cake.Npm
         [CakeAliasCategory("Ci")]
         public static void NpmCi(this ICakeContext context)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-            
+            ArgumentNullException.ThrowIfNull(context);
+
             context.NpmCi(new NpmCiSettings());
         }
 
@@ -52,15 +49,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Ci")]
         public static void NpmCi(this ICakeContext context, Action<NpmCiSettings> configurator)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (configurator == null)
-            {
-                throw new ArgumentNullException(nameof(configurator));
-            }
+            ArgumentNullException.ThrowIfNull(configurator);
 
             var settings = new NpmCiSettings();
             configurator(settings);
@@ -89,15 +80,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Ci")]
         public static void NpmCi(this ICakeContext context, NpmCiSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             AddinInformation.LogVersionInformation(context.Log);
             var ciTool = new NpmCiTool(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);

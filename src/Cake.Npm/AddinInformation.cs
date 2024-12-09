@@ -1,8 +1,8 @@
-using System.Reflection;
-using Cake.Core.Diagnostics;
-
 namespace Cake.Npm
 {
+    using System.Reflection;
+    using Cake.Core.Diagnostics;
+
     /// <summary>
     /// Helper to log addin version information
     /// </summary>

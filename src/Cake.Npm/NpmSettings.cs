@@ -10,18 +10,9 @@
     /// <summary>
     /// Npm tool settings.
     /// </summary>
-    public abstract class NpmSettings: ToolSettings
+    /// <param name="command">Command to run.</param>
+    public abstract class NpmSettings(string command) : ToolSettings
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NpmSettings"/> class.
-        /// </summary>
-        /// <param name="command">Command to run.</param>
-        protected NpmSettings(string command)
-        {
-            Command = command;
-            RedirectStandardError = false;
-            RedirectStandardOutput = false;
-        }
 
         /// <summary>
         /// Gets or sets the log level which should be used to run the npm command.
@@ -35,7 +26,7 @@
         /// To retrieve and process the standard error output 
         /// <see cref="StandardErrorAction"/> needs to be set.
         /// </remarks>
-        public bool RedirectStandardError { get; set; }
+        public bool RedirectStandardError { get; set; } = false;
 
         /// <summary>
         /// Gets or sets an action to retrieve and process standard error output.
@@ -52,7 +43,7 @@
         /// To retrieve and process the standard error output 
         /// <see cref="StandardOutputAction"/> needs to be set.
         /// </remarks>
-        public bool RedirectStandardOutput { get; set; }
+        public bool RedirectStandardOutput { get; set; } = false;
 
         /// <summary>
         /// Gets or sets an action to retrieve and process standard output.
@@ -70,7 +61,7 @@
         /// <summary>
         /// Gets the command which should be run.
         /// </summary>
-        protected string Command { get; private set; }
+        protected string Command { get; private set; } = command;
 
         /// <summary>
         /// Evaluates the settings and writes them to <paramref name="args"/>.

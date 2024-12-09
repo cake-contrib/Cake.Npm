@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
-using Cake.Core;
-using Cake.Core.Annotations;
-using Cake.Npm.Prune;
-
 namespace Cake.Npm
 {
+    using Cake.Core;
+    using Cake.Core.Annotations;
+    using Cake.Npm.Prune;
+    using System;
+
     /// <summary>
     /// Npm Prune aliases
     /// </summary>
@@ -29,10 +28,7 @@ namespace Cake.Npm
         [CakeAliasCategory("Prune")]
         public static void NpmPrune(this ICakeContext context)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
             context.NpmPrune(new NpmPruneSettings());
         }
@@ -54,15 +50,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Prune")]
         public static void NpmPrune(this ICakeContext context, Action<NpmPruneSettings> configurator)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (configurator == null)
-            {
-                throw new ArgumentNullException(nameof(configurator));
-            }
+            ArgumentNullException.ThrowIfNull(configurator);
 
             var settings = new NpmPruneSettings();
             configurator(settings);
@@ -91,15 +81,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Prune")]
         public static void NpmPrune(this ICakeContext context, NpmPruneSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             AddinInformation.LogVersionInformation(context.Log);
 

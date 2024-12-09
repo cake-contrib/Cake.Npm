@@ -15,10 +15,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmAddUserSettings.Registry"/> set to <paramref name="registry" />.</returns>
         public static NpmAddUserSettings ForRegistry(this NpmAddUserSettings settings, Uri registry)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Registry = registry ?? throw new ArgumentNullException(nameof(registry));
             return settings;
@@ -32,11 +29,8 @@
         /// <returns>The <paramref name="settings"/> instance with <paramref name="scope"/> added to <see cref="NpmAddUserSettings.Scope"/>.</returns>
         public static NpmAddUserSettings ForScope(this NpmAddUserSettings settings, string scope)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
-            
+            ArgumentNullException.ThrowIfNull(settings);
+
             if (string.IsNullOrWhiteSpace(scope))
             {
                 throw new ArgumentNullException(nameof(scope));
@@ -57,10 +51,7 @@
         /// <returns>The <see cref="NpmAddUserSettings"/> instance with AlwaysAuth set to true.</returns>
         public static NpmAddUserSettings AlwaysAuthenticate(this NpmAddUserSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.AlwaysAuth = true;
             return settings;
@@ -74,11 +65,8 @@
         /// <returns>The <see cref="NpmAddUserSettings"/> instance with <paramref name="authType"/> added to <see cref="NpmAddUserSettings.AuthType"/>.</returns>
         public static NpmAddUserSettings UsingAuthentication(this NpmAddUserSettings settings, AuthType authType)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
-            
+            ArgumentNullException.ThrowIfNull(settings);
+
             settings.AuthType = authType;
             return settings;
         }

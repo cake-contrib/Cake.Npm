@@ -9,25 +9,18 @@
     /// <summary>
     /// Tool for adding a user registry account.
     /// </summary>
-    public class NpmAddUser : NpmTool<NpmAddUserSettings>
+    /// <param name="fileSystem">The file system.</param>
+    /// <param name="environment">The environment.</param>
+    /// <param name="processRunner">The process runner.</param>
+    /// <param name="tools">The tool locator.</param>
+    /// <param name="log">Cake log instance.</param>
+    public class NpmAddUser(
+        IFileSystem fileSystem,
+        ICakeEnvironment environment,
+        IProcessRunner processRunner,
+        IToolLocator tools,
+        ICakeLog log) : NpmTool<NpmAddUserSettings>(fileSystem, environment, processRunner, tools, log)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NpmAddUser"/> class.
-        /// </summary>
-        /// <param name="fileSystem">The file system.</param>
-        /// <param name="environment">The environment.</param>
-        /// <param name="processRunner">The process runner.</param>
-        /// <param name="tools">The tool locator.</param>
-        /// <param name="log">Cake log instance.</param>
-        public NpmAddUser(
-            IFileSystem fileSystem,
-            ICakeEnvironment environment,
-            IProcessRunner processRunner,
-            IToolLocator tools,
-            ICakeLog log)
-            : base(fileSystem, environment, processRunner, tools, log)
-        {
-        }
 
         /// <summary>
         /// Adds a user from the specified settings.
@@ -35,10 +28,7 @@
         /// <param name="settings">The settings.</param>
         public void AddUser(NpmAddUserSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             RunCore(settings);
         }

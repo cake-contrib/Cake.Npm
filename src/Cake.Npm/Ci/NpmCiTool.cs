@@ -9,25 +9,18 @@
     /// <summary>
     /// Tool for installing all npm packages for a project from package-lock.json.
     /// </summary>
-    public class NpmCiTool : NpmTool<NpmCiSettings>
+    /// <param name="fileSystem">The file system.</param>
+    /// <param name="environment">The environment.</param>
+    /// <param name="processRunner">The process runner.</param>
+    /// <param name="tools">The tool locator.</param>
+    /// <param name="log">Cake log instance.</param>
+    public class NpmCiTool(
+        IFileSystem fileSystem,
+        ICakeEnvironment environment,
+        IProcessRunner processRunner,
+        IToolLocator tools,
+        ICakeLog log) : NpmTool<NpmCiSettings>(fileSystem, environment, processRunner, tools, log)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NpmCiTool"/> class.
-        /// </summary>
-        /// <param name="fileSystem">The file system.</param>
-        /// <param name="environment">The environment.</param>
-        /// <param name="processRunner">The process runner.</param>
-        /// <param name="tools">The tool locator.</param>
-        /// <param name="log">Cake log instance.</param>
-        public NpmCiTool(
-            IFileSystem fileSystem,
-            ICakeEnvironment environment,
-            IProcessRunner processRunner,
-            IToolLocator tools,
-            ICakeLog log) 
-            : base(fileSystem, environment, processRunner, tools, log)
-        {
-        }
 
         /// <summary>
         /// Installs all npm packages from the specified settings.
@@ -35,10 +28,7 @@
         /// <param name="settings">The settings.</param>
         public void Install(NpmCiSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             RunCore(settings);
         }

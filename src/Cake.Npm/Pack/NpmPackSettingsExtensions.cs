@@ -17,10 +17,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPackSettings.Source"/> set to <paramref name="source"/>.</returns>
         public static NpmPackSettings FromSource(this NpmPackSettings settings, string source)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             if (string.IsNullOrWhiteSpace(source))
             {
