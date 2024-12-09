@@ -35,10 +35,7 @@
         /// <param name="settings">The settings.</param>
         public void AddUser(NpmAddUserSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             RunCore(settings);
         }

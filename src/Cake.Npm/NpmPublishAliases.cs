@@ -27,10 +27,7 @@ namespace Cake.Npm
         [CakeAliasCategory("Publish")]
         public static void NpmPublish(this ICakeContext context)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
             context.NpmPublish(new NpmPublishSettings());
         }
@@ -53,10 +50,7 @@ namespace Cake.Npm
         [CakeAliasCategory("Publish")]
         public static void NpmPublish(this ICakeContext context, string source)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
             if (String.IsNullOrWhiteSpace(source))
             {
@@ -82,15 +76,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Publish")]
         public static void NpmPublish(this ICakeContext context, Action<NpmPublishSettings> configurator)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (configurator == null)
-            {
-                throw new ArgumentNullException(nameof(configurator));
-            }
+            ArgumentNullException.ThrowIfNull(configurator);
 
             var settings = new NpmPublishSettings();
             configurator(settings);
@@ -119,15 +107,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Publish")]
         public static void NpmPublish(this ICakeContext context, NpmPublishSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             AddinInformation.LogVersionInformation(context.Log);
 

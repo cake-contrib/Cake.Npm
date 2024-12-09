@@ -30,10 +30,7 @@ namespace Cake.Npm
         [CakeAliasCategory("Run-Script")]
         public static void NpmRunScript(this ICakeContext context, string scriptName)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
             if (String.IsNullOrWhiteSpace(scriptName))
             {
@@ -64,20 +61,14 @@ namespace Cake.Npm
         [CakeAliasCategory("Run-Script")]
         public static void NpmRunScript(this ICakeContext context, string scriptName, IEnumerable<string> arguments)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
             if (String.IsNullOrWhiteSpace(scriptName))
             {
                 throw new ArgumentNullException(nameof(scriptName));
             }
 
-            if (arguments == null)
-            {
-                throw new ArgumentNullException(nameof(arguments));
-            }
+            ArgumentNullException.ThrowIfNull(arguments);
 
             var settings = new NpmRunScriptSettings
             {
@@ -110,20 +101,14 @@ namespace Cake.Npm
         [CakeAliasCategory("Run-Script")]
         public static void NpmRunScript(this ICakeContext context, string scriptName, Action<NpmRunScriptSettings> configurator)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
             if (String.IsNullOrWhiteSpace(scriptName))
             {
                 throw new ArgumentNullException(nameof(scriptName));
             }
 
-            if (configurator == null)
-            {
-                throw new ArgumentNullException(nameof(configurator));
-            }
+            ArgumentNullException.ThrowIfNull(configurator);
 
             var settings = new NpmRunScriptSettings { ScriptName = scriptName };
             configurator(settings);
@@ -153,15 +138,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Run-Script")]
         public static void NpmRunScript(this ICakeContext context, NpmRunScriptSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             AddinInformation.LogVersionInformation(context.Log);
 

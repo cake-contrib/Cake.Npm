@@ -37,10 +37,7 @@ namespace Cake.Npm.Set
         /// <param name="settings">The settings</param>
         public void Set(NpmSetSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             RunCore(settings);
         }

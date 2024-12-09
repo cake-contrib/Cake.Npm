@@ -33,11 +33,8 @@ namespace Cake.Npm
         [CakeAliasCategory("Version")]
         public static string NpmVersion(this ICakeContext context)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-            
+            ArgumentNullException.ThrowIfNull(context);
+
             AddinInformation.LogVersionInformation(context.Log);
             return context.NpmVersion(new NpmVersionSettings());
         }
@@ -59,15 +56,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Version")]
         public static string NpmVersion(this ICakeContext context, Action<NpmVersionSettings> configurator)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (configurator == null)
-            {
-                throw new ArgumentNullException(nameof(configurator));
-            }
+            ArgumentNullException.ThrowIfNull(configurator);
 
             var settings = new NpmVersionSettings();
             configurator(settings);
@@ -93,15 +84,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Version")]
         public static string NpmVersion(this ICakeContext context, NpmVersionSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             AddinInformation.LogVersionInformation(context.Log);
             var tool = new NpmVersionTool(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);

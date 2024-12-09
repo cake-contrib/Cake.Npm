@@ -80,10 +80,7 @@
         /// <param name="postAction">Action which should be executed after running npm. <c>null</c> for no action.</param>
         protected void RunCore(TSettings settings, ProcessSettings processSettings, Action<IProcess> postAction)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             if (!settings.CakeVerbosityLevel.HasValue)
             {

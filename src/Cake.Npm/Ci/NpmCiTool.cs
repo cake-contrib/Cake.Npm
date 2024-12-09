@@ -35,10 +35,7 @@
         /// <param name="settings">The settings.</param>
         public void Install(NpmCiSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             RunCore(settings);
         }

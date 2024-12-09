@@ -37,10 +37,7 @@
         /// <param name="settings">The settings.</param>
         public string Version(NpmViewVersionSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             var versionString = string.Empty;
 

@@ -31,10 +31,7 @@ namespace Cake.Npm
         [CakeAliasCategory("Pack")]
         public static IEnumerable<FilePath> NpmPack(this ICakeContext context)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
             return context.NpmPack(new NpmPackSettings());
         }
@@ -58,10 +55,7 @@ namespace Cake.Npm
         [CakeAliasCategory("Pack")]
         public static IEnumerable<FilePath> NpmPack(this ICakeContext context, string source)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
             if (String.IsNullOrWhiteSpace(source))
             {
@@ -88,15 +82,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Pack")]
         public static IEnumerable<FilePath> NpmPack(this ICakeContext context, Action<NpmPackSettings> configurator)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (configurator == null)
-            {
-                throw new ArgumentNullException(nameof(configurator));
-            }
+            ArgumentNullException.ThrowIfNull(configurator);
 
             var settings = new NpmPackSettings();
             configurator(settings);
@@ -126,15 +114,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Pack")]
         public static IEnumerable<FilePath> NpmPack(this ICakeContext context, NpmPackSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             AddinInformation.LogVersionInformation(context.Log);
 

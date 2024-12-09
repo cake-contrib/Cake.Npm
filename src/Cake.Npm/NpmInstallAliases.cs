@@ -27,11 +27,8 @@ namespace Cake.Npm
         [CakeAliasCategory("Install")]
         public static void NpmInstall(this ICakeContext context)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-            
+            ArgumentNullException.ThrowIfNull(context);
+
             context.NpmInstall(new NpmInstallSettings());
         }
         
@@ -51,10 +48,7 @@ namespace Cake.Npm
         [CakeAliasCategory("Install")]
         public static void NpmInstall(this ICakeContext context, params string[] packages)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
             var settings = new NpmInstallSettings();
             foreach (var packageName in packages)
@@ -109,15 +103,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Install")]
         public static void NpmInstall(this ICakeContext context, Action<NpmInstallSettings> configurator)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (configurator == null)
-            {
-                throw new ArgumentNullException(nameof(configurator));
-            }
+            ArgumentNullException.ThrowIfNull(configurator);
 
             var settings = new NpmInstallSettings();
             configurator(settings);
@@ -191,15 +179,9 @@ namespace Cake.Npm
         [CakeAliasCategory("Install")]
         public static void NpmInstall(this ICakeContext context, NpmInstallSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             AddinInformation.LogVersionInformation(context.Log);
             var installer = new NpmInstaller(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);

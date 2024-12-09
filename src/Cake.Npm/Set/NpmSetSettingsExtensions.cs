@@ -15,10 +15,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmSetSettings.Key"/> set to <paramref name="key"/>.</returns>
         public static NpmSetSettings ForKey(this NpmSetSettings settings, string key)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             if (string.IsNullOrWhiteSpace(key))
             {
@@ -37,10 +34,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmSetSettings.Value"/> set to <paramref name="value"/>.</returns>
         public static NpmSetSettings WithValue(this NpmSetSettings settings, string value)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             if (string.IsNullOrWhiteSpace(value))
             {

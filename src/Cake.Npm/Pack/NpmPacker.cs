@@ -38,10 +38,7 @@
         /// <returns>List of created packages.</returns>
         public IEnumerable<FilePath> Pack(NpmPackSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             var processSettings = new ProcessSettings
             {

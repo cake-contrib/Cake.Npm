@@ -18,10 +18,7 @@ namespace Cake.Npm.Ci
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmCiSettings.Production"/> set to <c>true</c>.</returns>
         public static NpmCiSettings ForProduction(this NpmCiSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Production = true;
             return settings;
@@ -35,10 +32,7 @@ namespace Cake.Npm.Ci
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmCiSettings.Registry"/> set to <paramref name="registry" />.</returns>
         public static NpmCiSettings FromRegistry(this NpmCiSettings settings, Uri registry)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Registry = registry ?? throw new ArgumentNullException(nameof(registry));
             return settings;

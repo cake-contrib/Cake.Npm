@@ -35,10 +35,7 @@
         /// <param name="settings"></param>
         public void Rebuild(NpmRebuildSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             RunCore(settings);
         }

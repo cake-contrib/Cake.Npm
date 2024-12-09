@@ -17,10 +17,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPublishSettings.Source"/> set to <paramref name="source"/>.</returns>
         public static NpmPublishSettings FromSource(this NpmPublishSettings settings, string source)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             if (string.IsNullOrWhiteSpace(source))
             {
@@ -40,10 +37,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPublishSettings.Tag"/> set to <paramref name="tag"/>.</returns>
         public static NpmPublishSettings WithTag(this NpmPublishSettings settings, string tag)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             if (string.IsNullOrWhiteSpace(tag))
             {
@@ -63,10 +57,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPublishSettings.Access"/> set to <paramref name="access"/>.</returns>
         public static NpmPublishSettings WithAccess(this NpmPublishSettings settings, NpmPublishAccess access)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Access = access;
 
@@ -81,10 +72,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPublishSettings.Registry"/> set to <paramref name="registry"/>.</returns>
         public static NpmPublishSettings ToRegistry(this NpmPublishSettings settings, Uri registry)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.Registry = registry ?? throw new ArgumentNullException(nameof(registry));
 

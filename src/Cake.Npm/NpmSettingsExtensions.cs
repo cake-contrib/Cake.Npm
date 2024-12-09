@@ -16,10 +16,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmSettings.LogLevel"/> set to <paramref name="logLevel"/>.</returns>
         public static NpmSettings WithLogLevel(this NpmSettings settings, NpmLogLevel logLevel)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.LogLevel = logLevel;
 
@@ -34,10 +31,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="Core.Tooling.ToolSettings.WorkingDirectory"/> set to <paramref name="path"/>.</returns>
         public static NpmSettings FromPath(this NpmSettings settings, DirectoryPath path)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.WorkingDirectory = path ?? throw new ArgumentNullException(nameof(path));
 
@@ -52,10 +46,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmSettings.StandardErrorAction"/> set to <paramref name="standardErrorAction"/>.</returns>
         public static NpmSettings SetRedirectedStandardErrorHandler(this NpmSettings settings, Action<string> standardErrorAction)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.StandardErrorAction = standardErrorAction ?? throw new ArgumentNullException(nameof(standardErrorAction));
 
@@ -70,10 +61,7 @@
         /// <returns>The <paramref name="settings"/> instance with <see cref="NpmSettings.StandardOutputAction"/> set to <paramref name="standardOutputAction"/>.</returns>
         public static NpmSettings SetRedirectedStandardOutputHandler(this NpmSettings settings, Action<string> standardOutputAction)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(settings);
 
             settings.StandardOutputAction = standardOutputAction ?? throw new ArgumentNullException(nameof(standardOutputAction));
 
