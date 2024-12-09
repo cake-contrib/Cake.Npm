@@ -1,10 +1,9 @@
 namespace Cake.Npm
 {
-    using System;
-    using System.Collections.Generic;
     using Cake.Core;
     using Cake.Core.Annotations;
     using Cake.Npm.Prune;
+    using System;
 
     /// <summary>
     /// Npm Prune aliases

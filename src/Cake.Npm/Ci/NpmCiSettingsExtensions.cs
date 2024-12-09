@@ -1,8 +1,6 @@
 ﻿namespace Cake.Npm.Ci
 {
-    using Cake.Npm.Ci;
     using System;
-    using Cake.Core;
 
     /// <summary>
     /// Extensions for <see cref="NpmCiSettings"/>.
