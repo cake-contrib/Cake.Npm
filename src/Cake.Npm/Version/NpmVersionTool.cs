@@ -12,25 +12,18 @@ namespace Cake.Npm.Version
     /// <summary>
     /// Tool for installing all npm packages for a project from package-lock.json.
     /// </summary>
-    public class NpmVersionTool : NpmTool<NpmVersionSettings>
+    /// <param name="fileSystem">The file system.</param>
+    /// <param name="environment">The environment.</param>
+    /// <param name="processRunner">The process runner.</param>
+    /// <param name="tools">The tool locator.</param>
+    /// <param name="log">Cake log instance.</param>
+    public class NpmVersionTool(
+        IFileSystem fileSystem,
+        ICakeEnvironment environment,
+        IProcessRunner processRunner,
+        IToolLocator tools,
+        ICakeLog log) : NpmTool<NpmVersionSettings>(fileSystem, environment, processRunner, tools, log)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NpmVersionTool"/> class.
-        /// </summary>
-        /// <param name="fileSystem">The file system.</param>
-        /// <param name="environment">The environment.</param>
-        /// <param name="processRunner">The process runner.</param>
-        /// <param name="tools">The tool locator.</param>
-        /// <param name="log">Cake log instance.</param>
-        public NpmVersionTool(
-            IFileSystem fileSystem,
-            ICakeEnvironment environment,
-            IProcessRunner processRunner,
-            IToolLocator tools,
-            ICakeLog log) 
-            : base(fileSystem, environment, processRunner, tools, log)
-        {
-        }
 
         /// <summary>
         /// Installs all npm packages from the specified settings.

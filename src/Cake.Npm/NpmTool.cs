@@ -11,28 +11,20 @@
     /// Base class for all npm tools.
     /// </summary>
     /// <typeparam name="TSettings">The settings type.</typeparam>
-    public abstract class NpmTool<TSettings>: Tool<TSettings>
+    /// <param name="fileSystem">The file system.</param>
+    /// <param name="environment">The environment.</param>
+    /// <param name="processRunner">The process runner.</param>
+    /// <param name="tools">The tool locator.</param>
+    /// <param name="log">Cake log instance.</param>
+    public abstract class NpmTool<TSettings>(
+        IFileSystem fileSystem,
+        ICakeEnvironment environment,
+        IProcessRunner processRunner,
+        IToolLocator tools,
+        ICakeLog log) : Tool<TSettings>(fileSystem, environment, processRunner, tools)
         where TSettings : NpmSettings
     {
-        private readonly ICakeLog _log;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NpmTool{TSettings}"/> class.
-        /// </summary>
-        /// <param name="fileSystem">The file system.</param>
-        /// <param name="environment">The environment.</param>
-        /// <param name="processRunner">The process runner.</param>
-        /// <param name="tools">The tool locator.</param>
-        /// <param name="log">Cake log instance.</param>
-        protected NpmTool(
-            IFileSystem fileSystem,
-            ICakeEnvironment environment,
-            IProcessRunner processRunner,
-            IToolLocator tools,
-            ICakeLog log) : base(fileSystem, environment, processRunner, tools)
-        {
-            _log = log;
-        }
+        private readonly ICakeLog _log = log;
 
         /// <summary>
         /// Cake log instance.
