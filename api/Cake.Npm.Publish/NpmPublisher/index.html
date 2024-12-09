@@ -73,8 +73,6 @@
                     	
 	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
 <p><a href="#Syntax">Syntax</a></p>
-<p><a href="#Constructors">Constructors</a></p>
-<p><a href="#Methods">Methods</a></p>
 <hr class="infobar-hidden">
 </div>
 
@@ -179,8 +177,7 @@
 								<dt>Base Types</dt>
 								<dd>
 									<ul class="list-unstyled">										
-											<li>Tool<wbr>&lt;<a href="/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettings">NpmPublishSettings</a>&gt;<wbr></li>								
-											<li><a href="/Cake.Npm/api/Cake.Npm/NpmTool_1">NpmTool</a><wbr>&lt;<a href="/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettings">NpmPublishSettings</a>&gt;<wbr></li>								
+											<li>object</li>								
 									</ul>
 								</dd>				
 							
@@ -190,8 +187,7 @@
 					<div class="col-md-6">
 						<div class="mermaid">
 							graph BT
-	Type--&gt;Base0["NpmTool&lt;NpmPublishSettings&gt;"]
-	Base0--&gt;Base1["Tool&lt;NpmPublishSettings&gt;"]
+	Type--&gt;Base0["object"]
 	Type["NpmPublisher"]
 class Type type-node
 
@@ -202,7 +198,7 @@ class Type type-node
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public class NpmPublisher : NpmTool&lt;NpmPublishSettings&gt;</code></pre>
+	<pre><code>public class NpmPublisher</code></pre>
 
 
 
@@ -210,54 +206,10 @@ class Type type-node
 
 
 
-			<h1 id="Constructors">Constructors</h1>
-			<div class="box">
-				<div class="box-body no-padding table-responsive">
-					<table class="table table-striped table-hover two-cols">
-						<thead>
-							<tr>
-								<th>Name</th>
-									<th>Summary</th>
-							</tr>
-						</thead>
-							<tbody><tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.Publish/NpmPublisher/CCE9BAA0">NpmPublisher<wbr>(IFileSystem, <wbr>ICakeEnvironment, <wbr>IProcessRunner, <wbr>IToolLocator, <wbr>ICakeLog)<wbr></a></td>
-									<td>
-    Initializes a new instance of the <code class="cs"><a href="/Cake.Npm/api/Cake.Npm.Publish/NpmPublisher">NpmPublisher</a></code> class.
-    </td>
-							</tr>
-					</tbody></table>
-				</div>
-			</div>
-		
 
 
 
 
-			<h1 id="Methods">Methods</h1>
-			<div class="box">
-				<div class="box-body no-padding table-responsive">
-					<table class="table table-striped table-hover three-cols">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Value</th>
-								<th>Summary</th>
-							</tr>
-						</thead>
-							<tbody><tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.Publish/NpmPublisher/64F5F37B">Publish<wbr>(NpmPublishSettings)<wbr></a></td>
-								<td>void</td>
-								<td>
-									<div>
-    Publishes a npm package based on the specified settings.
-    </div>
-								</td>
-							</tr>
-					</tbody></table>
-				</div>
-			</div>
-		
 
 
 

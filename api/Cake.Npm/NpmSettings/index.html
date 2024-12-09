@@ -73,9 +73,6 @@
                     	
 	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
 <p><a href="#Syntax">Syntax</a></p>
-<p><a href="#Constructors">Constructors</a></p>
-<p><a href="#Properties">Properties</a></p>
-<p><a href="#Methods">Methods</a></p>
 <p><a href="#ExtensionMethods">Extension Methods</a></p>
 <hr class="infobar-hidden">
 </div>
@@ -194,26 +191,26 @@
 								<dt>Base Types</dt>
 								<dd>
 									<ul class="list-unstyled">										
-											<li>ToolSettings</li>								
+											<li>object</li>								
 									</ul>
 								</dd>				
 							
 								<dt>Derived Types</dt>
 								<dd>
 									<ul class="list-unstyled">
-											<li><a href="/Cake.Npm/api/Cake.Npm.Version/NpmVersionSettings">NpmVersionSettings</a></li>								
 											<li><a href="/Cake.Npm/api/Cake.Npm.ViewVersion/NpmViewVersionSettings">Npm<wbr>View<wbr>Version<wbr>Settings</a></li>								
-											<li><a href="/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettings">NpmPackSettings</a></li>								
-											<li><a href="/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings">NpmAddUserSettings</a></li>								
-											<li><a href="/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuildSettings">NpmRebuildSettings</a></li>								
-											<li><a href="/Cake.Npm/api/Cake.Npm.Install/NpmInstallSettings">NpmInstallSettings</a></li>								
-											<li><a href="/Cake.Npm/api/Cake.Npm.RunScript/NpmRunScriptSettings">NpmRunScriptSettings</a></li>								
-											<li><a href="/Cake.Npm/api/Cake.Npm.Prune/NpmPruneSettings">NpmPruneSettings</a></li>								
-											<li><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings">NpmCiSettings</a></li>								
-											<li><a href="/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings">Npm<wbr>Bump<wbr>Version<wbr>Settings</a></li>								
-											<li><a href="/Cake.Npm/api/Cake.Npm.Set/NpmSetSettings">NpmSetSettings</a></li>								
 											<li><a href="/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettings">NpmPublishSettings</a></li>								
 											<li><a href="/Cake.Npm/api/Cake.Npm.Update/NpmUpdateSettings">NpmUpdateSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettings">NpmPackSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuildSettings">NpmRebuildSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Set/NpmSetSettings">NpmSetSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings">NpmAddUserSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings">NpmCiSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Install/NpmInstallSettings">NpmInstallSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Prune/NpmPruneSettings">NpmPruneSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings">Npm<wbr>Bump<wbr>Version<wbr>Settings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.Version/NpmVersionSettings">NpmVersionSettings</a></li>								
+											<li><a href="/Cake.Npm/api/Cake.Npm.RunScript/NpmRunScriptSettings">NpmRunScriptSettings</a></li>								
 									</ul>
 								</dd>			
 							
@@ -222,35 +219,35 @@
 					<div class="col-md-6">
 						<div class="mermaid">
 							graph BT
-	Type--&gt;Base0["ToolSettings"]
+	Type--&gt;Base0["object"]
 	Type["NpmSettings"]
 class Type type-node
-	Derived0["NpmVersionSettings"]--&gt;Type
-	click Derived0 "/Cake.Npm/api/Cake.Npm.Version/NpmVersionSettings"
-	Derived1["NpmViewVersionSettings"]--&gt;Type
-	click Derived1 "/Cake.Npm/api/Cake.Npm.ViewVersion/NpmViewVersionSettings"
-	Derived2["NpmPackSettings"]--&gt;Type
-	click Derived2 "/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettings"
-	Derived3["NpmAddUserSettings"]--&gt;Type
-	click Derived3 "/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings"
+	Derived0["NpmViewVersionSettings"]--&gt;Type
+	click Derived0 "/Cake.Npm/api/Cake.Npm.ViewVersion/NpmViewVersionSettings"
+	Derived1["NpmPublishSettings"]--&gt;Type
+	click Derived1 "/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettings"
+	Derived2["NpmUpdateSettings"]--&gt;Type
+	click Derived2 "/Cake.Npm/api/Cake.Npm.Update/NpmUpdateSettings"
+	Derived3["NpmPackSettings"]--&gt;Type
+	click Derived3 "/Cake.Npm/api/Cake.Npm.Pack/NpmPackSettings"
 	Derived4["NpmRebuildSettings"]--&gt;Type
 	click Derived4 "/Cake.Npm/api/Cake.Npm.Rebuild/NpmRebuildSettings"
-	Derived5["NpmInstallSettings"]--&gt;Type
-	click Derived5 "/Cake.Npm/api/Cake.Npm.Install/NpmInstallSettings"
-	Derived6["NpmRunScriptSettings"]--&gt;Type
-	click Derived6 "/Cake.Npm/api/Cake.Npm.RunScript/NpmRunScriptSettings"
-	Derived7["NpmPruneSettings"]--&gt;Type
-	click Derived7 "/Cake.Npm/api/Cake.Npm.Prune/NpmPruneSettings"
-	Derived8["NpmCiSettings"]--&gt;Type
-	click Derived8 "/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings"
-	Derived9["NpmBumpVersionSettings"]--&gt;Type
-	click Derived9 "/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings"
-	Derived10["NpmSetSettings"]--&gt;Type
-	click Derived10 "/Cake.Npm/api/Cake.Npm.Set/NpmSetSettings"
-	Derived11["NpmPublishSettings"]--&gt;Type
-	click Derived11 "/Cake.Npm/api/Cake.Npm.Publish/NpmPublishSettings"
-	Derived12["NpmUpdateSettings"]--&gt;Type
-	click Derived12 "/Cake.Npm/api/Cake.Npm.Update/NpmUpdateSettings"
+	Derived5["NpmSetSettings"]--&gt;Type
+	click Derived5 "/Cake.Npm/api/Cake.Npm.Set/NpmSetSettings"
+	Derived6["NpmAddUserSettings"]--&gt;Type
+	click Derived6 "/Cake.Npm/api/Cake.Npm.AddUser/NpmAddUserSettings"
+	Derived7["NpmCiSettings"]--&gt;Type
+	click Derived7 "/Cake.Npm/api/Cake.Npm.Ci/NpmCiSettings"
+	Derived8["NpmInstallSettings"]--&gt;Type
+	click Derived8 "/Cake.Npm/api/Cake.Npm.Install/NpmInstallSettings"
+	Derived9["NpmPruneSettings"]--&gt;Type
+	click Derived9 "/Cake.Npm/api/Cake.Npm.Prune/NpmPruneSettings"
+	Derived10["NpmBumpVersionSettings"]--&gt;Type
+	click Derived10 "/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings"
+	Derived11["NpmVersionSettings"]--&gt;Type
+	click Derived11 "/Cake.Npm/api/Cake.Npm.Version/NpmVersionSettings"
+	Derived12["NpmRunScriptSettings"]--&gt;Type
+	click Derived12 "/Cake.Npm/api/Cake.Npm.RunScript/NpmRunScriptSettings"
 
 						</div>
 					</div>
@@ -259,7 +256,7 @@ class Type type-node
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public abstract class NpmSettings : ToolSettings</code></pre>
+	<pre><code>public abstract class NpmSettings</code></pre>
 
 
 
@@ -267,123 +264,10 @@ class Type type-node
 
 
 
-			<h1 id="Constructors">Constructors</h1>
-			<div class="box">
-				<div class="box-body no-padding table-responsive">
-					<table class="table table-striped table-hover two-cols">
-						<thead>
-							<tr>
-								<th>Name</th>
-									<th>Summary</th>
-							</tr>
-						</thead>
-							<tbody><tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/2B983D10">NpmSettings<wbr>(string)<wbr></a></td>
-									<td>
-    Initializes a new instance of the <code class="cs"><a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></code> class.
-    </td>
-							</tr>
-					</tbody></table>
-				</div>
-			</div>
-		
 
 
 
-			<h1 id="Properties">Properties</h1>
-			<div class="box">
-				<div class="box-body no-padding table-responsive">
-					<table class="table table-striped table-hover three-cols">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Value</th>
-								<th>Summary</th>
-							</tr>
-						</thead>
-							<tbody><tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/DA523FB4">Command</a></td>
-								<td>string</td>
-								<td>
-									<div>
-    Gets the command which should be run.
-    </div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/C6A5E2F0">LogLevel</a></td>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmLogLevel">NpmLogLevel</a></td>
-								<td>
-									<div>
-    Gets or sets the log level which should be used to run the npm command.
-    </div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/5E04C505">Redirect<wbr>Standard<wbr>Error</a></td>
-								<td>bool</td>
-								<td>
-									<div>
-    Gets or sets the process option to redirect standard error output.
-    </div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/7F315767">Redirect<wbr>Standard<wbr>Output</a></td>
-								<td>bool</td>
-								<td>
-									<div>
-    Gets or sets the process option to redirect standard output.
-    </div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/B88BD74F">StandardErrorAction</a></td>
-								<td>Action<wbr>&lt;string&gt;<wbr></td>
-								<td>
-									<div>
-    Gets or sets an action to retrieve and process standard error output.
-    </div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/10E149D7">StandardOutputAction</a></td>
-								<td>Action<wbr>&lt;string&gt;<wbr></td>
-								<td>
-									<div>
-    Gets or sets an action to retrieve and process standard output.
-    </div>
-								</td>
-							</tr>
-					</tbody></table>
-				</div>
-			</div>
-		
 
-			<h1 id="Methods">Methods</h1>
-			<div class="box">
-				<div class="box-body no-padding table-responsive">
-					<table class="table table-striped table-hover three-cols">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Value</th>
-								<th>Summary</th>
-							</tr>
-						</thead>
-							<tbody><tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/F9F43137">EvaluateCore<wbr>(<wbr>Process<wbr>Argument<wbr>Builder)<wbr></a></td>
-								<td>void</td>
-								<td>
-									<div>
-    Evaluates the settings and writes them to <span name="args" class="paramref">args</span>.
-    </div>
-								</td>
-							</tr>
-					</tbody></table>
-				</div>
-			</div>
-		
 
 
 			<h1 id="ExtensionMethods">Extension Methods</h1>

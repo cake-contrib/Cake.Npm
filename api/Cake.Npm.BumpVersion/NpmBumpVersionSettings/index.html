@@ -179,7 +179,7 @@
 								<dt>Base Types</dt>
 								<dd>
 									<ul class="list-unstyled">										
-											<li>ToolSettings</li>								
+											<li>object</li>								
 											<li><a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></li>								
 									</ul>
 								</dd>				
@@ -192,7 +192,7 @@
 							graph BT
 	Type--&gt;Base0["NpmSettings"]
 	click Base0 "/Cake.Npm/api/Cake.Npm/NpmSettings"
-	Base0--&gt;Base1["ToolSettings"]
+	Base0--&gt;Base1["object"]
 	Type["NpmBumpVersionSettings"]
 class Type type-node
 
@@ -256,16 +256,6 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/DA523FB4">Command</a></td>
-								<td>string</td>
-								<td>
-									<div>
-    Gets the command which should be run.
-    </div>
-											<div><small><em>Inherited from <a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/Cake.Npm/api/Cake.Npm.BumpVersion/NpmBumpVersionSettings/97A0FB59">CommitMessage</a></td>
 								<td>string</td>
 								<td>
@@ -291,56 +281,6 @@ class Type type-node
     Gets or sets the <code class="cs">--git-tag-version</code> option.
     Tag the commit when using the <code class="cs">npm version</code> command. Setting this to <code class="cs">false</code> results in no commit being made at all.
     </div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/C6A5E2F0">LogLevel</a></td>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmLogLevel">NpmLogLevel</a></td>
-								<td>
-									<div>
-    Gets or sets the log level which should be used to run the npm command.
-    </div>
-											<div><small><em>Inherited from <a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/5E04C505">Redirect<wbr>Standard<wbr>Error</a></td>
-								<td>bool</td>
-								<td>
-									<div>
-    Gets or sets the process option to redirect standard error output.
-    </div>
-											<div><small><em>Inherited from <a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/7F315767">Redirect<wbr>Standard<wbr>Output</a></td>
-								<td>bool</td>
-								<td>
-									<div>
-    Gets or sets the process option to redirect standard output.
-    </div>
-											<div><small><em>Inherited from <a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/B88BD74F">StandardErrorAction</a></td>
-								<td>Action<wbr>&lt;string&gt;<wbr></td>
-								<td>
-									<div>
-    Gets or sets an action to retrieve and process standard error output.
-    </div>
-											<div><small><em>Inherited from <a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings/10E149D7">StandardOutputAction</a></td>
-								<td>Action<wbr>&lt;string&gt;<wbr></td>
-								<td>
-									<div>
-    Gets or sets an action to retrieve and process standard output.
-    </div>
-											<div><small><em>Inherited from <a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></em></small></div>
 								</td>
 							</tr>
 							<tr>
