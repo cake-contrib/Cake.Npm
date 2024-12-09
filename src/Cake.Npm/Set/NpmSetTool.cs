@@ -1,12 +1,11 @@
-﻿using System.Linq;
-
-namespace Cake.Npm.Set
+﻿namespace Cake.Npm.Set
 {
+    using System.Linq;
     using System;
-    using Core;
-    using Core.Diagnostics;
-    using Core.IO;
-    using Core.Tooling;
+    using Cake.Core;
+    using Cake.Core.Diagnostics;
+    using Cake.Core.IO;
+    using Cake.Core.Tooling;
 
     /// <summary>
     /// Tool for installing all npm packages for a project from package-lock.json.

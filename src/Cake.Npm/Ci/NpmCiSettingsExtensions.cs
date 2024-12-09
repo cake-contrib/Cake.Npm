@@ -1,9 +1,8 @@
-﻿using Cake.Npm.Ci;
-
-namespace Cake.Npm.Ci
+﻿namespace Cake.Npm.Ci
 {
+    using Cake.Npm.Ci;
     using System;
-    using Core;
+    using Cake.Core;
 
     /// <summary>
     /// Extensions for <see cref="NpmCiSettings"/>.

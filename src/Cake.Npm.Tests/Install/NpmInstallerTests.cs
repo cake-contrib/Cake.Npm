@@ -1,10 +1,10 @@
-﻿using System;
-using Cake.Core.Diagnostics;
-using Xunit;
-using Cake.Npm.Install;
-
-namespace Cake.Npm.Tests.Install
+﻿namespace Cake.Npm.Tests.Install
 {
+    using System;
+    using Cake.Core.Diagnostics;
+    using Xunit;
+    using Cake.Npm.Install;
+
     public class NpmInstallerTests
     {
         public sealed class TheInstallMethod

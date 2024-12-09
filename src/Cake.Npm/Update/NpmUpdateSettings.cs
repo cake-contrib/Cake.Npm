@@ -1,8 +1,8 @@
-﻿using Cake.Core;
-using Cake.Core.IO;
-
-namespace Cake.Npm.Update
+﻿namespace Cake.Npm.Update
 {
+    using Cake.Core;
+    using Cake.Core.IO;
+
     /// <summary>
     /// Contains settings used by <see cref="NpmUpdateTool"/>.
     /// </summary>

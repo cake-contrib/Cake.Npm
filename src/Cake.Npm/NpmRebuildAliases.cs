@@ -1,11 +1,11 @@
-using System;
-using Cake.Core;
-using Cake.Core.Annotations;
-using Cake.Npm.Install;
-using Cake.Npm.Rebuild;
-
 namespace Cake.Npm
 {
+    using System;
+    using Cake.Core;
+    using Cake.Core.Annotations;
+    using Cake.Npm.Install;
+    using Cake.Npm.Rebuild;
+
     /// <summary>
     /// Npm Rebuild aliases
     /// </summary>

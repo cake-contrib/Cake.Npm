@@ -1,10 +1,10 @@
-﻿using System;
-using Cake.Core.Diagnostics;
-using Cake.Npm.Ci;
-using Xunit;
-
-namespace Cake.Npm.Tests.Ci
+﻿namespace Cake.Npm.Tests.Ci
 {
+    using System;
+    using Cake.Core.Diagnostics;
+    using Cake.Npm.Ci;
+    using Xunit;
+
     public class NpmCiToolTests
     {
         public sealed class TheAutomatedInstallMethod

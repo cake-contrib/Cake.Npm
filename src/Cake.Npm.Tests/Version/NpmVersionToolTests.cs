@@ -1,9 +1,9 @@
-﻿using Cake.Core;
-using Shouldly;
-using Xunit;
-
-namespace Cake.Npm.Tests.Version
+﻿namespace Cake.Npm.Tests.Version
 {
+    using Cake.Core;
+    using Shouldly;
+    using Xunit;
+
     public class NpmVersionToolTests
     {
         public sealed class TheVersionMethod

@@ -1,10 +1,10 @@
-﻿using System;
-using Cake.Core;
-using Cake.Core.Annotations;
-using Cake.Npm.Publish;
-
-namespace Cake.Npm
+﻿namespace Cake.Npm
 {
+    using System;
+    using Cake.Core;
+    using Cake.Core.Annotations;
+    using Cake.Npm.Publish;
+
     /// <summary>
     /// Npm publish aliases.
     /// </summary>

@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
-using Cake.Core;
-using Cake.Core.Annotations;
-using Cake.Npm.RunScript;
-
 namespace Cake.Npm
 {
+    using System;
+    using System.Collections.Generic;
+    using Cake.Core;
+    using Cake.Core.Annotations;
+    using Cake.Npm.RunScript;
+
     /// <summary>
     /// Npm RunScript aliases
     /// </summary>

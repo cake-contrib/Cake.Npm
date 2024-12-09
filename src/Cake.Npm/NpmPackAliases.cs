@@ -1,12 +1,12 @@
-using System;
-using System.Collections.Generic;
-using Cake.Core;
-using Cake.Core.Annotations;
-using Cake.Core.IO;
-using Cake.Npm.Pack;
-
 namespace Cake.Npm
 {
+    using System;
+    using System.Collections.Generic;
+    using Cake.Core;
+    using Cake.Core.Annotations;
+    using Cake.Core.IO;
+    using Cake.Npm.Pack;
+
     /// <summary>
     /// Npm Pack aliases
     /// </summary>

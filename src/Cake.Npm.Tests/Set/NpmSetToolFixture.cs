@@ -1,7 +1,7 @@
-﻿using Cake.Npm.Set;
-
-namespace Cake.Npm.Tests.Set
+﻿namespace Cake.Npm.Tests.Set
 {
+    using Cake.Npm.Set;
+
     internal sealed class NpmSetToolFixture : NpmFixture<NpmSetSettings>
     {
         public NpmSetToolFixture()

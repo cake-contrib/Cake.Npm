@@ -1,7 +1,7 @@
-﻿using Cake.Npm.Update;
-
-namespace Cake.Npm.Tests.Update
+﻿namespace Cake.Npm.Tests.Update
 {
+    using Cake.Npm.Update;
+
     internal sealed class NpmUpdateToolFixture : NpmFixture<NpmUpdateSettings>
     {
         public NpmUpdateToolFixture()

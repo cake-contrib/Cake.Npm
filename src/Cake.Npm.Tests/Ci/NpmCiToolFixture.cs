@@ -1,7 +1,7 @@
-﻿using Cake.Npm.Ci;
-
-namespace Cake.Npm.Tests.Ci
+﻿namespace Cake.Npm.Tests.Ci
 {
+    using Cake.Npm.Ci;
+
     internal sealed class NpmCiToolFixture : NpmFixture<NpmCiSettings>
     {
         public NpmCiToolFixture()
