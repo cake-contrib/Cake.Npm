@@ -1,0 +1,6 @@
+is_global = true
+
+# Escalate 'Style' / IDE diagnostics to warnings to have them enabled in CLI builds
+dotnet_analyzer_diagnostic.category-Style.severity = warning
+# Remove unnecessary expression value
+dotnet_diagnostic.IDE0058.severity = warning
