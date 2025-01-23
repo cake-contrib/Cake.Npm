@@ -1,124 +1,115 @@
-﻿namespace Cake.Npm.Prune
+﻿namespace Cake.Npm.Prune;
+
+using System;
+
+/// <summary>
+/// Extensions for <see cref="NpmPruneSettings"/>.
+/// </summary>
+public static class NpmPruneSettingsExtensions
 {
-    using System;
+    /// <summary>
+    /// Defines that npm should remove modules listed in <c>devDependencies</c>.
+    /// </summary>
+    /// <param name="settings">The settings.</param>
+    /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.Production"/> set to <c>true</c>.</returns>
+    public static NpmPruneSettings ForProduction(this NpmPruneSettings settings)
+        => settings.ForProduction(true);
 
     /// <summary>
-    /// Extensions for <see cref="NpmPruneSettings"/>.
+    /// Defines whether npm should remove modules listed in <c>devDependencies</c>.
     /// </summary>
-    public static class NpmPruneSettingsExtensions
+    /// <param name="settings">The settings.</param>
+    /// <param name="production">True to enable</param>
+    /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.Production"/> set to <paramref name="production"/>.</returns>
+    public static NpmPruneSettings ForProduction(this NpmPruneSettings settings, bool production)
     {
-        /// <summary>
-        /// Defines that npm should remove modules listed in <c>devDependencies</c>.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
-        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.Production"/> set to <c>true</c>.</returns>
-        public static NpmPruneSettings ForProduction(this NpmPruneSettings settings)
+        ArgumentNullException.ThrowIfNull(settings);
+
+        settings.Production = production;
+        return settings;
+    }
+
+    /// <summary>
+    /// If a package name is added, then only packages matching one of the supplied names are removed.
+    /// </summary>
+    /// <param name="settings">The settings.</param>
+    /// <param name="packageName">The package name to add.</param>
+    /// <returns>The <paramref name="settings"/> instance with the package added to <see cref="NpmPruneSettings.Packages"/>.</returns>
+    public static NpmPruneSettings AddPackage(this NpmPruneSettings settings, string packageName)
+        => settings.AddPackage(packageName, null);
+
+    /// <summary>
+    /// If a package name is added, then only packages matching one of the supplied names are removed.
+    /// </summary>
+    /// <param name="settings">The settings.</param>
+    /// <param name="packageName">The package name to add.</param>
+    /// <param name="scope">The package scope.</param>
+    /// <returns>The <paramref name="settings"/> instance with the package added to <see cref="NpmPruneSettings.Packages"/>.</returns>
+    public static NpmPruneSettings AddPackage(this NpmPruneSettings settings, string packageName, string scope)
+    {
+        ArgumentNullException.ThrowIfNull(settings);
+
+        if (string.IsNullOrWhiteSpace(packageName))
         {
-            return settings.ForProduction(true);
+            throw new ArgumentNullException(nameof(packageName));
         }
 
-        /// <summary>
-        /// Defines whether npm should remove modules listed in <c>devDependencies</c>.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
-        /// <param name="production">True to enable</param>
-        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.Production"/> set to <paramref name="production"/>.</returns>
-        public static NpmPruneSettings ForProduction(this NpmPruneSettings settings, bool production)
+        var resolvedPackageName = packageName;
+        if (!string.IsNullOrWhiteSpace(scope))
         {
-            ArgumentNullException.ThrowIfNull(settings);
-
-            settings.Production = production;
-            return settings;
-        }
-
-        /// <summary>
-        /// If a package name is added, then only packages matching one of the supplied names are removed.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
-        /// <param name="packageName">The package name to add.</param>
-        /// <returns>The <paramref name="settings"/> instance with the package added to <see cref="NpmPruneSettings.Packages"/>.</returns>
-        public static NpmPruneSettings AddPackage(this NpmPruneSettings settings, string packageName)
-        {
-            return settings.AddPackage(packageName, null);
-        }
-
-        /// <summary>
-        /// If a package name is added, then only packages matching one of the supplied names are removed.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
-        /// <param name="packageName">The package name to add.</param>
-        /// <param name="scope">The package scope.</param>
-        /// <returns>The <paramref name="settings"/> instance with the package added to <see cref="NpmPruneSettings.Packages"/>.</returns>
-        public static NpmPruneSettings AddPackage(this NpmPruneSettings settings, string packageName, string scope)
-        {
-            ArgumentNullException.ThrowIfNull(settings);
-
-            if (string.IsNullOrWhiteSpace(packageName))
+            if (!scope.StartsWith('@'))
             {
-                throw new ArgumentNullException(nameof(packageName));
+                throw new ArgumentException("Scope should start with @", nameof(scope));
             }
 
-            var resolvedPackageName = packageName;
-            if (!string.IsNullOrWhiteSpace(scope))
-            {
-                if (!scope.StartsWith('@'))
-                {
-                    throw new ArgumentException("Scope should start with @", nameof(scope));
-                }
-
-                resolvedPackageName = $"{scope}/{resolvedPackageName}";
-            }
-
-            settings.Packages.Add(resolvedPackageName);
-            return settings;
+            resolvedPackageName = $"{scope}/{resolvedPackageName}";
         }
 
-        /// <summary>
-        /// Set so no changes will actually be made.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
-        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.DryRun"/> set to <c>true</c>.</returns>
-        public static NpmPruneSettings DryRun(this NpmPruneSettings settings)
-        {
-            return settings.DryRun(true);
-        }
+        settings.Packages.Add(resolvedPackageName);
+        return settings;
+    }
 
-        /// <summary>
-        /// If true, then no changes will actually be made.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
-        /// <param name="dryRun">Whether or not to make changes</param>
-        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.DryRun"/> set to <paramref name="dryRun"/>.</returns>
-        public static NpmPruneSettings DryRun(this NpmPruneSettings settings, bool dryRun)
-        {
-            ArgumentNullException.ThrowIfNull(settings);
+    /// <summary>
+    /// Set so no changes will actually be made.
+    /// </summary>
+    /// <param name="settings">The settings.</param>
+    /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.DryRun"/> set to <c>true</c>.</returns>
+    public static NpmPruneSettings DryRun(this NpmPruneSettings settings)
+        => settings.DryRun(true);
 
-            settings.DryRun = dryRun;
-            return settings;
-        }
+    /// <summary>
+    /// If true, then no changes will actually be made.
+    /// </summary>
+    /// <param name="settings">The settings.</param>
+    /// <param name="dryRun">Whether or not to make changes</param>
+    /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.DryRun"/> set to <paramref name="dryRun"/>.</returns>
+    public static NpmPruneSettings DryRun(this NpmPruneSettings settings, bool dryRun)
+    {
+        ArgumentNullException.ThrowIfNull(settings);
 
-        /// <summary>
-        /// The changes npm prune made (or would have made with DryRun) are printed as a JSON object.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
-        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.Json"/> set to <c>true</c>.</returns>
-        public static NpmPruneSettings Json(this NpmPruneSettings settings)
-        {
-            return settings.Json(true);
-        }
+        settings.DryRun = dryRun;
+        return settings;
+    }
 
-        /// <summary>
-        /// If true, the changes npm prune made (or would have made with DryRun) are printed as a JSON object.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
-        /// <param name="json">Whether or not to print json.</param>
-        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.Json"/> set to <paramref name="json"/>.</returns>
-        public static NpmPruneSettings Json(this NpmPruneSettings settings, bool json)
-        {
-            ArgumentNullException.ThrowIfNull(settings);
+    /// <summary>
+    /// The changes npm prune made (or would have made with DryRun) are printed as a JSON object.
+    /// </summary>
+    /// <param name="settings">The settings.</param>
+    /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.Json"/> set to <c>true</c>.</returns>
+    public static NpmPruneSettings Json(this NpmPruneSettings settings)
+        => settings.Json(true);
 
-            settings.Json = json;
-            return settings;
-        }
+    /// <summary>
+    /// If true, the changes npm prune made (or would have made with DryRun) are printed as a JSON object.
+    /// </summary>
+    /// <param name="settings">The settings.</param>
+    /// <param name="json">Whether or not to print json.</param>
+    /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.Json"/> set to <paramref name="json"/>.</returns>
+    public static NpmPruneSettings Json(this NpmPruneSettings settings, bool json)
+    {
+        ArgumentNullException.ThrowIfNull(settings);
+
+        settings.Json = json;
+        return settings;
     }
 }

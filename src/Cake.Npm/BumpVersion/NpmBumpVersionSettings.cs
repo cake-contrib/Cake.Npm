@@ -1,80 +1,79 @@
-﻿namespace Cake.Npm.BumpVersion
+﻿namespace Cake.Npm.BumpVersion;
+
+using Core;
+using Core.IO;
+
+/// <summary>
+/// Contains settings used by <see cref="NpmBumpVersionTool"/>.
+/// </summary>
+public class NpmBumpVersionSettings : NpmSettings
 {
-    using Core;
-    using Core.IO;
+    /// <summary>
+    /// Initializes a new instance of the <see cref="NpmBumpVersionSettings"/> class.
+    /// </summary>
+    public NpmBumpVersionSettings()
+        : base("version")
+    {
+        Version = "minor";
+    }
 
     /// <summary>
-    /// Contains settings used by <see cref="NpmBumpVersionTool"/>.
+    /// Gets or sets the force-option
     /// </summary>
-    public class NpmBumpVersionSettings : NpmSettings
+    public bool Force { get; set; }
+
+    /// <summary>
+    /// Gets or sets the commit message.
+    /// </summary>
+    public string CommitMessage { get; set; }
+
+    /// <summary>
+    /// Gets or sets the version to bump to. Should be a valid semver
+    /// or one of <c>"patch"</c>, <c>"minor"</c>, <c>"major"</c>, 
+    /// <c>"prepatch"</c>, <c>"preminor"</c>, <c>"premajor"</c>, 
+    /// <c>"prerelease"</c> or <c>"from-git"</c>.
+    /// </summary>
+    public string Version { get; set; }
+
+    /// <summary>
+    /// Gets or sets the <c>--git-tag-version</c> option.
+    /// Tag the commit when using the <c>npm version</c> command. Setting this to <c>false</c> results in no commit being made at all.
+    /// </summary>
+    public bool? GitTagVersion { get; set; }
+
+    /// <summary>
+    /// Gets or sets the <c>--allow-same-version</c> option.
+    /// Prevents throwing an error when npm version is used to set the new version to the same value as the current version.
+    /// </summary>
+    public bool? AllowSameVersion { get; set; }
+
+    /// <summary>
+    /// Evaluates the settings and writes them to <paramref name="args"/>.
+    /// </summary>
+    /// <param name="args">The argument builder into which the settings should be written.</param>
+    protected override void EvaluateCore(ProcessArgumentBuilder args)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NpmBumpVersionSettings"/> class.
-        /// </summary>
-        public NpmBumpVersionSettings()
-            : base("version")
+        base.EvaluateCore(args);
+        args.Append(Version);
+
+        if (!string.IsNullOrEmpty(CommitMessage))
         {
-            Version = "minor";
+            args.AppendSwitchQuoted("-m", CommitMessage);
         }
 
-        /// <summary>
-        /// Gets or sets the force-option
-        /// </summary>
-        public bool Force { get; set; }
-
-        /// <summary>
-        /// Gets or sets the commit message.
-        /// </summary>
-        public string CommitMessage { get; set; }
-
-        /// <summary>
-        /// Gets or sets the version to bump to. Should be a valid semver
-        /// or one of <c>"patch"</c>, <c>"minor"</c>, <c>"major"</c>, 
-        /// <c>"prepatch"</c>, <c>"preminor"</c>, <c>"premajor"</c>, 
-        /// <c>"prerelease"</c> or <c>"from-git"</c>.
-        /// </summary>
-        public string Version  {get;set; }
-
-        /// <summary>
-        /// Gets or sets the <c>--git-tag-version</c> option.
-        /// Tag the commit when using the <c>npm version</c> command. Setting this to <c>false</c> results in no commit being made at all.
-        /// </summary>
-        public bool? GitTagVersion { get; set; }
-
-        /// <summary>
-        /// Gets or sets the <c>--allow-same-version</c> option.
-        /// Prevents throwing an error when npm version is used to set the new version to the same value as the current version.
-        /// </summary>
-        public bool? AllowSameVersion { get; set; }
-
-        /// <summary>
-        /// Evaluates the settings and writes them to <paramref name="args"/>.
-        /// </summary>
-        /// <param name="args">The argument builder into which the settings should be written.</param>
-        protected override void EvaluateCore(ProcessArgumentBuilder args)
+        if (Force)
         {
-            base.EvaluateCore(args);
-            args.Append(Version);
+            args.Append("-f");
+        }
 
-            if (!string.IsNullOrEmpty(CommitMessage))
-            {
-                args.AppendSwitchQuoted("-m", CommitMessage);
-            }
+        if (GitTagVersion.HasValue)
+        {
+            args.Append($"--git-tag-version={GitTagVersion.ToString().ToLowerInvariant()}");
+        }
 
-            if (Force)
-            {
-                args.Append("-f");
-            }
-
-            if (GitTagVersion.HasValue)
-            {
-                args.Append($"--git-tag-version={GitTagVersion.ToString().ToLowerInvariant()}");
-            }
-
-            if (AllowSameVersion.HasValue)
-            {
-                args.Append($"--allow-same-version={AllowSameVersion.ToString().ToLowerInvariant()}");
-            }
+        if (AllowSameVersion.HasValue)
+        {
+            args.Append($"--allow-same-version={AllowSameVersion.ToString().ToLowerInvariant()}");
         }
     }
 }

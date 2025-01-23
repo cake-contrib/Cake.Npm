@@ -1,35 +1,34 @@
-﻿namespace Cake.Npm.Update
+﻿namespace Cake.Npm.Update;
+
+using Cake.Core;
+using Cake.Core.IO;
+
+/// <summary>
+/// Contains settings used by <see cref="NpmUpdateTool"/>.
+/// </summary>
+public class NpmUpdateSettings : NpmSettings
 {
-    using Cake.Core;
-    using Cake.Core.IO;
+    /// <summary>
+    /// Initializes a new instance of the <see cref="NpmUpdateSettings"/> class.
+    /// </summary>
+    public NpmUpdateSettings()
+        : base("update")
+    {
+    }
 
     /// <summary>
-    /// Contains settings used by <see cref="NpmUpdateTool"/>.
+    /// Gets a value indicating whether to update globally installed packages.
     /// </summary>
-    public class NpmUpdateSettings : NpmSettings
+    public bool Global { get; internal set; }
+
+    /// <inheritdoc />
+    protected override void EvaluateCore(ProcessArgumentBuilder args)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NpmUpdateSettings"/> class.
-        /// </summary>
-        public NpmUpdateSettings()
-            : base("update")
+        base.EvaluateCore(args);
+
+        if (Global)
         {
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether to update globally installed packages.
-        /// </summary>
-        public bool Global { get; internal set; }
-
-        /// <inheritdoc />
-        protected override void EvaluateCore(ProcessArgumentBuilder args)
-        {
-            base.EvaluateCore(args);
-
-            if (Global)
-            {
-                args.Append("-g");
-            }
+            args.Append("-g");
         }
     }
 }

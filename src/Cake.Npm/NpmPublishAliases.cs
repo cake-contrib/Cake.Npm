@@ -1,120 +1,119 @@
-﻿namespace Cake.Npm
+﻿namespace Cake.Npm;
+
+using System;
+using Cake.Core;
+using Cake.Core.Annotations;
+using Cake.Npm.Publish;
+
+/// <summary>
+/// Npm publish aliases.
+/// </summary>
+[CakeAliasCategory("Npm")]
+[CakeNamespaceImport("Cake.Npm.Publish")]
+public static class NpmPublishAliases
 {
-    using System;
-    using Cake.Core;
-    using Cake.Core.Annotations;
-    using Cake.Npm.Publish;
+    /// <summary>
+    /// Publishes the npm package in the current working directory.
+    /// </summary>
+    /// <param name="context">The context.</param>
+    /// <example>
+    /// <code>
+    /// <![CDATA[
+    ///     NpmPublish();
+    /// ]]>
+    /// </code>
+    /// </example>
+    [CakeMethodAlias]
+    [CakeAliasCategory("Publish")]
+    public static void NpmPublish(this ICakeContext context)
+    {
+        ArgumentNullException.ThrowIfNull(context);
+
+        context.NpmPublish(new NpmPublishSettings());
+    }
 
     /// <summary>
-    /// Npm publish aliases.
+    /// Publishes the npm package created from a specific source.
     /// </summary>
-    [CakeAliasCategory("Npm")]
-    [CakeNamespaceImport("Cake.Npm.Publish")]
-    public static class NpmPublishAliases
+    /// <param name="context">The context.</param>
+    /// <param name="source">Source to publish.
+    /// A folder containing a package.json file or an url or file path to a gzipped tar archive 
+    /// containing a single folder with a package.json file inside.</param>
+    /// <example>
+    /// <code>
+    /// <![CDATA[
+    ///     NpmPublish("c:\mypackagesource");
+    /// ]]>
+    /// </code>
+    /// </example>
+    [CakeMethodAlias]
+    [CakeAliasCategory("Publish")]
+    public static void NpmPublish(this ICakeContext context, string source)
     {
-        /// <summary>
-        /// Publishes the npm package in the current working directory.
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <example>
-        /// <code>
-        /// <![CDATA[
-        ///     NpmPublish();
-        /// ]]>
-        /// </code>
-        /// </example>
-        [CakeMethodAlias]
-        [CakeAliasCategory("Publish")]
-        public static void NpmPublish(this ICakeContext context)
-        {
-            ArgumentNullException.ThrowIfNull(context);
+        ArgumentNullException.ThrowIfNull(context);
 
-            context.NpmPublish(new NpmPublishSettings());
+        if (String.IsNullOrWhiteSpace(source))
+        {
+            throw new ArgumentNullException(nameof(source));
         }
 
-        /// <summary>
-        /// Publishes the npm package created from a specific source.
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <param name="source">Source to publish.
-        /// A folder containing a package.json file or an url or file path to a gzipped tar archive 
-        /// containing a single folder with a package.json file inside.</param>
-        /// <example>
-        /// <code>
-        /// <![CDATA[
-        ///     NpmPublish("c:\mypackagesource");
-        /// ]]>
-        /// </code>
-        /// </example>
-        [CakeMethodAlias]
-        [CakeAliasCategory("Publish")]
-        public static void NpmPublish(this ICakeContext context, string source)
-        {
-            ArgumentNullException.ThrowIfNull(context);
+        context.NpmPublish(new NpmPublishSettings { Source = source });
+    }
 
-            if (String.IsNullOrWhiteSpace(source))
-            {
-                throw new ArgumentNullException(nameof(source));
-            }
+    /// <summary>
+    /// Publishes a npm package using the settings returned by a configurator.
+    /// </summary>
+    /// <param name="context">The context.</param>
+    /// <param name="configurator">The settings configurator.</param>
+    /// <example>
+    /// <code>
+    /// <![CDATA[
+    ///     NpmPack(settings => settings.WithLogLevel(NpmLogLevel.Verbose));
+    /// ]]>
+    /// </code>
+    /// </example>
+    [CakeMethodAlias]
+    [CakeAliasCategory("Publish")]
+    public static void NpmPublish(this ICakeContext context, Action<NpmPublishSettings> configurator)
+    {
+        ArgumentNullException.ThrowIfNull(context);
 
-            context.NpmPublish(new NpmPublishSettings { Source = source });
-        }
+        ArgumentNullException.ThrowIfNull(configurator);
 
-        /// <summary>
-        /// Publishes a npm package using the settings returned by a configurator.
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <param name="configurator">The settings configurator.</param>
-        /// <example>
-        /// <code>
-        /// <![CDATA[
-        ///     NpmPack(settings => settings.WithLogLevel(NpmLogLevel.Verbose));
-        /// ]]>
-        /// </code>
-        /// </example>
-        [CakeMethodAlias]
-        [CakeAliasCategory("Publish")]
-        public static void NpmPublish(this ICakeContext context, Action<NpmPublishSettings> configurator)
-        {
-            ArgumentNullException.ThrowIfNull(context);
+        var settings = new NpmPublishSettings();
+        configurator(settings);
+        context.NpmPublish(settings);
+    }
 
-            ArgumentNullException.ThrowIfNull(configurator);
+    /// <summary>
+    /// Publishes a npm package based on the specified settings.
+    /// </summary>
+    /// <param name="context">The context.</param>
+    /// <param name="settings">The settings.</param>
+    /// <example>
+    /// <code>
+    /// <![CDATA[
+    ///     var settings = 
+    ///         new NpmPublishSettings 
+    ///         {
+    ///             LogLevel = NpmLogLevel.Verbose,
+    ///             Source = "c:\mypackagesource"
+    ///         };
+    ///     NpmPublish(settings);
+    /// ]]>
+    /// </code>
+    /// </example>
+    [CakeMethodAlias]
+    [CakeAliasCategory("Publish")]
+    public static void NpmPublish(this ICakeContext context, NpmPublishSettings settings)
+    {
+        ArgumentNullException.ThrowIfNull(context);
 
-            var settings = new NpmPublishSettings();
-            configurator(settings);
-            context.NpmPublish(settings);
-        }
+        ArgumentNullException.ThrowIfNull(settings);
 
-        /// <summary>
-        /// Publishes a npm package based on the specified settings.
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <param name="settings">The settings.</param>
-        /// <example>
-        /// <code>
-        /// <![CDATA[
-        ///     var settings = 
-        ///         new NpmPublishSettings 
-        ///         {
-        ///             LogLevel = NpmLogLevel.Verbose,
-        ///             Source = "c:\mypackagesource"
-        ///         };
-        ///     NpmPublish(settings);
-        /// ]]>
-        /// </code>
-        /// </example>
-        [CakeMethodAlias]
-        [CakeAliasCategory("Publish")]
-        public static void NpmPublish(this ICakeContext context, NpmPublishSettings settings)
-        {
-            ArgumentNullException.ThrowIfNull(context);
+        AddinInformation.LogVersionInformation(context.Log);
 
-            ArgumentNullException.ThrowIfNull(settings);
-
-            AddinInformation.LogVersionInformation(context.Log);
-
-            var publisher = new NpmPublisher(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);
-            publisher.Publish(settings);
-        }
+        var publisher = new NpmPublisher(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);
+        publisher.Publish(settings);
     }
 }

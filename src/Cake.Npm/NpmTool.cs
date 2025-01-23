@@ -1,127 +1,111 @@
-﻿namespace Cake.Npm
+﻿namespace Cake.Npm;
+
+using System;
+using System.Collections.Generic;
+using Core;
+using Core.Diagnostics;
+using Core.IO;
+using Core.Tooling;
+
+/// <summary>
+/// Base class for all npm tools.
+/// </summary>
+/// <typeparam name="TSettings">The settings type.</typeparam>
+/// <param name="fileSystem">The file system.</param>
+/// <param name="environment">The environment.</param>
+/// <param name="processRunner">The process runner.</param>
+/// <param name="tools">The tool locator.</param>
+/// <param name="log">Cake log instance.</param>
+public abstract class NpmTool<TSettings>(
+    IFileSystem fileSystem,
+    ICakeEnvironment environment,
+    IProcessRunner processRunner,
+    IToolLocator tools,
+    ICakeLog log) : Tool<TSettings>(fileSystem, environment, processRunner, tools)
+    where TSettings : NpmSettings
 {
-    using System;
-    using System.Collections.Generic;
-    using Core;
-    using Core.Diagnostics;
-    using Core.IO;
-    using Core.Tooling;
+    private readonly ICakeLog _log = log;
 
     /// <summary>
-    /// Base class for all npm tools.
+    /// Cake log instance.
     /// </summary>
-    /// <typeparam name="TSettings">The settings type.</typeparam>
-    /// <param name="fileSystem">The file system.</param>
-    /// <param name="environment">The environment.</param>
-    /// <param name="processRunner">The process runner.</param>
-    /// <param name="tools">The tool locator.</param>
-    /// <param name="log">Cake log instance.</param>
-    public abstract class NpmTool<TSettings>(
-        IFileSystem fileSystem,
-        ICakeEnvironment environment,
-        IProcessRunner processRunner,
-        IToolLocator tools,
-        ICakeLog log) : Tool<TSettings>(fileSystem, environment, processRunner, tools)
-        where TSettings : NpmSettings
+    public ICakeLog CakeLog => _log;
+
+    /// <summary>
+    /// Gets the name of the tool.
+    /// </summary>
+    /// <returns>The name of the tool.</returns>
+    protected sealed override string GetToolName() => "Npm";
+
+    /// <summary>
+    /// Gets the possible names of the tool executable.
+    /// </summary>
+    /// <returns>The tool executable name.</returns>
+    protected sealed override IEnumerable<string> GetToolExecutableNames() => ["npm.cmd", "npm"];
+
+    /// <summary>
+    /// Runs npm.
+    /// </summary>
+    /// <param name="settings">The settings.</param>
+    protected void RunCore(TSettings settings) => RunCore(settings, new ProcessSettings(), null);
+
+    /// <summary>
+    /// Runs npm.
+    /// </summary>
+    /// <param name="settings">The settings.</param>
+    /// <param name="processSettings">The process settings. <c>null</c> for default settings.</param>
+    /// <param name="postAction">Action which should be executed after running npm. <c>null</c> for no action.</param>
+    protected void RunCore(TSettings settings, ProcessSettings processSettings, Action<IProcess> postAction)
     {
-        private readonly ICakeLog _log = log;
+        ArgumentNullException.ThrowIfNull(settings);
 
-        /// <summary>
-        /// Cake log instance.
-        /// </summary>
-        public ICakeLog CakeLog
+        if (!settings.CakeVerbosityLevel.HasValue)
         {
-            get
+            settings.CakeVerbosityLevel = CakeLog.Verbosity;
+        }
+
+        processSettings.RedirectStandardOutput =
+            settings.RedirectStandardOutput ||
+            settings.StandardOutputAction != null;
+
+        if (settings.StandardOutputAction != null)
+        {
+            processSettings.RedirectedStandardOutputHandler = x =>
             {
-                return _log;
-            }
+                settings.StandardOutputAction(x);
+                return x;
+            };
         }
 
-        /// <summary>
-        /// Gets the name of the tool.
-        /// </summary>
-        /// <returns>The name of the tool.</returns>
-        protected sealed override string GetToolName()
-        {
-            return "Npm";
-        }
+        processSettings.RedirectStandardError =
+            settings.RedirectStandardError ||
+            settings.StandardErrorAction != null;
 
-        /// <summary>
-        /// Gets the possible names of the tool executable.
-        /// </summary>
-        /// <returns>The tool executable name.</returns>
-        protected sealed override IEnumerable<string> GetToolExecutableNames()
+        if (settings.StandardErrorAction != null)
         {
-            return ["npm.cmd", "npm"];
-        }
-
-        /// <summary>
-        /// Runs npm.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
-        protected void RunCore(TSettings settings)
-        {
-            RunCore(settings, new ProcessSettings(), null);
-        }
-
-        /// <summary>
-        /// Runs npm.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
-        /// <param name="processSettings">The process settings. <c>null</c> for default settings.</param>
-        /// <param name="postAction">Action which should be executed after running npm. <c>null</c> for no action.</param>
-        protected void RunCore(TSettings settings, ProcessSettings processSettings, Action<IProcess> postAction)
-        {
-            ArgumentNullException.ThrowIfNull(settings);
-
-            if (!settings.CakeVerbosityLevel.HasValue)
+            processSettings.RedirectedStandardErrorHandler = x =>
             {
-                settings.CakeVerbosityLevel = CakeLog.Verbosity;
-            }
-
-            processSettings.RedirectStandardOutput =
-                settings.RedirectStandardOutput ||
-                settings.StandardOutputAction != null;
-
-            if (settings.StandardOutputAction != null)
-            {
-                processSettings.RedirectedStandardOutputHandler = x =>
-                {
-                    settings.StandardOutputAction(x);
-                    return x;
-                };
-            }
-
-            processSettings.RedirectStandardError =
-                settings.RedirectStandardError ||
-                settings.StandardErrorAction != null;
-
-            if (settings.StandardErrorAction != null)
-            {
-                processSettings.RedirectedStandardErrorHandler = x =>
-                {
-                    settings.StandardErrorAction(x);
-                    return x;
-                };
-            }
-
-            var args = GetArguments(settings);
-            Run(settings, args, processSettings, postAction);
+                settings.StandardErrorAction(x);
+                return x;
+            };
         }
 
-        /// <summary>
-        /// Builds the arguments for npm.
-        /// </summary>
-        /// <param name="settings">Settings used for building the arguments.</param>
-        /// <returns>Argument builder containing the arguments based on <paramref name="settings"/>.</returns>
-        protected ProcessArgumentBuilder GetArguments(TSettings settings)
-        {
-            var args = new ProcessArgumentBuilder();
-            settings.Evaluate(args);
+        var args = GetArguments(settings);
+        Run(settings, args, processSettings, postAction);
+    }
 
-            CakeLog.Verbose("npm arguments: {0}", args.RenderSafe());
+    /// <summary>
+    /// Builds the arguments for npm.
+    /// </summary>
+    /// <param name="settings">Settings used for building the arguments.</param>
+    /// <returns>Argument builder containing the arguments based on <paramref name="settings"/>.</returns>
+    protected ProcessArgumentBuilder GetArguments(TSettings settings)
+    {
+        var args = new ProcessArgumentBuilder();
+        settings.Evaluate(args);
 
-            return args;
-        }
+        CakeLog.Verbose("npm arguments: {0}", args.RenderSafe());
+
+        return args;
     }
 }

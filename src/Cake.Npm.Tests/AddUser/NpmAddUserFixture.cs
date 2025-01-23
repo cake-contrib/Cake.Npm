@@ -1,17 +1,16 @@
-﻿namespace Cake.Npm.Tests.AddUser
+﻿namespace Cake.Npm.Tests.AddUser;
+
+using Cake.Npm.AddUser;
+
+internal class NpmAddUserFixture : NpmFixture<NpmAddUserSettings>
 {
-    using Cake.Npm.AddUser;
-
-    internal class NpmAddUserFixture : NpmFixture<NpmAddUserSettings>
+    public NpmAddUserFixture()
     {
-        public NpmAddUserFixture()
-        {
-        }
+    }
 
-        protected override void RunTool()
-        {
-            var tool = new NpmAddUser(FileSystem, Environment, ProcessRunner, Tools, Log);
-            tool.AddUser(Settings);
-        }
+    protected override void RunTool()
+    {
+        var tool = new NpmAddUser(FileSystem, Environment, ProcessRunner, Tools, Log);
+        tool.AddUser(Settings);
     }
 }

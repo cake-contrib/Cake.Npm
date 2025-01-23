@@ -1,23 +1,22 @@
-﻿namespace Cake.Npm.Publish
+﻿namespace Cake.Npm.Publish;
+
+/// <summary>
+/// Possible values for <see cref="NpmPublishSettings.Access"/>.
+/// </summary>
+public enum NpmPublishAccess
 {
     /// <summary>
-    /// Possible values for <see cref="NpmPublishSettings.Access"/>.
+    /// Default value for <c>npm publish</c>.
     /// </summary>
-    public enum NpmPublishAccess
-    {
-        /// <summary>
-        /// Default value for <c>npm publish</c>.
-        /// </summary>
-        Default,
+    Default,
 
-        /// <summary>
-        /// Public access.
-        /// </summary>
-        Public,
+    /// <summary>
+    /// Public access.
+    /// </summary>
+    Public,
 
-        /// <summary>
-        /// Restricted access.
-        /// </summary>
-        Restricted
-    }
+    /// <summary>
+    /// Restricted access.
+    /// </summary>
+    Restricted
 }
