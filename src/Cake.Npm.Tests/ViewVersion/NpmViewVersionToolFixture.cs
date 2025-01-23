@@ -1,16 +1,15 @@
 ﻿
-namespace Cake.Npm.Tests.ViewVersion
+namespace Cake.Npm.Tests.ViewVersion;
+
+using Cake.Npm.ViewVersion;
+
+internal sealed class NpmViewVersionToolFixture : NpmFixture<NpmViewVersionSettings>
 {
-    using Cake.Npm.ViewVersion;
+    internal string Version { get; private set; }
 
-    internal sealed class NpmViewVersionToolFixture : NpmFixture<NpmViewVersionSettings>
+    protected override void RunTool()
     {
-        internal string Version { get; private set; }
-
-        protected override void RunTool()
-        {
-            var tool = new NpmViewVersionTool(FileSystem, Environment, ProcessRunner, Tools, Log);
-            Version = tool.Version(Settings);
-        }
+        var tool = new NpmViewVersionTool(FileSystem, Environment, ProcessRunner, Tools, Log);
+        Version = tool.Version(Settings);
     }
 }

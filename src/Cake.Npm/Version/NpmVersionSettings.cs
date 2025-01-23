@@ -1,18 +1,17 @@
-﻿namespace Cake.Npm.Version
+﻿namespace Cake.Npm.Version;
+
+/// <summary>
+/// Contains settings used by <see cref="NpmVersionTool"/>.
+/// </summary>
+public class NpmVersionSettings : NpmSettings
 {
     /// <summary>
-    /// Contains settings used by <see cref="NpmVersionTool"/>.
+    /// Initializes a new instance of the <see cref="NpmVersionSettings"/> class.
     /// </summary>
-    public class NpmVersionSettings : NpmSettings
+    public NpmVersionSettings()
+        : base("version")
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NpmVersionSettings"/> class.
-        /// </summary>
-        public NpmVersionSettings()
-            : base("version")
-        {
-            // Since 'NpmVersion' returns a string we should redirect standard output.
-            RedirectStandardOutput = true;
-        }
+        // Since 'NpmVersion' returns a string we should redirect standard output.
+        RedirectStandardOutput = true;
     }
 }

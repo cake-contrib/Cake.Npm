@@ -1,38 +1,37 @@
-﻿namespace Cake.Npm.Tests
-{
-    using Core.Diagnostics;
-    using Core.IO;
-    using Core.Tooling;
-    using Testing;
-    using Testing.Fixtures;
+﻿namespace Cake.Npm.Tests;
 
-    internal abstract class NpmFixture<TSettings> : NpmFixture<TSettings, ToolFixtureResult>
-        where TSettings : ToolSettings, new()
+using Core.Diagnostics;
+using Core.IO;
+using Core.Tooling;
+using Testing;
+using Testing.Fixtures;
+
+internal abstract class NpmFixture<TSettings> : NpmFixture<TSettings, ToolFixtureResult>
+    where TSettings : ToolSettings, new()
+{
+    protected override ToolFixtureResult CreateResult(FilePath path, ProcessSettings process)
     {
-        protected override ToolFixtureResult CreateResult(FilePath path, ProcessSettings process)
-        {
-            return new ToolFixtureResult(path, process);
-        }
+        return new ToolFixtureResult(path, process);
+    }
+}
+
+internal abstract class NpmFixture<TSettings, TFixtureResult> : ToolFixture<TSettings, TFixtureResult>
+    where TSettings : ToolSettings, new()
+    where TFixtureResult : ToolFixtureResult
+{
+    private readonly ICakeLog _log = new FakeLog();
+
+    protected NpmFixture()
+        : base("npm.cmd")
+    {
+        _log.Verbosity = Verbosity.Normal;
     }
 
-    internal abstract class NpmFixture<TSettings, TFixtureResult> : ToolFixture<TSettings, TFixtureResult>
-        where TSettings : ToolSettings, new()
-        where TFixtureResult : ToolFixtureResult
+    protected ICakeLog Log
     {
-        private readonly ICakeLog _log = new FakeLog();
-
-        protected NpmFixture()
-            : base("npm.cmd")
+        get
         {
-            _log.Verbosity = Verbosity.Normal;
-        }
-
-        protected ICakeLog Log
-        {
-            get
-            {
-                return _log;
-            }
+            return _log;
         }
     }
 }

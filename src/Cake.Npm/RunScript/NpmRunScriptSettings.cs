@@ -1,64 +1,63 @@
-﻿namespace Cake.Npm.RunScript
+﻿namespace Cake.Npm.RunScript;
+
+using Core;
+using Core.IO;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+/// <summary>
+/// Contains settings used by <see cref="NpmScriptRunner"/>.
+/// </summary>
+public class NpmRunScriptSettings : NpmSettings
 {
-    using Core;
-    using Core.IO;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
+    private readonly List<string> _arguments = [];
 
     /// <summary>
-    /// Contains settings used by <see cref="NpmScriptRunner"/>.
+    /// Initializes a new instance of the <see cref="NpmRunScriptSettings"/> class.
     /// </summary>
-    public class NpmRunScriptSettings : NpmSettings
+    public NpmRunScriptSettings()
+        : base("run-script")
     {
-        private readonly List<string> _arguments = [];
+    }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NpmRunScriptSettings"/> class.
-        /// </summary>
-        public NpmRunScriptSettings()
-            : base("run-script")
+    /// <summary>
+    /// Name of the script to execute as defined in package.json.
+    /// </summary>
+    public string ScriptName { get; set; }
+
+    /// <summary>
+    /// Arguments to pass to the target script.
+    /// </summary>
+    public IList<string> Arguments
+    {
+        get
         {
+            return _arguments;
+        }
+    }
+
+    /// <summary>
+    /// Evaluates the settings and writes them to <paramref name="args"/>.
+    /// </summary>
+    /// <param name="args">The argument builder into which the settings should be written.</param>
+    protected override void EvaluateCore(ProcessArgumentBuilder args)
+    {
+        if (string.IsNullOrEmpty(ScriptName))
+        {
+            throw new ArgumentNullException(nameof(ScriptName), "Must provide script name.");
         }
 
-        /// <summary>
-        /// Name of the script to execute as defined in package.json.
-        /// </summary>
-        public string ScriptName { get; set; }
+        base.EvaluateCore(args);
 
-        /// <summary>
-        /// Arguments to pass to the target script.
-        /// </summary>
-        public IList<string> Arguments
+        args.AppendQuoted(ScriptName);
+
+        if (Arguments.Any())
         {
-            get
+            args.Append("--");
+            foreach (var arg in Arguments)
             {
-                return _arguments;
-            }
-        }
-
-        /// <summary>
-        /// Evaluates the settings and writes them to <paramref name="args"/>.
-        /// </summary>
-        /// <param name="args">The argument builder into which the settings should be written.</param>
-        protected override void EvaluateCore(ProcessArgumentBuilder args)
-        {
-            if (string.IsNullOrEmpty(ScriptName))
-            {
-                throw new ArgumentNullException(nameof(ScriptName), "Must provide script name.");
-            }
-
-            base.EvaluateCore(args);
-
-            args.AppendQuoted(ScriptName);
-
-            if (Arguments.Any())
-            {
-                args.Append("--");
-                foreach (var arg in Arguments)
-                {
-                    args.Append(arg);
-                }
+                args.Append(arg);
             }
         }
     }
