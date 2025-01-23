@@ -17,13 +17,11 @@ internal abstract class NpmFixture<TSettings, TFixtureResult> : ToolFixture<TSet
     where TSettings : ToolSettings, new()
     where TFixtureResult : ToolFixtureResult
 {
-    private readonly ICakeLog _log = new FakeLog();
-
     protected NpmFixture()
         : base("npm.cmd")
     {
-        _log.Verbosity = Verbosity.Normal;
+        Log.Verbosity = Verbosity.Normal;
     }
 
-    protected ICakeLog Log => _log;
+    protected ICakeLog Log { get; } = new FakeLog();
 }
