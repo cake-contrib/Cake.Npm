@@ -1,6 +1,5 @@
 ﻿namespace Cake.Npm.Tests.Version;
 
-using System.Text;
 using Cake.Npm.Version;
 
 internal sealed class NpmVersionToolFixture : NpmFixture<NpmVersionSettings>

@@ -1,7 +1,5 @@
 ﻿namespace Cake.Npm.Tests;
 
-using System;
-
 using Cake.Npm.Install;
 using Shouldly;
 using Xunit;

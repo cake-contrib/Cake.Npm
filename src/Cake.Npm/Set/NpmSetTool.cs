@@ -1,6 +1,5 @@
 ﻿namespace Cake.Npm.Set;
 
-using System.Linq;
 using System;
 using Cake.Core;
 using Cake.Core.Diagnostics;

@@ -1,6 +1,5 @@
 ﻿namespace Cake.Npm.Tests.Set;
 
-using Cake.Npm.Set;
 using Shouldly;
 using Xunit;
 
