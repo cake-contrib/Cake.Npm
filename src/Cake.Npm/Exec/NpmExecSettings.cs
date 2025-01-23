@@ -7,14 +7,14 @@ using Cake.Core.IO;
 namespace Cake.Npm.Exec;
 
 /// <summary>
-///     Contains settings used by <see cref="NpmExecRunner" />.
+/// Contains settings used by <see cref="NpmExecRunner" />.
 /// </summary>
 public class NpmExecSettings : NpmSettings
 {
-    private readonly List<string> arguments = new();
+    private readonly List<string> arguments = [];
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="NpmExecSettings" /> class.
+    /// Initializes a new instance of the <see cref="NpmExecSettings" /> class.
     /// </summary>
     public NpmExecSettings()
         : base("exec")
@@ -22,25 +22,21 @@ public class NpmExecSettings : NpmSettings
     }
 
     /// <summary>
-    ///     Name of the script to execute as defined in package.json.
+    /// Name of the script to execute as defined in package.json.
     /// </summary>
     public string ExecCommand { get; set; }
 
     /// <summary>
-    ///     Arguments to pass to the target script.
+    /// Arguments to pass to the target script.
     /// </summary>
     public IList<string> Arguments => arguments;
 
-    /// <summary>
-    ///     Evaluates the settings and writes them to <paramref name="args" />.
-    /// </summary>
-    /// <param name="args">The argument builder into which the settings should be written.</param>
-    /// <exception cref="ArgumentNullException"></exception>
+    /// <inheritdoc />
     protected override void EvaluateCore(ProcessArgumentBuilder args)
     {
         if (string.IsNullOrEmpty(ExecCommand))
         {
-            throw new ArgumentNullException(nameof(ExecCommand), "Must provide a command to execute.");
+            throw new InvalidOperationException("Must provide a command to execute.");
         }
 
         base.EvaluateCore(args);

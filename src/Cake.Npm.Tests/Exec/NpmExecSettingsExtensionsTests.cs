@@ -1,4 +1,4 @@
-﻿using Cake.Npm.RunScript;
+﻿using Cake.Npm.Exec;
 using Shouldly;
 using Xunit;
 
@@ -12,7 +12,7 @@ namespace Cake.Npm.Tests.Exec
             public void Should_Throw_If_Settings_Are_Null()
             {
                 // Given
-                NpmRunScriptSettings settings = null;
+                NpmExecSettings settings = null;
 
                 // When
                 var result = Record.Exception(() => settings.WithArguments("foo"));
@@ -25,7 +25,7 @@ namespace Cake.Npm.Tests.Exec
             public void Should_Throw_If_Arguments_Are_Null()
             {
                 // Given
-                var settings = new NpmRunScriptSettings();
+                var settings = new NpmExecSettings();
 
                 // When
                 var result = Record.Exception(() => settings.WithArguments(null));
@@ -38,7 +38,7 @@ namespace Cake.Npm.Tests.Exec
             public void Should_Throw_If_Arguments_Are_Empty()
             {
                 // Given
-                var settings = new NpmRunScriptSettings();
+                var settings = new NpmExecSettings();
 
                 // When
                 var result = Record.Exception(() => settings.WithArguments(string.Empty));
@@ -51,7 +51,7 @@ namespace Cake.Npm.Tests.Exec
             public void Should_Throw_If_Arguments_Are_WhiteSpace()
             {
                 // Given
-                var settings = new NpmRunScriptSettings();
+                var settings = new NpmExecSettings();
 
                 // When
                 var result = Record.Exception(() => settings.WithArguments(" "));
@@ -64,7 +64,7 @@ namespace Cake.Npm.Tests.Exec
             public void Should_Set_Arguments()
             {
                 // Given
-                var settings = new NpmRunScriptSettings();
+                var settings = new NpmExecSettings();
                 var arguments = "foo";
 
                 // When

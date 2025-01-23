@@ -23,8 +23,10 @@ namespace Cake.Npm.Tests.Exec
             public void Should_Throw_If_Settings_Are_Null()
             {
                 // Given
-                var fixture = new NpmExecFixture();
-                fixture.Settings = null;
+                var fixture = new NpmExecFixture
+                {
+                    Settings = null
+                };
 
                 // When
                 var result = Record.Exception(() => fixture.Run());
@@ -44,7 +46,7 @@ namespace Cake.Npm.Tests.Exec
                 var result = Record.Exception(() => fixture.Run());
 
                 // Then
-                result.IsArgumentNullException("ExecCommand");
+                result.IsInvalidOperationException("Must provide a command to execute.");
             }
 
             [Fact]

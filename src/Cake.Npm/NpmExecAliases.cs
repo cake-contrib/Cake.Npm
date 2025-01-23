@@ -7,19 +7,19 @@ using Cake.Npm.Exec;
 namespace Cake.Npm;
 
 /// <summary>
-///     Npm exec aliases
+/// Npm exec aliases
 /// </summary>
 [CakeAliasCategory("Npm")]
 [CakeNamespaceImport("Cake.Npm.Exec")]
 public static class NpmExecAliases
 {
     /// <summary>
-    ///     Runs a npm exec command.
+    /// Runs an npm exec command.
     /// </summary>
     /// <param name="context">The context.</param>
     /// <param name="command">Command to execute.</param>
     /// <example>
-    ///     <code>
+    /// <code>
     /// <![CDATA[
     ///     NpmExec("hello");
     /// ]]>
@@ -29,10 +29,7 @@ public static class NpmExecAliases
     [CakeAliasCategory("Exec")]
     public static void NpmExec(this ICakeContext context, string command)
     {
-        if (context == null)
-        {
-            throw new ArgumentNullException(nameof(context));
-        }
+        ArgumentNullException.ThrowIfNull(context);
 
         if (string.IsNullOrWhiteSpace(command))
         {
@@ -47,13 +44,13 @@ public static class NpmExecAliases
     }
 
     /// <summary>
-    ///     Runs a npm exec command.
+    /// Runs an npm exec command.
     /// </summary>
     /// <param name="context">The context.</param>
     /// <param name="command">Command to execute.</param>
     /// <param name="arguments">Arguments to pass to the target command.</param>
     /// <example>
-    ///     <code>
+    /// <code>
     /// <![CDATA[
     ///     NpmExec("hello", new List<string> { "--foo=bar" });
     /// ]]>
@@ -63,20 +60,14 @@ public static class NpmExecAliases
     [CakeAliasCategory("Exec")]
     public static void NpmExec(this ICakeContext context, string command, IEnumerable<string> arguments)
     {
-        if (context == null)
-        {
-            throw new ArgumentNullException(nameof(context));
-        }
+        ArgumentNullException.ThrowIfNull(context);
 
         if (string.IsNullOrWhiteSpace(command))
         {
             throw new ArgumentNullException(nameof(command));
         }
 
-        if (arguments == null)
-        {
-            throw new ArgumentNullException(nameof(arguments));
-        }
+        ArgumentNullException.ThrowIfNull(arguments);
 
         var settings = new NpmExecSettings
         {
@@ -89,14 +80,14 @@ public static class NpmExecAliases
     }
 
     /// <summary>
-    ///     Runs a npm exec command using the settings returned by a configurator.
+    /// Runs an npm exec command using the settings returned by a configurator.
     /// </summary>
     /// <param name="context">The context.</param>
     /// <param name="command">Command to execute.</param>
     /// <param name="configurator">The settings configurator.</param>
     /// <example>
-    ///     <para>Use specific log level</para>
-    ///     <code>
+    /// <para>Use specific log level</para>
+    /// <code>
     /// <![CDATA[
     ///     NpmExec("hello", settings => settings.WithLogLevel(NpmLogLevel.Verbose));
     /// ]]>
@@ -107,20 +98,14 @@ public static class NpmExecAliases
     public static void NpmExec(this ICakeContext context, string command,
         Action<NpmExecSettings> configurator)
     {
-        if (context == null)
-        {
-            throw new ArgumentNullException(nameof(context));
-        }
+        ArgumentNullException.ThrowIfNull(context);
 
         if (string.IsNullOrWhiteSpace(command))
         {
             throw new ArgumentNullException(nameof(command));
         }
 
-        if (configurator == null)
-        {
-            throw new ArgumentNullException(nameof(configurator));
-        }
+        ArgumentNullException.ThrowIfNull(configurator);
 
         var settings = new NpmExecSettings { ExecCommand = command };
         configurator(settings);
@@ -128,13 +113,13 @@ public static class NpmExecAliases
     }
 
     /// <summary>
-    ///     Runs a npm exec command with the specified settings.
+    /// Runs an npm exec command with the specified settings.
     /// </summary>
     /// <param name="context">The context.</param>
     /// <param name="settings">The settings.</param>
     /// <example>
-    ///     <para>Use specific log level</para>
-    ///     <code>
+    /// <para>Use specific log level</para>
+    /// <code>
     /// <![CDATA[
     ///     var settings = 
     ///         new NpmExecSettings 
@@ -150,15 +135,9 @@ public static class NpmExecAliases
     [CakeAliasCategory("Exec")]
     public static void NpmExec(this ICakeContext context, NpmExecSettings settings)
     {
-        if (context == null)
-        {
-            throw new ArgumentNullException(nameof(context));
-        }
+        ArgumentNullException.ThrowIfNull(context);
 
-        if (settings == null)
-        {
-            throw new ArgumentNullException(nameof(settings));
-        }
+        ArgumentNullException.ThrowIfNull(settings);
 
         AddinInformation.LogVersionInformation(context.Log);
 
