@@ -30,7 +30,7 @@ public class NpmInstallerTests
             };
 
             // When
-            var result = Record.Exception(() => fixture.Run());
+            var result = Record.Exception(fixture.Run);
 
             // Then
             result.IsArgumentNullException("settings");
@@ -271,7 +271,7 @@ public class NpmInstallerTests
             fixture.Settings.Packages.Add("foo");
 
             // When
-            var result = Record.Exception(() => fixture.Run());
+            var result = Record.Exception(fixture.Run);
 
             // Then
             Assert.IsType<NotSupportedException>(result);

@@ -29,7 +29,7 @@ public class NpmSetToolTests
             };
 
             // When
-            var result = Record.Exception(() => fixture.Run());
+            var result = Record.Exception(fixture.Run);
 
             // Then
             result.IsArgumentNullException("settings");

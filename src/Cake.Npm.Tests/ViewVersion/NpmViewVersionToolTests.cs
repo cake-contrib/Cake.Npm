@@ -24,7 +24,7 @@ public class NpmViewVersionToolTests
             fixture.Settings = null;
 
             // When
-            var result = Record.Exception(() => fixture.Run());
+            var result = Record.Exception(fixture.Run);
 
             // Then
             result.IsArgumentNullException("settings");
@@ -37,7 +37,7 @@ public class NpmViewVersionToolTests
             fixture.Settings.Package = null;
 
             // When
-            var result = Record.Exception(() => fixture.Run());
+            var result = Record.Exception(fixture.Run);
 
             // Then
             result.IsArgumentOutOfRangeException("Package");

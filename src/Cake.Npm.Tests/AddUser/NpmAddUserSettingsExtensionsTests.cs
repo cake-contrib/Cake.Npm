@@ -142,7 +142,7 @@ public sealed class NpmAddUserSettingsExtensionsTests
             NpmAddUserSettings settings = null;
 
             // When
-            var result = Record.Exception(() => settings.AlwaysAuthenticate());
+            var result = Record.Exception(settings.AlwaysAuthenticate);
 
             // Then
             result.IsArgumentNullException("settings");

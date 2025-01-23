@@ -16,7 +16,7 @@ public sealed class NpmRebuildSettingsExtensionsTests
             NpmInstallSettings settings = null;
 
             // When
-            var result = Record.Exception(() => settings.WithForce());
+            var result = Record.Exception(settings.WithForce);
 
             // Then
             result.IsArgumentNullException("settings");
@@ -44,7 +44,7 @@ public sealed class NpmRebuildSettingsExtensionsTests
             NpmInstallSettings settings = null;
 
             // When
-            var result = Record.Exception(() => settings.WithoutForce());
+            var result = Record.Exception(settings.WithoutForce);
 
             // Then
             result.IsArgumentNullException("settings");
@@ -72,7 +72,7 @@ public sealed class NpmRebuildSettingsExtensionsTests
             NpmInstallSettings settings = null;
 
             // When
-            var result = Record.Exception(() => settings.WithoutOptionalDependencies());
+            var result = Record.Exception(settings.WithoutOptionalDependencies);
 
             // Then
             result.IsArgumentNullException("settings");
@@ -100,7 +100,7 @@ public sealed class NpmRebuildSettingsExtensionsTests
             NpmInstallSettings settings = null;
 
             // When
-            var result = Record.Exception(() => settings.WithOptionalDependencies());
+            var result = Record.Exception(settings.WithOptionalDependencies);
 
             // Then
             result.IsArgumentNullException("settings");
@@ -128,7 +128,7 @@ public sealed class NpmRebuildSettingsExtensionsTests
             NpmInstallSettings settings = null;
 
             // When
-            var result = Record.Exception(() => settings.InstallGlobally());
+            var result = Record.Exception(settings.InstallGlobally);
 
             // Then
             result.IsArgumentNullException("settings");
@@ -156,7 +156,7 @@ public sealed class NpmRebuildSettingsExtensionsTests
             NpmInstallSettings settings = null;
 
             // When
-            var result = Record.Exception(() => settings.InstallLocally());
+            var result = Record.Exception(settings.InstallLocally);
 
             // Then
             result.IsArgumentNullException("settings");
@@ -184,7 +184,7 @@ public sealed class NpmRebuildSettingsExtensionsTests
             NpmInstallSettings settings = null;
 
             // When
-            var result = Record.Exception(() => settings.ForProduction());
+            var result = Record.Exception(settings.ForProduction);
 
             // Then
             result.IsArgumentNullException("settings");

@@ -15,7 +15,7 @@ public sealed class NpmUpdateSettingsExtensionsTests
             NpmUpdateSettings settings = null;
 
             // When
-            var result = Record.Exception(() => settings.UpdateGlobalPackages());
+            var result = Record.Exception(settings.UpdateGlobalPackages);
 
             // Then
             result.IsArgumentNullException("settings");

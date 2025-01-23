@@ -29,7 +29,7 @@ public class NpmScriptRunnerTests
             };
 
             // When
-            var result = Record.Exception(() => fixture.Run());
+            var result = Record.Exception(fixture.Run);
 
             // Then
             result.IsArgumentNullException("settings");
@@ -43,7 +43,7 @@ public class NpmScriptRunnerTests
             fixture.Settings.ScriptName = null;
 
             // When
-            var result = Record.Exception(() => fixture.Run());
+            var result = Record.Exception(fixture.Run);
 
             // Then
             result.IsArgumentNullException("ScriptName");

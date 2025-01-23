@@ -15,7 +15,7 @@ public sealed class NpmPruneSettingsExtensionsTests
             NpmPruneSettings settings = null;
 
             // When
-            var result = Record.Exception(() => settings.ForProduction());
+            var result = Record.Exception(settings.ForProduction);
 
             // Then
             result.IsArgumentNullException("settings");

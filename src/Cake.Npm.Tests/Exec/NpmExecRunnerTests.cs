@@ -29,7 +29,7 @@ public class NpmExecRunnerTests
             };
 
             // When
-            var result = Record.Exception(() => fixture.Run());
+            var result = Record.Exception(fixture.Run);
 
             // Then
             result.IsArgumentNullException("settings");
@@ -43,7 +43,7 @@ public class NpmExecRunnerTests
             fixture.Settings.ExecCommand = null;
 
             // When
-            var result = Record.Exception(() => fixture.Run());
+            var result = Record.Exception(fixture.Run);
 
             // Then
             result.IsInvalidOperationException("Must provide a command to execute.");
