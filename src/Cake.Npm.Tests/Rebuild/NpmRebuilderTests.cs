@@ -24,7 +24,7 @@ public class NpmRebuilderTests
         public void Should_Throw_If_Settings_Are_Null()
         {
             // Given
-            var fixture = new NpmRebuilderFixture {Settings = null};
+            var fixture = new NpmRebuilderFixture { Settings = null };
 
             // When
             var result = Record.Exception(() => fixture.Run());

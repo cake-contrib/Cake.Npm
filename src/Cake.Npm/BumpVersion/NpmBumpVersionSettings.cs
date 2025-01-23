@@ -33,7 +33,7 @@ public class NpmBumpVersionSettings : NpmSettings
     /// <c>"prepatch"</c>, <c>"preminor"</c>, <c>"premajor"</c>, 
     /// <c>"prerelease"</c> or <c>"from-git"</c>.
     /// </summary>
-    public string Version  {get;set; }
+    public string Version { get; set; }
 
     /// <summary>
     /// Gets or sets the <c>--git-tag-version</c> option.

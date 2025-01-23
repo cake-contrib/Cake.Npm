@@ -109,18 +109,18 @@ public class NpmCiToolTests
         }
 
 
-	        [Fact]
-	        public void Should_Include_Registry_Args_If_Set()
-	        {
-		        // Given
-		        var fixture = new NpmCiToolFixture();
-		        fixture.Settings.FromRegistry(new Uri("https://myregistry/"));
+        [Fact]
+        public void Should_Include_Registry_Args_If_Set()
+        {
+            // Given
+            var fixture = new NpmCiToolFixture();
+            fixture.Settings.FromRegistry(new Uri("https://myregistry/"));
 
-		        // When
-		        var result = fixture.Run();
+            // When
+            var result = fixture.Run();
 
-		        // Then
-		        Assert.Equal("ci --registry https://myregistry/", result.Args);
-	        }
-		}
+            // Then
+            Assert.Equal("ci --registry https://myregistry/", result.Args);
+        }
+    }
 }

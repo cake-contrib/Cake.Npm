@@ -77,7 +77,7 @@ public class NpmExecRunnerTests
             // Then
             Assert.Equal("exec \"hello\" -- --foo=bar", result.Args);
         }
-        
+
         [Theory]
         [InlineData(NpmLogLevel.Default, "exec \"hello\"")]
         [InlineData(NpmLogLevel.Info, "exec --loglevel info \"hello\"")]
@@ -86,7 +86,7 @@ public class NpmExecRunnerTests
         [InlineData(NpmLogLevel.Verbose, "exec --loglevel verbose \"hello\"")]
         [InlineData(NpmLogLevel.Warn, "exec --warn \"hello\"")]
         public void Should_Add_LogLevel_To_Arguments_If_Not_Null(
-            NpmLogLevel logLevel, 
+            NpmLogLevel logLevel,
             string expected)
         {
             // Given

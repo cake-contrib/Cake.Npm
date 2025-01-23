@@ -31,7 +31,7 @@ public static class NpmInstallAliases
 
         context.NpmInstall(new NpmInstallSettings());
     }
-    
+
     /// <summary>
     /// Install one or more packages to the project in the current working directory.
     /// </summary>

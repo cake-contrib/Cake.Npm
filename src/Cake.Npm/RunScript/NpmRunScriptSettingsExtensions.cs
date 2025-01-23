@@ -13,8 +13,8 @@ public static class NpmRunScriptSettingsExtensions
     /// <param name="settings">The settings.</param>
     /// <param name="arguments">Arguments which should be passed to the script.</param>
     /// <returns>The <paramref name="settings"/> instance with <see cref="NpmRunScriptSettings.Arguments"/> set to <paramref name="arguments"/>.</returns>
-		public static NpmRunScriptSettings WithArguments(this NpmRunScriptSettings settings, string arguments)
-		{
+    public static NpmRunScriptSettings WithArguments(this NpmRunScriptSettings settings, string arguments)
+    {
         ArgumentNullException.ThrowIfNull(settings);
 
         if (string.IsNullOrWhiteSpace(arguments))
@@ -24,6 +24,6 @@ public static class NpmRunScriptSettingsExtensions
 
         settings.Arguments.Add(arguments);
 
-			return settings;
-		}
+        return settings;
+    }
 }

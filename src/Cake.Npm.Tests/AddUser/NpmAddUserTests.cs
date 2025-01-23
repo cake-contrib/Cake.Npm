@@ -34,7 +34,7 @@ public class NpmAddUserTests
             // Then
             result.IsArgumentNullException("settings");
         }
-        
+
         [Fact]
         public void Should_Add_Registry_Url_To_Arguments()
         {
@@ -48,7 +48,7 @@ public class NpmAddUserTests
             // Then
             Assert.Equal("adduser --registry https://registry.com/", result.Args);
         }
-        
+
         [Fact]
         public void Should_Add_Scope_To_Arguments()
         {
@@ -62,7 +62,7 @@ public class NpmAddUserTests
             // Then
             Assert.Equal("adduser --scope @foo", result.Args);
         }
-        
+
         [Fact]
         public void Should_Throw_If_Scope_Does_Not_Start_With_At()
         {
@@ -89,7 +89,7 @@ public class NpmAddUserTests
             // Then
             Assert.Equal("adduser --always-auth", result.Args);
         }
-        
+
         [Fact]
         public void Should_Not_Add_Registry_To_Arguments_If_Not_Set()
         {

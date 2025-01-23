@@ -43,7 +43,8 @@ public class NpmPacker(
         RunCore(
             settings,
             processSettings,
-            process => {
+            process =>
+            {
                 if (process.GetExitCode() == 0)
                 {
                     var output = process.GetStandardOutput();

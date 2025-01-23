@@ -48,7 +48,7 @@ public class NpmPruneSettings : NpmSettings
     {
         base.EvaluateCore(args);
 
-        foreach(var package in Packages)
+        foreach (var package in Packages)
         {
             args.Append(package);
         }

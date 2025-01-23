@@ -71,7 +71,7 @@ public class NpmInstallerTests
 
             // When
             var result = Record.Exception(
-                () => 
+                () =>
                     fixture.Settings.AddPackage(
                         new Uri("https://www.example.com/foo/mypackage.tgz").MakeRelativeUri(new Uri("https://www.example.com"))));
 
@@ -231,7 +231,7 @@ public class NpmInstallerTests
             var result = fixture.Run();
 
             // Then
-            Assert.Equal($"install --registry { registry }", result.Args);
+            Assert.Equal($"install --registry {registry}", result.Args);
         }
 
         [Fact]

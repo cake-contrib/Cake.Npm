@@ -77,7 +77,7 @@ public class NpmScriptRunnerTests
             // Then
             Assert.Equal("run-script \"hello\" -- --foo=bar", result.Args);
         }
-        
+
         [Theory]
         [InlineData(NpmLogLevel.Default, "run-script \"hello\"")]
         [InlineData(NpmLogLevel.Info, "run-script --loglevel info \"hello\"")]
@@ -86,7 +86,7 @@ public class NpmScriptRunnerTests
         [InlineData(NpmLogLevel.Verbose, "run-script --loglevel verbose \"hello\"")]
         [InlineData(NpmLogLevel.Warn, "run-script --warn \"hello\"")]
         public void Should_Add_LogLevel_To_Arguments_If_Not_Null(
-            NpmLogLevel logLevel, 
+            NpmLogLevel logLevel,
             string expected)
         {
             // Given

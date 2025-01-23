@@ -69,7 +69,7 @@ public class NpmPackerTests
         [InlineData(NpmLogLevel.Verbose, "pack --loglevel verbose")]
         [InlineData(NpmLogLevel.Warn, "pack --warn")]
         public void Should_Add_LogLevel_To_Arguments_If_Not_Null(
-            NpmLogLevel logLevel, 
+            NpmLogLevel logLevel,
             string expected)
         {
             // Given

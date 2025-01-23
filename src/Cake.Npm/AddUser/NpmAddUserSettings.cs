@@ -85,6 +85,6 @@ public class NpmAddUserSettings : NpmSettings
             default:
                 throw new ArgumentOutOfRangeException("Authentication Type is not a valid value.");
         }
-        
+
     }
 }
