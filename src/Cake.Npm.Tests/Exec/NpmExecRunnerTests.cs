@@ -1,7 +1,7 @@
-﻿using Cake.Core.Diagnostics;
-using Xunit;
+﻿namespace Cake.Npm.Tests.Exec;
 
-namespace Cake.Npm.Tests.Exec;
+using Cake.Core.Diagnostics;
+using Xunit;
 
 public class NpmExecRunnerTests
 {

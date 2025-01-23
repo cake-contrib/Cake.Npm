@@ -1,6 +1,6 @@
-﻿using System;
+﻿namespace Cake.Npm.Exec;
 
-namespace Cake.Npm.Exec;
+using System;
 
 /// <summary>
 /// Extensions for <see cref="NpmExecSettings" />.

@@ -1,8 +1,8 @@
-﻿using Cake.Npm.Exec;
+﻿namespace Cake.Npm.Tests.Exec;
+
+using Cake.Npm.Exec;
 using Shouldly;
 using Xunit;
-
-namespace Cake.Npm.Tests.Exec;
 
 public sealed class NpmExecSettingsExtensionsTests
 {
