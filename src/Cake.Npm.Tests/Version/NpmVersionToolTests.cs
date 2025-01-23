@@ -87,7 +87,7 @@ public class NpmVersionToolTests
         [InlineData("not valid", "")]
         public void Should_Determine_Version_From_StandardOutput_Scenarios(string standardOutput, string expectedVersion)
         {
-            string[] output = standardOutput.SplitLines();
+            var output = standardOutput.SplitLines();
 
             // Given
             var fixture = new NpmVersionToolFixture();
