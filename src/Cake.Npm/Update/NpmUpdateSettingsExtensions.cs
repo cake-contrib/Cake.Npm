@@ -1,23 +1,22 @@
-﻿namespace Cake.Npm.Update
+﻿namespace Cake.Npm.Update;
+
+using System;
+
+/// <summary>
+/// Extensions for <see cref="NpmUpdateSettings"/>.
+/// </summary>
+public static class NpmUpdateSettingsExtensions
 {
-    using System;
-
     /// <summary>
-    /// Extensions for <see cref="NpmUpdateSettings"/>.
+    /// Will update globally installed packages
     /// </summary>
-    public static class NpmUpdateSettingsExtensions
+    /// <param name="settings">The settings.</param>
+    /// <returns>The <paramref name="settings"/> instance with <see cref="NpmUpdateSettings.Global"/> set to <c>true</c>.</returns>
+    public static NpmUpdateSettings UpdateGlobalPackages(this NpmUpdateSettings settings)
     {
-        /// <summary>
-        /// Will update globally installed packages
-        /// </summary>
-        /// <param name="settings">The settings.</param>
-        /// <returns>The <paramref name="settings"/> instance with <see cref="NpmUpdateSettings.Global"/> set to <c>true</c>.</returns>
-        public static NpmUpdateSettings UpdateGlobalPackages(this NpmUpdateSettings settings)
-        {
-            ArgumentNullException.ThrowIfNull(settings);
+        ArgumentNullException.ThrowIfNull(settings);
 
-            settings.Global = true;
-            return settings;
-        }
+        settings.Global = true;
+        return settings;
     }
 }

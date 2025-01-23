@@ -1,6 +1,6 @@
-﻿using Cake.Npm.Exec;
+﻿namespace Cake.Npm.Tests.Exec;
 
-namespace Cake.Npm.Tests.Exec;
+using Cake.Npm.Exec;
 
 internal sealed class NpmExecFixture : NpmFixture<NpmExecSettings>
 {

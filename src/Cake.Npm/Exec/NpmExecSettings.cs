@@ -1,10 +1,10 @@
-﻿using System;
+﻿namespace Cake.Npm.Exec;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cake.Core;
 using Cake.Core.IO;
-
-namespace Cake.Npm.Exec;
 
 /// <summary>
 /// Contains settings used by <see cref="NpmExecRunner" />.

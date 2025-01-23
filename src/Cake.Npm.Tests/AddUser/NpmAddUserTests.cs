@@ -1,164 +1,163 @@
-﻿namespace Cake.Npm.Tests.AddUser
+﻿namespace Cake.Npm.Tests.AddUser;
+
+using System;
+using Xunit;
+using Cake.Npm.AddUser;
+
+public class NpmAddUserTests
 {
-    using System;
-    using Xunit;
-    using Cake.Npm.AddUser;
-
-    public class NpmAddUserTests
+    public sealed class TheAddUserMethod
     {
-        public sealed class TheAddUserMethod
+        [Fact]
+        public void Should_Redirect_Standard_Error()
         {
-            [Fact]
-            public void Should_Redirect_Standard_Error()
+            var fixture = new NpmAddUserFixture();
+            fixture.Settings.RedirectStandardError = true;
+
+            var result = fixture.Run();
+
+            Assert.True(result.Process.RedirectStandardError);
+        }
+
+        [Fact]
+        public void Should_Throw_If_Settings_Are_Null()
+        {
+            // Given
+            var fixture = new NpmAddUserFixture
             {
-                var fixture = new NpmAddUserFixture();
-                fixture.Settings.RedirectStandardError = true;
+                Settings = null
+            };
 
-                var result = fixture.Run();
+            // When
+            var result = Record.Exception(fixture.Run);
 
-                Assert.True(result.Process.RedirectStandardError);
-            }
+            // Then
+            result.IsArgumentNullException("settings");
+        }
 
-            [Fact]
-            public void Should_Throw_If_Settings_Are_Null()
-            {
-                // Given
-                var fixture = new NpmAddUserFixture
-                {
-                    Settings = null
-                };
+        [Fact]
+        public void Should_Add_Registry_Url_To_Arguments()
+        {
+            // Given
+            var fixture = new NpmAddUserFixture();
+            fixture.Settings.ForRegistry(new Uri("https://registry.com"));
 
-                // When
-                var result = Record.Exception(() => fixture.Run());
+            // When
+            var result = fixture.Run();
 
-                // Then
-                result.IsArgumentNullException("settings");
-            }
-            
-            [Fact]
-            public void Should_Add_Registry_Url_To_Arguments()
-            {
-                // Given
-                var fixture = new NpmAddUserFixture();
-                fixture.Settings.ForRegistry(new Uri("https://registry.com"));
+            // Then
+            Assert.Equal("adduser --registry https://registry.com/", result.Args);
+        }
 
-                // When
-                var result = fixture.Run();
+        [Fact]
+        public void Should_Add_Scope_To_Arguments()
+        {
+            // Given
+            var fixture = new NpmAddUserFixture();
+            fixture.Settings.ForScope("@foo");
 
-                // Then
-                Assert.Equal("adduser --registry https://registry.com/", result.Args);
-            }
-            
-            [Fact]
-            public void Should_Add_Scope_To_Arguments()
-            {
-                // Given
-                var fixture = new NpmAddUserFixture();
-                fixture.Settings.ForScope("@foo");
+            // When
+            var result = fixture.Run();
 
-                // When
-                var result = fixture.Run();
+            // Then
+            Assert.Equal("adduser --scope @foo", result.Args);
+        }
 
-                // Then
-                Assert.Equal("adduser --scope @foo", result.Args);
-            }
-            
-            [Fact]
-            public void Should_Throw_If_Scope_Does_Not_Start_With_At()
-            {
-                // Given
-                var fixture = new NpmAddUserFixture();
+        [Fact]
+        public void Should_Throw_If_Scope_Does_Not_Start_With_At()
+        {
+            // Given
+            var fixture = new NpmAddUserFixture();
 
-                // When
-                var result = Record.Exception(() => fixture.Settings.ForScope("bar"));
+            // When
+            var result = Record.Exception(() => fixture.Settings.ForScope("bar"));
 
-                // Then
-                Assert.IsType<ArgumentException>(result);
-            }
+            // Then
+            Assert.IsType<ArgumentException>(result);
+        }
 
-            [Fact]
-            public void Should_Add_AlwaysAuth_To_Arguments_If_True()
-            {
-                // Given
-                var fixture = new NpmAddUserFixture();
-                fixture.Settings.AlwaysAuth = true;
+        [Fact]
+        public void Should_Add_AlwaysAuth_To_Arguments_If_True()
+        {
+            // Given
+            var fixture = new NpmAddUserFixture();
+            fixture.Settings.AlwaysAuth = true;
 
-                // When
-                var result = fixture.Run();
+            // When
+            var result = fixture.Run();
 
-                // Then
-                Assert.Equal("adduser --always-auth", result.Args);
-            }
-            
-            [Fact]
-            public void Should_Not_Add_Registry_To_Arguments_If_Not_Set()
-            {
-                // Given
-                var fixture = new NpmAddUserFixture();
-                fixture.Settings.Registry = null;
+            // Then
+            Assert.Equal("adduser --always-auth", result.Args);
+        }
 
-                // When
-                var result = fixture.Run();
+        [Fact]
+        public void Should_Not_Add_Registry_To_Arguments_If_Not_Set()
+        {
+            // Given
+            var fixture = new NpmAddUserFixture();
+            fixture.Settings.Registry = null;
 
-                // Then
-                Assert.Equal("adduser", result.Args);
-            }
+            // When
+            var result = fixture.Run();
 
-            [Fact]
-            public void Should_Add_AuthType_Of_Legacy()
-            {
-                // Given
-                var fixture = new NpmAddUserFixture();
-                fixture.Settings.AuthType = AuthType.Legacy;
+            // Then
+            Assert.Equal("adduser", result.Args);
+        }
 
-                // When
-                var result = fixture.Run();
+        [Fact]
+        public void Should_Add_AuthType_Of_Legacy()
+        {
+            // Given
+            var fixture = new NpmAddUserFixture();
+            fixture.Settings.AuthType = AuthType.Legacy;
 
-                // Then
-                Assert.Equal("adduser --auth-type legacy", result.Args);
-            }
+            // When
+            var result = fixture.Run();
 
-            [Fact]
-            public void Should_Add_AuthType_Of_OAuth()
-            {
-                // Given
-                var fixture = new NpmAddUserFixture();
-                fixture.Settings.AuthType = AuthType.OAuth;
+            // Then
+            Assert.Equal("adduser --auth-type legacy", result.Args);
+        }
 
-                // When
-                var result = fixture.Run();
+        [Fact]
+        public void Should_Add_AuthType_Of_OAuth()
+        {
+            // Given
+            var fixture = new NpmAddUserFixture();
+            fixture.Settings.AuthType = AuthType.OAuth;
 
-                // Then
-                Assert.Equal("adduser --auth-type oauth", result.Args);
-            }
+            // When
+            var result = fixture.Run();
 
-            [Fact]
-            public void Should_Add_AuthType_Of_SSO()
-            {
-                // Given
-                var fixture = new NpmAddUserFixture();
-                fixture.Settings.AuthType = AuthType.SSO;
+            // Then
+            Assert.Equal("adduser --auth-type oauth", result.Args);
+        }
 
-                // When
-                var result = fixture.Run();
+        [Fact]
+        public void Should_Add_AuthType_Of_SSO()
+        {
+            // Given
+            var fixture = new NpmAddUserFixture();
+            fixture.Settings.AuthType = AuthType.SSO;
 
-                // Then
-                Assert.Equal("adduser --auth-type sso", result.Args);
-            }
+            // When
+            var result = fixture.Run();
 
-            [Fact]
-            public void Should_Add_AuthType_Of_Saml()
-            {
-                // Given
-                var fixture = new NpmAddUserFixture();
-                fixture.Settings.AuthType = AuthType.Saml;
+            // Then
+            Assert.Equal("adduser --auth-type sso", result.Args);
+        }
 
-                // When
-                var result = fixture.Run();
+        [Fact]
+        public void Should_Add_AuthType_Of_Saml()
+        {
+            // Given
+            var fixture = new NpmAddUserFixture();
+            fixture.Settings.AuthType = AuthType.Saml;
 
-                // Then
-                Assert.Equal("adduser --auth-type saml", result.Args);
-            }
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Equal("adduser --auth-type saml", result.Args);
         }
     }
 }

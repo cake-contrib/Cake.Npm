@@ -1,17 +1,16 @@
-﻿namespace Cake.Npm.Tests.Pack
+﻿namespace Cake.Npm.Tests.Pack;
+
+using Npm.Pack;
+
+internal sealed class NpmPackerFixture : NpmFixture<NpmPackSettings>
 {
-    using Npm.Pack;
-
-    internal sealed class NpmPackerFixture : NpmFixture<NpmPackSettings>
+    public NpmPackerFixture()
     {
-        public NpmPackerFixture()
-        {
-        }
+    }
 
-        protected override void RunTool()
-        {
-            var tool = new NpmPacker(FileSystem, Environment, ProcessRunner, Tools, Log);
-            tool.Pack(Settings);
-        }
+    protected override void RunTool()
+    {
+        var tool = new NpmPacker(FileSystem, Environment, ProcessRunner, Tools, Log);
+        tool.Pack(Settings);
     }
 }

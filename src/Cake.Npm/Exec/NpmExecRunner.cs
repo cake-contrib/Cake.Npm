@@ -1,10 +1,10 @@
-﻿using System;
+﻿namespace Cake.Npm.Exec;
+
+using System;
 using Cake.Core;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
-
-namespace Cake.Npm.Exec;
 
 /// <summary>
 /// Tool for running npm exec.

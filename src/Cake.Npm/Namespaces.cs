@@ -1,4 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿#pragma warning disable IDE0065 // Misplaced using directive
+using System.Runtime.CompilerServices;
+#pragma warning restore IDE0065 // Misplaced using directive
 
 // ReSharper disable once CheckNamespace
 namespace Cake.Npm

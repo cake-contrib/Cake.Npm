@@ -1,17 +1,16 @@
-﻿namespace Cake.Npm.Tests.Install
+﻿namespace Cake.Npm.Tests.Install;
+
+using Cake.Npm.Install;
+
+internal sealed class NpmInstallerFixture : NpmFixture<NpmInstallSettings>
 {
-    using Cake.Npm.Install;
-
-    internal sealed class NpmInstallerFixture : NpmFixture<NpmInstallSettings>
+    public NpmInstallerFixture()
     {
-        public NpmInstallerFixture()
-        {
-        }
+    }
 
-        protected override void RunTool()
-        {
-            var tool = new NpmInstaller(FileSystem, Environment, ProcessRunner, Tools, Log);
-            tool.Install(Settings);
-        }
+    protected override void RunTool()
+    {
+        var tool = new NpmInstaller(FileSystem, Environment, ProcessRunner, Tools, Log);
+        tool.Install(Settings);
     }
 }

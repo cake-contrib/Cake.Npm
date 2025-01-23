@@ -1,99 +1,98 @@
-namespace Cake.Npm
+namespace Cake.Npm;
+
+using System;
+using Cake.Npm.Set;
+using Core;
+using Core.Annotations;
+
+/// <summary>
+/// Npm Set aliases
+/// </summary>
+[CakeAliasCategory("Npm")]
+[CakeNamespaceImport("Cake.Npm.Set")]
+public static class NpmSetAliases
 {
-    using System;
-    using Cake.Npm.Set;
-    using Core;
-    using Core.Annotations;
+    /// <summary>
+    /// Sets an npm configuration setting.
+    /// </summary>
+    /// <param name="context">The context.</param>
+    /// <param name="key">The key</param>
+    /// <param name="value">The value</param>
+    /// <param name="global">Set globally</param>
+    /// <example>
+    /// <code>
+    /// <![CDATA[
+    ///     NpmSet("progress", "false");
+    /// ]]>
+    /// </code>
+    /// </example>
+    [CakeMethodAlias]
+    [CakeAliasCategory("Set")]
+    public static void NpmSet(this ICakeContext context, string key, string value, bool global = false)
+    {
+        ArgumentNullException.ThrowIfNull(context);
+
+        context.NpmSet(new NpmSetSettings()
+        {
+            Key = key,
+            Value = value,
+            Global = global
+        });
+    }
 
     /// <summary>
-    /// Npm Set aliases
+    /// Sets an npm configuration setting returned by a configurator.
     /// </summary>
-    [CakeAliasCategory("Npm")]
-    [CakeNamespaceImport("Cake.Npm.Set")]
-    public static class NpmSetAliases
+    /// <param name="context">The context.</param>
+    /// <param name="configurator">The settings configurator.</param>
+    /// <example>
+    /// <para>Use speSetfic log level ('npm Set')</para>
+    /// <code>
+    /// <![CDATA[
+    ///     NpmSet(settings => settings.ForKey("progress").WithValue("false"));
+    /// ]]>
+    /// </code>
+    /// </example>
+    [CakeMethodAlias]
+    [CakeAliasCategory("Set")]
+    public static void NpmSet(this ICakeContext context, Action<NpmSetSettings> configurator)
     {
-        /// <summary>
-        /// Sets an npm configuration setting.
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <param name="key">The key</param>
-        /// <param name="value">The value</param>
-        /// <param name="global">Set globally</param>
-        /// <example>
-        /// <code>
-        /// <![CDATA[
-        ///     NpmSet("progress", "false");
-        /// ]]>
-        /// </code>
-        /// </example>
-        [CakeMethodAlias]
-        [CakeAliasCategory("Set")]
-        public static void NpmSet(this ICakeContext context, string key, string value, bool global = false)
-        {
-            ArgumentNullException.ThrowIfNull(context);
+        ArgumentNullException.ThrowIfNull(context);
 
-            context.NpmSet(new NpmSetSettings()
-            {
-                Key = key,
-                Value = value,
-                Global = global
-            });
-        }
+        ArgumentNullException.ThrowIfNull(configurator);
 
-        /// <summary>
-        /// Sets an npm configuration setting returned by a configurator.
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <param name="configurator">The settings configurator.</param>
-        /// <example>
-        /// <para>Use speSetfic log level ('npm Set')</para>
-        /// <code>
-        /// <![CDATA[
-        ///     NpmSet(settings => settings.ForKey("progress").WithValue("false"));
-        /// ]]>
-        /// </code>
-        /// </example>
-        [CakeMethodAlias]
-        [CakeAliasCategory("Set")]
-        public static void NpmSet(this ICakeContext context, Action<NpmSetSettings> configurator)
-        {
-            ArgumentNullException.ThrowIfNull(context);
+        var settings = new NpmSetSettings();
+        configurator(settings);
+        context.NpmSet(settings);
+    }
 
-            ArgumentNullException.ThrowIfNull(configurator);
+    /// <summary>
+    /// Sets an npm configuration setting.
+    /// </summary>
+    /// <param name="context">The context.</param>
+    /// <param name="settings">The settings.</param>
+    /// <example>
+    /// <para>Use speSetfic log level ('npm Set')</para>
+    /// <code>
+    /// <![CDATA[
+    ///     var settings = new NpmSetSettings();
+    ///     settings.Key = "progress";
+    ///     settings.Value = "false";
+    ///     NpmSet(settings);
+    /// ]]>
+    /// </code>
+    /// </example>
+    [CakeMethodAlias]
+    [CakeAliasCategory("Set")]
+    public static void NpmSet(this ICakeContext context, NpmSetSettings settings)
+    {
+        ArgumentNullException.ThrowIfNull(context);
 
-            var settings = new NpmSetSettings();
-            configurator(settings);
-            context.NpmSet(settings);
-        }
+        ArgumentNullException.ThrowIfNull(settings);
 
-        /// <summary>
-        /// Sets an npm configuration setting.
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <param name="settings">The settings.</param>
-        /// <example>
-        /// <para>Use speSetfic log level ('npm Set')</para>
-        /// <code>
-        /// <![CDATA[
-        ///     var settings = new NpmSetSettings();
-        ///     settings.Key = "progress";
-        ///     settings.Value = "false";
-        ///     NpmSet(settings);
-        /// ]]>
-        /// </code>
-        /// </example>
-        [CakeMethodAlias]
-        [CakeAliasCategory("Set")]
-        public static void NpmSet(this ICakeContext context, NpmSetSettings settings)
-        {
-            ArgumentNullException.ThrowIfNull(context);
+        AddinInformation.LogVersionInformation(context.Log);
+        var tool = new NpmSetTool(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);
 
-            ArgumentNullException.ThrowIfNull(settings);
-
-            AddinInformation.LogVersionInformation(context.Log);
-            var tool = new NpmSetTool(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools, context.Log);
-
-            tool.Set(settings);
-        }
+        tool.Set(settings);
     }
 }
