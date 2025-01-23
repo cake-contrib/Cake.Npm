@@ -28,7 +28,7 @@ public sealed class NpmRebuildSettingsExtensionsTests
             var settings = new NpmRebuildSettings();
 
             // When
-            var result = Record.Exception(() => settings.AddPackage((string)null));
+            var result = Record.Exception(() => settings.AddPackage(null));
 
             // Then
             result.IsArgumentNullException("packageName");
