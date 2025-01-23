@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Npm/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.Npm - API - Cake.Npm Namespace</title>
+        <title>Cake.Npm - API - NpmExecAliases.NpmExec(ICakeContext, string) Method</title>
         <link href="/Cake.Npm/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.Npm/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -72,9 +72,11 @@
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
 	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
-<p><a href="#ClassTypes">Class Types</a></p>
-<p><a href="#EnumTypes">Enum Types</a></p>
-<p><a href="#Namespaces">Namespaces</a></p>
+<p><a href="#Syntax">Syntax</a></p>
+<p><a href="#Examples">Examples</a></p>
+<p><a href="#Attributes">Attributes</a></p>
+<p><a href="#Parameters">Parameters</a></p>
+<p><a href="#ReturnValue">Return Value</a></p>
 <hr class="infobar-hidden">
 </div>
 
@@ -133,30 +135,17 @@
 
                     <ul class="sidebar-menu">
                         
-	<li class="header">Namespaces</li>   
+			<li class="header">Namespace</li>
+		<li><a href="/Cake.Npm/api/Cake.Npm">Cake<wbr>.Npm</a></li>
+		<li class="header">Type</li>
+		<li><a href="/Cake.Npm/api/Cake.Npm/NpmExecAliases">NpmExecAliases</a></li>
+		<li role="separator" class="divider"></li>
+			<li class="header">Method Members</li>
+				<li class="selected"><a href="/Cake.Npm/api/Cake.Npm/NpmExecAliases/9C41CBDA">NpmExec<wbr>(ICakeContext, <wbr>string)<wbr></a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmExecAliases/3E91DB16">NpmExec<wbr>(ICakeContext, <wbr>string, <wbr>IEnumerable<wbr>&lt;string&gt;<wbr>)<wbr></a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmExecAliases/C45F903E">NpmExec<wbr>(ICakeContext, <wbr>string, <wbr>Action<wbr>&lt;<wbr>Npm<wbr>Exec<wbr>Settings&gt;<wbr>)<wbr></a></li>
+				<li><a href="/Cake.Npm/api/Cake.Npm/NpmExecAliases/7C3E6421">NpmExec<wbr>(ICakeContext, <wbr>NpmExecSettings)<wbr></a></li>
 
-				<li class="treeview active">
-				<a href="/Cake.Npm/api/Cake">Cake</a> <a href="#" class="expand"></a>
-				<ul class="treeview-menu">
-			
-				<li class="treeview active selected">
-				<a href="/Cake.Npm/api/Cake.Npm">Cake<wbr>.Npm</a> <a href="#" class="expand"></a>
-				<ul class="treeview-menu">
-						<li><a href="/Cake.Npm/api/Cake.Npm.AddUser">Cake<wbr>.Npm<wbr>.AddUser</a></li>
-			<li><a href="/Cake.Npm/api/Cake.Npm.BumpVersion">Cake<wbr>.Npm<wbr>.BumpVersion</a></li>
-			<li><a href="/Cake.Npm/api/Cake.Npm.Ci">Cake<wbr>.Npm<wbr>.Ci</a></li>
-			<li><a href="/Cake.Npm/api/Cake.Npm.Exec">Cake<wbr>.Npm<wbr>.Exec</a></li>
-			<li><a href="/Cake.Npm/api/Cake.Npm.Install">Cake<wbr>.Npm<wbr>.Install</a></li>
-			<li><a href="/Cake.Npm/api/Cake.Npm.Pack">Cake<wbr>.Npm<wbr>.Pack</a></li>
-			<li><a href="/Cake.Npm/api/Cake.Npm.Prune">Cake<wbr>.Npm<wbr>.Prune</a></li>
-			<li><a href="/Cake.Npm/api/Cake.Npm.Publish">Cake<wbr>.Npm<wbr>.Publish</a></li>
-			<li><a href="/Cake.Npm/api/Cake.Npm.Rebuild">Cake<wbr>.Npm<wbr>.Rebuild</a></li>
-			<li><a href="/Cake.Npm/api/Cake.Npm.RunScript">Cake<wbr>.Npm<wbr>.RunScript</a></li>
-			<li><a href="/Cake.Npm/api/Cake.Npm.Set">Cake<wbr>.Npm<wbr>.Set</a></li>
-			<li><a href="/Cake.Npm/api/Cake.Npm.Update">Cake<wbr>.Npm<wbr>.Update</a></li>
-			<li><a href="/Cake.Npm/api/Cake.Npm.Version">Cake<wbr>.Npm<wbr>.Version</a></li>
-			<li><a href="/Cake.Npm/api/Cake.Npm.ViewVersion">Cake<wbr>.Npm<wbr>.ViewVersion</a></li>
-</ul></li></ul></li>      
 
                     </ul>
                             
@@ -170,265 +159,109 @@
 
 
 <section class="content-header">
-	<h1>Cake<wbr>.Npm <small>Namespace</small></h1>
+			<h3><a href="/Cake.Npm/api/Cake.Npm/NpmExecAliases">NpmExecAliases</a>.</h3>
+	<h1>NpmExec<wbr>(ICakeContext, <wbr>string)<wbr> <small>Method</small></h1>
 </section>
 <section class="content">
 	
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    This namespace contain types used for operations using the Npm tool wrapper.
+    Runs an npm exec command.
+    </div>
+
+		<div class="panel panel-default">
+  			<div class="panel-body">	
+				<dl class="dl-horizontal">	
+						
+						<dt>Namespace</dt>
+						<dd><a href="/Cake.Npm/api/Cake.Npm">Cake<wbr>.Npm</a></dd>
+					
+						<dt>Containing Type</dt>
+						<dd><a href="/Cake.Npm/api/Cake.Npm/NpmExecAliases">NpmExecAliases</a></dd>		
+					
+				</dl>
+  			</div>
+		</div>
+
+	<h1 id="Syntax">Syntax</h1>
+	<pre><code>[CakeMethodAlias]
+[CakeAliasCategory("Exec")]
+public static void NpmExec(this ICakeContext context, string command)</code></pre>
+
+	<h1 id="Examples">Examples</h1>
+	<div>
+    <pre><code class="cs">NpmExec("hello");</code></pre>
     </div>
 
 
+	<h1 id="Attributes">Attributes</h1>
+	<div class="box">
+		<div class="box-body no-padding table-responsive">
+			<table class="table table-striped table-hover two-cols">
+				<thead>
+					<tr>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+					<tbody><tr>
+						<td>CakeMethodAlias</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>CakeAliasCategory</td>
+						<td></td>
+					</tr>
+			</tbody></table>
+		</div>
+	</div>	
 
-			<h1 id="ClassTypes">Class Types</h1>
-			<div class="box">
-				<div class="box-body no-padding table-responsive">
-					<table class="table table-striped table-hover two-cols">
-						<thead>
-							<tr>
-								<th>Class</th>
-									<th>Summary</th>
-							</tr>
-						</thead>
-							<tbody><tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmAddUserAliases">NpmAddUserAliases</a></td>
-									<td>
-    Npm Install aliases
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmBumpVersionAliases">Npm<wbr>Bump<wbr>Version<wbr>Aliases</a></td>
-									<td>
-    Npm BumpVersion aliases. 
-    Use this if you want to use 'npm version' to bump the version.
-    Use this to bump the version of the current package.
-    For other functions of npm version, see:
-    <ul>
-      <li><span class="description"><code class="cs"><a href="/Cake.Npm/api/Cake.Npm/NpmViewVersionAliases">NpmViewVersionAliases</a></code></span></li>
-      <li><span class="description"><code class="cs"><a href="/Cake.Npm/api/Cake.Npm/NpmVersionAliases">NpmVersionAliases</a></code></span></li>
-    </ul>
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmCiAliases">NpmCiAliases</a></td>
-									<td>
-    Npm Ci aliases
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmExecAliases">NpmExecAliases</a></td>
-									<td>
-    Npm exec aliases
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmInstallAliases">NpmInstallAliases</a></td>
-									<td>
-    Npm Install aliases
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmPackAliases">NpmPackAliases</a></td>
-									<td>
-    Npm Pack aliases
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmPruneAliases">NpmPruneAliases</a></td>
-									<td>
-    Npm Prune aliases
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmPublishAliases">NpmPublishAliases</a></td>
-									<td>
-    Npm publish aliases.
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmRebuildAliases">NpmRebuildAliases</a></td>
-									<td>
-    Npm Rebuild aliases
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmRunScriptAliases">NpmRunScriptAliases</a></td>
-									<td>
-    Npm RunScript aliases
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSetAliases">NpmSetAliases</a></td>
-									<td>
-    Npm Set aliases
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></td>
-									<td>
-    Npm tool settings.
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmSettingsExtensions">Npm<wbr>Settings<wbr>Extensions</a></td>
-									<td>
-    Extensions for <code class="cs"><a href="/Cake.Npm/api/Cake.Npm/NpmSettings">NpmSettings</a></code>.
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmTool_1">NpmTool</a><wbr>&lt;<a href="/Cake.Npm/api/Cake.Npm/NpmTool_1#typeparam-TSettings">TSettings</a>&gt;<wbr></td>
-									<td>
-    Base class for all npm tools.
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmUpdateAliases">NpmUpdateAliases</a></td>
-									<td>
-    Npm Update aliases
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmVersionAliases">NpmVersionAliases</a></td>
-									<td>
-    Npm Version aliases.
-    Use this to get the current npm version in use.
-    For other functions of npm version, see:
-    <ul>
-      <li><span class="description"><code class="cs"><a href="/Cake.Npm/api/Cake.Npm/NpmViewVersionAliases">NpmViewVersionAliases</a></code></span></li>
-      <li><span class="description"><code class="cs"><a href="/Cake.Npm/api/Cake.Npm/NpmBumpVersionAliases">NpmBumpVersionAliases</a></code></span></li>
-    </ul>
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmViewVersionAliases">Npm<wbr>View<wbr>Version<wbr>Aliases</a></td>
-									<td>
-    Npm ViewVersion aliases.
-    Use this to view package versions.
-    For other functions of npm version, see:
-    <ul>
-      <li><span class="description"><code class="cs"><a href="/Cake.Npm/api/Cake.Npm/NpmVersionAliases">NpmVersionAliases</a></code></span></li>
-      <li><span class="description"><code class="cs"><a href="/Cake.Npm/api/Cake.Npm/NpmBumpVersionAliases">NpmBumpVersionAliases</a></code></span></li>
-    </ul>
-    </td>
-							</tr>
-					</tbody></table>
-				</div>
-			</div>
-		
 
-			<h1 id="EnumTypes">Enum Types</h1>
-			<div class="box">
-				<div class="box-body no-padding table-responsive">
-					<table class="table table-striped table-hover two-cols">
-						<thead>
-							<tr>
-								<th>Enum</th>
-									<th>Summary</th>
-							</tr>
-						</thead>
-							<tbody><tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm/NpmLogLevel">NpmLogLevel</a></td>
-									<td>
-    Details the npm log levels
-    </td>
-							</tr>
-					</tbody></table>
-				</div>
-			</div>
-		
+	<h1 id="Parameters">Parameters</h1>
+	<div class="box">
+		<div class="box-body no-padding table-responsive">
+			<table class="table table-striped table-hover three-cols">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+					<tbody><tr>
+						<td>context</td>
+						<td>ICakeContext</td>
+						<td>The context.</td>
+					</tr>
+					<tr>
+						<td>command</td>
+						<td>string</td>
+						<td>Command to execute.</td>
+					</tr>
+			</tbody></table>
+		</div>
+	</div>	
 
-			<h1 id="Namespaces">Namespaces</h1>
-			<div class="box">
-				<div class="box-body no-padding table-responsive">
-					<table class="table table-striped table-hover two-cols">
-						<thead>
-							<tr>
-								<th>Namespace</th>
-									<th>Summary</th>
-							</tr>
-						</thead>
-							<tbody><tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.AddUser">Cake<wbr>.Npm<wbr>.AddUser</a></td>
-									<td></td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.BumpVersion">Cake<wbr>.Npm<wbr>.BumpVersion</a></td>
-									<td>
-    This namespace contain types used for bumping the package version.
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.Ci">Cake<wbr>.Npm<wbr>.Ci</a></td>
-									<td>
-    This namespace contain types used for install npm packages (using CI commands).
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.Exec">Cake<wbr>.Npm<wbr>.Exec</a></td>
-									<td></td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.Install">Cake<wbr>.Npm<wbr>.Install</a></td>
-									<td>
-    This namespace contain types used for installing npm packages.
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.Pack">Cake<wbr>.Npm<wbr>.Pack</a></td>
-									<td>
-    This namespace contain types used for creating npm packages.
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.Prune">Cake<wbr>.Npm<wbr>.Prune</a></td>
-									<td></td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.Publish">Cake<wbr>.Npm<wbr>.Publish</a></td>
-									<td>
-    This namespace contain types used for publishing npm packages.
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.Rebuild">Cake<wbr>.Npm<wbr>.Rebuild</a></td>
-									<td></td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.RunScript">Cake<wbr>.Npm<wbr>.RunScript</a></td>
-									<td>
-    This namespace contain types used for running npm scripts.
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.Set">Cake<wbr>.Npm<wbr>.Set</a></td>
-									<td>
-    This namespace contain types used for managing npm config settings.
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.Update">Cake<wbr>.Npm<wbr>.Update</a></td>
-									<td>
-    This namespace contain types used for updating npm packages.
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.Version">Cake<wbr>.Npm<wbr>.Version</a></td>
-									<td>
-    This namespace contain types used for determining installed npm version.
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Npm/api/Cake.Npm.ViewVersion">Cake<wbr>.Npm<wbr>.ViewVersion</a></td>
-									<td>
-    This namespace contain types used for viewing the package versions.
-    </td>
-							</tr>
-					</tbody></table>
-				</div>
-			</div>
-		
+	<h1 id="ReturnValue">Return Value</h1>
+	<div class="box">
+		<div class="box-body no-padding table-responsive">
+			<table class="table table-striped table-hover two-cols">
+				<thead>
+					<tr>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody><tr>
+					<td>void</td>
+					<td></td>
+				</tr>
+			</tbody></table>
+		</div>
+	</div>	
+
+
 	
 </section>
                 
