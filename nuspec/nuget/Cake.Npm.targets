@@ -1,0 +1,19 @@
+<Project>
+  <ItemGroup Condition="'$(Language)' == 'C#' AND ('$(ImplicitUsings)' == 'true' or '$(ImplicitUsings)' == 'enable')">
+    <Using Include="Cake.Npm" />
+    <Using Include="Cake.Npm.AddUser" />
+    <Using Include="Cake.Npm.BumpVersion" />
+    <Using Include="Cake.Npm.Ci" />
+    <Using Include="Cake.Npm.Exec" />
+    <Using Include="Cake.Npm.Install" />
+    <Using Include="Cake.Npm.Pack" />
+    <Using Include="Cake.Npm.Prune" />
+    <Using Include="Cake.Npm.Publish" />
+    <Using Include="Cake.Npm.Rebuild" />
+    <Using Include="Cake.Npm.RunScript" />
+    <Using Include="Cake.Npm.Set" />
+    <Using Include="Cake.Npm.Update" />
+    <Using Include="Cake.Npm.Version" />
+    <Using Include="Cake.Npm.ViewVersion" />
+  </ItemGroup>
+</Project>
