@@ -10,7 +10,7 @@ internal abstract class NpmFixture<TSettings> : NpmFixture<TSettings, ToolFixtur
     where TSettings : ToolSettings, new()
 {
     protected override ToolFixtureResult CreateResult(FilePath path, ProcessSettings process)
-        => new ToolFixtureResult(path, process);
+        => new(path, process);
 }
 
 internal abstract class NpmFixture<TSettings, TFixtureResult> : ToolFixture<TSettings, TFixtureResult>
