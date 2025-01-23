@@ -29,13 +29,7 @@ public abstract class NpmTool<TSettings>(
     /// <summary>
     /// Cake log instance.
     /// </summary>
-    public ICakeLog CakeLog
-    {
-        get
-        {
-            return _log;
-        }
-    }
+    public ICakeLog CakeLog => _log;
 
     /// <summary>
     /// Gets the name of the tool.

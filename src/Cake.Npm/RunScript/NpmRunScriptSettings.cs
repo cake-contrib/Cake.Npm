@@ -29,13 +29,7 @@ public class NpmRunScriptSettings : NpmSettings
     /// <summary>
     /// Arguments to pass to the target script.
     /// </summary>
-    public IList<string> Arguments
-    {
-        get
-        {
-            return _arguments;
-        }
-    }
+    public IList<string> Arguments => _arguments;
 
     /// <summary>
     /// Evaluates the settings and writes them to <paramref name="args"/>.

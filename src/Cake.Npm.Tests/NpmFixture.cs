@@ -27,11 +27,5 @@ internal abstract class NpmFixture<TSettings, TFixtureResult> : ToolFixture<TSet
         _log.Verbosity = Verbosity.Normal;
     }
 
-    protected ICakeLog Log
-    {
-        get
-        {
-            return _log;
-        }
-    }
+    protected ICakeLog Log => _log;
 }
