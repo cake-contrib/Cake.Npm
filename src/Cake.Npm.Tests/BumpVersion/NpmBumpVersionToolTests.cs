@@ -192,7 +192,7 @@ public class NpmBumpVersionToolTests
             Assert.Equal("version 11.22.33 --allow-same-version=false", result.Args);
         }
 
-        class ExtensionNullCheckData : IEnumerable<object[]>
+        private class ExtensionNullCheckData : IEnumerable<object[]>
         {
             public IEnumerator<object[]> GetEnumerator()
             {
