@@ -26,10 +26,7 @@ public static class NpmRebuildAliases
     /// </example>
     [CakeMethodAlias]
     [CakeAliasCategory("Rebuild")]
-    public static void NpmRebuild(this ICakeContext context)
-    {
-        context.NpmRebuild(new NpmRebuildSettings());
-    }
+    public static void NpmRebuild(this ICakeContext context) => context.NpmRebuild(new NpmRebuildSettings());
 
     /// <summary>
     /// Rebuild one or more packages to the project in the current working directory.

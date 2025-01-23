@@ -201,10 +201,7 @@ public class NpmBumpVersionToolTests
                 yield return new object[] { (Action<NpmBumpVersionSettings>)(x => x.WithVersion("")) };
             }
 
-            IEnumerator IEnumerable.GetEnumerator()
-            {
-                return GetEnumerator();
-            }
+            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         }
     }
 }

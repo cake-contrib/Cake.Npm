@@ -17,10 +17,7 @@ public static class ExceptionAssertExtensions
         Assert.Equal(parameterName, ((ArgumentNullException)exception).ParamName);
     }
 
-    public static void IsUriFormatException(this Exception exception)
-    {
-        Assert.IsType<UriFormatException>(exception);
-    }
+    public static void IsUriFormatException(this Exception exception) => Assert.IsType<UriFormatException>(exception);
 
     public static void IsArgumentOutOfRangeException(this Exception exception, string parameterName)
     {

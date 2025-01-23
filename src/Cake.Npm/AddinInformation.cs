@@ -17,7 +17,5 @@ internal static class AddinInformation
     /// </summary>
     /// <param name="log"></param>
     public static void LogVersionInformation(ICakeLog log)
-    {
-        log.Verbose(entry => entry("Using addin: {0} v{1} ({2})", AssemblyName, AssemblyVersion, InformationalVersion));
-    }
+        => log.Verbose(entry => entry("Using addin: {0} v{1} ({2})", AssemblyName, AssemblyVersion, InformationalVersion));
 }

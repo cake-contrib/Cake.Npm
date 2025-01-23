@@ -35,28 +35,19 @@ public abstract class NpmTool<TSettings>(
     /// Gets the name of the tool.
     /// </summary>
     /// <returns>The name of the tool.</returns>
-    protected sealed override string GetToolName()
-    {
-        return "Npm";
-    }
+    protected sealed override string GetToolName() => "Npm";
 
     /// <summary>
     /// Gets the possible names of the tool executable.
     /// </summary>
     /// <returns>The tool executable name.</returns>
-    protected sealed override IEnumerable<string> GetToolExecutableNames()
-    {
-        return ["npm.cmd", "npm"];
-    }
+    protected sealed override IEnumerable<string> GetToolExecutableNames() => ["npm.cmd", "npm"];
 
     /// <summary>
     /// Runs npm.
     /// </summary>
     /// <param name="settings">The settings.</param>
-    protected void RunCore(TSettings settings)
-    {
-        RunCore(settings, new ProcessSettings(), null);
-    }
+    protected void RunCore(TSettings settings) => RunCore(settings, new ProcessSettings(), null);
 
     /// <summary>
     /// Runs npm.

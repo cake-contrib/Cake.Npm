@@ -78,10 +78,7 @@ public abstract class NpmSettings(string command) : ToolSettings
     /// Evaluates the settings and appends Npm specific options to arguments
     /// </summary>
     /// <param name="args">The argument builder into which the settings should be written.</param>
-    private void AppendNpmSettings(ProcessArgumentBuilder args)
-    {
-        AppendLogLevel(args, LogLevel);
-    }
+    private void AppendNpmSettings(ProcessArgumentBuilder args) => AppendLogLevel(args, LogLevel);
 
     /// <summary>
     /// Evaluates the settings and writes them to <paramref name="args"/>.
@@ -127,8 +124,7 @@ public abstract class NpmSettings(string command) : ToolSettings
     }
 
     private static NpmLogLevel CakeToNpmLogLevelConverter(Verbosity cakeVerbosityLevel)
-    {
-        return cakeVerbosityLevel switch
+        => cakeVerbosityLevel switch
         {
             Verbosity.Quiet => NpmLogLevel.Silent,
             Verbosity.Minimal => NpmLogLevel.Warn,
@@ -136,5 +132,4 @@ public abstract class NpmSettings(string command) : ToolSettings
             Verbosity.Diagnostic => NpmLogLevel.Verbose,
             _ => NpmLogLevel.Default,
         };
-    }
 }

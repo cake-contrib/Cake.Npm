@@ -13,9 +13,7 @@ public static class NpmPruneSettingsExtensions
     /// <param name="settings">The settings.</param>
     /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.Production"/> set to <c>true</c>.</returns>
     public static NpmPruneSettings ForProduction(this NpmPruneSettings settings)
-    {
-        return settings.ForProduction(true);
-    }
+        => settings.ForProduction(true);
 
     /// <summary>
     /// Defines whether npm should remove modules listed in <c>devDependencies</c>.
@@ -38,9 +36,7 @@ public static class NpmPruneSettingsExtensions
     /// <param name="packageName">The package name to add.</param>
     /// <returns>The <paramref name="settings"/> instance with the package added to <see cref="NpmPruneSettings.Packages"/>.</returns>
     public static NpmPruneSettings AddPackage(this NpmPruneSettings settings, string packageName)
-    {
-        return settings.AddPackage(packageName, null);
-    }
+        => settings.AddPackage(packageName, null);
 
     /// <summary>
     /// If a package name is added, then only packages matching one of the supplied names are removed.
@@ -79,9 +75,7 @@ public static class NpmPruneSettingsExtensions
     /// <param name="settings">The settings.</param>
     /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.DryRun"/> set to <c>true</c>.</returns>
     public static NpmPruneSettings DryRun(this NpmPruneSettings settings)
-    {
-        return settings.DryRun(true);
-    }
+        => settings.DryRun(true);
 
     /// <summary>
     /// If true, then no changes will actually be made.
@@ -103,9 +97,7 @@ public static class NpmPruneSettingsExtensions
     /// <param name="settings">The settings.</param>
     /// <returns>The <paramref name="settings"/> instance with <see cref="NpmPruneSettings.Json"/> set to <c>true</c>.</returns>
     public static NpmPruneSettings Json(this NpmPruneSettings settings)
-    {
-        return settings.Json(true);
-    }
+        => settings.Json(true);
 
     /// <summary>
     /// If true, the changes npm prune made (or would have made with DryRun) are printed as a JSON object.
