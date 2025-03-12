@@ -30,6 +30,11 @@ public class NpmExecSettings : NpmSettings
     /// Arguments to pass to the target script.
     /// </summary>
     public IList<string> Arguments => arguments;
+    
+    /// <summary>
+    /// If the script is installed globally.
+    /// </summary>
+    public bool IsGlobal { get; set; }
 
     /// <inheritdoc />
     protected override void EvaluateCore(ProcessArgumentBuilder args)
@@ -42,6 +47,11 @@ public class NpmExecSettings : NpmSettings
         base.EvaluateCore(args);
 
         args.AppendQuoted(ExecCommand);
+
+        if (IsGlobal)
+        {
+            args.Append("--global");
+        }
 
         if (Arguments.Any())
         {
