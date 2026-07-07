@@ -63,6 +63,38 @@ public class NpmScriptRunnerTests
             Assert.Equal("run-script \"foo bar\"", result.Args);
         }
 
+        
+        [Fact]
+        public void Should_Add_IfPresent_If_Specified()
+        {
+            // Given
+            var fixture = new NpmRunScriptFixture();
+            fixture.Settings.ScriptName = "foo bar";
+            fixture.Settings.IfPresent = true;
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Equal("run-script \"foo bar\" --if-present", result.Args);
+        }
+        
+        [Fact]
+        public void Should_Add_IfPresent_and_Arguments_If_Specified()
+        {
+            // Given
+            var fixture = new NpmRunScriptFixture();
+            fixture.Settings.ScriptName = "foo bar";
+            fixture.Settings.IfPresent = true;
+            fixture.Settings.Arguments.Add("--foo=bar");
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Equal("run-script \"foo bar\" --if-present -- --foo=bar", result.Args);
+        }
+        
         [Fact]
         public void Should_Add_ScriptArguments_To_Arguments_If_Not_Empty()
         {
