@@ -27,9 +27,15 @@ public class NpmRunScriptSettings : NpmSettings
     public string ScriptName { get; set; }
 
     /// <summary>
+    /// If true, the script will only be executed if it is present in package.json.
+    /// </summary>
+    public bool IfPresent { get; set; }
+    
+    /// <summary>
     /// Arguments to pass to the target script.
     /// </summary>
     public IList<string> Arguments => _arguments;
+
 
     /// <summary>
     /// Evaluates the settings and writes them to <paramref name="args"/>.
@@ -45,6 +51,11 @@ public class NpmRunScriptSettings : NpmSettings
         base.EvaluateCore(args);
 
         args.AppendQuoted(ScriptName);
+        
+        if (IfPresent)
+        {
+            args.Append("--if-present");
+        }
 
         if (Arguments.Any())
         {
