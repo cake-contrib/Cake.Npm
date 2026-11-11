@@ -20,6 +20,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="5.0.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Core" Version="7.0.0" PrivateAssets="All" />
   </ItemGroup>
 </Project>
